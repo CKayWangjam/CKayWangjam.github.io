@@ -7,7 +7,7 @@
 body { /* We can style any HTML element by using its name - here we're styling the body */
   /* We want text that uses a clean sans-serif font, is usually 16px big and close to black */
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 16px;
+  font-size: 14px;
   color: #333;
   line-height: 1.6;
   /* we want a white page, that's centered and not too wide */
@@ -20,7 +20,7 @@ body { /* We can style any HTML element by using its name - here we're styling t
 
 /* Headings */
 h1, h2, h3, h4, h5, h6 {
-  color: #333;
+  color: "blue";
   margin-top: 24px;
   margin-bottom: 16px;
   font-weight: 600;
