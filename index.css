@@ -7,7 +7,7 @@
 body { /* We can style any HTML element by using its name - here we're styling the body */
   /* We want text that uses a clean sans-serif font, is usually 16px big and close to black */
   font-family: 'Helvetica', Raleway, sans-serif;
-  font-size: 15px;
+  font-size: 18px;
   color: #333;
   line-height: 1.6;
   /* we want a white page, that's centered and not too wide */
