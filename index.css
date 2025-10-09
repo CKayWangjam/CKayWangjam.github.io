@@ -6,12 +6,12 @@
 
 body { /* We can style any HTML element by using its name - here we're styling the body */
   /* We want text that uses a clean sans-serif font, is usually 16px big and close to black */
-  font-family: "Gill Sans Extrabold", sans-serif;
-  font-size: 18px;
+  font-family: 'Helvetica', Raleway, sans-serif;
+  font-size: 16px;
   color: #333;
   line-height: 1.6;
   /* we want a white page, that's centered and not too wide */
-  background-color: #D3D3D3;
+  background-color: #f9f9f9;
   margin:0 auto;
   max-width: 800px;
   padding-top: 60px;
@@ -20,7 +20,7 @@ body { /* We can style any HTML element by using its name - here we're styling t
 
 /* Headings */
 h1, h2, h3, h4, h5, h6 {
-  color:  #FF0000;
+  color:  #1a202c;
   margin-top: 24px;
   margin-bottom: 16px;
   font-weight: bold;
@@ -46,7 +46,9 @@ p {
 }
 
 section {
-  margin-bottom: 2.5em;  /* We want a little more space between sections */
+  margin-bottom: 2.5em;
+  padding-bottom: 1.5em;
+  border-bottom: 1px solid #e0e0e0/* We want a little more space between sections */
 }
 
 /* Links */
