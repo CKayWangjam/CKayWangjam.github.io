@@ -1,0 +1,13 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "description": " Output per hour worked SA: Index 2022",
+  "data": {
+    "url": "https://raw.githubusercontent.com/CKayWangjam/CKayWangjam.github.io/refs/heads/main/series-101026.csv"
+  },
+  "mark": "line",
+  "encoding": {
+    "x": {"field": "Title", "type": "temporal"},
+    "y": {"field": "Gross Capital Formation", "type": "quantitative"}
+  },
+  "config": {}
+}
