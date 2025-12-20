@@ -1,63 +1,41 @@
-body { /* We can style any HTML element by using its name - here we're styling the body */
-  /* We want text that uses a clean sans-serif font, is usually 16px big and close to black */
-  font-family: 'Helvetica', Raleway, sans-serif;
-  font-size: 16px;
-  color: #333;
-  line-height: 1.6;
-  /* we want a white page, that's centered and not too wide */
-  background-color: #fafafa;
-  margin:0 auto;
-  max-width: 800px;
-  padding-top: 60px;
+body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
+a { text-decoration: none; }
+
+.topbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:16px 24px;
+  border-bottom:1px solid #eee;
 }
 
+.brand a { font-weight:700; color:#111; }
 
-/* Headings */
-h1, h2, h3, h4, h5, h6 {
-  color:  #1a202c;
-  margin-top: 24px;
-  margin-bottom: 16px;
-  font-weight: bold;
-}
-
-/* We want the headings to be a little bigger than the paragraph text */
-.big { /* This is the class we created in the HTML file, you can use it to style any element */
-  font-size: 4.5em;
+.nav a{
+  margin-left:16px;
+  color:#111;
+  opacity:0.8;
 }
 
-h2 {
-  font-size: 1.75em;
+.nav a.active{ opacity:1; font-weight:600; }
+
+.container{ max-width: 980px; margin: 0 auto; padding: 24px; }
+
+.cards{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap:16px;
+  margin: 24px 0;
 }
 
-.small {
-  font-size: 1.25em;
+.card{
+  display:block;
+  padding:18px;
+  border:1px solid #eee;
+  border-radius:14px;
+  color:#111;
 }
 
-/* Paragraph */
-p {
-  margin-bottom: 1em;
-  font-weight: 300;
-}
+.card:hover{ border-color:#ccc; }
 
-section {
-  margin-bottom: 2.5em;
-  padding-bottom: 1.5em;
-  border-bottom: 1px solid #e0e0e0/* We want a little more space between sections */
-}
-
-/* Links */
-/* We want the links to be a little more visible  and a different color */
-a {
-  color: #065f46;
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-  
-/* Images */
-img {
-  max-width: 100%;
-  height: auto;
-}
+.section{ margin-top: 36px; }
