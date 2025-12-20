@@ -9,7 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
 
   <title>Portfolio | Chingkhei Wangjam</title>
-<link rel="stylesheet" href="index.css?v=2">
+  <link rel="stylesheet" href="index.css?v=3">
 
   <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
@@ -21,6 +21,7 @@
     <div class="topbar-inner">
       <div class="brand"><a href="index.html">Chingkhei Wangjam</a></div>
       <nav class="nav">
+        <a href="index.html">Home</a>
         <a href="index.html#about">About</a>
         <a href="portfolio.html" class="active">Portfolio</a>
         <a href="project.html">Project</a>
@@ -30,7 +31,13 @@
   </header>
 
   <main class="container">
-    <h1>Portfolio</h1>
+    <section class="hero">
+      <div class="meta">Portfolio</div>
+      <h1>Coding challenges</h1>
+      <p>Weekly tasks demonstrating hosting, charting, automation, and interactivity.</p>
+    </section>
+
+    <div class="rule"></div>
 
     <section class="section">
       <div class="meta">Coding Challenge 1</div>
@@ -43,12 +50,11 @@
   </main>
 
   <script>
-   <script>
-  const cc1_chart1_spec = "cc1_chart1.json";
-  const cc1_chart2_spec = "cc1_chart2.json";
+    const cc1_chart1_spec = "cc1_chart1.json";
+    const cc1_chart2_spec = "cc1_chart2.json";
 
-  vegaEmbed("#cc1_chart1", cc1_chart1_spec);
-  vegaEmbed("#cc1_chart2", cc1_chart2_spec);
-</script>
+    vegaEmbed("#cc1_chart1", cc1_chart1_spec);
+    vegaEmbed("#cc1_chart2", cc1_chart2_spec);
+  </script>
 </body>
 </html>
