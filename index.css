@@ -1,20 +1,14 @@
-/* =========================
-   Minimal 
-   Palette: beige / tan / olive / white / black
-   Typography: Inter + Cormorant Garamond
-   ========================= */
 
 :root{
-  --bg: #fbfaf7;          /* warm white / beige */
-  --paper: #ffffff;       /* true white for cards */
-  --ink: #111111;         /* near-black */
-  --muted: #5b5b55;       /* warm grey */
-  --line: rgba(17,17,17,0.10);
+  --bg: #f6f7f5;          /* cool, gallery off-white */
+  --paper: #ffffff;       /* true white */
+  --ink: #0f0f0f;         /* near-black */
+  --muted: #5f605a;       /* warm-grey but neutral */
+  --line: rgba(15,15,15,0.10);
 
-  --tan: #c8b08a;         /* tan accent */
-  --beige: #efe7d6;       /* beige fill */
-  --olive: #7b8468;       /* faded olive */
-  --olive-2: #6e775e;     /* deeper olive for hover */
+  --accent: #6f7a63;      /* muted olive */
+  --accent-2: #5f6a55;    /* deeper olive */
+  --wash: rgba(111,122,99,0.10); /* accent wash */
 }
 
 /* Base */
