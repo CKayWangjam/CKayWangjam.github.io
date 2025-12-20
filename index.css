@@ -1,4 +1,7 @@
-/* =========================
+html, body {
+  background-color: #2f332a !important; /* deep olive-brown */
+  color: #111111;
+}/* =========================
   (Brown + Olive)
    Typography: Inter (body) + Cormorant Garamond (headings)
    ========================= */
