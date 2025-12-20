@@ -1,60 +1,55 @@
-html, body {
-  background-color: #2f332a !important; /* deep olive-brown */
-  color: #111111;
-}/* =========================
-  (Brown + Olive)
+/* =========================
+ (Brown + Olive)
    Typography: Inter (body) + Cormorant Garamond (headings)
    ========================= */
 
 :root{
-  /* Base neutrals (avoid beige/yellow) */
-  --bg: #f4f3ef;                 /* light stone */
-  --paper: #ffffff;              /* cards */
-  --ink: #0f0f0f;                /* text */
-  --muted: #5f5b55;              /* secondary text */
-  --line: rgba(15,15,15,0.10);   /* borders */
+  /* Canvas */
+  --bg: #2f332a;                 /* deep olive-brown background */
+  --paper: #f6f4ee;              /* warm off-white surfaces (cards/sections) */
+  --paper-2: rgba(246,244,238,0.70); /* translucent surface */
+
+  /* Text */
+  --ink: #111111;                /* text on paper */
+  --ink-invert: #f4f2ec;         /* text on dark canvas */
+  --muted: rgba(17,17,17,0.70);  /* secondary text on paper */
+  --muted-invert: rgba(244,242,236,0.78); /* secondary text on dark */
+
+  /* Lines & shadows */
+  --line: rgba(0,0,0,0.12);
+  --line-invert: rgba(244,242,236,0.14);
 
   /* Accents */
-  --olive: #6b7555;              /* muted olive */
-  --olive-2: #5a6347;            /* deeper olive */
+  --olive: #6b7555;              /* olive */
+  --olive-2: #586147;            /* deeper olive */
   --brown: #5b3f2a;              /* leather brown */
-  --wash: rgba(107,117,85,0.10); /* olive wash */
-
-  /* Optional: subtle warm wash for selections */
-  --select: rgba(91,63,42,0.14);
+  --wash: rgba(107,117,85,0.16); /* olive wash */
+  --select: rgba(91,63,42,0.20);
 }
 
 /* Base */
 *{ box-sizing: border-box; }
 html{ scroll-behavior: smooth; }
 
-body{
-  margin:0;
+/* IMPORTANT: set background on BOTH html and body to avoid "still white" */
+html, body{
   background: var(--bg);
-  color: var(--ink);
+  color: var(--ink-invert);
+  margin: 0;
   font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   font-weight: 400;
   letter-spacing: 0.1px;
 }
 
 a{ color: inherit; text-decoration: none; }
+
 p{
-  color: var(--muted);
   line-height: 1.65;
   margin: 0.6rem 0;
+  color: var(--muted-invert);
 }
 
 h1,h2,h3{ margin: 0; }
-
-/* Force consistent typography */
-h1, h2, h3, .brand a{
-  font-family: "Cormorant Garamond", serif;
-  font-weight: 600;
-}
-
-body, p, a, .nav a{
-  font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-}
 
 ::selection{ background: var(--select); }
 
@@ -68,14 +63,20 @@ section{ scroll-margin-top: 92px; }
   padding: 28px 22px 70px;
 }
 
+/* Typography consistency */
+h1, h2, h3, .brand a{
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 600;
+}
+
 /* Top navigation bar */
 .topbar{
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(244,243,239,0.84);
+  background: rgba(47,51,42,0.78);
   backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid var(--line-invert);
 }
 
 .topbar-inner{
@@ -90,6 +91,7 @@ section{ scroll-margin-top: 92px; }
 .brand a{
   font-size: 22px;
   letter-spacing: 0.3px;
+  color: var(--ink-invert);
 }
 
 /* Nav */
@@ -103,8 +105,8 @@ section{ scroll-margin-top: 92px; }
   font-size: 13px;
   letter-spacing: 0.9px;
   text-transform: uppercase;
-  color: var(--ink);
-  opacity: 0.78;
+  color: var(--ink-invert);
+  opacity: 0.82;
   padding: 8px 10px;
   border-radius: 999px;
   transition: background 140ms ease, opacity 140ms ease, box-shadow 140ms ease;
@@ -112,38 +114,33 @@ section{ scroll-margin-top: 92px; }
 
 .nav a:hover{
   opacity: 1;
-  background: var(--wash);
+  background: rgba(246,244,238,0.08);
 }
 
 /* No border => no shifting */
 .nav a.active{
   opacity: 1;
-  background: rgba(255,255,255,0.72);
-  box-shadow: inset 0 0 0 1px var(--line);
+  background: rgba(246,244,238,0.10);
+  box-shadow: inset 0 0 0 1px var(--line-invert);
 }
 
 /* Hero */
 .hero{
-  padding: 42px 0 22px;
+  padding: 48px 0 18px;
 }
 
 .hero h1{
   font-size: 54px;
   letter-spacing: 0.2px;
   line-height: 1.03;
+  color: var(--ink-invert);
 }
 
 .hero p{
   max-width: 62ch;
   margin-top: 14px;
   font-size: 16px;
-}
-
-/* Subtle divider line */
-.rule{
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(15,15,15,0.18), transparent);
-  margin: 28px 0;
+  color: var(--muted-invert);
 }
 
 /* Meta line */
@@ -151,8 +148,20 @@ section{ scroll-margin-top: 92px; }
   font-size: 12px;
   letter-spacing: 0.9px;
   text-transform: uppercase;
-  color: rgba(15,15,15,0.55);
+  color: rgba(244,242,236,0.62);
   margin-bottom: 8px;
+}
+
+/* Divider */
+.rule{
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(244,242,236,0.18),
+    transparent
+  );
+  margin: 28px 0;
 }
 
 /* Pills */
@@ -164,9 +173,9 @@ section{ scroll-margin-top: 92px; }
   font-size: 12px;
   letter-spacing: 0.6px;
   text-transform: uppercase;
-  color: rgba(15,15,15,0.78);
-  background: rgba(255,255,255,0.74);
-  box-shadow: inset 0 0 0 1px var(--line);
+  color: rgba(244,242,236,0.86);
+  background: rgba(246,244,238,0.10);
+  box-shadow: inset 0 0 0 1px var(--line-invert);
 }
 
 /* Cards */
@@ -182,22 +191,23 @@ section{ scroll-margin-top: 92px; }
   overflow: hidden;
   display: block;
   background: var(--paper);
+  color: var(--ink);
   border-radius: 18px;
   padding: 18px 18px 16px;
   transition: transform 140ms ease, box-shadow 140ms ease;
   box-shadow:
     inset 0 0 0 1px var(--line),
-    0 10px 30px rgba(15,15,15,0.06);
+    0 14px 40px rgba(0,0,0,0.28);
 }
 
 .card:hover{
   transform: translateY(-2px);
   box-shadow:
-    inset 0 0 0 1px rgba(15,15,15,0.18),
-    0 14px 40px rgba(15,15,15,0.08);
+    inset 0 0 0 1px rgba(0,0,0,0.20),
+    0 18px 55px rgba(0,0,0,0.34);
 }
 
-/* Accent strip: olive + a hint of brown */
+/* Accent strip: olive + brown */
 .card::before{
   content:"";
   position:absolute;
@@ -210,11 +220,13 @@ section{ scroll-margin-top: 92px; }
 .card h2{
   font-size: 26px;
   letter-spacing: 0.2px;
+  color: var(--ink);
 }
 
 .card p{
   margin-top: 8px;
   font-size: 14px;
+  color: var(--muted);
 }
 
 /* Badge */
@@ -237,44 +249,33 @@ section{ scroll-margin-top: 92px; }
   box-shadow: 0 0 0 3px var(--wash);
 }
 
-/* Sections */
+/* Sections on the homepage should sit on paper surfaces for readability */
 .section{
   margin-top: 44px;
-  padding-top: 6px;
+  padding: 18px 18px;
+  border-radius: 18px;
+  background: var(--paper-2);
+  box-shadow: inset 0 0 0 1px var(--line-invert);
 }
 
 .section h2{
   font-size: 30px;
   margin-bottom: 10px;
+  color: var(--ink-invert);
 }
 
-/* Buttons (optional) */
-.button{
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 999px;
-  padding: 10px 14px;
-  font-size: 13px;
-  letter-spacing: 0.8px;
-  text-transform: uppercase;
-  background: rgba(255,255,255,0.74);
-  box-shadow: inset 0 0 0 1px var(--line);
-  transition: background 140ms ease, box-shadow 140ms ease;
-}
-
-.button:hover{
-  background: var(--wash);
-  box-shadow: inset 0 0 0 1px rgba(15,15,15,0.18);
+.section p{
+  color: var(--muted-invert);
 }
 
 /* Charts */
 figure{
   margin: 14px 0 0;
   padding: 12px;
-  background: rgba(255,255,255,0.70);
+  background: rgba(246,244,238,0.92);
   border-radius: 16px;
   box-shadow: inset 0 0 0 1px var(--line);
+  color: var(--ink);
 }
 
 /* Responsive */
