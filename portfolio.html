@@ -3,11 +3,14 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
+
   <title>Portfolio | Chingkhei Wangjam</title>
   <link rel="stylesheet" href="index.css"/>
+
   <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
@@ -15,28 +18,37 @@
 
 <body>
   <header class="topbar">
-    <div class="brand"><a href="index.html">Chingkhei Wangjam</a></div>
-    <nav class="nav">
-      <a href="index.html#about">About</a>
-      <a href="portfolio.html" class="active">Portfolio</a>
-      <a href="project.html">Project</a>
-      <a href="index.html#contact">Contact</a>
-    </nav>
+    <div class="topbar-inner">
+      <div class="brand"><a href="index.html">Chingkhei Wangjam</a></div>
+      <nav class="nav">
+        <a href="index.html#about">About</a>
+        <a href="portfolio.html" class="active">Portfolio</a>
+        <a href="project.html">Project</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+    </div>
   </header>
 
   <main class="container">
     <h1>Portfolio</h1>
 
-    <section>
-      <h2>CC1: Hosting</h2>
+    <section class="section">
+      <div class="meta">Coding Challenge 1</div>
+      <h2>Hosting</h2>
+      <p>Embedding two existing Vega-Lite charts into my GitHub Pages site using vegaEmbed.</p>
+
       <figure id="cc1_chart1"></figure>
       <figure id="cc1_chart2"></figure>
     </section>
   </main>
 
   <script>
-    // Example only — replace with your own specs
-    // vegaEmbed("#cc1_chart1", "charts/cc1_chart1.json");
+    // Replace these with your actual chart spec paths/URLs
+    const cc1_chart1_spec = "charts/cc1_chart1.json";
+    const cc1_chart2_spec = "charts/cc1_chart2.json";
+
+    vegaEmbed("#cc1_chart1", cc1_chart1_spec);
+    vegaEmbed("#cc1_chart2", cc1_chart2_spec);
   </script>
 </body>
 </html>
