@@ -1,19 +1,25 @@
+/* =========================
+   Quiet Luxury Minimal System
+   Palette: cool off-white + muted olive accents
+   Typography: Inter (body) + Cormorant Garamond (headings)
+   ========================= */
 
 :root{
-  --bg: #f6f7f5;          /* cool, gallery off-white */
-  --paper: #ffffff;       /* true white */
-  --ink: #0f0f0f;         /* near-black */
-  --muted: #5f605a;       /* warm-grey but neutral */
-  --line: rgba(15,15,15,0.10);
+  --bg: #f6f7f5;                 /* cool, gallery off-white */
+  --paper: #ffffff;              /* true white for cards */
+  --ink: #0f0f0f;                /* near-black */
+  --muted: #5f605a;              /* neutral warm-grey */
+  --line: rgba(15,15,15,0.10);   /* subtle borders */
 
-  --accent: #6f7a63;      /* muted olive */
-  --accent-2: #5f6a55;    /* deeper olive */
+  --accent: #6f7a63;             /* muted olive */
+  --accent-2: #5f6a55;           /* deeper olive */
   --wash: rgba(111,122,99,0.10); /* accent wash */
 }
 
 /* Base */
 *{ box-sizing: border-box; }
 html{ scroll-behavior: smooth; }
+
 body{
   margin:0;
   background: var(--bg);
@@ -24,9 +30,28 @@ body{
 }
 
 a{ color: inherit; text-decoration: none; }
-p{ color: var(--muted); line-height: 1.65; margin: 0.6rem 0; }
+p{
+  color: var(--muted);
+  line-height: 1.65;
+  margin: 0.6rem 0;
+}
+
 h1,h2,h3{ margin: 0; }
-::selection{ background: var(--beige); }
+
+/* Force consistent typography across pages */
+h1, h2, h3, .brand a{
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 600;
+}
+
+body, p, a, .nav a{
+  font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+::selection{ background: rgba(111,122,99,0.18); }
+
+/* Make anchor jumps land below the sticky header */
+section{ scroll-margin-top: 90px; }
 
 /* Layout container */
 .container{
@@ -40,7 +65,7 @@ h1,h2,h3{ margin: 0; }
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(251,250,247,0.78);
+  background: rgba(246,247,245,0.82);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--line);
 }
@@ -55,8 +80,6 @@ h1,h2,h3{ margin: 0; }
 }
 
 .brand a{
-  font-family: "Cormorant Garamond", serif;
-  font-weight: 600;
   font-size: 22px;
   letter-spacing: 0.3px;
 }
@@ -75,17 +98,19 @@ h1,h2,h3{ margin: 0; }
   opacity: 0.78;
   padding: 8px 10px;
   border-radius: 999px;
+  transition: background 140ms ease, opacity 140ms ease;
 }
 
 .nav a:hover{
   opacity: 1;
-  background: rgba(239,231,214,0.55);
+  background: var(--wash);
 }
 
+/* IMPORTANT: no border (prevents shifting). Use inset shadow instead. */
 .nav a.active{
   opacity: 1;
-  border: 1px solid var(--line);
-  background: rgba(255,255,255,0.55);
+  background: rgba(255,255,255,0.70);
+  box-shadow: inset 0 0 0 1px var(--line);
 }
 
 /* Hero */
@@ -94,11 +119,9 @@ h1,h2,h3{ margin: 0; }
 }
 
 .hero h1{
-  font-family: "Cormorant Garamond", serif;
-  font-weight: 600;
-  font-size: 52px;
+  font-size: 54px;
   letter-spacing: 0.2px;
-  line-height: 1.04;
+  line-height: 1.03;
 }
 
 .hero p{
@@ -110,8 +133,22 @@ h1,h2,h3{ margin: 0; }
 /* Subtle accent line */
 .rule{
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(17,17,17,0.18), transparent);
+  background: linear-gradient(90deg, transparent, rgba(15,15,15,0.18), transparent);
   margin: 28px 0;
+}
+
+/* Pills (homepage “luxury detail”) */
+.pill{
+  display:inline-flex;
+  align-items:center;
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: rgba(15,15,15,0.78);
+  background: rgba(255,255,255,0.72);
+  box-shadow: inset 0 0 0 1px var(--line);
 }
 
 /* Cards (clickable windows) */
@@ -123,23 +160,38 @@ h1,h2,h3{ margin: 0; }
 }
 
 .card{
+  position: relative;
+  overflow: hidden;
   display: block;
   background: var(--paper);
-  border: 1px solid var(--line);
   border-radius: 18px;
   padding: 18px 18px 16px;
-  transition: transform 140ms ease, border-color 140ms ease, box-shadow 140ms ease;
-  box-shadow: 0 10px 30px rgba(17,17,17,0.04);
+  box-shadow: 0 10px 30px rgba(15,15,15,0.05);
+  transition: transform 140ms ease, box-shadow 140ms ease;
+  /* Use inset outline instead of border to keep sizing stable */
+  box-shadow:
+    inset 0 0 0 1px var(--line),
+    0 10px 30px rgba(15,15,15,0.05);
 }
 
 .card:hover{
   transform: translateY(-2px);
-  border-color: rgba(17,17,17,0.18);
-  box-shadow: 0 14px 40px rgba(17,17,17,0.06);
+  box-shadow:
+    inset 0 0 0 1px rgba(15,15,15,0.18),
+    0 14px 40px rgba(15,15,15,0.07);
+}
+
+/* Luxury accent strip */
+.card::before{
+  content:"";
+  position:absolute;
+  top:0; left:0; right:0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  opacity: 0.95;
 }
 
 .card h2{
-  font-family: "Cormorant Garamond", serif;
   font-weight: 600;
   font-size: 26px;
   letter-spacing: 0.2px;
@@ -158,7 +210,7 @@ h1,h2,h3{ margin: 0; }
   font-size: 12px;
   letter-spacing: 0.8px;
   text-transform: uppercase;
-  color: var(--olive-2);
+  color: var(--accent-2);
   margin-bottom: 10px;
 }
 
@@ -166,8 +218,8 @@ h1,h2,h3{ margin: 0; }
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: var(--olive);
-  box-shadow: 0 0 0 3px rgba(123,132,104,0.18);
+  background: var(--accent);
+  box-shadow: 0 0 0 3px var(--wash);
 }
 
 /* Sections */
@@ -177,45 +229,45 @@ h1,h2,h3{ margin: 0; }
 }
 
 .section h2{
-  font-family: "Cormorant Garamond", serif;
-  font-weight: 600;
   font-size: 30px;
   margin-bottom: 10px;
 }
 
-.section .meta{
+.meta{
   font-size: 12px;
   letter-spacing: 0.9px;
   text-transform: uppercase;
-  color: rgba(17,17,17,0.55);
+  color: rgba(15,15,15,0.55);
+  margin-bottom: 8px;
 }
 
-/* Buttons (if you want) */
+/* Buttons (optional) */
 .button{
   display: inline-flex;
   align-items: center;
   justify-content: center;
   border-radius: 999px;
-  border: 1px solid var(--line);
   padding: 10px 14px;
   font-size: 13px;
   letter-spacing: 0.8px;
   text-transform: uppercase;
-  background: rgba(255,255,255,0.6);
+  background: rgba(255,255,255,0.72);
+  box-shadow: inset 0 0 0 1px var(--line);
+  transition: background 140ms ease, box-shadow 140ms ease;
 }
 
 .button:hover{
-  border-color: rgba(17,17,17,0.20);
-  background: rgba(239,231,214,0.55);
+  background: var(--wash);
+  box-shadow: inset 0 0 0 1px rgba(15,15,15,0.18);
 }
 
 /* Charts */
 figure{
   margin: 14px 0 0;
   padding: 12px;
-  background: rgba(255,255,255,0.55);
-  border: 1px solid var(--line);
+  background: rgba(255,255,255,0.65);
   border-radius: 16px;
+  box-shadow: inset 0 0 0 1px var(--line);
 }
 
 /* Responsive */
@@ -225,4 +277,3 @@ figure{
   .nav{ gap: 10px; }
   .nav a{ padding: 8px 8px; }
 }
-body { background: #efe7d6 !important; }
