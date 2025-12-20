@@ -1,93 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <link rel="stylesheet" type="text/css" href="index.css">
-  <title>My Portfolio</title>
-
-  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Chingkhei Wangjam</title>
+  <link rel="stylesheet" href="index.css"/>
 </head>
 
 <body>
-  <header>
-    <h1 class="big" style="margin-bottom: 0px;">Chingkhei Wangjam</h1>
-    <p style="margin-top: 1px; color: darkblue">
-      Chingkhei Wangjam |
-      <a href="https://www.linkedin.com/in/chingkhei-wangjam-4a6358166/">LinkedIn</a> |
-      <a href="https://github.com/CKayWangjam">GitHub</a>
-    </p>
-    <h3 class="small">CKay's portfolio of charts and maps.</h3>
+  <header class="topbar">
+    <div class="brand">
+      <a href="index.html">Chingkhei Wangjam</a>
+    </div>
+
+    <nav class="nav">
+      <a href="#about">About</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="project.html">Project</a>
+      <a href="#career">Career</a>
+      <a href="#contact">Contact</a>
+    </nav>
   </header>
 
-  <main>
-    <section>
-      <div class="chart-description">
-        <h2>Section 1: GDP and Life Expectancy across Continents</h2>
-        <p></p>
-      </div>
-      <figure id="Location1"></figure>
+  <main class="container">
+    <section class="hero">
+      <h1>Policy + Data </h1>
+      <p>MPP student at LSE building automated, reproducible data products for policymaking.</p>
     </section>
 
-    <section>
-      <div class="chart-description">
-        <h2>Section 2: UK oil prices before and after the 1973 oil embargo</h2>
-        <p></p>
-      </div>
-      <figure id="Location2"></figure>
+    <section class="cards">
+      <a class="card" href="portfolio.html">
+        <h2>Portfolio</h2>
+        <p>Weekly coding challenges: charts, maps, APIs, scrapers, interactivity.</p>
+      </a>
+
+      <a class="card card-feature" href="project.html">
+        <h2>Project</h2>
+        <p>My end-to-end data science project on Workforce Mobility and Youth Labour Outcomes in India: Examining Sectoral Employment and Skilled migration trends.</p>
+      </a>
     </section>
 
-    <section>
-      <div class="chart-description">
-        <h2>Section 3: Real GDP per capita</h2>
-        <p></p>
-      </div>
-      <figure id="Location3"></figure>
+    <section id="about" class="section">
+      <h2>About</h2>
+      <p> MPP student at London School of Economics and Political Science.</p>
     </section>
 
-    <section>
-      <div class="chart-description">
-        <h2>Section 4: Chart 4</h2>
-        <p></p>
-      </div>
-      <figure id="Location4"></figure>
+    <section id="career" class="section">
+      <h2>Career</h2>
+      <p>Add roles, internships, or a short timeline.</p>
     </section>
 
-    <section>
-      <div class="chart-description">
-        <h2>Section 5: Chart 5</h2>
-        <p></p>
-      </div>
-      <figure id="Location5"></figure>
-    </section>
-
-    <section>
-      <div class="chart-description">
-        <h2>Section 6: Historical Price to Earnings Ratio in the US</h2>
-        <p></p>
-      </div>
-      <figure id="Location6"></figure>
+    <section id="contact" class="section">
+      <h2>Contact</h2>
+      <p>
+        <a href="https://www.linkedin.com/in/chingkhei-wangjam-4a6358166/">LinkedIn</a> ·
+        <a href="c.wangjam@lse.ac.uk">Email</a>
+      </p>
     </section>
   </main>
-
-  <script>
-    // Chart specs (URLs or local JSON files)
-    const figure_1_spec = "https://raw.githubusercontent.com/EconomicsObservatory/courses/main/2/s2_chart2.json";
-    const figure_2_spec = "https://raw.githubusercontent.com/EconomicsObservatory/datavis/refs/heads/main/newsletters/2025-06-27-war-and-inflation/visualisation/fig3_uk-oil-prices.json";
-    const figure_3_spec = "wk1_chart1.json";
-    const figure_4_spec = "wk1_chart2.json";
-    const figure_5_spec = "wk1_chart2.json";
-    const figure_6_spec = "wk1_chart2.json"; // replace with your P/E chart spec when ready
-
-    vegaEmbed("#Location1", figure_1_spec);
-    vegaEmbed("#Location2", figure_2_spec);
-    vegaEmbed("#Location3", figure_3_spec);
-    vegaEmbed("#Location4", figure_4_spec);
-    vegaEmbed("#Location5", figure_5_spec);
-    vegaEmbed("#Location6", figure_6_spec);
-  </script>
 </body>
 </html>
