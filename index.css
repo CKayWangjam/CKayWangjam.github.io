@@ -1,5 +1,6 @@
 /* =========================================================
-   Brown nav + Olive footer, editorial surfaces, slow underline micro-animation.
+   Brown nav + Deep green footer (gold + champagne), editorial surfaces,
+   slow underline micro-animation. 
    ========================================================= */
 
 /* =========================
@@ -23,18 +24,16 @@
   --ink: #121212;
   --muted: rgba(18,18,18,0.68);
 
-  /* Minimal accents */
+  /* Accents */
   --brown-nav: #3a2b22;          /* leather brown */
   --brown-nav-2: #2e221b;        /* deeper brown */
-  --olive-footer: #2f3a2f;       /* deep olive */
-  --olive-footer-2: #253026;     /* deeper olive */
   --champagne: #c7bcae;          /* heritage neutral */
-   
-/* Footer green + gold */
-  --footer-green: #0b4f2b;     /* deep green */
-  --footer-green-2: #083b20;   /* deeper */
-  --gold: #d6c38a;            /* warm gold */
-}
+
+  /* Footer luxury green + gold */
+  --footer-green: #0b4f2b;       /* deep green */
+  --footer-green-2: #083b20;     /* deeper */
+  --gold: #d6c38a;               /* warm gold */
+
   /* Lines / shadows */
   --line: rgba(0,0,0,0.12);
   --line-soft: rgba(0,0,0,0.08);
@@ -172,7 +171,7 @@ h2{
   color: var(--nav-ink);
 }
 
-/* Optional accent when wrapping part of name in <span class="brand-accent"> */
+/* Accent for <span class="brand-accent"> */
 .brand a .brand-accent{
   color: var(--champagne);
 }
@@ -260,7 +259,6 @@ h2{
   font-size: 12px;
   letter-spacing: 0.65px;
   text-transform: uppercase;
-
   background: rgba(255,255,255,0.86);
   color: rgba(18,18,18,0.90);
   box-shadow: inset 0 0 0 1px var(--line-soft);
@@ -299,23 +297,15 @@ h2{
 }
 
 /* =========================
-   Unified widths (teaser + cards) to ensure “floating windows” align cleanly.
+   Teaser
    ========================= */
-.teaser,
-.cards{
+.teaser{
   width: 100%;
   max-width: 1040px;
-  margin-left: 0;
-  margin-right: 0;
+  margin: var(--space-lg) auto 0;  /* centered */
 }
 
-.teaser{
-  margin-top: var(--space-lg);
-}
-
-.teaser-title{
-  margin-top: 6px;
-}
+.teaser-title{ margin-top: 6px; }
 
 .teaser-copy{
   margin-top: 10px;
@@ -331,15 +321,19 @@ h2{
   box-shadow: inset 0 0 0 1px var(--line-soft), var(--shadow-quiet);
 }
 
-/* Prevent embedded charts from adding irregular margins */
 .teaser-frame figure{ margin: 0; }
 
-/* Cards (vertical stack) */
+/* =========================
+   Homepage cards — 2-up row, centered, aligned
+   ========================= */
 .cards{
-  margin-top: var(--space-lg);
+  width: 100%;
+  max-width: 1160px;              /* wider “cover the breadth” */
+  margin: var(--space-lg) auto 0; /* centered */
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr 1fr; /* horizontal line */
   gap: var(--space-md);
+  align-items: stretch;
 }
 
 .card{
@@ -348,18 +342,18 @@ h2{
   background: rgba(251,250,246,0.92);
   color: var(--ink);
   border-radius: 18px;
-  padding: 18px 18px 16px;
+  padding: 20px 20px 18px;
   box-shadow: inset 0 0 0 1px var(--line-soft), var(--shadow-soft);
   transition: transform 180ms ease, box-shadow 180ms ease;
+  min-height: 168px;
 }
 
-/* Quiet accent strip */
 .card::before{
   content:"";
   position:absolute;
   top:0; left:0; right:0;
   height:2px;
-  background: linear-gradient(90deg, transparent, rgba(47,58,47,0.85), var(--champagne), transparent);
+  background: linear-gradient(90deg, transparent, rgba(11,79,43,0.85), var(--champagne), transparent);
   opacity: 0.95;
 }
 
@@ -388,11 +382,11 @@ figure{
 }
 
 /* =========================
-   About page layout (profile left, smaller; narrative right)
+   About page layout
    ========================= */
 .about-grid{
   display: grid;
-  grid-template-columns: 300px 1fr; /* smaller left column */
+  grid-template-columns: 300px 1fr;
   gap: 28px;
   align-items: start;
 }
@@ -533,11 +527,11 @@ figure{
 }
 
 /* =========================
-   Footer — deep green + gold + champagne
+   Footer — deep green + gold + champagne (centered)
    ========================= */
 .footer-bar{
   margin-top: var(--space-xl);
-  padding: 46px 0;
+  padding: 56px 0;
   background:
     linear-gradient(180deg, rgba(255,255,255,0.05), rgba(0,0,0,0.12)),
     linear-gradient(180deg, var(--footer-green), var(--footer-green-2));
@@ -551,8 +545,24 @@ figure{
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 14px;
   text-align: center;
+}
+
+.footer-center{
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.footer-title{
+  font-family: "Playfair Display", serif;
+  font-weight: 500;
+  font-size: 22px;
+  letter-spacing: 0.25px;
+  color: var(--gold);
 }
 
 .footer-right{
@@ -562,12 +572,25 @@ figure{
   gap: 12px;
   flex-wrap: wrap;
 }
-.footer-title{ color: var(--gold); }
-.footer-link{ color: var(--champagne); opacity: 0.92; }
-.footer-sep{ color: var(--champagne); opacity: 0.60; }
+
+.footer-link{
+  color: var(--champagne);
+  opacity: 0.92;
+}
+
+.footer-link:hover{
+  opacity: 1;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.footer-sep{
+  color: var(--champagne);
+  opacity: 0.60;
+}
+
 /* =========================
    Portfolio / Project pages
-   Keep content light but nav/footer consistent (brown/olive)
    ========================= */
 .portfolio-page,
 .project-page{
@@ -575,7 +598,6 @@ figure{
   color: var(--ink);
 }
 
-/* Keep nav brown even on light pages */
 .portfolio-page .topbar,
 .project-page .topbar{
   background:
@@ -599,13 +621,13 @@ figure{
   color: var(--nav-ink);
 }
 
-/* On light pages, to keep “paper” surfaces crisp */
 .portfolio-page .card,
 .project-page .card,
 .portfolio-page figure,
 .project-page figure{
   background: rgba(255,255,255,0.94);
 }
+
 /* =========================
    Career page — sticky editorial index + timeline
    ========================= */
@@ -623,7 +645,7 @@ figure{
 
 .career-toc{
   position: sticky;
-  top: 96px; /* aligns with your scroll-margin-top */
+  top: 96px;
   align-self: start;
 }
 
@@ -675,27 +697,6 @@ figure{
   background: rgba(255,255,255,0.72);
   border-radius: 18px;
   padding: 18px 18px;
-  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.10);
-}
-
-/* Tags */
-.career-tags{
-  margin-top: 12px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.career-tag{
-  display: inline-flex;
-  align-items: center;
-  padding: 8px 12px;
-  border-radius: 999px;
-  font-size: 12px;
-  letter-spacing: 0.65px;
-  text-transform: uppercase;
-  background: rgba(255,255,255,0.92);
-  color: rgba(17,17,17,0.9);
   box-shadow: inset 0 0 0 1px rgba(0,0,0,0.10);
 }
 
@@ -771,38 +772,31 @@ figure{
   font-size: 14px;
 }
 
-.timeline-bullets.compact{
-  margin-top: 8px;
-}
-
-/* Responsive */
-@media (max-width: 980px){
-  .career-layout{
-    grid-template-columns: 1fr;
-    gap: 18px;
-  }
-  .career-toc{
-    position: static;
-  }
-  .timeline{
-    border-left: none;
-  }
-  .timeline-item{
-    padding-left: 0;
-  }
-  .timeline-marker{
-    display: none;
-  }
-}
 /* =========================
    Responsive
    ========================= */
 @media (max-width: 980px){
   .media-band{ grid-template-columns: 1fr; }
   .media-tile img, .media-video{ height: 260px; }
+
   .topbar-inner{ padding: 14px 18px; }
   .container{ padding: 48px 18px 84px; }
   .footer-inner{ padding: 0 18px; }
+
+  .cards{
+    grid-template-columns: 1fr;   /* stack on mobile */
+    max-width: 760px;
+  }
+
+  .career-layout{
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  .career-toc{ position: static; }
+
+  .timeline{ border-left: none; }
+  .timeline-item{ padding-left: 0; }
+  .timeline-marker{ display: none; }
 }
 
 @media (max-width: 860px){
@@ -815,40 +809,3 @@ figure{
   .nav{ gap: 10px; }
   .nav a{ padding: 10px 8px 12px; }
 }
-:root{
-  --footer-green: #0b4f2b;
-  --footer-green-2: #083b20;
-  --gold: #d6c38a;
-}
-
-.footer-bar{
-  margin-top: var(--space-xl);
-  padding: 46px 0;
-  background:
-    linear-gradient(180deg, rgba(255,255,255,0.05), rgba(0,0,0,0.12)),
-    linear-gradient(180deg, var(--footer-green), var(--footer-green-2));
-  border-top: 1px solid rgba(255,255,255,0.14);
-}
-
-.footer-inner{
-  max-width: 1320px;
-  margin: 0 auto;
-  padding: 0 40px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 14px;
-  text-align: center;
-}
-
-.footer-right{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-
-.footer-title{ color: var(--gold); }
-.footer-link{ color: var(--champagne); opacity: 0.92; }
-.footer-sep{ color: var(--champagne); opacity: 0.60; }
