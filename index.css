@@ -162,22 +162,16 @@ body:not(.portfolio-page):not(.project-page) footer a:hover{
 
 /* Hero */
 .hero{
-  padding: 44px 0 10px;
+  padding: var(--space-lg) 0 var(--space-sm);
 }
 
 .hero h1{
-  font-size: 56px;
-  letter-spacing: 0.45px; 
-  line-height: 1.01;
+  margin-top: var(--space-xs);
 }
 
 .hero p{
-  max-width: 62ch;
-  margin-top: 14px;
-  font-size: 16px;
-  color: rgba(244,242,236,0.72);
+  margin-top: var(--space-sm);
 }
-
 /* Meta */
 .meta{
   font-size: 12px;
