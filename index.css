@@ -336,4 +336,8 @@ figure{
     max-width: 260px;
     margin: 0 auto;
   }
+  /* Charts stack on mobile */
+ .chart-row{
+  grid-template-columns: 1fr;
+ }
 }
