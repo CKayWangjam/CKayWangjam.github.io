@@ -9,7 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
 
   <title>About | Chingkhei Wangjam</title>
-  <link rel="stylesheet" href="index.css?v=16">
+  <link rel="stylesheet" href="index.css?v=17">
 </head>
 
 <body class="project-page">
@@ -26,22 +26,78 @@
   </header>
 
   <main class="container">
+    <!-- Editorial hero -->
     <section class="hero">
       <div class="meta">About</div>
-      <h1>Background</h1>
-      <p>I am a public policy professional with six years of experience in education policy, capacity building, skill development, and vocational education. Adept at conducting and translating policy research, data collection and analysis into end-user centric models while optimizing scalability. Strong collaborator experienced in Microsoft Office, R, Python and qualitative and quantitative research methods..</p>
+      <h1>Profile</h1>
+      <p>Policy professional working at the intersection of analysis, implementation, and communication.</p>
     </section>
 
     <div class="rule"></div>
 
-    <section class="section">
-      <h2>Focus</h2>
-      <p> Current Problems I am working on</p>
-    </section>
+    <!-- Profile layout -->
+    <section class="about-grid">
+      <!-- Left: image + quick facts -->
+      <aside class="about-aside">
+        <div class="about-photo">
+          <img src="profile.jpg" alt="Portrait of Chingkhei Wangjam">
+        </div>
 
-    <section class="section">
-      <h2>Skills</h2>
-      <p>R, Python, data visualisation, research methods, domain areas.</p>
+        <div class="about-facts">
+          <div class="about-name">Chingkhei Wangjam</div>
+          <div class="about-role">MPP, LSE</div>
+
+          <div class="about-links">
+            <a class="about-link" href="mailto:c.wangjam@lse.ac.uk">Email</a>
+            <span class="about-sep">·</span>
+            <a class="about-link" href="https://www.linkedin.com/in/chingkhei-wangjam-4a6358166/" target="_blank" rel="noopener">LinkedIn</a>
+            <span class="about-sep">·</span>
+            <a class="about-link" href="https://github.com/CKayWangjam" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Right: main narrative -->
+      <article class="about-body">
+        <div class="section-label">Summary</div>
+        <h2 class="about-heading">What I do</h2>
+        <p class="about-paragraph">
+          I am a public policy professional with six years of experience in education policy,
+          capacity building, skill development, and vocational education. Adept at conducting
+          and translating policy research, data collection and analysis into end-user centric
+          models while optimizing scalability. Strong collaborator experienced in Microsoft
+          Office, R, Python and qualitative and quantitative research methods.
+        </p>
+
+        <div class="about-split">
+          <div class="about-block">
+            <div class="section-label">Focus</div>
+            <h3 class="about-subheading">Areas of interest</h3>
+            <ul class="about-list">
+              <li>Education policy and implementation</li>
+              <li>Skills development and vocational systems</li>
+              <li>Data-informed programme design</li>
+              <li>Visualisation for decision-making</li>
+            </ul>
+          </div>
+
+          <div class="about-block">
+            <div class="section-label">Toolkit</div>
+            <h3 class="about-subheading">Methods & tools</h3>
+            <ul class="about-list">
+              <li>Quantitative & qualitative research</li>
+              <li>R, Python, reproducible workflows</li>
+              <li>Vega-Lite / Altair, web publishing</li>
+              <li>Clear, audience-first communication</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="about-cta">
+          <a class="about-button" href="career.html">View career →</a>
+          <a class="about-button secondary" href="portfolio.html">View portfolio →</a>
+        </div>
+      </article>
     </section>
   </main>
 </body>
