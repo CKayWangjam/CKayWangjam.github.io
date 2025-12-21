@@ -88,7 +88,23 @@ h1, h2, h3, .brand a{
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--line-invert);
 }
-
+/* HOME ONLY: heritage accent hairline under topbar */
+body:not(.portfolio-page):not(.project-page) .topbar::after{
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(199,188,174,0.55),
+    rgba(106,31,31,0.35),
+    rgba(199,188,174,0.55),
+    transparent
+  );
+}
 .topbar-inner{
   max-width: 1060px;
   margin: 0 auto;
@@ -147,15 +163,15 @@ body:not(.portfolio-page):not(.project-page) footer a:hover{
 
 .hero h1{
   font-size: 56px;
-  letter-spacing: 0.3px;
-  line-height: 1.02;
+  letter-spacing: 0.45px; 
+  line-height: 1.01;
 }
 
 .hero p{
   max-width: 62ch;
   margin-top: 14px;
   font-size: 16px;
-  color: var(--muted-invert);
+  color: rgba(244,242,236,0.72);
 }
 
 /* Meta */
