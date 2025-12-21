@@ -66,6 +66,21 @@
     <div class="rule"></div>
 
     <!-- Work gateways (vertical stack via CSS) -->
+    <section class="teaser">
+  <div class="teaser-head">
+    <div class="meta">Interactive</div>
+    <h2 class="teaser-title">Latest chart</h2>
+    <p class="teaser-copy">A small preview of the most recent coding challenge.</p>
+  </div>
+
+  <a class="teaser-frame" href="portfolio.html" aria-label="Open portfolio">
+    <figure id="home_teaser_chart"></figure>
+  </a>
+</section>
+
+<script>
+  vegaEmbed("#home_teaser_chart", "wk1_chart1.json", {actions:false});
+</script>
     <section class="cards">
       <a class="card" href="portfolio.html">
         <div class="badge"><span class="badge-dot"></span> Portfolio</div>
