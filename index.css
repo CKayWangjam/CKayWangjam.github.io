@@ -551,7 +551,7 @@ figure{
   background: rgba(199,188,174,0.22); /* subtle heritage neutral */
 }
 /* =========================
-   Career page — minimal CV timeline (matches About styling)
+   Career — editorial timeline (quiet luxury)
    ========================= */
 
 .hero-compact{
@@ -559,7 +559,7 @@ figure{
   max-width: 980px;
 }
 
-.timeline{
+.timeline-clean{
   max-width: 1040px;
 }
 
@@ -572,8 +572,9 @@ figure{
   max-width: 72ch;
 }
 
+/* Section labels */
 .timeline-group{
-  margin-top: var(--space-lg);
+  margin-top: var(--space-xl);
 }
 
 .group-label{
@@ -581,58 +582,72 @@ figure{
   letter-spacing: 0.9px;
   text-transform: uppercase;
   color: rgba(17,17,17,0.55);
-  margin-bottom: 14px;
+  margin-bottom: 16px;
 }
 
-/* Vertical rail */
-.timeline-item{
+/* One calm rail, minimal markers, no heavy repeated “cards” */
+.t-item{
   position: relative;
   padding-left: 26px;
-  margin-bottom: 18px;
+  margin-bottom: 16px;
 }
 
-.timeline-item::before{
+.t-item::before{
   content:"";
   position: absolute;
   left: 10px;
-  top: 0;
-  bottom: -18px;
+  top: 10px;
+  bottom: -16px;
   width: 1px;
-  background: rgba(0,0,0,0.12);
+  background: rgba(0,0,0,0.10);
 }
 
-.timeline-item:last-child::before{
-  bottom: 16px;
+.timeline-group .t-item:last-child::before{
+  bottom: 24px;
 }
 
-.timeline-dot{
+/* Marker: subtle ring */
+.t-marker{
   position: absolute;
   left: 6px;
   top: 18px;
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background: rgba(255,255,255,0.95);
-  box-shadow: 0 0 0 3px rgba(15,106,58,0.18), inset 0 0 0 1px rgba(0,0,0,0.10);
+  background: rgba(255,255,255,0.98);
+  box-shadow:
+    0 0 0 3px rgba(15,106,58,0.14),
+    inset 0 0 0 1px rgba(0,0,0,0.10);
 }
 
-/* Card */
-.timeline-card{
-  background: #ffffff;
+/* Content: single panel style, softened */
+.t-content{
+  background: rgba(255,255,255,0.86);
   border-radius: 18px;
   padding: 18px 18px 16px;
-  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.12), var(--shadow);
+  box-shadow:
+    inset 0 0 0 1px rgba(0,0,0,0.10),
+    0 16px 46px rgba(0,0,0,0.10);
+  transition: transform 180ms ease, box-shadow 180ms ease;
 }
 
-.timeline-top{
+.t-item:hover .t-content{
+  transform: translateY(-1px);
+  box-shadow:
+    inset 0 0 0 1px rgba(0,0,0,0.12),
+    0 18px 54px rgba(0,0,0,0.12);
+}
+
+/* Top row */
+.t-top{
   display: flex;
-  align-items: baseline;
   justify-content: space-between;
+  align-items: baseline;
   gap: 14px;
   flex-wrap: wrap;
 }
 
-.timeline-role{
+.t-role{
   font-family: "Playfair Display", serif;
   font-weight: 500;
   font-size: 20px;
@@ -640,75 +655,104 @@ figure{
   color: var(--ink);
 }
 
-.timeline-time{
+.t-time{
   font-size: 12px;
   letter-spacing: 0.8px;
   text-transform: uppercase;
-  color: rgba(17,17,17,0.55);
+  color: rgba(17,17,17,0.52);
 }
 
-.timeline-org{
+.t-org{
   margin-top: 6px;
   font-size: 14px;
   color: rgba(17,17,17,0.72);
 }
 
-.timeline-bullets{
+/* Highlights chips: low-contrast, not “UI loud” */
+.t-highlights{
+  margin-top: 12px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.t-chip{
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: rgba(17,17,17,0.70);
+  background: rgba(15,106,58,0.07);
+  box-shadow: inset 0 0 0 1px rgba(15,106,58,0.12);
+}
+
+/* Details: makes page feel “premium” by reducing visual clutter */
+.t-details{
+  margin-top: 12px;
+  border-top: 1px solid rgba(0,0,0,0.08);
+  padding-top: 12px;
+}
+
+.t-details summary{
+  cursor: pointer;
+  list-style: none;
+  font-size: 12px;
+  letter-spacing: 0.9px;
+  text-transform: uppercase;
+  color: rgba(17,17,17,0.62);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.t-details summary::-webkit-details-marker{ display:none; }
+
+.t-details summary::after{
+  content: "→";
+  opacity: 0.6;
+  transform: translateY(-1px);
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.t-details[open] summary::after{
+  content: "↓";
+  opacity: 0.75;
+  transform: translateY(0);
+}
+
+.t-details ul{
   margin: 12px 0 0;
   padding-left: 18px;
   color: rgba(17,17,17,0.72);
-  line-height: 1.7;
+  line-height: 1.75;
   font-size: 14px;
 }
 
-.timeline-note{
+.t-note{
   margin-top: 12px;
-  padding-top: 12px;
-  border-top: 1px solid rgba(0,0,0,0.08);
   color: rgba(17,17,17,0.70);
   font-size: 14px;
 }
 
-.timeline-tag{
+.t-tag{
   display: inline-flex;
   align-items: center;
-  border-radius: 999px;
   padding: 6px 10px;
-  margin-right: 10px;
+  border-radius: 999px;
   font-size: 12px;
   letter-spacing: 0.7px;
   text-transform: uppercase;
-  background: rgba(15,106,58,0.08);
-  box-shadow: inset 0 0 0 1px rgba(15,106,58,0.14);
+  background: rgba(0,0,0,0.04);
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.08);
+  margin-right: 10px;
 }
 
-/* Skills blocks inside timeline card */
-.skills-grid{
-  margin-top: 12px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 14px;
-}
-
-.skills-block{
-  background: rgba(0,0,0,0.02);
-  border-radius: 16px;
-  padding: 14px 14px;
-  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.06);
-}
-
-.skills-title{
-  font-size: 12px;
-  letter-spacing: 0.9px;
-  text-transform: uppercase;
-  color: rgba(17,17,17,0.55);
-}
-
-.skills-text{
-  margin-top: 8px;
-  color: rgba(17,17,17,0.72);
-  font-size: 14px;
-  line-height: 1.7;
+/* Responsive */
+@media (max-width: 820px){
+  .t-content{ padding: 16px 16px 14px; }
 }
 
 /* Responsive */
