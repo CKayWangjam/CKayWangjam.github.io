@@ -65,8 +65,9 @@ section{ scroll-margin-top: 92px; }
 
 /* Typography consistency */
 h1, h2, h3, .brand a{
-  font-family: "Cormorant Garamond", serif;
-  font-weight: 600;
+  font-family: "Playfair Display", serif;
+  font-weight: 500;
+  letter-spacing: 0.2px;
 }
 
 /* Top navigation bar */
