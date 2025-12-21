@@ -8,12 +8,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="index.css?v=20">
-  <title>About | Chingkhei Wangjam</title>
+  <link rel="stylesheet" href="index.css">
+  <title>About · Chingkhei Wangjam</title>
 </head>
 
-<body class="about-page">
-  <div id="top"></div>
+<body>
 
   <!-- Top Navigation -->
   <header class="topbar">
@@ -21,28 +20,21 @@
       <div class="brand">
         <a href="index.html#top"><span>Chingkhei</span> Wangjam</a>
       </div>
-
       <nav class="nav">
-        <a href="index.html#top">Home</a>
+        <a href="index.html">Home</a>
         <a href="about.html" class="active">About</a>
         <a href="career.html">Career</a>
-        <!-- IMPORTANT: send people to the homepage footer -->
         <a href="index.html#contact">Contact</a>
       </nav>
     </div>
   </header>
 
+  <!-- Main content -->
   <main class="container">
-    <section class="hero" style="padding-bottom: 28px;">
-      <div class="meta">About</div>
-      <h1>Profile</h1>
-      <p>A short overview of my background and current focus.</p>
-    </section>
-
-    <div class="rule"></div>
 
     <section class="about-grid">
-      <!-- Left / Aside -->
+
+      <!-- LEFT: Profile column -->
       <aside class="about-aside">
         <div class="about-photo">
           <img src="profile.jpg" alt="Portrait of Chingkhei Wangjam">
@@ -50,7 +42,7 @@
 
         <div class="about-facts">
           <div class="about-name">Chingkhei Wangjam</div>
-          <div class="about-role">MPP, LSE · Public Policy</div>
+          <div class="about-role">MPP · Public Policy · Data</div>
 
           <div class="about-links">
             <a class="about-link" href="mailto:c.wangjam@lse.ac.uk">Email</a>
@@ -62,61 +54,67 @@
         </div>
       </aside>
 
-      <!-- Right / Body -->
-      <div class="about-body">
-        <div class="section-label">Overview</div>
-        <h2 class="about-heading">About me</h2>
+      <!-- RIGHT: About content -->
+      <section class="about-body">
+        <div class="section-label">About</div>
+        <h1 class="about-heading">Policy, data, and applied research</h1>
 
         <p class="about-paragraph">
-          I am a public policy professional with six years of experience in education policy,
-          capacity building, skill development, and vocational education. Adept at conducting
-          and translating policy research, data collection and analysis into end-user centric
-          models while optimizing scalability. Strong collaborator experienced in Microsoft
-          Office, R, Python and qualitative and quantitative research methods.
+          I am a public policy professional with six years of experience across education policy,
+          capacity building, skill development, and vocational education. My work focuses on
+          translating research and data into decision-ready insights for policymakers.
         </p>
 
+        <p class="about-paragraph">
+          I am currently an MPP student at the London School of Economics, with interests in
+          policy analytics, data visualisation, and building reproducible analytical pipelines
+          for public sector decision-making.
+        </p>
+
+        <!-- Two-column detail blocks -->
         <div class="about-split">
           <div class="about-block">
-            <div class="section-label">Focus</div>
-            <h3 class="about-subheading">What I work on</h3>
+            <h2 class="about-subheading">What I work on</h2>
             <ul class="about-list">
-              <li>Policy analytics and evaluation</li>
-              <li>Data visualisation for public decision-making</li>
-              <li>Reproducible workflows (R/Python + GitHub)</li>
+              <li>Policy research & evaluation</li>
+              <li>Data visualisation for decision-makers</li>
+              <li>Education and labour market policy</li>
+              <li>Scalable analytical workflows</li>
             </ul>
           </div>
 
           <div class="about-block">
-            <div class="section-label">Tools</div>
-            <h3 class="about-subheading">Methods & stack</h3>
+            <h2 class="about-subheading">Tools & methods</h2>
             <ul class="about-list">
-              <li>Vega-Lite / Altair</li>
-              <li>R, Python, qualitative + quantitative methods</li>
-              <li>APIs, scraping, automation (where appropriate)</li>
+              <li>R, Python</li>
+              <li>Quantitative & qualitative methods</li>
+              <li>Automated charting pipelines</li>
+              <li>Reproducible research workflows</li>
             </ul>
           </div>
         </div>
 
+        <!-- CTA -->
         <div class="about-cta">
-          <a class="about-button" href="portfolio.html">View portfolio</a>
-          <a class="about-button secondary" href="career.html">Career</a>
+          <a class="about-button" href="career.html">Career</a>
+          <a class="about-button secondary" href="index.html#contact">Get in touch</a>
         </div>
-      </div>
+      </section>
+
     </section>
   </main>
 
-  <!-- -->
+  <!-- Footer -->
   <footer class="footer-bar">
-    <div class="footer-inner footer-center">
+    <div class="footer-inner">
       <div class="footer-title">Get in touch</div>
-      <div class="footer-right footer-links">
+      <div>
         <a class="footer-link" href="mailto:c.wangjam@lse.ac.uk">c.wangjam@lse.ac.uk</a>
-        <span class="footer-sep">·</span>
-        <a class="footer-link" href="https://www.linkedin.com/in/chingkhei-wangjam-4a6358166/" target="_blank" rel="noopener">LinkedIn</a>
-        <span class="footer-sep">·</span>
-        <a class="footer-link" href="https://github.com/CKayWangjam" target="_blank" rel="noopener">GitHub</a>
+        <span class="footer-sep"> · </span>
+        <a class="footer-link" href="https://www.linkedin.com/" target="_blank">LinkedIn</a>
       </div>
     </div>
   </footer>
+
 </body>
 </html>
