@@ -1,33 +1,38 @@
 /* =========================
-  Olive /  Green System
+   Green System
+   Typography: Inter (body) + Playfair Display (headings)
    ========================= */
 
 :root{
   /* Spacing */
+  --space-2xs: 8px;
   --space-xs: 12px;
-  --space-sm: 16px;
-  --space-md: 28px;
-  --space-lg: 56px;
+  --space-sm: 18px;
+  --space-md: 30px;
+  --space-lg: 64px;
+  --space-xl: 92px;
 
-  /* Green Palette */
-  --green: #0f6a3a;      /* primary */
+  /* green */
+  --green: #0f6a3a;
   --green-dark: #0b4f2b;
-  --green-wash: rgba(15,106,58,0.14);
+  --green-ink: rgba(255,255,255,0.94);
+
+  /* Accents */
+  --champagne: #c7bcae;          /* heritage neutral */
+  --warm-ink: #131313;
 
   /* Canvas */
-  --bg: #eef0ea;              /* pale olive stone */
-  --paper: #f6f4ee;
-  --paper-2: rgba(246,244,238,0.75);
+  --bg: #eef0ea;                 /* pale olive stone */
+  --paper: #f6f4ee;              /* warm paper */
+  --paper-2: rgba(246,244,238,0.80);
 
   /* Text */
   --ink: #111111;
   --muted: rgba(17,17,17,0.70);
-  --ink-invert: rgba(255,255,255,0.95);
-  --muted-invert: rgba(255,255,255,0.78);
 
-  /* Lines */
+  /* Lines / shadows */
   --line: rgba(0,0,0,0.12);
-  --line-invert: rgba(255,255,255,0.18);
+  --shadow: 0 16px 48px rgba(0,0,0,0.16);
 }
 
 /* =========================
@@ -41,31 +46,60 @@ html, body{
   background: var(--bg);
   color: var(--ink);
   font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  letter-spacing: 0.1px;
+  letter-spacing: 0.08px;
+}
+
+/* Gentle depth on the homepage background */
+body{
+  background:
+    radial-gradient(1200px 650px at 18% -10%, rgba(255,255,255,0.65), transparent 55%),
+    radial-gradient(900px 520px at 88% 0%, rgba(199,188,174,0.26), transparent 55%),
+    linear-gradient(180deg, rgba(0,0,0,0.028) 0%, transparent 42%),
+    var(--bg);
 }
 
 a{ color: inherit; text-decoration: none; }
-p{ line-height: 1.65; margin: 0.6rem 0; color: var(--muted); }
+p{
+  line-height: 1.75;
+  margin: 0.65rem 0;
+  color: var(--muted);
+}
 h1,h2,h3{ margin: 0; }
 
-section{ scroll-margin-top: 92px; }
+section{ scroll-margin-top: 96px; }
 
-/* =========================
-   Layout
-   ========================= */
-.container{
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 48px 28px 96px;
-}
-
+/* Typography scale (editorial ratios) */
 h1,h2,h3,.brand a{
   font-family: "Playfair Display", serif;
   font-weight: 500;
 }
+h1{
+  font-size: clamp(40px, 4.2vw, 62px);
+  line-height: 1.06;
+  letter-spacing: 0.22px;
+}
+h2{
+  font-size: clamp(22px, 2.2vw, 32px);
+  line-height: 1.18;
+  letter-spacing: 0.18px;
+}
+.small{
+  font-size: 13px;
+  letter-spacing: 0.9px;
+  text-transform: uppercase;
+}
 
 /* =========================
-   NAV BAR — GREEN
+   Container 
+   ========================= */
+.container{
+  max-width: 1280px;              
+  margin: 0 auto;
+  padding: 56px 36px 96px;        
+}
+
+/* =========================
+   Top navigation — green + micro underline
    ========================= */
 .topbar{
   position: sticky;
@@ -75,173 +109,266 @@ h1,h2,h3,.brand a{
   border-bottom: 1px solid rgba(255,255,255,0.18);
 }
 
-.topbar::after{
-  content:"";
-  display:block;
-  height:2px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255,255,255,0.55),
-    transparent
-  );
-}
-
 .topbar-inner{
-  max-width: 1100px;
+  max-width: 1280px;              /* match container width */
   margin: 0 auto;
-  padding: 14px 22px;
+  padding: 16px 36px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
+/* Brand (name) in a different colour */
 .brand a{
   font-size: 22px;
-  color: var(--ink-invert);
+  letter-spacing: 0.25px;
+  color: rgba(255,255,255,0.92);
+}
+.brand a span{
+  color: var(--champagne);         /* different color highlight */
 }
 
+/* Nav */
 .nav{
   display: flex;
   gap: 18px;
+  align-items: center;
 }
 
+/* underline animation */
 .nav a{
+  position: relative;
   font-size: 13px;
   letter-spacing: 0.9px;
   text-transform: uppercase;
-  color: var(--ink-invert);
+  color: var(--green-ink);
   opacity: 0.88;
-  padding: 8px 10px;
+  padding: 10px 10px 12px;
   border-radius: 999px;
+  transition: opacity 220ms ease;
+}
+
+.nav a::after{
+  content:"";
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  bottom: 6px;
+  height: 1px;
+  background: rgba(255,255,255,0.78);
+
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 420ms ease;  /* slow, luxury */
+  opacity: 0.9;
 }
 
 .nav a:hover{
   opacity: 1;
-  background: rgba(255,255,255,0.12);
 }
 
+.nav a:hover::after{
+  transform: scaleX(1);
+}
+
+/* Active state: underline shown */
 .nav a.active{
   opacity: 1;
-  background: rgba(255,255,255,0.18);
-  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.25);
+}
+.nav a.active::after{
+  transform: scaleX(1);
+  background: var(--champagne);
 }
 
 /* =========================
-   HERO
+   Hero
    ========================= */
 .hero{
-  padding: var(--space-lg) 0 var(--space-md);
-  max-width: 900px;
+  padding: var(--space-xl) 0 var(--space-lg);
+  max-width: 980px;
 }
 
 .meta{
   font-size: 12px;
-  letter-spacing: 0.9px;
+  letter-spacing: 0.95px;
   text-transform: uppercase;
   color: rgba(17,17,17,0.55);
-}
-
-.hero h1{
-  margin-top: var(--space-sm);
-  line-height: 1.06;
 }
 
 .hero p{
   margin-top: var(--space-md);
   font-size: 17px;
-  max-width: 68ch;
+  max-width: 70ch;
 }
 
 /* Pills */
 .pill-row{
-  margin-top: var(--space-sm);
+  margin-top: var(--space-md);
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
 }
 
 .pill{
-  padding: 8px 12px;
+  display:inline-flex;
+  align-items:center;
+  padding: 9px 14px;
   border-radius: 999px;
   font-size: 12px;
-  letter-spacing: 0.6px;
+  letter-spacing: 0.65px;
   text-transform: uppercase;
-  background: rgba(255,255,255,0.85);
-  color: var(--ink);
+  background: rgba(255,255,255,0.82);
+  color: var(--warm-ink);
   box-shadow: inset 0 0 0 1px rgba(0,0,0,0.10);
 }
 
+/* Divider */
+.rule{
+  height: 1px;
+  margin: var(--space-lg) 0;
+  background: linear-gradient(90deg, transparent, rgba(0,0,0,0.18), transparent);
+}
+
 /* =========================
-   Cards
+   Media band
    ========================= */
+.media-band{
+  margin-top: var(--space-lg);
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 18px;
+}
+
+.media-tile{
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.10);
+  background: rgba(255,255,255,0.50);
+}
+
+.media-tile img,
+.media-video{
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  display: block;
+}
+
+/* =========================
+   Unified window widths (teaser + cards)
+   ========================= */
+.teaser,
+.cards{
+  width: 100%;
+  max-width: 1040px;              /* same column width */
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.teaser{
+  margin-top: var(--space-lg);
+}
+
+.teaser-title{
+  margin-top: 6px;
+}
+
+.teaser-copy{
+  margin-top: 10px;
+  max-width: 72ch;
+}
+
+.teaser-frame{
+  display: block;
+  margin-top: var(--space-md);
+  border-radius: 18px;
+  overflow: hidden;
+  background: rgba(255,255,255,0.55);
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.10);
+}
+
+/* Ensuring  embedded Vega figure doesn't add irregular margins */
+.teaser-frame figure{
+  margin: 0;
+}
+
+/* Cards (vertical stack) */
 .cards{
   margin-top: var(--space-lg);
   display: grid;
+  grid-template-columns: 1fr;
   gap: var(--space-md);
-  max-width: 860px;
 }
 
 .card{
+  position: relative;
+  overflow: hidden;
   background: var(--paper);
+  color: var(--ink);
   border-radius: 18px;
-  padding: var(--space-sm);
-  box-shadow:
-    inset 0 0 0 1px var(--line),
-    0 14px 40px rgba(0,0,0,0.18);
+  padding: 18px 18px 16px;
+  box-shadow: inset 0 0 0 1px var(--line), var(--shadow);
+  transition: transform 180ms ease, box-shadow 180ms ease;
 }
 
 .card::before{
   content:"";
-  display:block;
-  height:2px;
-  background: var(--green);
-  margin-bottom: 10px;
+  position:absolute;
+  top:0; left:0; right:0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--rolex-green), var(--champagne), transparent);
+  opacity: 0.95;
 }
 
-.card h2{ font-size: 26px; }
-.card p{ font-size: 14px; }
+.card:hover{
+  transform: translateY(-2px);
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.16), 0 18px 56px rgba(0,0,0,0.20);
+}
+
+.card p{
+  font-size: 14px;
+}
+
+/* General figure styling */
+figure{
+  margin: 14px 0 0;
+  padding: 12px;
+  background: rgba(255,255,255,0.92);
+  border-radius: 16px;
+  box-shadow: inset 0 0 0 1px var(--line);
+}
 
 /* =========================
-   FOOTER — GREEN
+   Footer — green across site
    ========================= */
 .footer-bar{
-  margin-top: var(--space-lg);
-  padding: var(--space-md) 0;
+  margin-top: var(--space-xl);
+  padding: 44px 0;
   background: var(--green-dark);
   border-top: 1px solid rgba(255,255,255,0.18);
 }
 
-.footer-bar::before{
-  content:"";
-  display:block;
-  height:2px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255,255,255,0.55),
-    transparent
-  );
-}
-
 .footer-inner{
-  max-width: 1100px;
+  max-width: 1280px;
   margin: 0 auto;
-  padding: 0 22px;
+  padding: 0 36px;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 14px;
+  text-align: center;
 }
 
 .footer-title{
   font-family: "Playfair Display", serif;
+  font-weight: 500;
   font-size: 22px;
-  color: var(--ink-invert);
+  letter-spacing: 0.25px;
+  color: rgba(255,255,255,0.94);
 }
 
 .footer-link{
-  color: var(--ink-invert);
+  color: rgba(255,255,255,0.92);
   opacity: 0.9;
 }
 
@@ -252,14 +379,21 @@ h1,h2,h3,.brand a{
 }
 
 .footer-sep{
-  color: var(--ink-invert);
-  opacity: 0.5;
+  color: rgba(255,255,255,0.92);
+  opacity: 0.55;
 }
 
 /* =========================
    Responsive
    ========================= */
+@media (max-width: 980px){
+  .media-band{ grid-template-columns: 1fr; }
+  .media-tile img, .media-video{ height: 260px; }
+  .topbar-inner{ padding: 14px 18px; }
+  .container{ padding: 42px 18px 84px; }
+}
+
 @media (max-width: 820px){
-  .hero h1{ font-size: 40px; }
-  .container{ padding: 32px 18px 72px; }
+  .nav{ gap: 10px; }
+  .nav a{ padding: 10px 8px 12px; }
 }
