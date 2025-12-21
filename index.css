@@ -4,6 +4,10 @@
    ========================= */
 
 :root{
+    --space-xs: 12px;
+  --space-sm: 16px;
+  --space-md: 28px;
+  --space-lg: 56px;
   /* Canvas */
   --bg: #2f332a;                 /* deep olive-brown */
   --paper: #f6f4ee;              /* warm paper */
