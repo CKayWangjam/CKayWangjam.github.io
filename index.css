@@ -457,7 +457,8 @@ figure{
    Full-bleed contact footer
    ========================= */
 .footer-bar{
-  width: 100%;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
   padding: 40px 0;
   background: rgba(20,22,18,0.92);
   border-top: 1px solid var(--line-invert);
