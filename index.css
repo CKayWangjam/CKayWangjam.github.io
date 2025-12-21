@@ -29,7 +29,12 @@
   --olive-footer: #2f3a2f;       /* deep olive */
   --olive-footer-2: #253026;     /* deeper olive */
   --champagne: #c7bcae;          /* heritage neutral */
-
+   
+/* Footer green + gold */
+  --footer-green: #0b4f2b;     /* deep green */
+  --footer-green-2: #083b20;   /* deeper */
+  --gold: #d6c38a;            /* warm gold */
+}
   /* Lines / shadows */
   --line: rgba(0,0,0,0.12);
   --line-soft: rgba(0,0,0,0.08);
