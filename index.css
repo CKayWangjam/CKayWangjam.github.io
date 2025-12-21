@@ -177,7 +177,13 @@ h1, h2, h3, .brand a{
   background: rgba(246,244,238,0.10);
   box-shadow: inset 0 0 0 1px var(--line-invert);
 }
-
+/* Side-by-side charts */
+.chart-row{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 12px;
+}
 /* Cards */
 .cards{
   display: grid;
