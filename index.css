@@ -536,31 +536,35 @@ figure{
    Footer — deep green + gold + champagne
    ========================= */
 .footer-bar{
+  margin-top: var(--space-xl);
+  padding: 46px 0;
   background:
     linear-gradient(180deg, rgba(255,255,255,0.05), rgba(0,0,0,0.12)),
     linear-gradient(180deg, var(--footer-green), var(--footer-green-2));
   border-top: 1px solid rgba(255,255,255,0.14);
 }
 
-.footer-title{
-  color: var(--gold);
+.footer-inner{
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  text-align: center;
 }
 
-.footer-link{
-  color: var(--champagne);
-  opacity: 0.92;
+.footer-right{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
 }
-
-.footer-link:hover{
-  opacity: 1;
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
-
-.footer-sep{
-  color: var(--champagne);
-  opacity: 0.60;
-}
+.footer-title{ color: var(--gold); }
+.footer-link{ color: var(--champagne); opacity: 0.92; }
+.footer-sep{ color: var(--champagne); opacity: 0.60; }
 /* =========================
    Portfolio / Project pages
    Keep content light but nav/footer consistent (brown/olive)
@@ -811,3 +815,40 @@ figure{
   .nav{ gap: 10px; }
   .nav a{ padding: 10px 8px 12px; }
 }
+:root{
+  --footer-green: #0b4f2b;
+  --footer-green-2: #083b20;
+  --gold: #d6c38a;
+}
+
+.footer-bar{
+  margin-top: var(--space-xl);
+  padding: 46px 0;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.05), rgba(0,0,0,0.12)),
+    linear-gradient(180deg, var(--footer-green), var(--footer-green-2));
+  border-top: 1px solid rgba(255,255,255,0.14);
+}
+
+.footer-inner{
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  text-align: center;
+}
+
+.footer-right{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.footer-title{ color: var(--gold); }
+.footer-link{ color: var(--champagne); opacity: 0.92; }
+.footer-sep{ color: var(--champagne); opacity: 0.60; }
