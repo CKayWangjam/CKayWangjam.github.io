@@ -323,7 +323,7 @@ figure{
    ========================= */
 /* Portfolio page navigation: off-black */
 .portfolio-page .topbar{
-  background: rgba(22,22,22,0.88); /* off-black / dark grey */
+background: rgba(28,26,24,0.88); /* off-black / dark grey */
   border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 
