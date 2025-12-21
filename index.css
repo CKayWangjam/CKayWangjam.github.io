@@ -321,34 +321,11 @@ figure{
   font-size: 15px;
 }
 /* =========================
-   Portfolio page: faint brown wash
+   Portfolio page: light neutral gallery
    ========================= */
-/* Portfolio page navigation: off-black */
-.portfolio-page .topbar{
-background: rgba(28,26,24,0.88); /* off-black / dark grey */
-  border-bottom: 1px solid rgba(255,255,255,0.08);
-}
 
-.portfolio-page .brand a{
-  color: #f2f2f2;
-}
-
-.portfolio-page .nav a{
-  color: #f2f2f2;
-  opacity: 0.78;
-}
-
-.portfolio-page .nav a:hover{
-  opacity: 1;
-  background: rgba(255,255,255,0.08);
-}
-
-.portfolio-page .nav a.active{
-  background: rgba(255,255,255,0.12);
-  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.14);
-}
 .portfolio-page{
-  background: #e9e4dc; /* very faint brown */
+  background: #f1efe9; /* very light stone */
   color: var(--ink);
 }
 
@@ -356,22 +333,46 @@ background: rgba(28,26,24,0.88); /* off-black / dark grey */
   color: var(--muted);
 }
 
-/* Sections sit on slightly lighter paper */
-.portfolio-page .section{
-  background: rgba(255,255,255,0.75);
+/* Light navigation for portfolio */
+.portfolio-page .topbar{
+  background: rgba(241,239,233,0.92);
+  border-bottom: 1px solid var(--line);
+}
+
+.portfolio-page .brand a{
+  color: var(--ink);
+}
+
+.portfolio-page .nav a{
+  color: var(--ink);
+  opacity: 0.75;
+}
+
+.portfolio-page .nav a:hover{
+  opacity: 1;
+  background: rgba(0,0,0,0.04);
+}
+
+.portfolio-page .nav a.active{
+  background: rgba(0,0,0,0.06);
   box-shadow: inset 0 0 0 1px var(--line);
 }
 
-/* Charts stay crisp */
-.portfolio-page figure{
-  background: rgba(255,255,255,0.9);
-}
-
-/* Hero text should be dark on light background */
+/* Hero text on light background */
 .portfolio-page .hero h1,
 .portfolio-page .hero p,
 .portfolio-page .meta{
   color: var(--ink);
+}
+
+/* Sections and charts */
+.portfolio-page .section{
+  background: #ffffff;
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+.portfolio-page figure{
+  background: #ffffff;
 }
 /* =========================
    Project page: neutral white / subtle grey
