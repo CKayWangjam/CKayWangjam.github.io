@@ -10,7 +10,7 @@
   --space-lg: 56px;
   /* Canvas */
   --bg: #e9ebe4;  
-  --nav-bg: #e9ebe4;
+  --nav-bg: rgba(26,28,24,0.92);
   --paper: #f6f4ee;              /* warm paper */
   --paper-2: rgba(246,244,238,0.70);
 
