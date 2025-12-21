@@ -528,47 +528,22 @@ figure{
 }
 
 /* =========================
-   Footer — olive across site
+   Footer — deep green + gold + champagne
    ========================= */
 .footer-bar{
-  margin-top: var(--space-xl);
-  padding: 46px 0;
   background:
-    linear-gradient(180deg, rgba(255,255,255,0.05), rgba(0,0,0,0.10)),
-    linear-gradient(180deg, var(--olive-footer), var(--olive-footer-2));
-  border-top: 1px solid rgba(255,255,255,0.16);
-}
-
-.footer-inner{
-  max-width: 1320px;
-  margin: 0 auto;
-  padding: 0 40px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 14px;
-  text-align: center;
+    linear-gradient(180deg, rgba(255,255,255,0.05), rgba(0,0,0,0.12)),
+    linear-gradient(180deg, var(--footer-green), var(--footer-green-2));
+  border-top: 1px solid rgba(255,255,255,0.14);
 }
 
 .footer-title{
-  font-family: "Playfair Display", serif;
-  font-weight: 500;
-  font-size: 22px;
-  letter-spacing: 0.25px;
-  color: var(--foot-ink);
-}
-
-.footer-right{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  flex-wrap: wrap;
+  color: var(--gold);
 }
 
 .footer-link{
-  color: var(--foot-ink);
-  opacity: 0.9;
+  color: var(--champagne);
+  opacity: 0.92;
 }
 
 .footer-link:hover{
@@ -578,10 +553,9 @@ figure{
 }
 
 .footer-sep{
-  color: var(--foot-ink);
-  opacity: 0.55;
+  color: var(--champagne);
+  opacity: 0.60;
 }
-
 /* =========================
    Portfolio / Project pages
    Keep content light but nav/footer consistent (brown/olive)
