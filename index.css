@@ -25,6 +25,10 @@
   --brown: #5b3f2a;
   --wash: rgba(107,117,85,0.16);
   --select: rgba(91,63,42,0.20);
+  --stone: #e9e6df;      /* cool warm-neutral */
+  --taupe: #c7bcae;      /* muted heritage neutral */
+  --charcoal: #121212;   /* near-black */
+  --oxblood: #6a1f1f;    /* restrained heritage accent */
 }
 
 /* Base */
@@ -39,7 +43,13 @@ html, body{
   font-weight: 400;
   letter-spacing: 0.1px;
 }
-
+body:not(.portfolio-page):not(.project-page){
+  background:
+    radial-gradient(1200px 600px at 18% -10%, rgba(233,230,223,0.16), transparent 55%),
+    radial-gradient(900px 500px at 90% 0%, rgba(199,188,174,0.10), transparent 55%),
+    linear-gradient(180deg, rgba(18,18,18,0.18) 0%, transparent 35%),
+    var(--bg);
+}
 a{ color: inherit; text-decoration: none; }
 
 p{
@@ -116,7 +126,11 @@ h1, h2, h3, .brand a{
   opacity: 1;
   background: rgba(246,244,238,0.08);
 }
-
+body:not(.portfolio-page):not(.project-page) a:hover{
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: rgba(199,188,174,0.75);
+}
 .nav a.active{
   opacity: 1;
   background: rgba(246,244,238,0.10);
@@ -171,11 +185,26 @@ h1, h2, h3, .brand a{
   background: rgba(246,244,238,0.10);
   box-shadow: inset 0 0 0 1px var(--line-invert);
 }
+/* HOME ONLY: subtle tonal variation across pills */
+body:not(.portfolio-page):not(.project-page) .pill:nth-child(2){
+  background: rgba(233,230,223,0.12);
+}
 
+body:not(.portfolio-page):not(.project-page) .pill:nth-child(3){
+  background: rgba(106,31,31,0.10);
+}
 /* Divider */
 .rule{
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(244,242,236,0.18), transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(244,242,236,0.22),
+    rgba(199,188,174,0.20),
+    rgba(106,31,31,0.18),
+    rgba(244,242,236,0.22),
+    transparent
+  );
   margin: 28px 0;
 }
 
