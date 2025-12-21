@@ -9,7 +9,8 @@
   --space-md: 28px;
   --space-lg: 56px;
   /* Canvas */
-  --bg: #2f332a;                 /* deep olive-brown */
+  --bg: #3a4034;  
+  --nav-bg: rgba(20,22,18,0.92);
   --paper: #f6f4ee;              /* warm paper */
   --paper-2: rgba(246,244,238,0.70);
 
@@ -66,17 +67,17 @@ h1,h2,h3{ margin: 0; }
 
 ::selection{ background: var(--select); }
 
-/* Anchor offset for sticky header */
+
 section{ scroll-margin-top: 92px; }
 
 /* Layout container */
 .container{
-  max-width: 1060px;
+  max-width: 1100px;                 
   margin: 0 auto;
-  padding: 28px 22px 70px;
+  padding: 48px 28px 96px;           
 }
 
-/* Typography consistency */
+/* Typography */
 h1, h2, h3, .brand a{
   font-family: "Playfair Display", serif;
   font-weight: 500;
@@ -88,7 +89,7 @@ h1, h2, h3, .brand a{
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(47,51,42,0.78);
+  background: var(--nav-bg);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--line-invert);
 }
@@ -162,15 +163,20 @@ body:not(.portfolio-page):not(.project-page) footer a:hover{
 
 /* Hero */
 .hero{
-  padding: var(--space-lg) 0 var(--space-sm);
+  padding: calc(var(--space-lg) + 12px) 0 var(--space-md);
+  max-width: 920px;                  /* align hero width */
 }
 
 .hero h1{
-  margin-top: var(--space-xs);
+  margin-top: var(--space-sm);
+  letter-spacing: 0.5px;
+  line-height: 1.01;
 }
 
 .hero p{
-  margin-top: var(--space-sm);
+  margin-top: var(--space-md);
+  font-size: 17px;
+  max-width: 68ch;
 }
 /* Meta */
 .meta{
@@ -213,7 +219,7 @@ body:not(.portfolio-page):not(.project-page) .pill:nth-child(3){
 /* Divider */
 .rule{
   height: 1px;
-  margin: var(--space-md) 0;
+.rule{ margin: calc(var(--space-md) + 10px) 0; }
   background: linear-gradient(
     90deg,
     transparent,
@@ -229,9 +235,9 @@ body:not(.portfolio-page):not(.project-page) .pill:nth-child(3){
 .cards{
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--space-md);
-  max-width: 760px; /* editorial column width */
-  margin: var(--space-md) auto 0;
+  gap: calc(var(--space-md) + 6px);
+  max-width: 860px;
+  margin: calc(var(--space-md) + 6px) 0 0;  /* left-aligned, not centered */
 }
 .card{
   position: relative;
