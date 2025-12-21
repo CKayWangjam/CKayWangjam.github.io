@@ -7,59 +7,64 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="index.css?v=13">
+
+  <link rel="stylesheet" href="index.css?v=14">
   <title>Chingkhei Wangjam</title>
 </head>
 
 <body>
   <div id="top"></div>
-<header class="topbar">
-  <div class="topbar-inner">
-    <div class="brand">
-      <a href="index.html#top">Chingkhei Wangjam</a>
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <a href="index.html#top">Chingkhei Wangjam</a>
+      </div>
+      <nav class="nav">
+        <a href="index.html#top" class="active">Home</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#career">Career</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
     </div>
-    <nav class="nav">
-      <a href="index.html#top" class="active">Home</a>
-      <a href="index.html#about">About</a>
-      <a href="index.html#career">Career</a>
-      <a href="index.html#contact">Contact</a>
-    </nav>
-  </div>
-</header>
+  </header>
 
   <main class="container">
+    <!-- HERO (tight, clean) -->
     <section class="hero">
-      <section class="intro">
-  <div class="intro-photo">
-    <img src="profile.jpg" alt="Portrait of Chingkhei Wangjam">
-  </div>
-
-  <div class="intro-bio">
-    <h2>About me</h2>
-       <h3>MPP, LSE</h3>
-    <p>
-      I am a public policy professional with six years of experience 
-      in education policy, capacity building, skill development,and 
-      vocational education. Adept at conducting and translating policy 
-      research, data collection and analysis into end-user centric models 
-      while optimizing scalability. Strong collaborator experienced in Microsoft 
-      Office, R, Python and qualitative and quantitative research methods.
-    </p>
-  </div>
-</section>
       <div class="meta">MPP · Data Visualisation · Public Policy</div>
       <h1>Policy, data, and design.</h1>
       <p>MPP student building automated, reproducible visualisations for policymaking.</p>
 
-      <div style="margin-top:16px; display:flex; gap:10px; flex-wrap:wrap;">
+      <div class="pill-row">
         <span class="pill">Policy Analytics</span>
         <span class="pill">Automated Visualisation</span>
         <span class="pill">Open, Reproducible Pipelines</span>
       </div>
     </section>
 
+    <!-- INTRO (photo + bio) -->
+    <section class="intro">
+      <div class="intro-photo">
+        <img src="profile.jpg" alt="Portrait of Chingkhei Wangjam">
+      </div>
+
+      <div class="intro-bio">
+        <h2>About me</h2>
+        <h3 class="intro-role">MPP, LSE</h3>
+        <p>
+          I am a public policy professional with six years of experience in education policy,
+          capacity building, skill development, and vocational education. Adept at conducting
+          and translating policy research, data collection and analysis into end-user centric
+          models while optimizing scalability. Strong collaborator experienced in Microsoft
+          Office, R, Python and qualitative and quantitative research methods.
+        </p>
+      </div>
+    </section>
+
     <div class="rule"></div>
 
+    <!-- WORK GATEWAYS -->
     <section class="cards">
       <a class="card" href="portfolio.html">
         <div class="badge"><span class="badge-dot"></span> Portfolio</div>
@@ -83,20 +88,21 @@
       <h2>Career</h2>
       <p>Experience</p>
     </section>
-
-   <footer id="contact" class="footer-bar">
-  <div class="footer-inner footer-center">
-    <div class="footer-title">Get in touch</div>
-
-    <div class="footer-right footer-links">
-      <a class="footer-link" href="mailto:c.wangjam@lse.ac.uk">c.wangjam@lse.ac.uk</a>
-      <span class="footer-sep">·</span>
-      <a class="footer-link" href="https://www.linkedin.com/in/chingkhei-wangjam-4a6358166/" target="_blank" rel="noopener">LinkedIn</a>
-      <span class="footer-sep">·</span>
-      <a class="footer-link" href="https://github.com/CKayWangjam" target="_blank" rel="noopener">GitHub</a>
-    </div>
-  </div>
-</footer>
   </main>
+
+  <!-- FULL-BLEED CONTACT FOOTER -->
+  <footer id="contact" class="footer-bar">
+    <div class="footer-inner footer-center">
+      <div class="footer-title">Get in touch</div>
+
+      <div class="footer-right footer-links">
+        <a class="footer-link" href="mailto:c.wangjam@lse.ac.uk">c.wangjam@lse.ac.uk</a>
+        <span class="footer-sep">·</span>
+        <a class="footer-link" href="https://www.linkedin.com/in/chingkhei-wangjam-4a6358166/" target="_blank" rel="noopener">LinkedIn</a>
+        <span class="footer-sep">·</span>
+        <a class="footer-link" href="https://github.com/CKayWangjam" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
