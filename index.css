@@ -307,7 +307,9 @@ figure{
 
 /* Bio text */
 .intro-bio h2{
-  font-family: "Cormorant Garamond", serif;
+  font-family: "Playfair Display", serif;
+  font-weight: 500;
+  letter-spacing: 0.2px;
   font-size: 26px;
   margin-bottom: 8px;
   color: var(--ink-invert);
@@ -352,12 +354,6 @@ background: rgba(28,26,24,0.88); /* off-black / dark grey */
 
 .portfolio-page p{
   color: var(--muted);
-}
-
-/* Make topbar adapt to lighter background */
-.portfolio-page .topbar{
-  background: rgba(233,228,220,0.85);
-  border-bottom: 1px solid var(--line);
 }
 
 /* Sections sit on slightly lighter paper */
