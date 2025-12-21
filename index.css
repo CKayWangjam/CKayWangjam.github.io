@@ -545,7 +545,7 @@ figure{
 
   /* Footer stacks cleanly on mobile */
   .footer-inner{
-    flex-direction: column;
-    align-items: flex-start;
-  }
+  flex-direction: column;
+  align-items: flex-start;
+}
 }
