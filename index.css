@@ -126,11 +126,14 @@ h1, h2, h3, .brand a{
   opacity: 1;
   background: rgba(246,244,238,0.08);
 }
-body:not(.portfolio-page):not(.project-page) a:hover{
+
+body:not(.portfolio-page):not(.project-page) main a:hover,
+body:not(.portfolio-page):not(.project-page) footer a:hover{
   text-decoration: underline;
   text-underline-offset: 3px;
   text-decoration-color: rgba(199,188,174,0.75);
 }
+
 .nav a.active{
   opacity: 1;
   background: rgba(246,244,238,0.10);
