@@ -6,10 +6,10 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
 
   <title>Portfolio | Chingkhei Wangjam</title>
-<link rel="stylesheet" href="index.css?v=11">
+  <link rel="stylesheet" href="index.css?v=11">
 
   <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
@@ -18,49 +18,51 @@
 
 <body class="portfolio-page">
   <header class="topbar">
-  <div class="topbar-inner">
-    <div class="brand">
-      <a href="index.html#top">Chingkhei Wangjam</a>
+    <div class="topbar-inner">
+      <div class="brand">
+        <a href="index.html#top">Chingkhei Wangjam</a>
+      </div>
+      <nav class="nav">
+        <a href="index.html#top">Home</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#career">Career</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
     </div>
-    <nav class="nav">
-      <a href="index.html#top">Home</a>
-      <a href="index.html#about">About</a>
-      <a href="index.html#career">Career</a>
-      <a href="index.html#contact">Contact</a>
-    </nav>
-  </div>
-</header>
+  </header>
 
   <main class="container">
     <section class="hero">
       <div class="meta">Portfolio</div>
+
       <div class="breadcrumb">
-  <a href="index.html#top">Home</a>
-  <span class="crumb-sep">/</span>
-  <span>Portfolio</span>
-</div>
+        <a href="index.html#top">Home</a>
+        <span class="crumb-sep">/</span>
+        <span>Portfolio</span>
+      </div>
+
       <h1>Coding challenges</h1>
       <p>Weekly tasks demonstrating hosting, charting, automation, and interactivity.</p>
     </section>
 
     <div class="rule"></div>
-    <nav class="section-nav" aria-label="Portfolio sections">
-  <a href="#cc1" class="section-pill">CC2</a>
-  <a href="#cc2" class="section-pill">CC1</a>
-  <!-- Add more as you progress -->
-  <!-- <a href="#cc2" class="section-pill">CC2</a> -->
-  <!-- <a href="#cc3" class="section-pill">CC3</a> -->
-</nav>
 
-   <section class="section" id="cc1">
+    <nav class="section-nav" aria-label="Portfolio sections">
+      <a href="#cc1" class="section-pill">CC1</a>
+      <!-- Add more as you progress -->
+      <!-- <a href="#cc2" class="section-pill">CC2</a> -->
+      <!-- <a href="#cc3" class="section-pill">CC3</a> -->
+    </nav>
+
+    <section class="section" id="cc1">
       <div class="meta">Coding Challenge 1</div>
       <h2>Hosting</h2>
       <p>Embedding two existing Vega-Lite charts into my GitHub Pages site using vegaEmbed.</p>
 
       <div class="chart-row">
-  <figure id="cc1_chart1"></figure>
-  <figure id="cc1_chart2"></figure>
-</div>
+        <figure id="cc1_chart1"></figure>
+        <figure id="cc1_chart2"></figure>
+      </div>
     </section>
   </main>
 
@@ -68,8 +70,8 @@
     const cc1_chart1_spec = "wk1_chart1.json";
     const cc1_chart2_spec = "wk1_chart2.json";
 
-    vegaEmbed("#cc1_chart1", cc1_chart1_spec);
-    vegaEmbed("#cc1_chart2", cc1_chart2_spec);
+    vegaEmbed("#cc1_chart1", cc1_chart1_spec).catch(console.error);
+    vegaEmbed("#cc1_chart2", cc1_chart2_spec).catch(console.error);
   </script>
 </body>
 </html>
