@@ -1,22 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
 
-  <title>About | Chingkhei Wangjam</title>
   <link rel="stylesheet" href="index.css?v=20">
+  <title>About | Chingkhei Wangjam</title>
 </head>
 
-<body class="project-page">
+<body class="about-page">
+  <div id="top"></div>
+
+  <!-- Top Navigation -->
   <header class="topbar">
     <div class="topbar-inner">
       <div class="brand">
-        <a href="#top"><span>Chingkhei</span> Wangjam</a>
+        <a href="index.html#top"><span>Chingkhei</span> Wangjam</a>
       </div>
       <nav class="nav">
         <a href="index.html#top">Home</a>
@@ -28,18 +31,17 @@
   </header>
 
   <main class="container">
-    <!-- Editorial hero -->
-    <section class="hero">
+    <section class="hero" style="padding-bottom: 28px;">
       <div class="meta">About</div>
       <h1>Profile</h1>
-      <p>Policy professional working at the intersection of analysis, implementation, and communication.</p>
+      <p>A short overview of my background and current focus.</p>
     </section>
 
     <div class="rule"></div>
 
-    <!-- Profile layout -->
+    <!--profile layout -->
     <section class="about-grid">
-      <!-- Left: image + quick facts -->
+      <!-- Aside -->
       <aside class="about-aside">
         <div class="about-photo">
           <img src="profile.jpg" alt="Portrait of Chingkhei Wangjam">
@@ -47,7 +49,7 @@
 
         <div class="about-facts">
           <div class="about-name">Chingkhei Wangjam</div>
-          <div class="about-role">MPP, LSE</div>
+          <div class="about-role">MPP, LSE · Public Policy</div>
 
           <div class="about-links">
             <a class="about-link" href="mailto:c.wangjam@lse.ac.uk">Email</a>
@@ -59,10 +61,11 @@
         </div>
       </aside>
 
-      <!-- Right: main narrative -->
-      <article class="about-body">
-        <div class="section-label">Summary</div>
-        <h2 class="about-heading">What I do</h2>
+      <!-- Main body -->
+      <div class="about-body">
+        <div class="section-label">Overview</div>
+        <h2 class="about-heading">About me</h2>
+
         <p class="about-paragraph">
           I am a public policy professional with six years of experience in education policy,
           capacity building, skill development, and vocational education. Adept at conducting
@@ -74,34 +77,45 @@
         <div class="about-split">
           <div class="about-block">
             <div class="section-label">Focus</div>
-            <h3 class="about-subheading">Areas of interest</h3>
+            <h3 class="about-subheading">What I work on</h3>
             <ul class="about-list">
-              <li>Education policy and implementation</li>
-              <li>Capacity Building</li>
-              <li>Skill development </li>
-              <li>Data-informed programme design</li>
-              <li>Visualisation for decision-making</li>
+              <li>Policy analytics and evaluation</li>
+              <li>Data visualisation for public decision-making</li>
+              <li>Reproducible workflows (R/Python + GitHub)</li>
             </ul>
           </div>
 
           <div class="about-block">
-            <div class="section-label">Toolkit</div>
-            <h3 class="about-subheading">Methods & tools</h3>
+            <div class="section-label">Tools</div>
+            <h3 class="about-subheading">Methods & stack</h3>
             <ul class="about-list">
-              <li>Quantitative & qualitative research</li>
-              <li>R, Python, reproducible workflows</li>
-              <li>Vega-Lite / Altair, web publishing</li>
-              <li>Clear, audience-first communication</li>
+              <li>Vega-Lite / Altair</li>
+              <li>R, Python, qualitative + quantitative methods</li>
+              <li>APIs, scraping, automation (where appropriate)</li>
             </ul>
           </div>
         </div>
 
         <div class="about-cta">
-          <a class="about-button" href="career.html">View career →</a>
-          <a class="about-button secondary" href="portfolio.html">View portfolio →</a>
+          <a class="about-button" href="portfolio.html">View portfolio</a>
+          <a class="about-button secondary" href="career.html">Career</a>
         </div>
-      </article>
+      </div>
     </section>
   </main>
+
+  <!-green footer (same site-wide) -->
+  <footer class="footer-bar">
+    <div class="footer-inner footer-center">
+      <div class="footer-title">Get in touch</div>
+      <div class="footer-right footer-links">
+        <a class="footer-link" href="mailto:c.wangjam@lse.ac.uk">c.wangjam@lse.ac.uk</a>
+        <span class="footer-sep">·</span>
+        <a class="footer-link" href="https://www.linkedin.com/in/chingkhei-wangjam-4a6358166/" target="_blank" rel="noopener">LinkedIn</a>
+        <span class="footer-sep">·</span>
+        <a class="footer-link" href="https://github.com/CKayWangjam" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
