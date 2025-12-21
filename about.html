@@ -9,13 +9,16 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
 
   <title>About | Chingkhei Wangjam</title>
-  <link rel="stylesheet" href="index.css?v=17">
+  <link rel="stylesheet" href="index.css?v=18">
 </head>
 
-<body class="project-page">
+<body>
+  <!-- Top navigation -->
   <header class="topbar">
     <div class="topbar-inner">
-      <div class="brand"><a href="index.html#top">Chingkhei Wangjam</a></div>
+      <div class="brand">
+        <a href="index.html#top">Chingkhei <span>Wangjam</span></a>
+      </div>
       <nav class="nav">
         <a href="index.html#top">Home</a>
         <a href="about.html" class="active">About</a>
@@ -30,15 +33,18 @@
     <section class="hero">
       <div class="meta">About</div>
       <h1>Profile</h1>
-      <p>Policy professional working at the intersection of analysis, implementation, and communication.</p>
+      <p>
+        Policy professional working at the intersection of analysis,
+        implementation, and communication.
+      </p>
     </section>
 
     <div class="rule"></div>
 
     <!-- Profile layout -->
     <section class="about-grid">
-      <!-- Left: image + quick facts -->
-      <aside class="about-aside">
+      <!-- Left: compact profile -->
+      <aside class="about-aside" style="max-width: 260px;">
         <div class="about-photo">
           <img src="profile.jpg" alt="Portrait of Chingkhei Wangjam">
         </div>
@@ -50,23 +56,28 @@
           <div class="about-links">
             <a class="about-link" href="mailto:c.wangjam@lse.ac.uk">Email</a>
             <span class="about-sep">·</span>
-            <a class="about-link" href="https://www.linkedin.com/in/chingkhei-wangjam-4a6358166/" target="_blank" rel="noopener">LinkedIn</a>
+            <a class="about-link"
+               href="https://www.linkedin.com/in/chingkhei-wangjam-4a6358166/"
+               target="_blank" rel="noopener">LinkedIn</a>
             <span class="about-sep">·</span>
-            <a class="about-link" href="https://github.com/CKayWangjam" target="_blank" rel="noopener">GitHub</a>
+            <a class="about-link"
+               href="https://github.com/CKayWangjam"
+               target="_blank" rel="noopener">GitHub</a>
           </div>
         </div>
       </aside>
 
-      <!-- Right: main narrative -->
+      <!-- Right: narrative -->
       <article class="about-body">
         <div class="section-label">Summary</div>
         <h2 class="about-heading">What I do</h2>
+
         <p class="about-paragraph">
-          I am a public policy professional with six years of experience in education policy,
-          capacity building, skill development, and vocational education. Adept at conducting
-          and translating policy research, data collection and analysis into end-user centric
-          models while optimizing scalability. Strong collaborator experienced in Microsoft
-          Office, R, Python and qualitative and quantitative research methods.
+          I am a public policy professional with six years of experience in education
+          policy, capacity building, skill development, and vocational education.
+          Adept at conducting and translating policy research, data collection, and
+          analysis into end-see-centric models while optimising scalability.
+          I work comfortably across qualitative and quantitative methods.
         </p>
 
         <div class="about-split">
@@ -100,5 +111,23 @@
       </article>
     </section>
   </main>
+
+  <!-- Footer -->
+  <footer class="footer-bar">
+    <div class="footer-inner">
+      <div class="footer-title">Get in touch</div>
+      <div>
+        <a class="footer-link" href="mailto:c.wangjam@lse.ac.uk">c.wangjam@lse.ac.uk</a>
+        <span class="footer-sep">·</span>
+        <a class="footer-link"
+           href="https://www.linkedin.com/in/chingkhei-wangjam-4a6358166/"
+           target="_blank" rel="noopener">LinkedIn</a>
+        <span class="footer-sep">·</span>
+        <a class="footer-link"
+           href="https://github.com/CKayWangjam"
+           target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
