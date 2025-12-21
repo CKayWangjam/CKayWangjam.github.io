@@ -1,27 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="index.css">
-  <title>About · Chingkhei Wangjam</title>
+  <title>About | Chingkhei Wangjam</title>
+  <link rel="stylesheet" href="index.css?v=17">
 </head>
 
-<body>
-
-  <!-- Top Navigation -->
+<body class="project-page">
   <header class="topbar">
     <div class="topbar-inner">
-      <div class="brand">
-        <a href="index.html#top"><span>Chingkhei</span> Wangjam</a>
-      </div>
+      <div class="brand"><a href="index.html#top">Chingkhei Wangjam</a></div>
       <nav class="nav">
-        <a href="index.html">Home</a>
+        <a href="index.html#top">Home</a>
         <a href="about.html" class="active">About</a>
         <a href="career.html">Career</a>
         <a href="index.html#contact">Contact</a>
@@ -29,12 +25,19 @@
     </div>
   </header>
 
-  <!-- Main content -->
   <main class="container">
+    <!-- Editorial hero -->
+    <section class="hero">
+      <div class="meta">About</div>
+      <h1>Profile</h1>
+      <p>Policy professional working at the intersection of analysis, implementation, and communication.</p>
+    </section>
 
+    <div class="rule"></div>
+
+    <!-- Profile layout -->
     <section class="about-grid">
-
-      <!-- LEFT: Profile column -->
+      <!-- Left: image + quick facts -->
       <aside class="about-aside">
         <div class="about-photo">
           <img src="profile.jpg" alt="Portrait of Chingkhei Wangjam">
@@ -42,7 +45,7 @@
 
         <div class="about-facts">
           <div class="about-name">Chingkhei Wangjam</div>
-          <div class="about-role">MPP · Public Policy · Data</div>
+          <div class="about-role">MPP, LSE</div>
 
           <div class="about-links">
             <a class="about-link" href="mailto:c.wangjam@lse.ac.uk">Email</a>
@@ -54,67 +57,48 @@
         </div>
       </aside>
 
-      <!-- RIGHT: About content -->
-      <section class="about-body">
-        <div class="section-label">About</div>
-        <h1 class="about-heading">Policy, data, and applied research</h1>
-
+      <!-- Right: main narrative -->
+      <article class="about-body">
+        <div class="section-label">Summary</div>
+        <h2 class="about-heading">What I do</h2>
         <p class="about-paragraph">
-          I am a public policy professional with six years of experience across education policy,
-          capacity building, skill development, and vocational education. My work focuses on
-          translating research and data into decision-ready insights for policymakers.
+          I am a public policy professional with six years of experience in education policy,
+          capacity building, skill development, and vocational education. Adept at conducting
+          and translating policy research, data collection and analysis into end-user centric
+          models while optimizing scalability. Strong collaborator experienced in Microsoft
+          Office, R, Python and qualitative and quantitative research methods.
         </p>
 
-        <p class="about-paragraph">
-          I am currently an MPP student at the London School of Economics, with interests in
-          policy analytics, data visualisation, and building reproducible analytical pipelines
-          for public sector decision-making.
-        </p>
-
-        <!-- Two-column detail blocks -->
         <div class="about-split">
           <div class="about-block">
-            <h2 class="about-subheading">What I work on</h2>
+            <div class="section-label">Focus</div>
+            <h3 class="about-subheading">Areas of interest</h3>
             <ul class="about-list">
-              <li>Policy research & evaluation</li>
-              <li>Data visualisation for decision-makers</li>
-              <li>Education and labour market policy</li>
-              <li>Scalable analytical workflows</li>
+              <li>Education policy and implementation</li>
+              <li>Skills development and vocational systems</li>
+              <li>Data-informed programme design</li>
+              <li>Visualisation for decision-making</li>
             </ul>
           </div>
 
           <div class="about-block">
-            <h2 class="about-subheading">Tools & methods</h2>
+            <div class="section-label">Toolkit</div>
+            <h3 class="about-subheading">Methods & tools</h3>
             <ul class="about-list">
-              <li>R, Python</li>
-              <li>Quantitative & qualitative methods</li>
-              <li>Automated charting pipelines</li>
-              <li>Reproducible research workflows</li>
+              <li>Quantitative & qualitative research</li>
+              <li>R, Python, reproducible workflows</li>
+              <li>Vega-Lite / Altair, web publishing</li>
+              <li>Clear, audience-first communication</li>
             </ul>
           </div>
         </div>
 
-        <!-- CTA -->
         <div class="about-cta">
-          <a class="about-button" href="career.html">Career</a>
-          <a class="about-button secondary" href="index.html#contact">Get in touch</a>
+          <a class="about-button" href="career.html">View career →</a>
+          <a class="about-button secondary" href="portfolio.html">View portfolio →</a>
         </div>
-      </section>
-
+      </article>
     </section>
   </main>
-
-  <!-- Footer -->
-  <footer class="footer-bar">
-    <div class="footer-inner">
-      <div class="footer-title">Get in touch</div>
-      <div>
-        <a class="footer-link" href="mailto:c.wangjam@lse.ac.uk">c.wangjam@lse.ac.uk</a>
-        <span class="footer-sep"> · </span>
-        <a class="footer-link" href="https://www.linkedin.com/" target="_blank">LinkedIn</a>
-      </div>
-    </div>
-  </footer>
-
 </body>
 </html>
