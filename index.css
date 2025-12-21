@@ -225,51 +225,6 @@ body:not(.portfolio-page):not(.project-page) .pill:nth-child(3){
   );
 }
 
-/* Intro (photo + bio) */
-.intro{
-  display: grid;
-  grid-template-columns: 240px 1fr;
-  gap: 28px;
-  align-items: center;
-  margin: 18px 0 6px;
-}
-
-.intro-photo img{
-  width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 18px;
-  object-fit: cover;
-  box-shadow:
-    inset 0 0 0 1px var(--line-invert),
-    0 18px 40px rgba(0,0,0,0.35);
-}
-
-.intro-bio h2{
-  font-family: "Playfair Display", serif;
-  font-weight: 500;
-  letter-spacing: 0.2px;
-  font-size: 26px;
-  margin-bottom: 8px;
-  color: var(--ink-invert);
-}
-
-.intro-role{
-  margin-top: 2px;
-  font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  font-weight: 500;
-  font-size: 13px;
-  letter-spacing: 0.9px;
-  text-transform: uppercase;
-  color: rgba(244,242,236,0.68);
-}
-
-.intro-bio p{
-  max-width: 70ch;
-  color: var(--muted-invert);
-  font-size: 15px;
-}
-
 /* Cards */
 .cards{
   display: grid;
@@ -277,10 +232,6 @@ body:not(.portfolio-page):not(.project-page) .pill:nth-child(3){
   gap: var(--space-md);
   max-width: 760px; /* editorial column width */
   margin: var(--space-md) auto 0;
-}
-body:not(.portfolio-page):not(.project-page) .cards{
-  grid-template-columns: 1fr;
-  max-width: 760px;  
 }
 .card{
   position: relative;
@@ -720,17 +671,6 @@ figure{
   .cards{
     margin-top: var(--space-sm);
   }
-}
-
-  .intro{
-    grid-template-columns: 1fr;
-    gap: 18px;
-  }
-
-  .intro-photo{
-    max-width: 260px;
-    margin: 0 auto;
-  }
 
   .chart-row{
     grid-template-columns: 1fr;
@@ -738,5 +678,13 @@ figure{
 
   .footer-inner{
     padding: 0 22px;
+  }
+
+  .about-grid{
+    grid-template-columns: 1fr;
+  }
+
+  .about-split{
+    grid-template-columns: 1fr;
   }
 }
