@@ -9,18 +9,138 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
 
   <title>Portfolio | Chingkhei Wangjam</title>
-<link rel="stylesheet" href="index.css?v=22">
+  <link rel="stylesheet" href="index.css?v=22">
 
   <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+
+  <!-- Page-only styles for the portfolio layout -->
+  <style>
+    /* Vertical container spacing */
+    .cc-stack{
+      display: grid;
+      gap: 26px; /* space between CC containers */
+      margin-top: 18px;
+    }
+
+    /* Each challenge container */
+    .cc-card{
+      background: rgba(255,255,255,0.74);
+      border-radius: 18px;
+      padding: 18px 18px;
+      box-shadow: inset 0 0 0 1px rgba(0,0,0,0.10);
+    }
+
+    .cc-head{
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 14px;
+    }
+
+    .cc-kicker{
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .cc-pill{
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 28px;
+      padding: 0 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      letter-spacing: 0.9px;
+      text-transform: uppercase;
+      background: rgba(0,0,0,0.06);
+      box-shadow: inset 0 0 0 1px rgba(0,0,0,0.10);
+      color: rgba(18,18,18,0.88);
+      white-space: nowrap;
+    }
+
+    .cc-title{
+      font-family: "Playfair Display", serif;
+      font-weight: 500;
+      font-size: 26px;
+      letter-spacing: 0.18px;
+      margin: 0;
+      color: rgba(18,18,18,0.98);
+    }
+
+    .cc-summary{
+      margin: 0 0 14px;
+      max-width: 95ch;
+      color: rgba(18,18,18,0.70);
+      line-height: 1.7;
+      font-size: 14px;
+    }
+
+    /* 2-up chart grid inside each CC */
+    .cc-grid{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .viz{
+      background: rgba(255,255,255,0.92);
+      border-radius: 16px;
+      padding: 14px 14px 16px;
+      box-shadow: inset 0 0 0 1px rgba(0,0,0,0.10);
+      overflow: hidden;
+    }
+
+    .viz h3{
+      margin: 0;
+      font-size: 13px;
+      letter-spacing: 0.9px;
+      text-transform: uppercase;
+      color: rgba(18,18,18,0.70);
+      font-weight: 600;
+    }
+
+    .viz p{
+      margin: 8px 0 12px;
+      font-size: 13px;
+      color: rgba(18,18,18,0.66);
+      line-height: 1.65;
+    }
+
+    /* Figure reset so Vega embeds flush */
+    .viz figure{
+      margin: 0;
+      padding: 0;
+      background: transparent;
+      box-shadow: none;
+      border-radius: 0;
+    }
+
+    /* Copyright */
+    .copyright{
+      margin-top: 26px;
+      padding: 18px 0 6px;
+      text-align: center;
+      color: rgba(18,18,18,0.55);
+      font-size: 13px;
+    }
+
+    /* Responsive: stack charts vertically on smaller screens */
+    @media (max-width: 980px){
+      .cc-grid{ grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 
 <body class="portfolio-page">
   <header class="topbar">
     <div class="topbar-inner">
       <div class="brand">
-       <a href="index.html#top"><span class="brand-accent">Chingkhei</span> Wangjam</a>
+        <a href="index.html#top"><span class="brand-accent">Chingkhei</span> Wangjam</a>
       </div>
       <nav class="nav">
         <a href="index.html#top">Home</a>
@@ -42,47 +162,328 @@
       </div>
 
       <h1>Weekly Coding Challenges</h1>
-      <p>A portfolio of weekly data visualisation challenges from PP434: Automated Data Visualisation for Policymaking, undertaken during the Master of Public Policy (MPP) at the London School of Economics and Political Science. These projects showcase the application of coding and design principles to translate policy-relevant datasets into clear, compelling visual stories using interactive maps, charts, and graphics..</p>
+      <p>
+        A portfolio of weekly data visualisation challenges from PP434: Automated Data Visualisation for Policymaking,
+        undertaken during the Master of Public Policy (MPP) at the London School of Economics and Political Science.
+        These projects showcase the application of coding and design principles to translate policy-relevant datasets into
+        clear, compelling visual stories using interactive maps, charts, and graphics.
+      </p>
     </section>
 
     <div class="rule"></div>
 
+    <!-- Optional quick nav -->
     <nav class="section-nav" aria-label="Portfolio sections">
       <a href="#cc1" class="section-pill">CC1</a>
       <a href="#cc2" class="section-pill">CC2</a>
-      <!-- Add more as you progress -->
-      <!-- <a href="#cc2" class="section-pill">CC2</a> -->
-      <!-- <a href="#cc3" class="section-pill">CC3</a> -->
+      <a href="#cc3" class="section-pill">CC3</a>
+      <a href="#cc4" class="section-pill">CC4</a>
+      <a href="#cc5" class="section-pill">CC5</a>
+      <a href="#cc6" class="section-pill">CC6</a>
+      <a href="#cc7" class="section-pill">CC7</a>
+      <a href="#cc8" class="section-pill">CC8</a>
+      <a href="#cc9" class="section-pill">CC9</a>
+      <a href="#cc10" class="section-pill">CC10</a>
     </nav>
 
-    <section class="section" id="cc1">
-      <div class="meta">Coding Challenge 1</div>
-      <h2>CC1</h2>
-      <p>Embedding two existing Vega-Lite charts into my GitHub Pages site using vegaEmbed.</p>
+    <!-- STACK of challenge containers -->
+    <section class="cc-stack">
 
-      <div class="chart-row">
-        <figure id="cc1_chart1"></figure>
-        <figure id="cc1_chart2"></figure>
-      </div>
-    </section>
-  </main>
-  <section class="section" id="cc2">
-      <div class="meta">Coding Challenge 2</div>
-      <h2>CC2</h2>
-      <p>Description of the charts and grpahs and the techniques and tools that I used to develop them.</p>
+      <!-- ===================== CC1 (wired) ===================== -->
+      <section class="cc-card" id="cc1">
+        <div class="cc-head">
+          <div class="cc-kicker">
+            <span class="cc-pill">CC1</span>
+            <h2 class="cc-title">Hosting + Embedding</h2>
+          </div>
+          <div class="meta">Coding Challenge 1</div>
+        </div>
 
-      <div class="chart-row">
-        <figure id="cc1_chart1"></figure>
-        <figure id="cc1_chart2"></figure>
-      </div>
+        <p class="cc-summary">
+          Embedding two Vega-Lite charts into my GitHub Pages site using <code>vegaEmbed</code>.
+        </p>
+
+        <div class="cc-grid">
+          <div class="viz">
+            <h3>Chart 1 — Replace title</h3>
+            <p>Short description of what this chart shows, why it matters, and the data source.</p>
+            <figure id="cc1_chart1"></figure>
+          </div>
+
+          <div class="viz">
+            <h3>Chart 2 — Replace title</h3>
+            <p>Short description of what this chart shows, why it matters, and the data source.</p>
+            <figure id="cc1_chart2"></figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== CC2 ===================== -->
+      <section class="cc-card" id="cc2">
+        <div class="cc-head">
+          <div class="cc-kicker">
+            <span class="cc-pill">CC2</span>
+            <h2 class="cc-title">Placeholder Title</h2>
+          </div>
+          <div class="meta">Coding Challenge 2</div>
+        </div>
+
+        <p class="cc-summary">Write a 1–2 sentence summary of what you built and what skill you practiced.</p>
+
+        <div class="cc-grid">
+          <div class="viz">
+            <h3>Chart/Map 1 — Title</h3>
+            <p>Description placeholder. Mention technique, dataset, and intended insight.</p>
+            <figure id="cc2_chart1"></figure>
+          </div>
+
+          <div class="viz">
+            <h3>Chart/Map 2 — Title</h3>
+            <p>Description placeholder. Mention technique, dataset, and intended insight.</p>
+            <figure id="cc2_chart2"></figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== CC3 ===================== -->
+      <section class="cc-card" id="cc3">
+        <div class="cc-head">
+          <div class="cc-kicker">
+            <span class="cc-pill">CC3</span>
+            <h2 class="cc-title">Placeholder Title</h2>
+          </div>
+          <div class="meta">Coding Challenge 3</div>
+        </div>
+
+        <p class="cc-summary">Write a 1–2 sentence summary of what you built and what skill you practiced.</p>
+
+        <div class="cc-grid">
+          <div class="viz">
+            <h3>Chart/Map 1 — Title</h3>
+            <p>Description placeholder.</p>
+            <figure id="cc3_chart1"></figure>
+          </div>
+
+          <div class="viz">
+            <h3>Chart/Map 2 — Title</h3>
+            <p>Description placeholder.</p>
+            <figure id="cc3_chart2"></figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== CC4 ===================== -->
+      <section class="cc-card" id="cc4">
+        <div class="cc-head">
+          <div class="cc-kicker">
+            <span class="cc-pill">CC4</span>
+            <h2 class="cc-title">Placeholder Title</h2>
+          </div>
+          <div class="meta">Coding Challenge 4</div>
+        </div>
+
+        <p class="cc-summary">Write a 1–2 sentence summary of what you built and what skill you practiced.</p>
+
+        <div class="cc-grid">
+          <div class="viz">
+            <h3>Chart/Map 1 — Title</h3>
+            <p>Description placeholder.</p>
+            <figure id="cc4_chart1"></figure>
+          </div>
+
+          <div class="viz">
+            <h3>Chart/Map 2 — Title</h3>
+            <p>Description placeholder.</p>
+            <figure id="cc4_chart2"></figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== CC5 ===================== -->
+      <section class="cc-card" id="cc5">
+        <div class="cc-head">
+          <div class="cc-kicker">
+            <span class="cc-pill">CC5</span>
+            <h2 class="cc-title">Placeholder Title</h2>
+          </div>
+          <div class="meta">Coding Challenge 5</div>
+        </div>
+
+        <p class="cc-summary">Write a 1–2 sentence summary of what you built and what skill you practiced.</p>
+
+        <div class="cc-grid">
+          <div class="viz">
+            <h3>Chart/Map 1 — Title</h3>
+            <p>Description placeholder.</p>
+            <figure id="cc5_chart1"></figure>
+          </div>
+
+          <div class="viz">
+            <h3>Chart/Map 2 — Title</h3>
+            <p>Description placeholder.</p>
+            <figure id="cc5_chart2"></figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== CC6 ===================== -->
+      <section class="cc-card" id="cc6">
+        <div class="cc-head">
+          <div class="cc-kicker">
+            <span class="cc-pill">CC6</span>
+            <h2 class="cc-title">Placeholder Title</h2>
+          </div>
+          <div class="meta">Coding Challenge 6</div>
+        </div>
+
+        <p class="cc-summary">Write a 1–2 sentence summary of what you built and what skill you practiced.</p>
+
+        <div class="cc-grid">
+          <div class="viz">
+            <h3>Chart/Map 1 — Title</h3>
+            <p>Description placeholder.</p>
+            <figure id="cc6_chart1"></figure>
+          </div>
+
+          <div class="viz">
+            <h3>Chart/Map 2 — Title</h3>
+            <p>Description placeholder.</p>
+            <figure id="cc6_chart2"></figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== CC7 ===================== -->
+      <section class="cc-card" id="cc7">
+        <div class="cc-head">
+          <div class="cc-kicker">
+            <span class="cc-pill">CC7</span>
+            <h2 class="cc-title">Placeholder Title</h2>
+          </div>
+          <div class="meta">Coding Challenge 7</div>
+        </div>
+
+        <p class="cc-summary">Write a 1–2 sentence summary of what you built and what skill you practiced.</p>
+
+        <div class="cc-grid">
+          <div class="viz">
+            <h3>Chart/Map 1 — Title</h3>
+            <p>Description placeholder.</p>
+            <figure id="cc7_chart1"></figure>
+          </div>
+
+          <div class="viz">
+            <h3>Chart/Map 2 — Title</h3>
+            <p>Description placeholder.</p>
+            <figure id="cc7_chart2"></figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== CC8 ===================== -->
+      <section class="cc-card" id="cc8">
+        <div class="cc-head">
+          <div class="cc-kicker">
+            <span class="cc-pill">CC8</span>
+            <h2 class="cc-title">Placeholder Title</h2>
+          </div>
+          <div class="meta">Coding Challenge 8</div>
+        </div>
+
+        <p class="cc-summary">Write a 1–2 sentence summary of what you built and what skill you practiced.</p>
+
+        <div class="cc-grid">
+          <div class="viz">
+            <h3>Chart/Map 1 — Title</h3>
+            <p>Description placeholder.</p>
+            <figure id="cc8_chart1"></figure>
+          </div>
+
+          <div class="viz">
+            <h3>Chart/Map 2 — Title</h3>
+            <p>Description placeholder.</p>
+            <figure id="cc8_chart2"></figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== CC9 ===================== -->
+      <section class="cc-card" id="cc9">
+        <div class="cc-head">
+          <div class="cc-kicker">
+            <span class="cc-pill">CC9</span>
+            <h2 class="cc-title">Placeholder Title</h2>
+          </div>
+          <div class="meta">Coding Challenge 9</div>
+        </div>
+
+        <p class="cc-summary">Write a 1–2 sentence summary of what you built and what skill you practiced.</p>
+
+        <div class="cc-grid">
+          <div class="viz">
+            <h3>Chart/Map 1 — Title</h3>
+            <p>Description placeholder.</p>
+            <figure id="cc9_chart1"></figure>
+          </div>
+
+          <div class="viz">
+            <h3>Chart/Map 2 — Title</h3>
+            <p>Description placeholder.</p>
+            <figure id="cc9_chart2"></figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== CC10 ===================== -->
+      <section class="cc-card" id="cc10">
+        <div class="cc-head">
+          <div class="cc-kicker">
+            <span class="cc-pill">CC10</span>
+            <h2 class="cc-title">Placeholder Title</h2>
+          </div>
+          <div class="meta">Coding Challenge 10</div>
+        </div>
+
+        <p class="cc-summary">Write a 1–2 sentence summary of what you built and what skill you practiced.</p>
+
+        <div class="cc-grid">
+          <div class="viz">
+            <h3>Chart/Map 1 — Title</h3>
+            <p>Description placeholder.</p>
+            <figure id="cc10_chart1"></figure>
+          </div>
+
+          <div class="viz">
+            <h3>Chart/Map 2 — Title</h3>
+            <p>Description placeholder.</p>
+            <figure id="cc10_chart2"></figure>
+          </div>
+        </div>
+      </section>
+
     </section>
+
+    <div class="copyright">© Chingkhei Wangjam</div>
   </main>
+
   <script>
-    const cc1_chart1_spec = "wk1_chart1.json";
-    const cc1_chart2_spec = "wk1_chart2.json";
+    // CC1 (LIVE)
+    vegaEmbed("#cc1_chart1", "wk1_chart1.json", { actions: false }).catch(console.error);
+    vegaEmbed("#cc1_chart2", "wk1_chart2.json", { actions: false }).catch(console.error);
 
-    vegaEmbed("#cc1_chart1", cc1_chart1_spec).catch(console.error);
-    vegaEmbed("#cc1_chart2", cc1_chart2_spec).catch(console.error);
+    // CC2–CC10 placeholders:
+    // When ready, create your JSON specs (e.g., wk2_chart1.json) and uncomment/add these lines.
+    //
+    // vegaEmbed("#cc2_chart1", "wk2_chart1.json", { actions: false }).catch(console.error);
+    // vegaEmbed("#cc2_chart2", "wk2_chart2.json", { actions: false }).catch(console.error);
+    //
+    // vegaEmbed("#cc3_chart1", "wk3_chart1.json", { actions: false }).catch(console.error);
+    // vegaEmbed("#cc3_chart2", "wk3_chart2.json", { actions: false }).catch(console.error);
+    //
+    // ...
+    //
+    // vegaEmbed("#cc10_chart1", "wk10_chart1.json", { actions: false }).catch(console.error);
+    // vegaEmbed("#cc10_chart2", "wk10_chart2.json", { actions: false }).catch(console.error);
   </script>
 </body>
 </html>
