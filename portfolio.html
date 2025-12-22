@@ -15,16 +15,14 @@
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 
-  <!-- This is the Page-only styles for the portfolio layout -->
+  <!-- Page-only styles for portfolio layout -->
   <style>
-    /* Vertical container spacing */
     .cc-stack{
       display: grid;
-      gap: 26px; /* space between CC containers */
+      gap: 26px;
       margin-top: 18px;
     }
 
-    /* Each CC container */
     .cc-card{
       background: rgba(255,255,255,0.74);
       border-radius: 18px;
@@ -80,7 +78,6 @@
       font-size: 14px;
     }
 
-    /* 2-up chart/map grid inside each CC */
     .cc-grid{
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -90,9 +87,11 @@
     .viz{
       background: rgba(255,255,255,0.92);
       border-radius: 16px;
-      padding: 14px 14px 16px;
+      padding: 14px 14px 14px;
       box-shadow: inset 0 0 0 1px rgba(0,0,0,0.10);
       overflow: hidden;
+      display: flex;
+      flex-direction: column;
     }
 
     .viz h3{
@@ -111,7 +110,7 @@
       line-height: 1.65;
     }
 
-    /* Figure reset so Vega embeds flush */
+    /* Vega container flush */
     .viz figure{
       margin: 0;
       padding: 0;
@@ -120,7 +119,21 @@
       border-radius: 0;
     }
 
-    /* Copyright */
+    /* NEW: Data source line (editable) */
+    .viz .source{
+      margin-top: 10px;
+      font-size: 12px;
+      line-height: 1.5;
+      color: rgba(18,18,18,0.55);
+      border-top: 1px solid rgba(0,0,0,0.08);
+      padding-top: 10px;
+    }
+
+    .viz .source strong{
+      font-weight: 600;
+      color: rgba(18,18,18,0.65);
+    }
+
     .copyright{
       margin-top: 26px;
       padding: 18px 0 6px;
@@ -129,7 +142,6 @@
       font-size: 13px;
     }
 
-    /* Responsive: stack charts vertically on smaller screens: for mobile viewing */
     @media (max-width: 980px){
       .cc-grid{ grid-template-columns: 1fr; }
     }
@@ -172,7 +184,6 @@
 
     <div class="rule"></div>
 
-
     <!-- STACK of CC containers -->
     <section class="cc-stack">
 
@@ -194,12 +205,14 @@
             <h3>Chart 1 — Replace title</h3>
             <p>Short description of what this chart shows, why it matters, and the data source.</p>
             <figure id="cc1_chart1"></figure>
+            <p class="source"><strong>Data source:</strong> Replace with your source (e.g., ONS; World Bank; Our World in Data).</p>
           </div>
 
           <div class="viz">
             <h3>Chart 2 — Replace title</h3>
             <p>Short description of what this chart shows, why it matters, and the data source.</p>
             <figure id="cc1_chart2"></figure>
+            <p class="source"><strong>Data source:</strong> Replace with your source (e.g., OECD; IMF; WHO).</p>
           </div>
         </div>
       </section>
@@ -220,12 +233,14 @@
             <h3>Chart/Map 1 — Title</h3>
             <p>Description placeholder. Mention technique, dataset, and intended insight.</p>
             <figure id="cc2_chart1"></figure>
+            <p class="source"><strong>Data source:</strong> Add source here.</p>
           </div>
 
           <div class="viz">
             <h3>Chart/Map 2 — Title</h3>
             <p>Description placeholder. Mention technique, dataset, and intended insight.</p>
             <figure id="cc2_chart2"></figure>
+            <p class="source"><strong>Data source:</strong> Add source here.</p>
           </div>
         </div>
       </section>
@@ -246,12 +261,14 @@
             <h3>Chart/Map 1 — Title</h3>
             <p>Description placeholder.</p>
             <figure id="cc3_chart1"></figure>
+            <p class="source"><strong>Data source:</strong> Add source here.</p>
           </div>
 
           <div class="viz">
             <h3>Chart/Map 2 — Title</h3>
             <p>Description placeholder.</p>
             <figure id="cc3_chart2"></figure>
+            <p class="source"><strong>Data source:</strong> Add source here.</p>
           </div>
         </div>
       </section>
@@ -272,12 +289,14 @@
             <h3>Chart/Map 1 — Title</h3>
             <p>Description placeholder.</p>
             <figure id="cc4_chart1"></figure>
+            <p class="source"><strong>Data source:</strong> Add source here.</p>
           </div>
 
           <div class="viz">
             <h3>Chart/Map 2 — Title</h3>
             <p>Description placeholder.</p>
             <figure id="cc4_chart2"></figure>
+            <p class="source"><strong>Data source:</strong> Add source here.</p>
           </div>
         </div>
       </section>
@@ -298,12 +317,14 @@
             <h3>Chart/Map 1 — Title</h3>
             <p>Description placeholder.</p>
             <figure id="cc5_chart1"></figure>
+            <p class="source"><strong>Data source:</strong> Add source here.</p>
           </div>
 
           <div class="viz">
             <h3>Chart/Map 2 — Title</h3>
             <p>Description placeholder.</p>
             <figure id="cc5_chart2"></figure>
+            <p class="source"><strong>Data source:</strong> Add source here.</p>
           </div>
         </div>
       </section>
@@ -324,12 +345,14 @@
             <h3>Chart/Map 1 — Title</h3>
             <p>Description placeholder.</p>
             <figure id="cc6_chart1"></figure>
+            <p class="source"><strong>Data source:</strong> Add source here.</p>
           </div>
 
           <div class="viz">
             <h3>Chart/Map 2 — Title</h3>
             <p>Description placeholder.</p>
             <figure id="cc6_chart2"></figure>
+            <p class="source"><strong>Data source:</strong> Add source here.</p>
           </div>
         </div>
       </section>
@@ -350,12 +373,14 @@
             <h3>Chart/Map 1 — Title</h3>
             <p>Description placeholder.</p>
             <figure id="cc7_chart1"></figure>
+            <p class="source"><strong>Data source:</strong> Add source here.</p>
           </div>
 
           <div class="viz">
             <h3>Chart/Map 2 — Title</h3>
             <p>Description placeholder.</p>
             <figure id="cc7_chart2"></figure>
+            <p class="source"><strong>Data source:</strong> Add source here.</p>
           </div>
         </div>
       </section>
@@ -376,12 +401,14 @@
             <h3>Chart/Map 1 — Title</h3>
             <p>Description placeholder.</p>
             <figure id="cc8_chart1"></figure>
+            <p class="source"><strong>Data source:</strong> Add source here.</p>
           </div>
 
           <div class="viz">
             <h3>Chart/Map 2 — Title</h3>
             <p>Description placeholder.</p>
             <figure id="cc8_chart2"></figure>
+            <p class="source"><strong>Data source:</strong> Add source here.</p>
           </div>
         </div>
       </section>
@@ -402,12 +429,14 @@
             <h3>Chart/Map 1 — Title</h3>
             <p>Description placeholder.</p>
             <figure id="cc9_chart1"></figure>
+            <p class="source"><strong>Data source:</strong> Add source here.</p>
           </div>
 
           <div class="viz">
             <h3>Chart/Map 2 — Title</h3>
             <p>Description placeholder.</p>
             <figure id="cc9_chart2"></figure>
+            <p class="source"><strong>Data source:</strong> Add source here.</p>
           </div>
         </div>
       </section>
@@ -428,12 +457,14 @@
             <h3>Chart/Map 1 — Title</h3>
             <p>Description placeholder.</p>
             <figure id="cc10_chart1"></figure>
+            <p class="source"><strong>Data source:</strong> Add source here.</p>
           </div>
 
           <div class="viz">
             <h3>Chart/Map 2 — Title</h3>
             <p>Description placeholder.</p>
             <figure id="cc10_chart2"></figure>
+            <p class="source"><strong>Data source:</strong> Add source here.</p>
           </div>
         </div>
       </section>
@@ -444,27 +475,52 @@
   </main>
 
   <script>
-    // CC1 (LIVE)
-    vegaEmbed("#cc1_chart1", "wk1_chart1.json", { actions: false }).catch(console.error);
-    vegaEmbed("#cc1_chart2", "wk1_chart2.json", { actions: false }).catch(console.error);
+    /* =========================================================
+       CHART REGISTRY 
+       ========================================================= */
 
-     // CC2 (LIVE)
-    vegaEmbed("#cc1_chart1", "wk1_chart1.json", { actions: false }).catch(console.error);
-    vegaEmbed("#cc1_chart2", "wk1_chart2.json", { actions: false }).catch(console.error);
+    const CHARTS = {
+      // CC1 (LIVE)
+      "cc1_chart1": { spec: "wk1_chart1.json", options: { actions: false } },
+      "cc1_chart2": { spec: "wk1_chart2.json", options: { actions: false } },
 
-    // CC2–CC10 placeholders:
-    // When ready, create your JSON specs (e.g., wk2_chart1.json) and uncomment/add these lines.
-    //
-    // vegaEmbed("#cc2_chart1", "wk2_chart1.json", { actions: false }).catch(console.error);
-    // vegaEmbed("#cc2_chart2", "wk2_chart2.json", { actions: false }).catch(console.error);
-    //
-    // vegaEmbed("#cc3_chart1", "wk3_chart1.json", { actions: false }).catch(console.error);
-    // vegaEmbed("#cc3_chart2", "wk3_chart2.json", { actions: false }).catch(console.error);
-    //
-    // ...
-    //
-    // vegaEmbed("#cc10_chart1", "wk10_chart1.json", { actions: false }).catch(console.error);
-    // vegaEmbed("#cc10_chart2", "wk10_chart2.json", { actions: false }).catch(console.error);
+      // CC2–CC10 
+      "cc2_chart1": { spec: null, options: { actions: false } },
+      "cc2_chart2": { spec: null, options: { actions: false } },
+
+      "cc3_chart1": { spec: null, options: { actions: false } },
+      "cc3_chart2": { spec: null, options: { actions: false } },
+
+      "cc4_chart1": { spec: null, options: { actions: false } },
+      "cc4_chart2": { spec: null, options: { actions: false } },
+
+      "cc5_chart1": { spec: null, options: { actions: false } },
+      "cc5_chart2": { spec: null, options: { actions: false } },
+
+      "cc6_chart1": { spec: null, options: { actions: false } },
+      "cc6_chart2": { spec: null, options: { actions: false } },
+
+      "cc7_chart1": { spec: null, options: { actions: false } },
+      "cc7_chart2": { spec: null, options: { actions: false } },
+
+      "cc8_chart1": { spec: null, options: { actions: false } },
+      "cc8_chart2": { spec: null, options: { actions: false } },
+
+      "cc9_chart1": { spec: null, options: { actions: false } },
+      "cc9_chart2": { spec: null, options: { actions: false } },
+
+      "cc10_chart1": { spec: null, options: { actions: false } },
+      "cc10_chart2": { spec: null, options: { actions: false } }
+    };
+
+    /* =========================================================
+       RENDERER 
+       ========================================================= */
+    for (const [id, cfg] of Object.entries(CHARTS)) {
+      if (cfg.spec) {
+        vegaEmbed(`#${id}`, cfg.spec, cfg.options).catch(console.error);
+      }
+    }
   </script>
 </body>
 </html>
