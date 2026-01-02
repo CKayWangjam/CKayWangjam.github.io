@@ -2,21 +2,27 @@
 <html lang="en">
 <head>
    <meta charset="utf-8">
+   <!-- I am adding this to make my site responsive on smartphones and tablet -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <!-- I am adding this to ensure it shows up in Google search results -->
 <meta name="description" content="Chingkhei Wangjam - Data visualisation portfolio for PP434 course at LSE">
    <meta name="author" content="Chingkhei Wangjam">
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="index.css">
+ 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+          <!-- Inter (body text) and Playfair Display (headings) - Looks good and minimal for now, will change later-->
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="index.css">
+           <!-- These are the Vega visualization libraries that  I am using to embed interactive charts -->
   <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
 <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
-<script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
   
   <title>Chingkhei Wangjam</title>
 </head>
+   
 <body>
   <div id="top"></div>
 
@@ -24,12 +30,13 @@
     <div class="topbar-inner">
       <div class="brand">
        <a href="index.html#top"><span class="brand-accent">Chingkhei</span> Wangjam</a>
+     
       </div>
       <nav class="nav">
         <a href="#top" class="active">Home</a>
-        <a href="about.html">About</a>
-        <a href="career.html">Career</a>
-        <a href="#contact">Contact</a>
+         <a href="about.html">About</a>
+         <a href="career.html">Career</a>
+          <a href="#contact">Contact</a>
       </nav>
     </div>
   </header>
@@ -52,12 +59,15 @@
    
 <section class="media-band">
       <div class="media-tile">
+          <!-- TODO: Update alt text to describe actual image -->
         <img src="media_1.jpg" alt="Work sample or context image">
       </div>
       <div class="media-tile">
+          <!-- TODO: Update alt text to describe actual image -->
         <img src="media_2.jpg" alt="Work sample or context image">
       </div>
       <div class="media-tile">
+         <!-- Reminder: muted required for autoplay to work in all browsers -->
         <video class="media-video" autoplay muted loop playsinline>
           <source src="reel.mp4" type="video/mp4">
         </video>
@@ -90,6 +100,7 @@
   </main>
 
 
+   
   <footer id="contact" class="footer-bar">
     <div class="footer-wrap">
       <div class="footer-title">Get in touch</div>
@@ -106,9 +117,14 @@
     </div>
   </footer>
 <script>
+   // Important: Highlight current page in navigation
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+
+
+   
     document.querySelectorAll('.nav a').forEach(link => {
-      if (link.getAttribute('href') === currentPage || 
+     // mportant: Match link href to current page (treat #top as homepage)
+       if (link.getAttribute('href') === currentPage || 
           (currentPage === 'index.html' && link.getAttribute('href') === '#top')) {
         link.classList.add('active');
       } else {
