@@ -1,0 +1,34 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "GDP growth",
+    "anchor": "start",
+    "subtitle": "Rate, % | Source: JSB (WB) through ECO API",
+    "fontSize": "16",
+    "subtitleFontSize": "11",
+    "color": "#000000",
+    "subtitleColor": "#000000"
+  },
+  "height": "300",
+  "width": "container",
+  "autosize": {"type": "fit", "contains": "padding", "resize": false},
+  "background": "#f1efef",
+  "view": {"fill": "#f1efef", "strokeOpacity": 0},
+  "data": {
+    "url": "https://api.economicsobservatory.com/jpn/grow?vega",
+    "format": {"type": "json"}
+  },
+  "mark": {"type": "line", "color": "#1d12b5", "strokeWidth": "2"},
+  "encoding": {
+    "x": {
+      "field": "date",
+      "type": "temporal",
+      "axis": {"title": "", "titleColor": "#122B39", "grid": false}
+    },
+    "y": {
+      "field": "value",
+      "type": "quantitative",
+      "axis": {"title": "", "titleColor": "#122B39", "grid": false}
+    }
+  }
+}
