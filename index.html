@@ -14,10 +14,6 @@
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="index.css">
-           <!-- These are the Vega visualization libraries that  I am using to embed interactive charts -->
-  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-<script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
-     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
   
   <title>Chingkhei Wangjam</title>
 </head>
@@ -29,7 +25,6 @@
     <div class="topbar-inner">
       <div class="brand">
        <a href="index.html#top"><span class="brand-accent">Chingkhei</span> Wangjam</a>
-     
       </div>
       <nav class="nav">
         <a href="portfolio.html">Portfolio</a>
@@ -40,23 +35,19 @@
     
  <main id="main" class="container">
     <section class="hero">
-      <div class="meta"> Public Policy · Data Visualisation </div>
-      <h1> Building automated, reproducible visualisations as a part of PP434-Automated Data Visualisation for Policymaking. .</h1>
-  
+      <div class="meta">Public Policy · Data Visualisation</div>
+      <h1>Building automated, reproducible visualisations as a part of PP434-Automated Data Visualisation for Policymaking.</h1>
 
       <div class="pill-row">
         <span class="pill">Candidate Number: 67307</span>
       </div>
     </section>
 
-   
-
     <div class="rule"></div>
 
-
-    <!-- Tried grid here but flexbox worked better for responsiveness and cleaner layout -->
+    <!-- Tried grid here but flexbox worked better for responsiveness -->
     <section class="cards">
-     <a class="card" href="portfolio/">
+     <a class="card" href="portfolio.html">
   <div class="badge"><span class="badge-dot"></span> Portfolio</div>
   <h2>Coding Challenges</h2>
   <p>
@@ -66,7 +57,7 @@
 
       <a class="card" href="project.html">
         <div class="badge"><span class="badge-dot"></span> Project</div>
-        <h2> Project</h2>
+        <h2>Project</h2>
         <p>
           A focused research project with data,
           analysis, and policy-relevant conclusions.
@@ -75,8 +66,6 @@
     </section>
   </main>
 
-
-   
  <footer id="contact" class="footer-bar">
   <div class="footer-inner footer-center">
     <div class="footer-title">Get in touch</div>
@@ -90,16 +79,12 @@
   </div>
 </footer>
 
-<script src="theme-toggle.js"></script>
-
 <script>
-   // Important: Highlight current page in navigation
+   // Highlight current page in navigation
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-
-
-   
+    
     document.querySelectorAll('.nav a').forEach(link => {
-     // mportant: Match link href to current page (treat #top as homepage)
+       // Match link href to current page
        if (link.getAttribute('href') === currentPage || 
           (currentPage === 'index.html' && link.getAttribute('href') === '#top')) {
         link.classList.add('active');
