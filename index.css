@@ -519,3 +519,97 @@ figure{
   .nav{ gap: 10px; }
   .nav a{ padding: 10px 8px 12px; }
 }
+/* Theme toggle button */
+.theme-toggle {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  margin-left: 1rem;
+  border-radius: 50%;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.1);
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.theme-toggle:focus {
+  outline: 2px solid var(--accent-color, #0066cc);
+  outline-offset: 2px;
+}
+
+/* Dark mode styles */
+body {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Default light mode colors (if not already defined) */
+:root {
+  --bg-color: #ffffff;
+  --text-color: #1a1a1a;
+  --secondary-text: #666666;
+  --border-color: #e0e0e0;
+  --card-bg: #ffffff;
+  --accent-color: #0066cc;
+}
+
+/* Dark mode colors */
+body.dark-mode {
+  --bg-color: #1a1a1a;
+  --text-color: #f5f5f5;
+  --secondary-text: #b0b0b0;
+  --border-color: #333333;
+  --card-bg: #252525;
+  --accent-color: #4d9fff;
+}
+
+/* Apply colors to elements */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+.card,
+.about-aside,
+.footer-bar {
+  background-color: var(--card-bg);
+  border-color: var(--border-color);
+}
+
+.meta,
+.section-label,
+.about-role {
+  color: var(--secondary-text);
+}
+
+.rule {
+  background-color: var(--border-color);
+}
+
+a {
+  color: var(--text-color);
+}
+
+.brand-accent,
+a:hover {
+  color: var(--accent-color);
+}
+
+/* Dark mode toggle icon change */
+body.dark-mode .theme-toggle .theme-icon::after {
+  content: '☀️';
+}
+
+.theme-toggle .theme-icon::after {
+  content: '🌙';
+}
+
+body.dark-mode .theme-toggle:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
