@@ -184,7 +184,7 @@
 
     <div class="rule"></div>
 
-    <!-- STACK of CC containers -->
+
     <section class="cc-stack">
 
       <!-- ===================== CC1  ===================== -->
@@ -226,21 +226,25 @@
           </div>
         </div>
 
-        <p class="cc-summary">Write a 1–2 sentence summary of what you built and what skill you practiced.</p>
+        
 
         <div class="cc-grid">
           <div class="viz">
-            <h3>Chart/Map 1 — Title</h3>
-            <p>Description placeholder. Mention technique, dataset, and intended insight.</p>
+            <h3>Japan's Deflationary Spiral: CPI changes from 1960 to 2020</h3>
+            <p>This chart shows Japan's annual inflation rate (CPI) from 1960 to 2020. The sudden spike exceeding 
+              20% in 1970s reflects the impact of the 1973 oil shock on Japan's heavily import-dependent economy. 
+              After this, it declined sharply and has remained remarkably low since 1990.</p>
             <figure id="cc2_chart1"></figure>
-            <p class="source"><strong>Data source:</strong> Add source here.</p>
+            <p class="source"><strong>Data source:</strong> https://www.economicsobservatory.com/</p>
           </div>
 
           <div class="viz">
-            <h3>Chart/Map 2 — Title</h3>
-            <p>Description placeholder. Mention technique, dataset, and intended insight.</p>
+            <h3>Japan's GDP Growth Trajectory 1960-2020</h3>
+            <p>This chart shows Japan's GDP growth rate from 1960 to 2020, revealing high growth during the post war
+               1960s-70s economic boom, followed by declining growth rates and a sharp contraction during the 2008 
+               financial crisis, with persistently low growth in recent decades.</p>
             <figure id="cc2_chart2"></figure>
-            <p class="source"><strong>Data source:</strong> Add source here.</p>
+            <p class="source"><strong>Data source:</strong>https://www.economicsobservatory.com/</p>
           </div>
         </div>
       </section>
@@ -475,18 +479,17 @@
   </main>
 
   <script>
-    /* =========================================================
-       CHART REGISTRY 
-       ========================================================= */
+    
+
+
 
     const CHARTS = {
-      // CC1 (LIVE)
+      
       "cc1_chart1": { spec: "../wk1_chart1.json", options: { actions: true } },
       "cc1_chart2": { spec: "../wk1_chart2.json", options: { actions: true } },
-
-      // CC2–CC10 
-      "cc2_chart1": { spec: null, options: { actions: true } },
-      "cc2_chart2": { spec: null, options: { actions: true } },
+     
+      "cc2_chart1": { spec: "../CC2 Inflation trends in Japan.json", options: { actions: true } },
+      "cc2_chart2": { spec: "../CC2 Growth rate Japan.json", options: { actions: true } },
 
       "cc3_chart1": { spec: null, options: { actions: true } },
       "cc3_chart2": { spec: null, options: { actions: true} },
