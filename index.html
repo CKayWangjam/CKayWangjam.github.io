@@ -38,6 +38,9 @@
          <a href="career.html">Career</a>
           <a href="#contact">Contact</a>
       </nav>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+        <span class="theme-icon"></span>
+      </button>
     </div>
   </header>
     
@@ -96,6 +99,9 @@
     </div>
   </div>
 </footer>
+
+<script src="theme-toggle.js"></script>
+
 <script>
    // Important: Highlight current page in navigation
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
