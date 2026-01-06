@@ -1,12 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "Quadrant scatter: Skilled vs Placement rate with brush selection.",
+  "description": "Quadrant scatter: Skilled vs Placement rate with interval selection (v5 params).",
   "data": {"url": "cc9_pmkvy_tidy.json"},
-
-  "transform": [
-    {"filter": "datum.fy == fySel"},
-    {"filter": "datum.placement_rate != null"}
-  ],
 
   "params": [
     {
@@ -20,12 +15,14 @@
     }
   ],
 
+  "transform": [
+    {"filter": "datum.fy == fySel"},
+    {"filter": "datum.placement_rate != null"}
+  ],
+
   "vconcat": [
     {
-      "title": "Skilled vs Placement rate (brush to select; medians form quadrants)",
-      "selection": {
-        "sel": {"type": "interval"}
-      },
+      "title": "Skilled vs Placement rate (drag to select; medians form quadrants)",
       "transform": [
         {
           "joinaggregate": [
@@ -36,6 +33,12 @@
       ],
       "layer": [
         {
+          "params": [
+            {
+              "name": "selBox",
+              "select": {"type": "interval"}
+            }
+          ],
           "mark": {"type": "point", "filled": true, "size": 70},
           "encoding": {
             "x": {"field": "skilled", "type": "quantitative", "title": "Candidates skilled"},
@@ -47,18 +50,19 @@
               {"field": "placement_rate", "type": "quantitative", "format": ".1%"}
             ],
             "opacity": {
-              "condition": {"selection": "sel", "value": 1},
+              "condition": {"param": "selBox", "value": 1},
               "value": 0.25
             }
           }
         },
-        {"mark": "rule", "encoding": {"x": {"field": "med_skilled", "type": "quantitative"}}},
-        {"mark": "rule", "encoding": {"y": {"field": "med_rate", "type": "quantitative"}}}
+        {"mark": {"type": "rule"}, "encoding": {"x": {"field": "med_skilled", "type": "quantitative"}}},
+        {"mark": {"type": "rule"}, "encoding": {"y": {"field": "med_rate", "type": "quantitative"}}}
       ]
     },
+
     {
       "title": "Selected States/UTs",
-      "transform": [{"filter": {"selection": "sel"}}],
+      "transform": [{"filter": {"param": "selBox"}}],
       "mark": "bar",
       "encoding": {
         "y": {"field": "state", "type": "nominal", "sort": "-x", "title": null},
