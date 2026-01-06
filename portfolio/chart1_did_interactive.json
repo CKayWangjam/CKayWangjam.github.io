@@ -1,0 +1,273 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "PMKVY Placement Rates: Difference-in-Differences Analysis",
+    "subtitle": "Comparing Gujarat (advanced) vs Manipur (peripheral) - Real Government Data (PIB Dec 2025)",
+    "fontSize": 16,
+    "fontWeight": "bold",
+    "subtitleFontSize": 12,
+    "subtitleColor": "#666"
+  },
+  "width": 800,
+  "height": 450,
+  "data": {
+    "values": [
+      {
+        "State": "Gujarat",
+        "Year": 2020,
+        "Fiscal_Year": "FY 2020-21",
+        "Placement_Rate": 22.5,
+        "Trained": 48489,
+        "Placed": 10911,
+        "Phase": "PMKVY 3.0",
+        "State_Type": "Advanced Industrial"
+      },
+      {
+        "State": "Gujarat",
+        "Year": 2021,
+        "Fiscal_Year": "FY 2021-22",
+        "Placement_Rate": 5.9,
+        "Trained": 35001,
+        "Placed": 2073,
+        "Phase": "PMKVY 3.0",
+        "State_Type": "Advanced Industrial"
+      },
+      {
+        "State": "Manipur",
+        "Year": 2020,
+        "Fiscal_Year": "FY 2020-21",
+        "Placement_Rate": 13.5,
+        "Trained": 34540,
+        "Placed": 4661,
+        "Phase": "PMKVY 3.0",
+        "State_Type": "Peripheral Northeast"
+      },
+      {
+        "State": "Manipur",
+        "Year": 2021,
+        "Fiscal_Year": "FY 2021-22",
+        "Placement_Rate": 47.7,
+        "Trained": 6424,
+        "Placed": 3064,
+        "Phase": "PMKVY 3.0",
+        "State_Type": "Peripheral Northeast"
+      }
+    ]
+  },
+  "params": [
+    {
+      "name": "hover",
+      "select": {
+        "type": "point",
+        "fields": ["State"],
+        "on": "mouseover"
+      }
+    }
+  ],
+  "hconcat": [
+    {
+      "width": 380,
+      "height": 400,
+      "title": {
+        "text": "Placement Rate Trends",
+        "fontSize": 13,
+        "fontWeight": "bold"
+      },
+      "layer": [
+        {
+          "mark": {
+            "type": "line",
+            "strokeWidth": 4,
+            "point": {
+              "size": 150,
+              "filled": true
+            }
+          },
+          "encoding": {
+            "x": {
+              "field": "Year",
+              "type": "ordinal",
+              "axis": {
+                "labelAngle": 0,
+                "labelFontSize": 12,
+                "titleFontSize": 13,
+                "titleFontWeight": "bold",
+                "title": "Year"
+              }
+            },
+            "y": {
+              "field": "Placement_Rate",
+              "type": "quantitative",
+              "scale": {"domain": [0, 50]},
+              "axis": {
+                "labelFontSize": 12,
+                "titleFontSize": 13,
+                "titleFontWeight": "bold",
+                "title": "Placement Rate (%)"
+              }
+            },
+            "color": {
+              "field": "State",
+              "type": "nominal",
+              "scale": {
+                "domain": ["Gujarat", "Manipur"],
+                "range": ["#E74C3C", "#3498DB"]
+              },
+              "legend": {
+                "title": "State",
+                "titleFontSize": 12,
+                "titleFontWeight": "bold",
+                "labelFontSize": 11,
+                "orient": "top-left",
+                "offset": 10
+              }
+            },
+            "opacity": {
+              "condition": {
+                "param": "hover",
+                "value": 1
+              },
+              "value": 0.4
+            },
+            "tooltip": [
+              {"field": "State", "type": "nominal", "title": "State"},
+              {"field": "Fiscal_Year", "type": "nominal", "title": "Fiscal Year"},
+              {"field": "Placement_Rate", "type": "quantitative", "format": ".1f", "title": "Placement Rate (%)"},
+              {"field": "Trained", "type": "quantitative", "format": ",", "title": "Candidates Trained"},
+              {"field": "Placed", "type": "quantitative", "format": ",", "title": "Candidates Placed"}
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "width": 380,
+      "height": 400,
+      "title": {
+        "text": "DiD Effect Visualization",
+        "fontSize": 13,
+        "fontWeight": "bold"
+      },
+      "transform": [
+        {
+          "aggregate": [
+            {"op": "mean", "field": "Placement_Rate", "as": "Avg_Rate"}
+          ],
+          "groupby": ["State", "Year", "Fiscal_Year"]
+        }
+      ],
+      "layer": [
+        {
+          "mark": {
+            "type": "line",
+            "strokeWidth": 5,
+            "point": {
+              "size": 200,
+              "filled": true
+            }
+          },
+          "encoding": {
+            "x": {
+              "field": "Fiscal_Year",
+              "type": "ordinal",
+              "axis": {
+                "labelAngle": -15,
+                "labelFontSize": 12,
+                "titleFontSize": 13,
+                "titleFontWeight": "bold",
+                "title": "Fiscal Year"
+              }
+            },
+            "y": {
+              "field": "Avg_Rate",
+              "type": "quantitative",
+              "scale": {"domain": [0, 50]},
+              "axis": {
+                "labelFontSize": 12,
+                "titleFontSize": 13,
+                "titleFontWeight": "bold",
+                "title": "Placement Rate (%)"
+              }
+            },
+            "color": {
+              "field": "State",
+              "type": "nominal",
+              "scale": {
+                "domain": ["Gujarat", "Manipur"],
+                "range": ["#E74C3C", "#3498DB"]
+              },
+              "legend": null
+            },
+            "opacity": {
+              "condition": {
+                "param": "hover",
+                "value": 1
+              },
+              "value": 0.4
+            },
+            "tooltip": [
+              {"field": "State", "type": "nominal"},
+              {"field": "Fiscal_Year", "type": "nominal"},
+              {"field": "Avg_Rate", "type": "quantitative", "format": ".1f", "title": "Placement Rate (%)"}
+            ]
+          }
+        },
+        {
+          "mark": {
+            "type": "text",
+            "fontSize": 14,
+            "fontWeight": "bold",
+            "dy": -10
+          },
+          "encoding": {
+            "x": {"field": "Fiscal_Year", "type": "ordinal"},
+            "y": {"field": "Avg_Rate", "type": "quantitative"},
+            "text": {"field": "Avg_Rate", "type": "quantitative", "format": ".1f"},
+            "color": {
+              "field": "State",
+              "type": "nominal",
+              "scale": {
+                "domain": ["Gujarat", "Manipur"],
+                "range": ["#E74C3C", "#3498DB"]
+              },
+              "legend": null
+            }
+          }
+        },
+        {
+          "mark": {
+            "type": "text",
+            "align": "center",
+            "baseline": "middle",
+            "fontSize": 13,
+            "fontWeight": "bold",
+            "dy": 180
+          },
+          "encoding": {
+            "x": {"value": 190},
+            "y": {"value": 100},
+            "text": {"value": "DiD Effect: -50.8 pp"},
+            "color": {"value": "#000"}
+          }
+        },
+        {
+          "mark": {
+            "type": "rect",
+            "opacity": 0.15,
+            "color": "gold"
+          },
+          "encoding": {
+            "x": {"value": 140},
+            "x2": {"value": 240},
+            "y": {"value": 300},
+            "y2": {"value": 340}
+          }
+        }
+      ]
+    }
+  ],
+  "config": {
+    "view": {"stroke": null},
+    "axis": {"grid": true, "gridOpacity": 0.3}
+  }
+}

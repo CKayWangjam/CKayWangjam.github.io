@@ -1,0 +1,293 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Machine Learning: Predicting PMKVY Placement Rates",
+    "subtitle": "Linear Regression analysis using state economic and educational indicators",
+    "fontSize": 16,
+    "fontWeight": "bold",
+    "subtitleFontSize": 12,
+    "subtitleColor": "#666"
+  },
+  "data": {
+    "values": [
+      {
+        "State": "Gujarat",
+        "Literacy_Rate": 79.3,
+        "GDP_Per_Capita": 285,
+        "Industrial_Share": 42.5,
+        "Youth_Unemployment": 10.8,
+        "Formal_Skill_Rate": 6.8,
+        "Actual_Placement": 14.2,
+        "Predicted_Placement": 13.8
+      },
+      {
+        "State": "Manipur",
+        "Literacy_Rate": 79.8,
+        "GDP_Per_Capita": 98,
+        "Industrial_Share": 18.2,
+        "Youth_Unemployment": 7.5,
+        "Formal_Skill_Rate": 3.2,
+        "Actual_Placement": 30.6,
+        "Predicted_Placement": 28.2
+      },
+      {
+        "State": "Maharashtra",
+        "Literacy_Rate": 82.9,
+        "GDP_Per_Capita": 312,
+        "Industrial_Share": 35.8,
+        "Youth_Unemployment": 11.2,
+        "Formal_Skill_Rate": 7.5,
+        "Actual_Placement": 11.9,
+        "Predicted_Placement": 12.5
+      },
+      {
+        "State": "Tamil Nadu",
+        "Literacy_Rate": 80.3,
+        "GDP_Per_Capita": 290,
+        "Industrial_Share": 38.5,
+        "Youth_Unemployment": 10.5,
+        "Formal_Skill_Rate": 8.1,
+        "Actual_Placement": 10.8,
+        "Predicted_Placement": 11.2
+      },
+      {
+        "State": "Uttar Pradesh",
+        "Literacy_Rate": 69.7,
+        "GDP_Per_Capita": 89,
+        "Industrial_Share": 24.2,
+        "Youth_Unemployment": 12.8,
+        "Formal_Skill_Rate": 3.8,
+        "Actual_Placement": 18.9,
+        "Predicted_Placement": 19.5
+      }
+    ]
+  },
+  "params": [
+    {
+      "name": "stateSelect",
+      "select": {
+        "type": "point",
+        "fields": ["State"],
+        "on": "mouseover"
+      }
+    }
+  ],
+  "vconcat": [
+    {
+      "hconcat": [
+        {
+          "width": 380,
+          "height": 350,
+          "title": {
+            "text": "Actual vs Predicted Placement Rates",
+            "fontSize": 13,
+            "fontWeight": "bold"
+          },
+          "layer": [
+            {
+              "mark": {
+                "type": "point",
+                "filled": true,
+                "size": 200,
+                "stroke": "black",
+                "strokeWidth": 1.5
+              },
+              "encoding": {
+                "x": {
+                  "field": "Actual_Placement",
+                  "type": "quantitative",
+                  "scale": {"domain": [0, 35]},
+                  "axis": {
+                    "title": "Actual Placement Rate (%)",
+                    "titleFontSize": 12,
+                    "titleFontWeight": "bold",
+                    "labelFontSize": 11
+                  }
+                },
+                "y": {
+                  "field": "Predicted_Placement",
+                  "type": "quantitative",
+                  "scale": {"domain": [0, 35]},
+                  "axis": {
+                    "title": "Predicted Placement Rate (%)",
+                    "titleFontSize": 12,
+                    "titleFontWeight": "bold",
+                    "labelFontSize": 11
+                  }
+                },
+                "color": {
+                  "field": "State",
+                  "type": "nominal",
+                  "scale": {
+                    "domain": ["Gujarat", "Manipur", "Maharashtra", "Tamil Nadu", "Uttar Pradesh"],
+                    "range": ["#E74C3C", "#3498DB", "#2ECC71", "#F39C12", "#9B59B6"]
+                  },
+                  "legend": {
+                    "title": "State",
+                    "titleFontSize": 12,
+                    "labelFontSize": 11,
+                    "orient": "top-right"
+                  }
+                },
+                "opacity": {
+                  "condition": {
+                    "param": "stateSelect",
+                    "value": 1
+                  },
+                  "value": 0.5
+                },
+                "tooltip": [
+                  {"field": "State", "type": "nominal"},
+                  {"field": "Actual_Placement", "type": "quantitative", "format": ".1f", "title": "Actual (%)"},
+                  {"field": "Predicted_Placement", "type": "quantitative", "format": ".1f", "title": "Predicted (%)"},
+                  {"field": "Literacy_Rate", "type": "quantitative", "format": ".1f", "title": "Literacy Rate (%)"},
+                  {"field": "GDP_Per_Capita", "type": "quantitative", "title": "GDP per capita (₹000)"}
+                ]
+              }
+            },
+            {
+              "mark": {
+                "type": "line",
+                "strokeDash": [5, 5],
+                "strokeWidth": 2,
+                "color": "black"
+              },
+              "encoding": {
+                "x": {
+                  "datum": 0,
+                  "type": "quantitative"
+                },
+                "y": {
+                  "datum": 0,
+                  "type": "quantitative"
+                },
+                "x2": {"datum": 35},
+                "y2": {"datum": 35}
+              }
+            },
+            {
+              "mark": {
+                "type": "text",
+                "align": "left",
+                "dx": 5,
+                "dy": -5,
+                "fontSize": 11,
+                "fontWeight": "bold"
+              },
+              "encoding": {
+                "x": {"field": "Actual_Placement", "type": "quantitative"},
+                "y": {"field": "Predicted_Placement", "type": "quantitative"},
+                "text": {"field": "State", "type": "nominal"},
+                "color": {"field": "State", "type": "nominal", "legend": null},
+                "opacity": {
+                  "condition": {
+                    "param": "stateSelect",
+                    "value": 1
+                  },
+                  "value": 0
+                }
+              }
+            }
+          ]
+        },
+        {
+          "width": 380,
+          "height": 350,
+          "title": {
+            "text": "Feature Importance (Coefficients)",
+            "fontSize": 13,
+            "fontWeight": "bold"
+          },
+          "data": {
+            "values": [
+              {"Feature": "Formal Skill Rate", "Coefficient": 0.45, "Impact": "Positive"},
+              {"Feature": "Literacy Rate", "Coefficient": 0.38, "Impact": "Positive"},
+              {"Feature": "Industrial Share", "Coefficient": -0.15, "Impact": "Negative"},
+              {"Feature": "Youth Unemployment", "Coefficient": -0.22, "Impact": "Negative"},
+              {"Feature": "GDP Per Capita", "Coefficient": -0.08, "Impact": "Negative"}
+            ]
+          },
+          "layer": [
+            {
+              "mark": {
+                "type": "bar",
+                "opacity": 0.8
+              },
+              "encoding": {
+                "y": {
+                  "field": "Feature",
+                  "type": "nominal",
+                  "sort": {"field": "Coefficient", "order": "descending"},
+                  "axis": {
+                    "labelFontSize": 11,
+                    "titleFontSize": 12,
+                    "title": null
+                  }
+                },
+                "x": {
+                  "field": "Coefficient",
+                  "type": "quantitative",
+                  "scale": {"domain": [-0.5, 0.5]},
+                  "axis": {
+                    "title": "Standardized Coefficient",
+                    "titleFontSize": 12,
+                    "titleFontWeight": "bold",
+                    "labelFontSize": 11
+                  }
+                },
+                "color": {
+                  "field": "Impact",
+                  "type": "nominal",
+                  "scale": {
+                    "domain": ["Positive", "Negative"],
+                    "range": ["#27AE60", "#C0392B"]
+                  },
+                  "legend": {
+                    "title": "Impact on Placement",
+                    "titleFontSize": 11,
+                    "labelFontSize": 10,
+                    "orient": "top"
+                  }
+                },
+                "tooltip": [
+                  {"field": "Feature", "type": "nominal"},
+                  {"field": "Coefficient", "type": "quantitative", "format": ".3f"},
+                  {"field": "Impact", "type": "nominal"}
+                ]
+              }
+            },
+            {
+              "mark": {
+                "type": "rule",
+                "strokeWidth": 2,
+                "color": "black"
+              },
+              "encoding": {
+                "x": {"datum": 0}
+              }
+            },
+            {
+              "mark": {
+                "type": "text",
+                "align": "left",
+                "dx": 5,
+                "fontSize": 11,
+                "fontWeight": "bold"
+              },
+              "encoding": {
+                "y": {"field": "Feature", "type": "nominal", "sort": {"field": "Coefficient", "order": "descending"}},
+                "x": {"field": "Coefficient", "type": "quantitative"},
+                "text": {"field": "Coefficient", "type": "quantitative", "format": ".3f"},
+                "color": {"field": "Impact", "type": "nominal", "legend": null}
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "config": {
+    "view": {"stroke": null},
+    "axis": {"grid": true, "gridOpacity": 0.3}
+  }
+}
