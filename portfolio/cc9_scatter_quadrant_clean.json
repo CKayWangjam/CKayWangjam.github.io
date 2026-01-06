@@ -1,0 +1,80 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Clean quadrant scatter: Skilled vs Placement rate (log x-axis), with year selector and optional labels.",
+  "width": "container",
+  "height": 460,
+  "data": {"url": "cc9_pmkvy_tidy.json"},
+
+  "params": [
+    {
+      "name": "fySel",
+      "value": "FY-20-21",
+      "bind": {
+        "input": "select",
+        "options": ["FY-20-21", "FY-21-22"],
+        "name": "Year: "
+      }
+    },
+    {
+      "name": "labelTop",
+      "value": true,
+      "bind": { "input": "checkbox", "name": "Label top performers" }
+    }
+  ],
+
+  "transform": [
+    {"filter": "datum.fy == fySel"},
+    {"filter": "datum.skilled != null && datum.skilled > 0"},
+    {"filter": "datum.placement_rate != null"},
+    {
+      "joinaggregate": [
+        {"op": "median", "field": "skilled", "as": "med_skilled"},
+        {"op": "median", "field": "placement_rate", "as": "med_rate"}
+      ]
+    },
+    {
+      "window": [{"op": "rank", "as": "rank_rate"}],
+      "sort": [{"field": "placement_rate", "order": "descending"}]
+    },
+    {
+      "calculate": "labelTop && datum.rank_rate <= 10 ? datum.state : ''",
+      "as": "label"
+    }
+  ],
+
+  "layer": [
+    {
+      "mark": {"type": "point", "filled": true, "size": 70},
+      "encoding": {
+        "x": {
+          "field": "skilled",
+          "type": "quantitative",
+          "title": "Candidates skilled (log scale)",
+          "scale": {"type": "log"}
+        },
+        "y": {
+          "field": "placement_rate",
+          "type": "quantitative",
+          "title": "Placement rate",
+          "axis": {"format": ".0%"}
+        },
+        "tooltip": [
+          {"field": "state", "type": "nominal", "title": "State/UT"},
+          {"field": "skilled", "type": "quantitative", "format": ","},
+          {"field": "placed", "type": "quantitative", "format": ","},
+          {"field": "placement_rate", "type": "quantitative", "format": ".1%"}
+        ]
+      }
+    },
+    {"mark": {"type": "rule"}, "encoding": {"x": {"field": "med_skilled", "type": "quantitative"}}},
+    {"mark": {"type": "rule"}, "encoding": {"y": {"field": "med_rate", "type": "quantitative"}}},
+    {
+      "mark": {"type": "text", "dy": -8},
+      "encoding": {
+        "x": {"field": "skilled", "type": "quantitative", "scale": {"type": "log"}},
+        "y": {"field": "placement_rate", "type": "quantitative"},
+        "text": {"field": "label", "type": "nominal"}
+      }
+    }
+  ]
+}
