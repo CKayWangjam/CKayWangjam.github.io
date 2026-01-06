@@ -1,0 +1,49 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "The Hidden Cost: Exclusion from Welfare Due to Authentication Failures",
+    "fontSize": 16,
+    "font": "Arial",
+    "anchor": "start"
+  },
+  "width": 500,
+  "height": 350,
+  "data": {
+    "url": "dbt_exclusion.csv"
+  },
+  "transform": [
+    {
+      "calculate": "datum.state + ': ' + datum.metric",
+      "as": "label"
+    }
+  ],
+  "mark": {
+    "type": "bar",
+    "color": "#dc2626"
+  },
+  "encoding": {
+    "y": {
+      "field": "label",
+      "type": "nominal",
+      "sort": "-x",
+      "axis": {
+        "title": null,
+        "labelLimit": 300
+      }
+    },
+    "x": {
+      "field": "value",
+      "type": "quantitative",
+      "axis": {
+        "title": "Value"
+      }
+    },
+    "tooltip": [
+      {"field": "state", "type": "nominal", "title": "State"},
+      {"field": "metric", "type": "nominal", "title": "Metric"},
+      {"field": "value", "type": "quantitative", "title": "Value"},
+      {"field": "unit", "type": "nominal", "title": "Unit"},
+      {"field": "year", "type": "ordinal", "title": "Year"}
+    ]
+  }
+}

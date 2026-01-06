@@ -1,0 +1,85 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "DBT's Claimed Success: Expanding Coverage & Reducing Leakages",
+    "fontSize": 16,
+    "font": "Arial",
+    "anchor": "start"
+  },
+  "width": 500,
+  "height": 300,
+  "data": {
+    "url": "dbt_growth.csv"
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "line",
+        "point": true,
+        "color": "#2563eb",
+        "strokeWidth": 3
+      },
+      "encoding": {
+        "x": {
+          "field": "year",
+          "type": "ordinal",
+          "axis": {
+            "title": "Year",
+            "labelAngle": 0
+          }
+        },
+        "y": {
+          "field": "beneficiaries_crore",
+          "type": "quantitative",
+          "axis": {
+            "title": "Beneficiaries (Crores)",
+            "titleColor": "#2563eb"
+          },
+          "scale": {
+            "domain": [0, 180]
+          }
+        },
+        "tooltip": [
+          {"field": "year", "type": "ordinal", "title": "Year"},
+          {"field": "beneficiaries_crore", "type": "quantitative", "title": "Beneficiaries (Crores)"}
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "line",
+        "point": true,
+        "color": "#16a34a",
+        "strokeWidth": 3,
+        "strokeDash": [5, 5]
+      },
+      "encoding": {
+        "x": {
+          "field": "year",
+          "type": "ordinal"
+        },
+        "y": {
+          "field": "savings_lakh_crore",
+          "type": "quantitative",
+          "axis": {
+            "title": "Cumulative Savings (₹ Lakh Crores)",
+            "titleColor": "#16a34a",
+            "orient": "right"
+          },
+          "scale": {
+            "domain": [0, 4]
+          }
+        },
+        "tooltip": [
+          {"field": "year", "type": "ordinal", "title": "Year"},
+          {"field": "savings_lakh_crore", "type": "quantitative", "title": "Savings (₹ Lakh Crores)"}
+        ]
+      }
+    }
+  ],
+  "resolve": {
+    "scale": {
+      "y": "independent"
+    }
+  }
+}
