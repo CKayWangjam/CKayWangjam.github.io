@@ -36,20 +36,18 @@
   {
     "lookup": "state_key",
     "from": {
-      "data": {
-        "url": "cc9_pmkvy_tidy.json"
-      },
+      "data": { "url": "cc9_pmkvy_state_wide.json" },
       "key": "state_key",
-      "fields": ["state_key", "fy", "skilled", "placed", "placement_rate"]
+      "fields": [
+        "skilled_FY-20-21","skilled_FY-21-22","skilled_FY-22-23","skilled_FY-23-24","skilled_FY-24-25",
+        "placed_FY-20-21","placed_FY-21-22","placed_FY-22-23","placed_FY-23-24","placed_FY-24-25",
+        "placement_rate_FY-20-21","placement_rate_FY-21-22","placement_rate_FY-22-23","placement_rate_FY-23-24","placement_rate_FY-24-25"
+      ]
     }
   },
 
-  { "filter": "datum.fy == fySel" },
-
-  {
-    "calculate": "metric === 'skilled' ? datum.skilled : (metric === 'placed' ? datum.placed : datum.placement_rate)",
-    "as": "value"
-  }
+  { "calculate": "metric + '_' + fySel", "as": "colname" },
+  { "calculate": "datum[datum.colname]", "as": "value" }
 ],
 
   "mark": { "type": "geoshape", "stroke": "white", "strokeWidth": 0.7 },
