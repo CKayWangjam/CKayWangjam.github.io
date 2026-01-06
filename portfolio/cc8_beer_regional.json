@@ -1,0 +1,65 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "The Price of a Pint Across UK Regions",
+    "subtitle": ["Median price of lager by region, 2020-2024", "Source: LRPD microdata"],
+    "subtitleFontStyle": "italic",
+    "subtitleFontSize": 11,
+    "anchor": "start"
+  },
+  "width": 500,
+  "height": 350,
+  "data": {
+    "url": "beer_prices_regional.csv"
+  },
+  "mark": {
+    "type": "line",
+    "point": true,
+    "strokeWidth": 2
+  },
+  "encoding": {
+    "x": {
+      "field": "year",
+      "type": "quantitative",
+      "title": "Year",
+      "axis": {
+        "format": "d",
+        "labelAngle": 0,
+        "grid": false
+      },
+      "scale": {
+        "domain": [2020, 2024]
+      }
+    },
+    "y": {
+      "field": "median_price",
+      "type": "quantitative",
+      "title": "Median Price (£)",
+      "axis": {
+        "labelExpr": "'£' + datum.label",
+        "grid": true,
+        "gridDash": [2, 2]
+      },
+      "scale": {
+        "domain": [3, 6]
+      }
+    },
+    "color": {
+      "field": "region",
+      "type": "nominal",
+      "scale": {
+        "scheme": "category20"
+      },
+      "legend": {
+        "title": "Region",
+        "orient": "right",
+        "columns": 1
+      }
+    },
+    "tooltip": [
+      {"field": "region", "type": "nominal", "title": "Region"},
+      {"field": "year", "type": "quantitative", "title": "Year"},
+      {"field": "median_price", "type": "quantitative", "title": "Price", "format": "£.2f"}
+    ]
+  }
+}

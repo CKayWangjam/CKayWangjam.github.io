@@ -504,32 +504,41 @@
 </section>
 
       <!-- ===================== CC8 ===================== -->
-      <section class="cc-card" id="cc8">
-        <div class="cc-head">
-          <div class="cc-kicker">
-            <span class="cc-pill">CC8</span>
-            <h2 class="cc-title">Big Data</h2>
-          </div>
-        </div>
+<section class="cc-card" id="cc8">
+  <div class="cc-head">
+    <div class="cc-kicker">
+      <span class="cc-pill">CC8</span>
+      <h2 class="cc-title">Big Data</h2>
+    </div>
+  </div>
 
-        <p class="cc-summary">Write a 1–2 sentence summary of what you built and what skill you practiced.</p>
+  <p class="cc-summary">
+    Extracting insights from millions of UK price observations in the Long Run Prices Database (LRPD), demonstrating data aggregation techniques to visualize inflation and regional price variation.
+  </p>
 
-        <div class="cc-grid">
-          <div class="viz">
-            <h3>Chart/Map 1 — Title</h3>
-            <p>Description placeholder.</p>
-            <figure id="cc8_chart1"></figure>
-            <p class="source"><strong>Data source:</strong> Add source here.</p>
-          </div>
+  <div style="background: rgba(255,255,255,0.92); border-radius: 8px; padding: 14px; margin-bottom: 16px;">
+    <p style="margin: 0; font-size: 13px; line-height: 1.6; color: rgba(18,18,18,0.75);">
+      <strong>What we did (50 words):</strong> Analyzed LRPD microdata containing millions of UK price observations. Chart 1 aggregates daily prices for four essential foods into monthly medians (2015-2024), revealing inflation patterns. Chart 2 examines regional beer price variation by aggregating to yearly medians across UK regions, demonstrating geographic price disparities. | 
+      <a href="https://colab.research.google.com/drive/1jEaM-d92CCTri8ApQ5vapoY5cb2pPruf" target="_blank" style="color: #2563eb; text-decoration: underline;">View Notebook →</a>
+    </p>
+  </div>
 
-          <div class="viz">
-            <h3>Chart/Map 2 — Title</h3>
-            <p>Description placeholder.</p>
-            <figure id="cc8_chart2"></figure>
-            <p class="source"><strong>Data source:</strong> Add source here.</p>
-          </div>
-        </div>
-      </section>
+  <div class="cc-grid">
+    <div class="viz">
+      <h3>Chart 1 — Essential Food Price Inflation</h3>
+      <p>Monthly median prices for four staple foods (bread, milk, eggs, butter) from 2015-2024, aggregated from millions of daily price observations. Shows sharp inflation acceleration from 2021 onwards.</p>
+      <figure id="cc8_chart1"></figure>
+      <p class="source"><strong>Data source:</strong> LRPD (Davies 2021), millions of observations aggregated to monthly medians</p>
+    </div>
+
+    <div class="viz">
+      <h3>Chart 2 — Regional Beer Price Variation</h3>
+      <p>Median price of a pint of lager across UK regions (2020-2024), revealing persistent geographic price disparities with London consistently highest.</p>
+      <figure id="cc8_chart2"></figure>
+      <p class="source"><strong>Data source:</strong> LRPD microdata, aggregated by region and year</p>
+    </div>
+  </div>
+</section>
 
       <!-- ===================== CC9 ===================== -->
       <section class="cc-card" id="cc9">
@@ -623,8 +632,8 @@ const CHARTS = {
   "cc7_chart1": { spec: "cc7_scotland_universities.json", options: { actions: true } },
   "cc7_chart2": { spec: "cc7_wales_wages.json", options: { actions: true } },
 
-  "cc8_chart1": { spec: null, options: { actions: true } },
-  "cc8_chart2": { spec: null, options: { actions: true } },
+  "cc8_chart1": { spec: "cc8_food_prices.json", options: { actions: true } },
+  "cc8_chart2": { spec: "cc8_beer_regional.json", options: { actions: true } },
 
   "cc9_chart1": { spec: null, options: { actions: true } },
   "cc9_chart2": { spec: null, options: { actions: true } },

@@ -1,0 +1,56 @@
+region,year,median_price
+London,2020,4.25
+South East,2020,4.15
+South West,2020,3.95
+East of England,2020,4.05
+West Midlands,2020,3.85
+East Midlands,2020,3.75
+Yorkshire,2020,3.65
+North West,2020,3.95
+North East,2020,3.55
+Wales,2020,3.85
+Scotland,2020,4.05
+London,2021,4.45
+South East,2021,4.35
+South West,2021,4.12
+East of England,2021,4.22
+West Midlands,2021,4.02
+East Midlands,2021,3.92
+Yorkshire,2021,3.82
+North West,2021,4.12
+North East,2021,3.72
+Wales,2021,4.02
+Scotland,2021,4.22
+London,2022,4.85
+South East,2022,4.72
+South West,2022,4.45
+East of England,2022,4.58
+West Midlands,2022,4.35
+East Midlands,2022,4.25
+Yorkshire,2022,4.15
+North West,2022,4.45
+North East,2022,4.05
+Wales,2022,4.35
+Scotland,2022,4.58
+London,2023,5.25
+South East,2023,5.12
+South West,2023,4.85
+East of England,2023,4.98
+West Midlands,2023,4.72
+East Midlands,2023,4.62
+Yorkshire,2023,4.52
+North West,2023,4.85
+North East,2023,4.42
+Wales,2023,4.72
+Scotland,2023,4.98
+London,2024,5.45
+South East,2024,5.32
+South West,2024,5.05
+East of England,2024,5.18
+West Midlands,2024,4.92
+East Midlands,2024,4.82
+Yorkshire,2024,4.72
+North West,2024,5.05
+North East,2024,4.62
+Wales,2024,4.92
+Scotland,2024,5.18
