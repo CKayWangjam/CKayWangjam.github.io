@@ -625,9 +625,7 @@ const CHARTS = {
   "cc10_chart2": { spec: null, options: { actions: true } }
 };
 
-/* =========================================================
-   RENDERER FOR CC1-CC5 (Individual Charts)
-   ========================================================= */
+
 for (const [id, cfg] of Object.entries(CHARTS)) {
   if (cfg.spec) {
     vegaEmbed(`#${id}`, cfg.spec, cfg.options).catch(console.error);
