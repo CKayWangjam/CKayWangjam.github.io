@@ -1,0 +1,82 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "India choropleth (states/UT) + PMKVY metric toggle + year dropdown + click-to-select states.",
+  "width": "container",
+  "height": 520,
+
+  "params": [
+    {
+      "name": "fySel",
+      "value": "FY-20-21",
+      "bind": {
+        "input": "select",
+        "options": ["FY-20-21", "FY-21-22"],
+        "name": "Year: "
+      }
+    },
+    {
+      "name": "metric",
+      "value": "skilled",
+      "bind": {
+        "input": "radio",
+        "options": ["skilled", "placed"],
+        "name": "Metric: "
+      }
+    },
+    {
+      "name": "stateClick",
+      "select": { "type": "point", "fields": ["state"], "on": "click", "toggle": "event.shiftKey" }
+    }
+  ],
+
+  "layer": [
+    {
+      "data": {
+        "url": "https://cdn.jsdelivr.net/gh/udit-001/india-maps-data@main/geojson/india.geojson",
+        "format": { "type": "geojson" }
+      },
+      "transform": [
+        {
+          "calculate": "datum.properties && datum.properties.ST_NM ? datum.properties.ST_NM : (datum.properties && datum.properties.state ? datum.properties.state : (datum.properties && datum.properties.NAME_1 ? datum.properties.NAME_1 : null))",
+          "as": "state_raw"
+        },
+        { "calculate": "upper(trim(datum.state_raw))", "as": "state_key" },
+
+        {
+          "lookup": "state_key",
+          "from": {
+            "data": { "url": "cc9_pmkvy_tidy.json" },
+            "key": "state_key",
+            "fields": ["state", "fy", "skilled", "placed", "placement_rate"]
+          }
+        },
+        { "filter": "datum.fy == fySel" },
+
+        { "calculate": "metric === 'skilled' ? datum.skilled : datum.placed", "as": "value" }
+      ],
+
+      "projection": { "type": "mercator" },
+
+      "mark": { "type": "geoshape", "stroke": "white", "strokeWidth": 0.6 },
+
+      "encoding": {
+        "color": {
+          "field": "value",
+          "type": "quantitative",
+          "title": null
+        },
+        "opacity": {
+          "condition": { "param": "stateClick", "value": 1 },
+          "value": 0.9
+        },
+        "tooltip": [
+          { "field": "state", "type": "nominal", "title": "State/UT" },
+          { "field": "fy", "type": "nominal", "title": "Year" },
+          { "field": "skilled", "type": "quantitative", "format": ",", "title": "Skilled" },
+          { "field": "placed", "type": "quantitative", "format": ",", "title": "Placed" },
+          { "field": "placement_rate", "type": "quantitative", "format": ".1%", "title": "Placement rate" }
+        ]
+      }
+    }
+  ]
+}
