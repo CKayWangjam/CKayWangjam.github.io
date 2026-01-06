@@ -31,26 +31,26 @@
   ],
 
   "transform": [
-    {
-      "calculate": "datum.properties && datum.properties.st_nm ? datum.properties.st_nm : (datum.properties && datum.properties.ST_NM ? datum.properties.ST_NM : null)",
-      "as": "state_raw"
-    },
-    { "calculate": "replace(lower(datum.state_raw), /[^a-z]/g, '')", "as": "state_key" },
+  { "calculate": "replace(lower(datum.properties.st_nm), /[^a-z]/g, '')", "as": "state_key" },
 
-    {
-      "lookup": "state_key",
-      "from": {
-        "data": { "url": "cc9_pmkvy_tidy.json" },
-        "key": "state_key",
-        "fields": ["state", "fy", "skilled", "placed", "placement_rate"]
-      }
-    },
-    { "filter": "datum.fy == fySel" },
-    {
-      "calculate": "metric === 'skilled' ? datum.skilled : (metric === 'placed' ? datum.placed : datum.placement_rate)",
-      "as": "value"
+  {
+    "lookup": "state_key",
+    "from": {
+      "data": {
+        "url": "cc9_pmkvy_tidy.json"
+      },
+      "key": "state_key",
+      "fields": ["state_key", "fy", "skilled", "placed", "placement_rate"]
     }
-  ],
+  },
+
+  { "filter": "datum.fy == fySel" },
+
+  {
+    "calculate": "metric === 'skilled' ? datum.skilled : (metric === 'placed' ? datum.placed : datum.placement_rate)",
+    "as": "value"
+  }
+],
 
   "mark": { "type": "geoshape", "stroke": "white", "strokeWidth": 0.7 },
 
