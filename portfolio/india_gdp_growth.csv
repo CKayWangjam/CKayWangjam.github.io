@@ -1,0 +1,8 @@
+fiscal_year,gdp_growth,label,is_forecast,forecast_type
+FY20,3.9,FY20,no,
+FY21,-5.8,FY21,no,
+FY22,9.7,FY22,no,
+FY23,7.0,FY23,no,
+FY24,8.2,FY24,no,
+FY25,6.5,FY25 (F),yes,IMF
+FY25,7.0,FY25 (F),yes,RBI

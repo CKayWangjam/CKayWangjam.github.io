@@ -1,0 +1,54 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Sustained momentum in GDP growth",
+    "fontSize": 14,
+    "font": "Arial",
+    "fontWeight": "normal"
+  },
+  "width": 500,
+  "height": 300,
+  "data": {
+    "url": "india_gdp_growth.csv"
+  },
+  "transform": [
+    {
+      "calculate": "datum.is_forecast === 'yes' ? datum.label + ' (' + datum.forecast_type + ')' : datum.label",
+      "as": "x_label"
+    }
+  ],
+  "mark": {
+    "type": "bar",
+    "color": "#4472C4"
+  },
+  "encoding": {
+    "x": {
+      "field": "x_label",
+      "type": "nominal",
+      "axis": {
+        "title": null,
+        "labelAngle": 0,
+        "labelFontSize": 11
+      }
+    },
+    "y": {
+      "field": "gdp_growth",
+      "type": "quantitative",
+      "axis": {
+        "title": "Per cent",
+        "titleFontSize": 11,
+        "titleFontWeight": "normal",
+        "grid": true,
+        "gridOpacity": 0.3
+      },
+      "scale": {
+        "domain": [-10, 12]
+      }
+    },
+    "tooltip": [
+      {"field": "fiscal_year", "type": "nominal", "title": "Year"},
+      {"field": "gdp_growth", "type": "quantitative", "title": "GDP Growth (%)", "format": ".1f"},
+      {"field": "forecast_type", "type": "nominal", "title": "Forecast Source"}
+    ]
+  }
+}

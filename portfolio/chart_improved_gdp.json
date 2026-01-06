@@ -1,0 +1,174 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "India's GDP Growth: Resilient Recovery Post-Pandemic",
+    "fontSize": 18,
+    "font": "Arial",
+    "fontWeight": "bold",
+    "anchor": "start",
+    "subtitle": "Annual GDP growth rate (%), FY 2020-2025 | FY25 shows two forecasts: IMF (6.5%) and RBI (7.0%)",
+    "subtitleFontSize": 12,
+    "subtitleColor": "#666"
+  },
+  "width": 550,
+  "height": 350,
+  "data": {
+    "url": "india_gdp_growth.csv"
+  },
+  "transform": [
+    {
+      "calculate": "datum.is_forecast === 'yes' ? datum.label + ' (' + datum.forecast_type + ')' : datum.label",
+      "as": "x_label"
+    }
+  ],
+  "layer": [
+    {
+      "mark": {
+        "type": "bar",
+        "cornerRadiusTopLeft": 4,
+        "cornerRadiusTopRight": 4
+      },
+      "encoding": {
+        "x": {
+          "field": "x_label",
+          "type": "nominal",
+          "axis": {
+            "title": null,
+            "labelAngle": -15,
+            "labelFontSize": 11,
+            "labelFontWeight": "bold"
+          }
+        },
+        "y": {
+          "field": "gdp_growth",
+          "type": "quantitative",
+          "axis": {
+            "title": "GDP Growth Rate (%)",
+            "titleFontSize": 13,
+            "titleFontWeight": "bold",
+            "grid": true,
+            "gridDash": [2, 2],
+            "gridOpacity": 0.5
+          },
+          "scale": {
+            "domain": [-8, 12]
+          }
+        },
+        "color": {
+          "condition": [
+            {
+              "test": "datum.gdp_growth < 0",
+              "value": "#dc2626"
+            },
+            {
+              "test": "datum.is_forecast === 'yes'",
+              "value": "#94a3b8"
+            }
+          ],
+          "value": "#16a34a"
+        },
+        "tooltip": [
+          {"field": "fiscal_year", "type": "nominal", "title": "Fiscal Year"},
+          {"field": "gdp_growth", "type": "quantitative", "title": "GDP Growth", "format": ".1f"},
+          {"field": "forecast_type", "type": "nominal", "title": "Forecast Source"}
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "dy": -10,
+        "fontSize": 12,
+        "fontWeight": "bold"
+      },
+      "encoding": {
+        "x": {
+          "field": "x_label",
+          "type": "nominal"
+        },
+        "y": {
+          "field": "gdp_growth",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "gdp_growth",
+          "type": "quantitative",
+          "format": ".1f"
+        },
+        "color": {
+          "condition": {
+            "test": "datum.gdp_growth < 0",
+            "value": "#dc2626"
+          },
+          "value": "#374151"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "x_pos": "FY21",
+            "y_pos": -7,
+            "text": "COVID-19 Impact"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "fontSize": 11,
+        "fontStyle": "italic",
+        "color": "#dc2626"
+      },
+      "encoding": {
+        "x": {"field": "x_pos", "type": "nominal"},
+        "y": {"field": "y_pos", "type": "quantitative"},
+        "text": {"field": "text", "type": "nominal"}
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "x_pos": "FY22",
+            "y_pos": 11,
+            "text": "Strong Recovery"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "fontSize": 11,
+        "fontStyle": "italic",
+        "color": "#16a34a"
+      },
+      "encoding": {
+        "x": {"field": "x_pos", "type": "nominal"},
+        "y": {"field": "y_pos", "type": "quantitative"},
+        "text": {"field": "text", "type": "nominal"}
+      }
+    },
+    {
+      "mark": {
+        "type": "rule",
+        "strokeDash": [5, 5],
+        "color": "#64748b",
+        "strokeWidth": 1.5
+      },
+      "encoding": {
+        "y": {"datum": 0}
+      }
+    }
+  ],
+  "config": {
+    "view": {
+      "strokeWidth": 0
+    },
+    "axis": {
+      "labelColor": "#374151",
+      "titleColor": "#374151",
+      "domainColor": "#94a3b8",
+      "tickColor": "#94a3b8"
+    }
+  }
+}

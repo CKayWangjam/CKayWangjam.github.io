@@ -291,23 +291,40 @@
           </div>
         </div>
 
-        <p class="cc-summary">Write a 1–2 sentence summary of what you built and what skill you practiced.</p>
+        <p class="cc-summary">Replicating and improving a chart from India's Economic Survey 2023-24, which shows GDP growth trends from FY20-FY25..</p>
 
         <div class="cc-grid">
-          <div class="viz">
-            <h3>Chart/Map 1 — Title</h3>
-            <p>Description placeholder.</p>
-            <figure id="cc4_chart1"></figure>
-            <p class="source"><strong>Data source:</strong> Add source here.</p>
-          </div>
+    <div class="viz">
+      <h3>Original Chart — Economic Survey 2023-24</h3>
+      <p>Source: Ministry of Finance, Government of India. Basic bar chart showing GDP growth with no contextual annotations.</p>
+      <figure>
+        <img src="India's Sustained Momentum in GDP.png" alt="Original GDP growth chart from Economic Survey" style="max-width: 100%; height: auto; border-radius: 8px;">
+      </figure>
+      <p class="source"><strong>Data source:</strong> Economic Survey 2023-24, Ministry of Finance, Government of India</p>
+    </div>
+       <div class="viz">
+      <h3>Replicated Chart — Original Style</h3>
+      <p>Replication of the government's chart style using Vega-Lite, maintaining the basic design and color scheme.</p>
+      <figure id="cc4_chart1"></figure>
+      <p class="source"><strong>Data source:</strong> Economic Survey 2023-24</p>
+    </div>
+  </div>
 
-          <div class="viz">
-            <h3>Chart/Map 2 — Title</h3>
-            <p>Description placeholder.</p>
-            <figure id="cc4_chart2"></figure>
-            <p class="source"><strong>Data source:</strong> Add source here.</p>
-          </div>
-        </div>
+          <div class="cc-grid">
+    <div class="viz">
+      <h3>Improved Chart — Enhanced Design</h3>
+      <p>Improvements: Color-coded bars (red for negative, green for positive, gray for forecasts), data labels, COVID-19 annotations, better typography, and clearer visual hierarchy.</p>
+      <figure id="cc4_chart2"></figure>
+      <p class="source"><strong>Data source:</strong> Economic Survey 2023-24</p>
+    </div>
+    <div class="viz">
+      <h3>What I Improved</h3>
+      <p style="font-size: 14px; line-height: 1.7; color: rgba(18,18,18,0.80); margin-top: 20px;">
+        Added color-coding (red/negative, green/positive, gray/forecasts), data labels on bars, COVID-19 context annotations, improved typography, zero reference line, and clearer visual hierarchy for better readability.
+      </p>
+    </div>
+  </div>
+</section>
       </section>
 
       <!-- ===================== CC5 ===================== -->
@@ -499,8 +516,8 @@
       "cc3_chart1": { spec: "chart1_dbt_success.json", options: { actions: true } },
       "cc3_chart2": { spec: "chart2_exclusion.json", options: { actions: true} },
 
-      "cc4_chart1": { spec: null, options: { actions: true } },
-      "cc4_chart2": { spec: null, options: { actions: true } },
+      "cc4_chart1": { spec: "chart_original_gdp.json", options: { actions: true } },
+      "cc4_chart2": { spec: "chart_improved_gdp.json", options: { actions: true } },
 
       "cc5_chart1": { spec: null, options: { actions: true } },
       "cc5_chart2": { spec: null, options: { actions: true } },
