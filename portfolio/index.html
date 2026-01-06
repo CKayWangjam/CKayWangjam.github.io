@@ -254,82 +254,93 @@
         </div>
       </section>
 
-      <!-- ===================== CC3 ===================== -->
-      <section class="cc-card" id="cc3">
-        <div class="cc-head">
-          <div class="cc-kicker">
-            <span class="cc-pill">CC3</span>
-            <h2 class="cc-title">Policy Commentary</h2>
-          </div>
-        </div>
-
-        <p class="cc-summary">Write a 1–2 sentence summary of what you built and what skill you practiced.</p>
-
-        <div class="cc-grid">
-          <div class="viz">
-            <h3>Chart/Map 1 — Title</h3>
-            <p>Description placeholder.</p>
-            <figure id="cc3_chart1"></figure>
-            <p class="source"><strong>Data source:</strong> Add source here.</p>
-          </div>
-
-          <div class="viz">
-            <h3>Chart/Map 2 — Title</h3>
-            <p>Description placeholder.</p>
-            <figure id="cc3_chart2"></figure>
-            <p class="source"><strong>Data source:</strong> Add source here.</p>
-          </div>
-        </div>
-      </section>
-
-      <!-- ===================== CC4 ===================== -->
-      <section class="cc-card" id="cc4">
-        <div class="cc-head">
-          <div class="cc-kicker">
-            <span class="cc-pill">CC4</span>
-            <h2 class="cc-title">Replicate, Recreate and Improve</h2>
-          </div>
-        </div>
-
-        <p class="cc-summary">Replicating and improving a chart from India's Economic Survey 2023-24, which shows GDP growth trends from FY20-FY25..</p>
-
-        <div class="cc-grid">
-    <div class="viz">
-      <h3>Original Chart — Economic Survey 2023-24</h3>
-      <p>This bar chart was published in the Economic Survey 2023-24 by the Ministry of Finance, Government of India. It shows GDP growth from FY 2020 -2025 with no contextual annotations.</p>
-      <figure>
-        <img src="India's Sustained Momentum in GDP.png" alt="Original GDP growth chart from Economic Survey" style="max-width: 100%; height: auto; border-radius: 8px;">
-      </figure>
-      <p class="source"><strong>Data source:</strong> Economic Survey 2023-24, Ministry of Finance, Government of India</p>
-    </div>
-       <div class="viz">
-      <h3>Replicated Chart — Original Style</h3>
-      <figure id="cc4_chart1"></figure>
-      <p>I have replicated the government's chart style using Vega-Lite, maintaining the basic design and color scheme.</p>
-      
-      <p class="source"><strong>Data source:</strong> Economic Survey 2023-24, Ministry of Finance, Government of India</p>
+     <!-- ===================== CC3 ===================== -->
+<section class="cc-card" id="cc3">
+  <div class="cc-head">
+    <div class="cc-kicker">
+      <span class="cc-pill">CC3</span>
+      <h2 class="cc-title">Policy Commentary</h2>
     </div>
   </div>
 
-          <div class="cc-grid">
+  <p class="cc-summary">
+    Using data visualization to examine India's Direct Benefit Transfer (DBT) system: exploring the tension between claimed efficiency gains and documented exclusion errors.
+  </p>
+
+  <div style="background: rgba(255,255,255,0.85); border-radius: 12px; padding: 16px; margin-bottom: 16px; border-left: 4px solid #2563eb;">
+    <p style="margin: 0; font-size: 14px; line-height: 1.6; color: rgba(18,18,18,0.80);">
+      <strong>Policy Topic:</strong> India's Direct Benefit Transfer system claims to reduce leakages and expand welfare coverage, but critics argue it excludes millions through biometric authentication failures.
+    </p>
+  </div>
+
+  <div class="cc-grid">
     <div class="viz">
-      <h3>Improved Chart — Enhanced Design</h3>
-      <figure id="cc4_chart2"></figure>
-      <p>Improvements: Color-coded bars (red for negative, green for positive, gray for forecasts), data labels, COVID-19 annotations, better typography, and clearer visual hierarchy.</p>
-      
-      <p class="source"><strong>Data source:</strong> Economic Survey 2023-24, Ministry of Finance, Government of India</p>
+      <h3>Chart 1 — Government's Success Claims</h3>
+      <p>Official data showing 16-fold beneficiary growth and ₹3.48 lakh crore in savings from 2013-2023, demonstrating DBT's claimed efficiency gains.</p>
+      <figure id="cc3_chart1"></figure>
+      <p class="source"><strong>Data source:</strong> DBT Bharat Portal, Ministry of Finance Reports</p>
     </div>
+
     <div class="viz">
-      <h3>What I Improved</h3>
-      <p style="font-size: 14px; line-height: 1.7; color: rgba(18,18,18,0.80); margin-top: 20px;">
-        Added color-coding (red/negative, green/positive, gray/forecasts), data labels on bars, COVID-19 context annotations, improved typography, zero reference line, and clearer visual hierarchy for better readability.
-      </p>
+      <h3>Chart 2 — The Exclusion Crisis</h3>
+      <p>Research evidence showing 33 lakh Rajasthan families and 2.5 lakh Jharkhand residents monthly denied rations due to authentication failures during 2017.</p>
+      <figure id="cc3_chart2"></figure>
+      <p class="source"><strong>Data source:</strong> State Food Department data, Drèze et al. (2017) research</p>
     </div>
   </div>
 </section>
-      </section>
 
-      <!-- ===================== CC5 ===================== -->
+<!-- ===================== CC4 ===================== -->
+<section class="cc-card" id="cc4">
+  <div class="cc-head">
+    <div class="cc-kicker">
+      <span class="cc-pill">CC4</span>
+      <h2 class="cc-title">Replicate, Recreate and Improve</h2>
+    </div>
+  </div>
+
+  <p class="cc-summary">
+    Replicating and improving a chart from India's Economic Survey 2023-24, which shows GDP growth trends from FY20-FY25 including COVID-19 impact and recovery.
+  </p>
+
+  <div class="cc-grid">
+    <div class="viz">
+      <h3>Original Chart — Economic Survey 2023-24</h3>
+      <p>Source: Ministry of Finance, Government of India. Basic bar chart showing sustained GDP growth momentum with minimal styling.</p>
+      <figure>
+        <img src="India's sustained momentum in GDP.png" alt="Original GDP growth chart from Economic Survey" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+      </figure>
+      <p class="source"><strong>Data source:</strong> Economic Survey 2023-24, Ministry of Finance</p>
+    </div>
+
+    <div class="viz">
+      <h3>Replicated Chart — Original Style</h3>
+      <p>Vega-Lite replication maintaining government's basic design and color scheme, showing both IMF and RBI forecasts for FY25.</p>
+      <figure id="cc4_chart1"></figure>
+      <p class="source"><strong>Data source:</strong> Economic Survey 2023-24</p>
+    </div>
+  </div>
+
+  <div class="cc-grid">
+    <div class="viz">
+      <h3>Improved Chart — Enhanced Design</h3>
+      <p>Enhanced version with color-coded bars, data labels, COVID-19 annotations, and improved visual hierarchy for better insight communication.</p>
+      <figure id="cc4_chart2"></figure>
+      <p class="source"><strong>Data source:</strong> Economic Survey 2023-24</p>
+    </div>
+
+    <div class="viz">
+      <h3>Improvements Made</h3>
+      <div style="background: rgba(22,163,74,0.08); border-radius: 8px; padding: 14px; margin-top: 10px;">
+        <p style="font-size: 13px; line-height: 1.7; color: rgba(18,18,18,0.80); margin: 0;">
+          Added color-coding (red for negative, green for positive, gray for forecasts), data labels on bars, COVID-19 context annotations, improved typography, zero reference line, and clearer visual hierarchy for better readability.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CC5 ===================== -->
 <section class="cc-card" id="cc5">
   <div class="cc-head">
     <div class="cc-kicker">
@@ -339,43 +350,72 @@
   </div>
 
   <p class="cc-summary">
-    Using the World Bank Indicators API to retrieve live economic data for India, demonstrating real-time data integration in policy visualizations.
+    Demonstrating data acquisition through APIs and web scraping: accessing live World Bank data and scraping India's state-wise development indicators.
   </p>
 
   <div class="cc-grid">
     <div class="viz">
-      <h3>Chart — India's GDP Growth (Live API)</h3>
-      <p>Real-time data from World Bank showing India's annual GDP growth rate from 1995-2024. This chart automatically updates when new data is published.</p>
+      <h3>API Chart — India's GDP Growth</h3>
+      <p>Real-time data from World Bank API showing India's annual GDP growth rate. This chart automatically updates when new data is published.</p>
       <figure id="cc5_chart1"></figure>
-      <p class="source"><strong>Data source:</strong> World Bank Indicators API</p>
+      <p class="source"><strong>Data source:</strong> World Bank Indicators API (live)</p>
     </div>
 
     <div class="viz">
-      <h3>API FUNCTIONAL DESCRIPTION
-This chart uses the World Bank Indicators API to retrieve India's GDP growth rate data in real-time. The API provides access to the World Development Indicators database, which contains over 1,400 time series indicators for 217 economies.
+      <h3>API Functional Description</h3>
+      <div style="background: rgba(255,255,255,0.92); border-radius: 8px; padding: 16px; margin-top: 10px;">
+        <p style="margin: 0 0 12px; font-size: 13px; line-height: 1.6; color: rgba(18,18,18,0.75);">
+          This chart uses the <strong>World Bank Indicators API</strong> to retrieve India's GDP growth rate data in real-time.
+        </p>
 
-Base URL:
+        <div style="margin: 12px 0;">
+          <p style="margin: 0 0 6px; font-size: 12px; font-weight: 600; color: rgba(18,18,18,0.85);">Base URL:</p>
+          <code style="display: block; background: rgba(0,0,0,0.05); padding: 6px 10px; border-radius: 4px; font-size: 11px; overflow-x: auto;">
+            https://api.worldbank.org/v2/country/{COUNTRY}/indicator/{INDICATOR}
+          </code>
+        </div>
 
-https://api.worldbank.org/v2/country/{COUNTRY}/indicator/{INDICATOR}
-Parameters used:
+        <div style="margin: 12px 0;">
+          <p style="margin: 0 0 6px; font-size: 12px; font-weight: 600; color: rgba(18,18,18,0.85);">Parameters:</p>
+          <ul style="margin: 0; padding-left: 18px; font-size: 12px; line-height: 1.6;">
+            <li><strong>COUNTRY</strong>: IND (India)</li>
+            <li><strong>INDICATOR</strong>: NY.GDP.MKTP.KD.ZG (GDP growth %)</li>
+            <li><strong>format</strong>: json</li>
+            <li><strong>per_page</strong>: 30</li>
+            <li><strong>date</strong>: 1995:2024</li>
+          </ul>
+        </div>
 
-COUNTRY: IND (India's ISO country code)
-INDICATOR: NY.GDP.MKTP.KD.ZG (GDP growth annual %)
-format: json (returns data in JSON format)
-per_page: 30 (number of results per page)
-date: 1995:2024 (date range filter)
-Full API URL used in this chart:
+        <div style="margin: 12px 0;">
+          <p style="margin: 0 0 6px; font-size: 12px; font-weight: 600; color: rgba(18,18,18,0.85);">Full URL:</p>
+          <code style="display: block; background: rgba(0,0,0,0.05); padding: 6px 10px; border-radius: 4px; font-size: 10px; overflow-x: auto; word-break: break-all;">
+            https://api.worldbank.org/v2/country/IND/indicator/NY.GDP.MKTP.KD.ZG?format=json&per_page=30&date=1995:2024
+          </code>
+        </div>
+      </div>
+    </div>
+  </div>
 
-https://api.worldbank.org/v2/country/IND/indicator/NY.GDP.MKTP.KD.ZG?format=json&per_page=30&date=1995:2024
-How it works:
+  <div class="cc-grid">
+    <div class="viz">
+      <h3>Scraper Chart — State HDI Rankings</h3>
+      <p>Data scraped from Wikipedia showing India's state-wise Human Development Index rankings, demonstrating regional development disparities.</p>
+      <figure id="cc5_chart2"></figure>
+      <p class="source"><strong>Data source:</strong> Wikipedia (web scraped), 2021 estimates</p>
+    </div>
 
-The API call requests GDP growth data for India (IND) from 1995-2024
-Data is returned in JSON format with nested arrays
-Vega-Lite extracts the data from [1] property (second array)
-The chart filters out null values and displays the time series
-No API key required - completely free and open access
-Note: This chart automatically updates when the World Bank publishes new data. You can modify the country code (IND) or indicator code to visualize different data series.</h3>
+    <div class="viz">
+      <h3>Scraper Details</h3>
+      <div style="background: rgba(255,255,255,0.92); border-radius: 8px; padding: 16px; margin-top: 10px;">
+        <p style="margin: 0 0 12px; font-size: 13px; line-height: 1.6; color: rgba(18,18,18,0.75);">
+          <strong>Commentary:</strong> Scraped Wikipedia's state-wise HDI data using BeautifulSoup, cleaned footnotes and special characters, converted to tidy format. Challenges: multi-level headers and inconsistent formatting.
+        </p>
 
+        <p style="margin: 12px 0 0; font-size: 12px;">
+          <strong>Google Colab Notebook:</strong> 
+          <a href="portfolio/CC5_India_State_HDI_Scraper.ipynb" target="_blank" style="color: #2563eb; text-decoration: underline;">View Scraper Code →</a>
+        </p>
+      </div>
     </div>
   </div>
 </section>
@@ -544,8 +584,9 @@ Note: This chart automatically updates when the World Bank publishes new data. Y
       "cc4_chart1": { spec: "chart_original_gdp.json", options: { actions: true } },
       "cc4_chart2": { spec: "chart_improved_gdp.json", options: { actions: true } },
 
-      "cc5_chart1": { spec: "chart_worldbank_api.json", options: { actions: true } },
-      "cc5_chart2": { spec: null, options: { actions: true } },
+     "cc5_chart1": { spec: "chart_worldbank_api.json", options: { actions: true } },
+  "cc5_chart2": { spec: "chart_scraped_hdi.json", options: { actions: true } },
+
 
       "cc6_chart1": { spec: null, options: { actions: true } },
       "cc6_chart2": { spec: null, options: { actions: false } },

@@ -1,0 +1,59 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "India: State-wise Human Development Index (2021)",
+    "fontSize": 16,
+    "fontWeight": "bold",
+    "subtitle": "Data scraped from Wikipedia and converted to tidy format",
+    "subtitleFontSize": 12,
+    "subtitleColor": "#666"
+  },
+  "width": 500,
+  "height": 550,
+  "data": {
+    "url": "india_state_hdi.csv"
+  },
+  "mark": {
+    "type": "bar",
+    "cornerRadiusEnd": 4
+  },
+  "encoding": {
+    "y": {
+      "field": "state",
+      "type": "nominal",
+      "sort": "-x",
+      "axis": {
+        "title": null,
+        "labelLimit": 200,
+        "labelFontSize": 11
+      }
+    },
+    "x": {
+      "field": "hdi",
+      "type": "quantitative",
+      "axis": {
+        "title": "Human Development Index (HDI)",
+        "titleFontSize": 12,
+        "grid": true,
+        "gridDash": [2, 2]
+      },
+      "scale": {
+        "domain": [0.55, 0.80]
+      }
+    },
+    "color": {
+      "field": "hdi",
+      "type": "quantitative",
+      "scale": {
+        "scheme": "goldred",
+        "reverse": true
+      },
+      "legend": null
+    },
+    "tooltip": [
+      {"field": "state", "type": "nominal", "title": "State"},
+      {"field": "hdi", "type": "quantitative", "title": "HDI", "format": ".3f"},
+      {"field": "year", "type": "quantitative", "title": "Year"}
+    ]
+  }
+}
