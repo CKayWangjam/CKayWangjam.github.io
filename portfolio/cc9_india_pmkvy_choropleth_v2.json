@@ -4,11 +4,11 @@
   "width": "container",
   "height": 520,
 
-  "data": {
-    "url": "https://cdn.jsdelivr.net/gh/udit-001/india-maps-data@main/topojson/india.topojson",
-    "format": { "type": "topojson", "feature": "india" }
-  },
-
+ "data": {
+  "url": "https://raw.githubusercontent.com/EconomicsObservatory/courses/main/datasets/advanced/india_districts.topojson",
+  "format": { "type": "topojson", "feature": "india-districts-727" }
+},
+"projection": { "type": "identity", "reflectY": true },
   "params": [
     {
       "name": "fySel",
