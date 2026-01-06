@@ -579,17 +579,6 @@
 </section>
       <!-- CC10 -->
 
-<!-- ============================================================================ -->
-<!-- WEEK 10: ADVANCED ANALYSIS & MACHINE LEARNING -->
-<!-- CC10 Portfolio Submission - Interactive Vega-Lite Visualizations -->
-<!-- ============================================================================ -->
-
-<!-- Vega Libraries - Add ONCE in <head> section or before closing </body> -->
-<script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-<script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
-<script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
-
-<!-- Styling for Week 10 Section -->
 <style>
   .week10-section {
     max-width: 1200px;
@@ -834,13 +823,8 @@
   }
 </style>
 
-<!-- ============================================================================ -->
-<!-- MAIN CONTENT STARTS HERE -->
-<!-- ============================================================================ -->
-
 <div class="week10-section">
   
-  <!-- Section Header -->
   <div class="section-header">
     <h2>Week 10: Advanced Analysis & Machine Learning</h2>
     <p class="section-intro">
@@ -850,10 +834,6 @@
       skill program effectiveness, directly supporting my policy research on Skill India Mission failures.
     </p>
   </div>
-
-  <!-- ========================================================================== -->
-  <!-- CHART 1: DIFFERENCE-IN-DIFFERENCES ANALYSIS -->
-  <!-- ========================================================================== -->
   
   <div class="chart-card">
     <h3 class="chart-title">
@@ -868,7 +848,6 @@
       </p>
     </div>
 
-    <!-- Interactive Vega-Lite Chart -->
     <div id="vis_did" style="margin: 35px 0;"></div>
 
     <div class="finding-box">
@@ -895,10 +874,6 @@
     </div>
   </div>
 
-  <!-- ========================================================================== -->
-  <!-- CHART 2: MACHINE LEARNING ANALYSIS -->
-  <!-- ========================================================================== -->
-
   <div class="chart-card">
     <h3 class="chart-title">
       🤖 Machine Learning: Predicting Placement Success Rates
@@ -912,7 +887,6 @@
       </p>
     </div>
 
-    <!-- Interactive Vega-Lite Chart -->
     <div id="vis_ml" style="margin: 35px 0;"></div>
 
     <div class="finding-box">
@@ -937,9 +911,6 @@
     </div>
   </div>
 
-  <!-- ========================================================================== -->
-  <!-- GOOGLE COLAB NOTEBOOK LINK -->
-  <!-- ========================================================================== -->
 
   <div class="colab-section">
     <h4>📓 Complete Analysis & Python Code</h4>
@@ -955,9 +926,6 @@
     </p>
   </div>
 
-  <!-- ========================================================================== -->
-  <!-- PROJECT CONNECTION & POLICY INSIGHTS -->
-  <!-- ========================================================================== -->
 
   <div class="project-connection">
     <h4>🎓 Integration with Policy Research Project</h4>
@@ -999,9 +967,7 @@
     </p>
   </div>
 
-  <!-- ========================================================================== -->
-  <!-- DATA CITATION & METHODOLOGY -->
-  <!-- ========================================================================== -->
+  <
 
   <div class="data-citation">
     <p style="margin-bottom: 15px;">
@@ -1029,25 +995,18 @@
 
 </div>
 
-<!-- ============================================================================ -->
-<!-- EMBED INTERACTIVE CHARTS -->
-<!-- Add this JavaScript at the BOTTOM of your HTML, before </body> -->
-<!-- ============================================================================ -->
-
 <script type="text/javascript">
-  // Configuration options for charts
   const vegaConfig = {
     actions: {
-      export: true,      // Allow users to download charts
-      source: false,     // Hide source code viewer
-      compiled: false,   // Hide compiled Vega code
-      editor: false      // Hide Vega editor
+      export: true,      
+      source: false,     
+      compiled: false,   
+      editor: false      
     },
-    theme: 'latimes',    // Professional theme
-    renderer: 'svg'      // Use SVG for crisp rendering
+    theme: 'latimes',    
+    renderer: 'svg'      
   };
 
-  // Embed Chart 1: Difference-in-Differences Analysis
   vegaEmbed('#vis_did', 'chart1_did_interactive.json', vegaConfig)
     .then(function(result) {
       console.log('✅ DiD chart loaded successfully');
@@ -1061,7 +1020,6 @@
         '</div>';
     });
 
-  // Embed Chart 2: Machine Learning Analysis
   vegaEmbed('#vis_ml', 'chart2_ml_interactive.json', vegaConfig)
     .then(function(result) {
       console.log('✅ ML chart loaded successfully');
@@ -1113,9 +1071,6 @@ const CHARTS = {
 
 "cc9_chart1": { spec: "cc9_india_pmkvy_choropleth_v2.json", options: { actions: true } },
 "cc9_chart2": { spec: "cc9_scatter_quadrant_clean.json", options: { actions: true } },
-
-  "cc10_chart1": { spec: null, options: { actions: true } },
-  "cc10_chart2": { spec: null, options: { actions: true } }
 };
 
 
