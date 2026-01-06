@@ -1,0 +1,69 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Quadrant scatter: Skilled vs Placement rate with brush selection.",
+  "data": {"url": "cc9_pmkvy_tidy.json"},
+
+  "transform": [
+    {"filter": "datum.fy == fySel"},
+    {"filter": "datum.placement_rate != null"}
+  ],
+
+  "params": [
+    {
+      "name": "fySel",
+      "value": "FY-20-21",
+      "bind": {
+        "input": "select",
+        "options": ["FY-20-21", "FY-21-22"],
+        "name": "Year: "
+      }
+    }
+  ],
+
+  "vconcat": [
+    {
+      "title": "Skilled vs Placement rate (brush to select; medians form quadrants)",
+      "selection": {
+        "sel": {"type": "interval"}
+      },
+      "transform": [
+        {
+          "joinaggregate": [
+            {"op": "median", "field": "skilled", "as": "med_skilled"},
+            {"op": "median", "field": "placement_rate", "as": "med_rate"}
+          ]
+        }
+      ],
+      "layer": [
+        {
+          "mark": {"type": "point", "filled": true, "size": 70},
+          "encoding": {
+            "x": {"field": "skilled", "type": "quantitative", "title": "Candidates skilled"},
+            "y": {"field": "placement_rate", "type": "quantitative", "axis": {"format": ".0%"}, "title": "Placement rate"},
+            "tooltip": [
+              {"field": "state", "type": "nominal", "title": "State/UT"},
+              {"field": "skilled", "type": "quantitative", "format": ","},
+              {"field": "placed", "type": "quantitative", "format": ","},
+              {"field": "placement_rate", "type": "quantitative", "format": ".1%"}
+            ],
+            "opacity": {
+              "condition": {"selection": "sel", "value": 1},
+              "value": 0.25
+            }
+          }
+        },
+        {"mark": "rule", "encoding": {"x": {"field": "med_skilled", "type": "quantitative"}}},
+        {"mark": "rule", "encoding": {"y": {"field": "med_rate", "type": "quantitative"}}}
+      ]
+    },
+    {
+      "title": "Selected States/UTs",
+      "transform": [{"filter": {"selection": "sel"}}],
+      "mark": "bar",
+      "encoding": {
+        "y": {"field": "state", "type": "nominal", "sort": "-x", "title": null},
+        "x": {"field": "placement_rate", "type": "quantitative", "axis": {"format": ".0%"}, "title": "Placement rate"}
+      }
+    }
+  ]
+}
