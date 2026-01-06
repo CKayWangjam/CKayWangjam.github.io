@@ -421,32 +421,51 @@
 </section>
 
       <!-- ===================== CC6 ===================== -->
-      <section class="cc-card" id="cc6">
-        <div class="cc-head">
-          <div class="cc-kicker">
-            <span class="cc-pill">CC6</span>
-            <h2 class="cc-title">Building a Dashboard</h2>
-          </div>
-        </div>
+<section class="cc-card" id="cc6">
+  <div class="cc-head">
+    <div class="cc-kicker">
+      <span class="cc-pill">CC6</span>
+      <h2 class="cc-title">Building a Dashboard</h2>
+    </div>
+  </div>
 
-        <p class="cc-summary">Write a 1–2 sentence summary of what you built and what skill you practiced.</p>
+  <p class="cc-summary">
+    Interactive dashboard displaying six key economic indicators for India (2000-2024), batch downloaded using a Python loop from the World Bank API and embedded using a JavaScript loop.
+  </p>
 
-        <div class="cc-grid">
-          <div class="viz">
-            <h3>Chart/Map 1 — Title</h3>
-            <p>Description placeholder.</p>
-            <figure id="cc6_chart1"></figure>
-            <p class="source"><strong>Data source:</strong> Add source here.</p>
-          </div>
+  <div style="background: rgba(255,255,255,0.92); border-radius: 8px; padding: 14px; margin-bottom: 16px;">
+    <p style="margin: 0; font-size: 13px; line-height: 1.6; color: rgba(18,18,18,0.75);">
+      <strong>Data Source:</strong> World Bank Indicators API | 
+      <strong>Download Method:</strong> Python loop (6 indicators) | 
+      <strong>Embed Method:</strong> JavaScript loop | 
+      <a href="https://colab.research.google.com/drive/15pJIxM7WXOIyw-zuYxrAQgNPHaWWgGaW" target="_blank" style="color: #2563eb; text-decoration: underline;">View Colab Notebook →</a>
+    </p>
+  </div>
 
-          <div class="viz">
-            <h3>Chart/Map 2 — Title</h3>
-            <p>Description placeholder.</p>
-            <figure id="cc6_chart2"></figure>
-            <p class="source"><strong>Data source:</strong> Add source here.</p>
-          </div>
-        </div>
-      </section>
+  
+  <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 18px;">
+    <div class="viz" style="padding: 12px;">
+      <figure id="dashboard_chart_0"></figure>
+    </div>
+    <div class="viz" style="padding: 12px;">
+      <figure id="dashboard_chart_1"></figure>
+    </div>
+    <div class="viz" style="padding: 12px;">
+      <figure id="dashboard_chart_2"></figure>
+    </div>
+    <div class="viz" style="padding: 12px;">
+      <figure id="dashboard_chart_3"></figure>
+    </div>
+    <div class="viz" style="padding: 12px;">
+      <figure id="dashboard_chart_4"></figure>
+    </div>
+    <div class="viz" style="padding: 12px;">
+      <figure id="dashboard_chart_5"></figure>
+    </div>
+  </div>
+
+  <p class="source" style="margin-top: 16px;"><strong>Data source:</strong> World Bank Indicators API, 2000-2024 time series data</p>
+</section>
 
       <!-- ===================== CC7 ===================== -->
       <section class="cc-card" id="cc7">
@@ -567,51 +586,82 @@
 
   <script>
     
+/* =========================================================
+   CHART REGISTRY 
+   ========================================================= */
 
+const CHARTS = {
+  // CC1 
+  "cc1_chart1": { spec: "CC1 Chart 1.json", options: { actions: true } },
+  "cc1_chart2": { spec: "CC1 Chart 2.jsonn", options: { actions: true } },
 
+  // CC2
+  "cc2_chart1": { spec: "CC2 Inflation Trends in Japan.json", options: { actions: true } },
+  "cc2_chart2": { spec: "CC2 Growth rate Japan.json", options: { actions: true } },
 
-    const CHARTS = {
-      
-      "cc1_chart1": { spec: "CC1 Chart 1.json", options: { actions: true } },
-      "cc1_chart2": { spec: "CC1 Chart 2.json", options: { actions: true } },
-     
-      "cc2_chart1": { spec: "CC2 Inflation Trends in Japan.json", options: { actions: true } },
-      "cc2_chart2": { spec: "CC2 Growth rate Japan.json", options: { actions: true } },
+  // CC3
+  "cc3_chart1": { spec: "chart1_dbt_success.json", options: { actions: true } },
+  "cc3_chart2": { spec: "chart2_exclusion.json", options: { actions: true } },
 
-      "cc3_chart1": { spec: "chart1_dbt_success.json", options: { actions: true } },
-      "cc3_chart2": { spec: "chart2_exclusion.json", options: { actions: true} },
+  // CC4 
+  "cc4_chart1": { spec: "chart_original_gdp.json", options: { actions: true } },
+  "cc4_chart2": { spec: "chart_improved_gdp.json", options: { actions: true } },
 
-      "cc4_chart1": { spec: "chart_original_gdp.json", options: { actions: true } },
-      "cc4_chart2": { spec: "chart_improved_gdp.json", options: { actions: true } },
-
-     "cc5_chart1": { spec: "chart_worldbank_api.json", options: { actions: true } },
+  // CC5
+  "cc5_chart1": { spec: "chart_worldbank_api.json", options: { actions: true } },
   "cc5_chart2": { spec: "chart_scraped_hdi.json", options: { actions: true } },
 
 
-      "cc6_chart1": { spec: null, options: { actions: true } },
-      "cc6_chart2": { spec: null, options: { actions: false } },
+  "cc7_chart1": { spec: null, options: { actions: true } },
+  "cc7_chart2": { spec: null, options: { actions: true } },
 
-      "cc7_chart1": { spec: null, options: { actions: true } },
-      "cc7_chart2": { spec: null, options: { actions: true } },
+  "cc8_chart1": { spec: null, options: { actions: true } },
+  "cc8_chart2": { spec: null, options: { actions: true } },
 
-      "cc8_chart1": { spec: null, options: { actions: true } },
-      "cc8_chart2": { spec: null, options: { actions: true } },
+  "cc9_chart1": { spec: null, options: { actions: true } },
+  "cc9_chart2": { spec: null, options: { actions: true } },
 
-      "cc9_chart1": { spec: null, options: { actions: true } },
-      "cc9_chart2": { spec: null, options: { actions: true } },
+  "cc10_chart1": { spec: null, options: { actions: true } },
+  "cc10_chart2": { spec: null, options: { actions: true } }
+};
 
-      "cc10_chart1": { spec: null, options: { actions: true } },
-      "cc10_chart2": { spec: null, options: { actions: true } }
-    };
+/* =========================================================
+   RENDERER FOR CC1-CC5 (Individual Charts)
+   ========================================================= */
+for (const [id, cfg] of Object.entries(CHARTS)) {
+  if (cfg.spec) {
+    vegaEmbed(`#${id}`, cfg.spec, cfg.options).catch(console.error);
+  }
+}
 
-    /* =========================================================
-       RENDERER 
-       ========================================================= */
-    for (const [id, cfg] of Object.entries(CHARTS)) {
-      if (cfg.spec) {
-        vegaEmbed(`#${id}`, cfg.spec, cfg.options).catch(console.error);
-      }
-    }
+/* For CC6 Dashboard Loop - I am embedding 6 charts using JavaScript loop*/
+
+const dashboardCharts = [
+  "dashboard_gdp.json",
+  "dashboard_inflation.json",
+  "dashboard_unemployment.json",
+  "dashboard_exports.json",
+  "dashboard_fdi.json",
+  "dashboard_govt_exp.json"
+];
+
+dashboardCharts.forEach((spec, index) => {
+  const elementId = `#dashboard_chart_${index}`;
+  const options = { actions: false }; // 
+  
+  vegaEmbed(elementId, spec, options)
+    .then(() => {
+      console.log(`✓ Dashboard chart ${index + 1} embedded successfully`);
+    })
+    .catch(error => {
+      console.error(`✗ Error embedding dashboard chart ${index + 1}:`, error);
+    });
+});
+
+console.log(`Dashboard: Attempting to embed ${dashboardCharts.length} charts using loop`);
+
+
+    
   </script>
 </body>
 </html>

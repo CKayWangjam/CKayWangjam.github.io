@@ -1,0 +1,82 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 220,
+  "height": 180,
+  "data": {
+    "url": "https://api.worldbank.org/v2/country/IND/indicator/NY.GDP.MKTP.KD.ZG?format=json&per_page=50&date=2000:2024",
+    "format": {
+      "type": "json",
+      "property": "[1]"
+    }
+  },
+  "transform": [
+    {
+      "filter": "datum.value != null"
+    },
+    {
+      "calculate": "toNumber(datum.date)",
+      "as": "year"
+    }
+  ],
+  "mark": {
+    "type": "line",
+    "point": {
+      "size": 30
+    },
+    "color": "#16a34a",
+    "strokeWidth": 2
+  },
+  "encoding": {
+    "x": {
+      "field": "year",
+      "type": "quantitative",
+      "axis": {
+        "title": "Year",
+        "format": "d",
+        "labelAngle": -45,
+        "labelFontSize": 9,
+        "titleFontSize": 10
+      },
+      "scale": {
+        "domain": [
+          2000,
+          2024
+        ]
+      }
+    },
+    "y": {
+      "field": "value",
+      "type": "quantitative",
+      "axis": {
+        "title": "Growth (%)",
+        "grid": true,
+        "gridDash": [
+          2,
+          2
+        ],
+        "labelFontSize": 9,
+        "titleFontSize": 10
+      }
+    },
+    "tooltip": [
+      {
+        "field": "year",
+        "type": "quantitative",
+        "title": "Year",
+        "format": "d"
+      },
+      {
+        "field": "value",
+        "type": "quantitative",
+        "title": "Growth (%)",
+        "format": ".2f"
+      }
+    ]
+  },
+  "title": {
+    "text": "GDP Growth",
+    "fontSize": 13,
+    "fontWeight": "bold",
+    "anchor": "start"
+  }
+}
