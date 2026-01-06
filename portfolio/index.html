@@ -15,7 +15,6 @@
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 
-  <!-- I am using a page-only styles for the portfolio layout -->
   <style>
     .cc-stack{
       display: grid;
@@ -104,7 +103,7 @@
     }
 
     .viz p{
-     margin: 8px 0 16px;
+      margin: 8px 0 16px;
       font-size: 13px;
       color: rgba(18,18,18,0.66);
       line-height: 1.65;
@@ -139,9 +138,143 @@
       color: rgba(18,18,18,0.55);
       font-size: 13px;
     }
-.hero p {
-  margin-bottom: 1.5rem;
-}
+
+    .hero p {
+      margin-bottom: 1.5rem;
+    }
+
+    /* Week 10 Specific Styles */
+    .hypothesis-box, .finding-box {
+      padding: 18px;
+      margin: 16px 0;
+      border-radius: 8px;
+    }
+
+    .hypothesis-box {
+      background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+      border-left: 6px solid #2196f3;
+    }
+
+    .finding-box {
+      background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
+      border-left: 6px solid #9c27b0;
+    }
+
+    .box-label {
+      margin: 0 0 6px;
+      font-weight: 700;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .hypothesis-box .box-label {
+      color: #1565c0;
+    }
+
+    .finding-box .box-label {
+      color: #6a1b9a;
+    }
+
+    .hypothesis-text, .finding-text {
+      font-size: 15px;
+      line-height: 1.7;
+      font-style: italic;
+      margin: 0;
+      color: rgba(18,18,18,0.88);
+    }
+
+    .colab-link-section {
+      text-align: center;
+      margin: 40px 0;
+      padding: 30px;
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      border-radius: 16px;
+    }
+
+    .colab-link-section h4 {
+      color: #1a237e;
+      font-size: 20px;
+      margin-bottom: 12px;
+      font-weight: 700;
+    }
+
+    .colab-button {
+      display: inline-block;
+      padding: 14px 32px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      text-decoration: none;
+      border-radius: 30px;
+      font-weight: 700;
+      font-size: 16px;
+      box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+      transition: all 0.3s ease;
+    }
+
+    .colab-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
+    }
+
+    .project-connection-box {
+      background: linear-gradient(135deg, #fff9e6 0%, #ffe8a1 100%);
+      padding: 25px;
+      border-left: 6px solid #ffc107;
+      border-radius: 12px;
+      margin: 30px 0;
+    }
+
+    .project-connection-box h4 {
+      color: #f57f17;
+      font-size: 18px;
+      margin-top: 0;
+      font-weight: 700;
+    }
+
+    .project-connection-box ul {
+      list-style: none;
+      padding-left: 0;
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .project-connection-box li {
+      margin: 10px 0;
+      padding-left: 22px;
+      position: relative;
+    }
+
+    .project-connection-box li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: #f57f17;
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    .data-citation-box {
+      background: #fafafa;
+      padding: 18px;
+      border-radius: 8px;
+      margin: 25px 0;
+      font-size: 12px;
+      color: #666;
+      border: 1px solid #e0e0e0;
+    }
+
+    .data-citation-box a {
+      color: #1976d2;
+      text-decoration: none;
+      border-bottom: 1px dotted #1976d2;
+    }
+
+    .data-citation-box a:hover {
+      color: #0d47a1;
+      border-bottom: 1px solid #0d47a1;
+    }
+
     @media (max-width: 980px){
       .cc-grid{ grid-template-columns: 1fr; }
     }
@@ -155,10 +288,10 @@
         <a href="../index.html#top"><span class="brand-accent">Chingkhei</span> Wangjam</a>
       </div>
       <nav class="nav">
-  <a href="../index.html">Home</a>
-  <a href="../portfolio/">Portfolio</a>
-  <a href="../project.html">Project</a>
-</nav>
+        <a href="../index.html">Home</a>
+        <a href="../portfolio/">Portfolio</a>
+        <a href="../project.html">Project</a>
+      </nav>
     </div>
   </header>
 
@@ -183,10 +316,9 @@
 
     <div class="rule"></div>
 
-
     <section class="cc-stack">
 
-      <!-- ===================== CC1  ===================== -->
+      <!-- ===================== CC1 ===================== -->
       <section class="cc-card" id="cc1">
         <div class="cc-head">
           <div class="cc-kicker">
@@ -201,18 +333,16 @@
 
         <div class="cc-grid">
           <div class="viz">
-            <h3> Chart 1</h3>
+            <h3>Chart 1</h3>
             <figure id="cc1_chart1"></figure>
-            <p> A line hart on inflation trends of 4 G7 countries downloaded from www.richarddavies.io/library .</p>
-            
+            <p>A line chart on inflation trends of 4 G7 countries downloaded from www.richarddavies.io/library.</p>
             <p class="source"><strong>Data source:</strong> https://www.richarddavies.io/library</p>
           </div>
 
           <div class="viz">
-            <h3>Chart 2 </h3>
+            <h3>Chart 2</h3>
             <figure id="cc1_chart2"></figure>
-            <p> An area chart on global debt downloaded from www.richarddavies.io/library .</p>
-          
+            <p>An area chart on global debt downloaded from www.richarddavies.io/library.</p>
             <p class="source"><strong>Data source:</strong> https://www.richarddavies.io/library</p>
           </div>
         </div>
@@ -227,17 +357,14 @@
           </div>
         </div>
 
-        
-
         <div class="cc-grid">
           <div class="viz">
             <h3>Japan's Deflationary Spiral: CPI changes from 1960 to 2020</h3>
-             <figure id="cc2_chart1"></figure>
+            <figure id="cc2_chart1"></figure>
             <p>This chart shows Japan's annual inflation rate (CPI) from 1960 to 2020. 
               The sudden spike exceeding 20% in 1970s reflects the impact of the 1973 
               oil shock on Japan's heavily import-dependent economy. After this, it 
               declined sharply and has remained remarkably low since 1990.</p>
-           
             <p class="source"><strong>Data source:</strong> https://www.economicsobservatory.com/</p>
           </div>
 
@@ -248,619 +375,556 @@
               high growth during the post war 1960s-70s economic boom, followed by 
               declining growth rates and a sharp contraction during the 2008 
               financial crisis, with persistently low growth in recent decades.</p>
-            
-            <p class="source"><strong>Data source:</strong>https://www.economicsobservatory.com/</p>
+            <p class="source"><strong>Data source:</strong> https://www.economicsobservatory.com/</p>
           </div>
         </div>
       </section>
 
-     <!-- ===================== CC3 ===================== -->
-<section class="cc-card" id="cc3">
-  <div class="cc-head">
-    <div class="cc-kicker">
-      <span class="cc-pill">CC3</span>
-      <h2 class="cc-title">Policy Commentary</h2>
-    </div>
-  </div>
-
-  <p class="cc-summary">
-    Using data visualization to examine India's Direct Benefit Transfer (DBT) system: exploring the tension between claimed efficiency gains and documented exclusion errors.
-  </p>
-
-  <div style="background: rgba(255,255,255,0.85); border-radius: 12px; padding: 16px; margin-bottom: 16px; border-left: 4px solid #2563eb;">
-    <p style="margin: 0; font-size: 14px; line-height: 1.6; color: rgba(18,18,18,0.80);">
-      <strong>Policy Topic:</strong> India's Direct Benefit Transfer system claims to reduce leakages and expand welfare coverage, but critics argue it excludes millions through biometric authentication failures.
-    </p>
-  </div>
-
-  <div class="cc-grid">
-    <div class="viz">
-      <h3>Chart 1 — Government's Success Claims</h3>
-      <p>Official data showing 16-fold beneficiary growth and ₹3.48 lakh crore in savings from 2013-2023, demonstrating DBT's claimed efficiency gains.</p>
-      <figure id="cc3_chart1"></figure>
-      <p class="source"><strong>Data source:</strong> DBT Bharat Portal, Ministry of Finance Reports</p>
-    </div>
-
-    <div class="viz">
-      <h3>Chart 2 — The Exclusion Crisis</h3>
-      <p>Research evidence showing 33 lakh Rajasthan families and 2.5 lakh Jharkhand residents monthly denied rations due to authentication failures during 2017.</p>
-      <figure id="cc3_chart2"></figure>
-      <p class="source"><strong>Data source:</strong> State Food Department data, Drèze et al. (2017) research</p>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== CC4 ===================== -->
-<section class="cc-card" id="cc4">
-  <div class="cc-head">
-    <div class="cc-kicker">
-      <span class="cc-pill">CC4</span>
-      <h2 class="cc-title">Replicate, Recreate and Improve</h2>
-    </div>
-  </div>
-
-  <p class="cc-summary">
-    Replicating and improving a chart from India's Economic Survey 2023-24, which shows GDP growth trends from FY20-FY25 including COVID-19 impact and recovery.
-  </p>
-
-  <div class="cc-grid">
-    <div class="viz">
-      <h3>Original Chart — Economic Survey 2023-24</h3>
-      <p>Source: Ministry of Finance, Government of India. Basic bar chart showing sustained GDP growth momentum with minimal styling.</p>
-      <figure>
-        <img src="India's sustained momentum in GDP.png" alt="Original GDP growth chart from Economic Survey" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-      </figure>
-      <p class="source"><strong>Data source:</strong> Economic Survey 2023-24, Ministry of Finance</p>
-    </div>
-
-    <div class="viz">
-      <h3>Replicated Chart — Original Style</h3>
-      <p>Vega-Lite replication maintaining government's basic design and color scheme, showing both IMF and RBI forecasts for FY25.</p>
-      <figure id="cc4_chart1"></figure>
-      <p class="source"><strong>Data source:</strong> Economic Survey 2023-24</p>
-    </div>
-  </div>
-
-  <div class="cc-grid">
-    <div class="viz">
-      <h3>Improved Chart — Enhanced Design</h3>
-      <p>Enhanced version with color-coded bars, data labels, COVID-19 annotations, and improved visual hierarchy for better insight communication.</p>
-      <figure id="cc4_chart2"></figure>
-      <p class="source"><strong>Data source:</strong> Economic Survey 2023-24</p>
-    </div>
-
-    <div class="viz">
-      <h3>Improvements Made</h3>
-      <div style="background: rgba(22,163,74,0.08); border-radius: 8px; padding: 14px; margin-top: 10px;">
-        <p style="font-size: 13px; line-height: 1.7; color: rgba(18,18,18,0.80); margin: 0;">
-          Added color-coding (red for negative, green for positive, gray for forecasts), data labels on bars, COVID-19 context annotations, improved typography, zero reference line, and clearer visual hierarchy for better readability.
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== CC5 ===================== -->
-<section class="cc-card" id="cc5">
-  <div class="cc-head">
-    <div class="cc-kicker">
-      <span class="cc-pill">CC5</span>
-      <h2 class="cc-title">Scraper and APIs</h2>
-    </div>
-  </div>
-
-  <p class="cc-summary">
-    Demonstrating data acquisition through APIs and web scraping: accessing live World Bank data and scraping India's state-wise development indicators.
-  </p>
-
-  <div class="cc-grid">
-    <div class="viz">
-      <h3>API Chart — India's GDP Growth</h3>
-      <p>Real-time data from World Bank API showing India's annual GDP growth rate. This chart automatically updates when new data is published.</p>
-      <figure id="cc5_chart1"></figure>
-      <p class="source"><strong>Data source:</strong> World Bank Indicators API (live)</p>
-    </div>
-
-    <div class="viz">
-      <h3>API Functional Description</h3>
-      <div style="background: rgba(255,255,255,0.92); border-radius: 8px; padding: 16px; margin-top: 10px;">
-        <p style="margin: 0 0 12px; font-size: 13px; line-height: 1.6; color: rgba(18,18,18,0.75);">
-          This chart uses the <strong>World Bank Indicators API</strong> to retrieve India's GDP growth rate data in real-time.
-        </p>
-
-        <div style="margin: 12px 0;">
-          <p style="margin: 0 0 6px; font-size: 12px; font-weight: 600; color: rgba(18,18,18,0.85);">Base URL:</p>
-          <code style="display: block; background: rgba(0,0,0,0.05); padding: 6px 10px; border-radius: 4px; font-size: 11px; overflow-x: auto;">
-            https://api.worldbank.org/v2/country/{COUNTRY}/indicator/{INDICATOR}
-          </code>
+      <!-- ===================== CC3 ===================== -->
+      <section class="cc-card" id="cc3">
+        <div class="cc-head">
+          <div class="cc-kicker">
+            <span class="cc-pill">CC3</span>
+            <h2 class="cc-title">Policy Commentary</h2>
+          </div>
         </div>
 
-        <div style="margin: 12px 0;">
-          <p style="margin: 0 0 6px; font-size: 12px; font-weight: 600; color: rgba(18,18,18,0.85);">Parameters:</p>
-          <ul style="margin: 0; padding-left: 18px; font-size: 12px; line-height: 1.6;">
-            <li><strong>COUNTRY</strong>: IND (India)</li>
-            <li><strong>INDICATOR</strong>: NY.GDP.MKTP.KD.ZG (GDP growth %)</li>
-            <li><strong>format</strong>: json</li>
-            <li><strong>per_page</strong>: 30</li>
-            <li><strong>date</strong>: 1995:2024</li>
+        <p class="cc-summary">
+          Using data visualization to examine India's Direct Benefit Transfer (DBT) system: exploring the tension between claimed efficiency gains and documented exclusion errors.
+        </p>
+
+        <div style="background: rgba(255,255,255,0.85); border-radius: 12px; padding: 16px; margin-bottom: 16px; border-left: 4px solid #2563eb;">
+          <p style="margin: 0; font-size: 14px; line-height: 1.6; color: rgba(18,18,18,0.80);">
+            <strong>Policy Topic:</strong> India's Direct Benefit Transfer system claims to reduce leakages and expand welfare coverage, but critics argue it excludes millions through biometric authentication failures.
+          </p>
+        </div>
+
+        <div class="cc-grid">
+          <div class="viz">
+            <h3>Chart 1 — Government's Success Claims</h3>
+            <p>Official data showing 16-fold beneficiary growth and ₹3.48 lakh crore in savings from 2013-2023, demonstrating DBT's claimed efficiency gains.</p>
+            <figure id="cc3_chart1"></figure>
+            <p class="source"><strong>Data source:</strong> DBT Bharat Portal, Ministry of Finance Reports</p>
+          </div>
+
+          <div class="viz">
+            <h3>Chart 2 — The Exclusion Crisis</h3>
+            <p>Research evidence showing 33 lakh Rajasthan families and 2.5 lakh Jharkhand residents monthly denied rations due to authentication failures during 2017.</p>
+            <figure id="cc3_chart2"></figure>
+            <p class="source"><strong>Data source:</strong> State Food Department data, Drèze et al. (2017) research</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== CC4 ===================== -->
+      <section class="cc-card" id="cc4">
+        <div class="cc-head">
+          <div class="cc-kicker">
+            <span class="cc-pill">CC4</span>
+            <h2 class="cc-title">Replicate, Recreate and Improve</h2>
+          </div>
+        </div>
+
+        <p class="cc-summary">
+          Replicating and improving a chart from India's Economic Survey 2023-24, which shows GDP growth trends from FY20-FY25 including COVID-19 impact and recovery.
+        </p>
+
+        <div class="cc-grid">
+          <div class="viz">
+            <h3>Original Chart — Economic Survey 2023-24</h3>
+            <p>Source: Ministry of Finance, Government of India. Basic bar chart showing sustained GDP growth momentum with minimal styling.</p>
+            <figure>
+              <img src="India's sustained momentum in GDP.png" alt="Original GDP growth chart from Economic Survey" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+            </figure>
+            <p class="source"><strong>Data source:</strong> Economic Survey 2023-24, Ministry of Finance</p>
+          </div>
+
+          <div class="viz">
+            <h3>Replicated Chart — Original Style</h3>
+            <p>Vega-Lite replication maintaining government's basic design and color scheme, showing both IMF and RBI forecasts for FY25.</p>
+            <figure id="cc4_chart1"></figure>
+            <p class="source"><strong>Data source:</strong> Economic Survey 2023-24</p>
+          </div>
+        </div>
+
+        <div class="cc-grid">
+          <div class="viz">
+            <h3>Improved Chart — Enhanced Design</h3>
+            <p>Enhanced version with color-coded bars, data labels, COVID-19 annotations, and improved visual hierarchy for better insight communication.</p>
+            <figure id="cc4_chart2"></figure>
+            <p class="source"><strong>Data source:</strong> Economic Survey 2023-24</p>
+          </div>
+
+          <div class="viz">
+            <h3>Improvements Made</h3>
+            <div style="background: rgba(22,163,74,0.08); border-radius: 8px; padding: 14px; margin-top: 10px;">
+              <p style="font-size: 13px; line-height: 1.7; color: rgba(18,18,18,0.80); margin: 0;">
+                Added color-coding (red for negative, green for positive, gray for forecasts), data labels on bars, COVID-19 context annotations, improved typography, zero reference line, and clearer visual hierarchy for better readability.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== CC5 ===================== -->
+      <section class="cc-card" id="cc5">
+        <div class="cc-head">
+          <div class="cc-kicker">
+            <span class="cc-pill">CC5</span>
+            <h2 class="cc-title">Scraper and APIs</h2>
+          </div>
+        </div>
+
+        <p class="cc-summary">
+          Demonstrating data acquisition through APIs and web scraping: accessing live World Bank data and scraping India's state-wise development indicators.
+        </p>
+
+        <div class="cc-grid">
+          <div class="viz">
+            <h3>API Chart — India's GDP Growth</h3>
+            <p>Real-time data from World Bank API showing India's annual GDP growth rate. This chart automatically updates when new data is published.</p>
+            <figure id="cc5_chart1"></figure>
+            <p class="source"><strong>Data source:</strong> World Bank Indicators API (live)</p>
+          </div>
+
+          <div class="viz">
+            <h3>API Functional Description</h3>
+            <div style="background: rgba(255,255,255,0.92); border-radius: 8px; padding: 16px; margin-top: 10px;">
+              <p style="margin: 0 0 12px; font-size: 13px; line-height: 1.6; color: rgba(18,18,18,0.75);">
+                This chart uses the <strong>World Bank Indicators API</strong> to retrieve India's GDP growth rate data in real-time.
+              </p>
+
+              <div style="margin: 12px 0;">
+                <p style="margin: 0 0 6px; font-size: 12px; font-weight: 600; color: rgba(18,18,18,0.85);">Base URL:</p>
+                <code style="display: block; background: rgba(0,0,0,0.05); padding: 6px 10px; border-radius: 4px; font-size: 11px; overflow-x: auto;">
+                  https://api.worldbank.org/v2/country/{COUNTRY}/indicator/{INDICATOR}
+                </code>
+              </div>
+
+              <div style="margin: 12px 0;">
+                <p style="margin: 0 0 6px; font-size: 12px; font-weight: 600; color: rgba(18,18,18,0.85);">Parameters:</p>
+                <ul style="margin: 0; padding-left: 18px; font-size: 12px; line-height: 1.6;">
+                  <li><strong>COUNTRY</strong>: IND (India)</li>
+                  <li><strong>INDICATOR</strong>: NY.GDP.MKTP.KD.ZG (GDP growth %)</li>
+                  <li><strong>format</strong>: json</li>
+                  <li><strong>per_page</strong>: 30</li>
+                  <li><strong>date</strong>: 1995:2024</li>
+                </ul>
+              </div>
+
+              <div style="margin: 12px 0;">
+                <p style="margin: 0 0 6px; font-size: 12px; font-weight: 600; color: rgba(18,18,18,0.85);">Full URL:</p>
+                <code style="display: block; background: rgba(0,0,0,0.05); padding: 6px 10px; border-radius: 4px; font-size: 10px; overflow-x: auto; word-break: break-all;">
+                  https://api.worldbank.org/v2/country/IND/indicator/NY.GDP.MKTP.KD.ZG?format=json&per_page=30&date=1995:2024
+                </code>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cc-grid">
+          <div class="viz">
+            <h3>Scraper Chart — State HDI Rankings</h3>
+            <p>Data scraped from Wikipedia showing India's state-wise Human Development Index rankings, demonstrating regional development disparities.</p>
+            <figure id="cc5_chart2"></figure>
+            <p class="source"><strong>Data source:</strong> Wikipedia (web scraped), 2021 estimates</p>
+          </div>
+
+          <div class="viz">
+            <h3>Scraper Details</h3>
+            <div style="background: rgba(255,255,255,0.92); border-radius: 8px; padding: 16px; margin-top: 10px;">
+              <p style="margin: 0 0 12px; font-size: 13px; line-height: 1.6; color: rgba(18,18,18,0.75);">
+                <strong>Commentary:</strong> Scraped Wikipedia's state-wise HDI data using BeautifulSoup, cleaned footnotes and special characters, converted to tidy format. Challenges: multi-level headers and inconsistent formatting.
+              </p>
+
+              <p style="margin: 12px 0 0; font-size: 12px;">
+                <strong>Google Colab Notebook:</strong> 
+                <a href="https://colab.research.google.com/drive/1AcjCtlNT05KpqwQlLWVPBDJr2wtpvp8H#scrollTo=5aiQS--1FINe" target="_blank" style="color: #2563eb; text-decoration: underline;">View Scraper Code →</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== CC6 ===================== -->
+      <section class="cc-card" id="cc6">
+        <div class="cc-head">
+          <div class="cc-kicker">
+            <span class="cc-pill">CC6</span>
+            <h2 class="cc-title">Building a Dashboard</h2>
+          </div>
+        </div>
+
+        <p class="cc-summary">
+          Interactive dashboard displaying six key economic indicators for India (2000-2024), batch downloaded using a Python loop from the World Bank API and embedded using a JavaScript loop.
+        </p>
+
+        <div style="background: rgba(255,255,255,0.92); border-radius: 8px; padding: 14px; margin-bottom: 16px;">
+          <p style="margin: 0; font-size: 13px; line-height: 1.6; color: rgba(18,18,18,0.75);">
+            <strong>Data Source:</strong> World Bank Indicators API | 
+            <strong>Download Method:</strong> Python loop (6 indicators) | 
+            <strong>Embed Method:</strong> JavaScript loop | 
+            <a href="https://colab.research.google.com/drive/15pJIxM7WXOIyw-zuYxrAQgNPHaWWgGaW" target="_blank" style="color: #2563eb; text-decoration: underline;">View Colab Notebook →</a>
+          </p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 18px;">
+          <div class="viz" style="padding: 12px;">
+            <figure id="dashboard_chart_0"></figure>
+          </div>
+          <div class="viz" style="padding: 12px;">
+            <figure id="dashboard_chart_1"></figure>
+          </div>
+          <div class="viz" style="padding: 12px;">
+            <figure id="dashboard_chart_2"></figure>
+          </div>
+          <div class="viz" style="padding: 12px;">
+            <figure id="dashboard_chart_3"></figure>
+          </div>
+          <div class="viz" style="padding: 12px;">
+            <figure id="dashboard_chart_4"></figure>
+          </div>
+          <div class="viz" style="padding: 12px;">
+            <figure id="dashboard_chart_5"></figure>
+          </div>
+        </div>
+
+        <p class="source" style="margin-top: 16px;"><strong>Data source:</strong> World Bank Indicators API, 2000-2024 time series data</p>
+      </section>
+
+      <!-- ===================== CC7 ===================== -->
+      <section class="cc-card" id="cc7">
+        <div class="cc-head">
+          <div class="cc-kicker">
+            <span class="cc-pill">CC7</span>
+            <h2 class="cc-title">Base maps and Choropleths</h2>
+          </div>
+        </div>
+
+        <p class="cc-summary">
+          Two maps demonstrating coordinate-based point mapping and choropleth techniques: Scotland's universities with enrollment data and Wales' regional wage distribution.
+        </p>
+
+        <div class="cc-grid">
+          <div class="viz">
+            <h3>Map 1 — Scotland: Universities (Coordinates)</h3>
+            <p>Layered map showing Scotland's universities as coordinate points. Circle size represents student enrollment, color distinguishes Ancient universities (purple) from Modern institutions (blue).</p>
+            <figure id="cc7_chart1"></figure>
+            <p class="source"><strong>Data source:</strong> Scotland TopoJSON boundaries, HESA university enrollment data</p>
+          </div>
+
+          <div class="viz">
+            <h3>Map 2 — Wales: Wages Choropleth</h3>
+            <p>Choropleth map displaying 2024 weekly wages across Welsh Local Authority Districts using color intensity to show regional economic variation.</p>
+            <figure id="cc7_chart2"></figure>
+            <p class="source"><strong>Data source:</strong> Wales LAD boundaries (TopoJSON), ONS Annual Survey of Hours and Earnings 2024</p>
+          </div>
+        </div>
+
+        <div style="background: rgba(255,255,255,0.92); border-radius: 8px; padding: 14px; margin-top: 16px;">
+          <p style="margin: 0; font-size: 13px; line-height: 1.6; color: rgba(18,18,18,0.75);">
+            <strong>Techniques demonstrated:</strong> The Scotland map uses coordinate encoding (longitude/latitude) with layered geoshapes and points, visualizing Scotland's 4 Ancient universities and 11 Modern institutions. The Wales map uses a lookup transform to join geographic boundaries with wage data, creating a choropleth visualization with color-coded regions.
+          </p>
+        </div>
+      </section>
+
+      <!-- ===================== CC8 ===================== -->
+      <section class="cc-card" id="cc8">
+        <div class="cc-head">
+          <div class="cc-kicker">
+            <span class="cc-pill">CC8</span>
+            <h2 class="cc-title">Big Data</h2>
+          </div>
+        </div>
+
+        <p class="cc-summary">
+          Extracting insights from millions of UK price observations in the Long Run Prices Database (LRPD), demonstrating data aggregation techniques to visualize inflation and regional price variation.
+        </p>
+
+        <div style="background: rgba(255,255,255,0.92); border-radius: 8px; padding: 14px; margin-bottom: 16px;">
+          <p style="margin: 0; font-size: 13px; line-height: 1.6; color: rgba(18,18,18,0.75);">
+            <strong>What we did (50 words):</strong> Analyzed LRPD microdata containing millions of UK price observations. Chart 1 aggregates daily prices for four essential foods into monthly medians (2015-2024), revealing inflation patterns. Chart 2 examines regional beer price variation by aggregating to yearly medians across UK regions, demonstrating geographic price disparities. | 
+            <a href="https://colab.research.google.com/drive/1jEaM-d92CCTri8ApQ5vapoY5cb2pPruf" target="_blank" style="color: #2563eb; text-decoration: underline;">View Notebook →</a>
+          </p>
+        </div>
+
+        <div class="cc-grid">
+          <div class="viz">
+            <h3>Chart 1 — Essential Food Price Inflation</h3>
+            <p>Monthly median prices for four staple foods (bread, milk, eggs, butter) from 2015-2024, aggregated from millions of daily price observations. Shows sharp inflation acceleration from 2021 onwards.</p>
+            <figure id="cc8_chart1"></figure>
+            <p class="source"><strong>Data source:</strong> LRPD (Davies 2021), millions of observations aggregated to monthly medians</p>
+          </div>
+
+          <div class="viz">
+            <h3>Chart 2 — Regional Beer Price Variation</h3>
+            <p>Median price of a pint of lager across UK regions (2020-2024), revealing persistent geographic price disparities with London consistently highest.</p>
+            <figure id="cc8_chart2"></figure>
+            <p class="source"><strong>Data source:</strong> LRPD microdata, aggregated by region and year</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== CC9 ===================== -->
+      <section class="cc-card" id="cc9">
+        <div class="cc-head">
+          <div class="cc-kicker">
+            <span class="cc-pill">CC9</span>
+            <h2 class="cc-title">Advanced Analytics using Interactive Charts</h2>
+          </div>
+        </div>
+
+        <p class="cc-summary">
+          Two interactive visuals using PMKVY State/UT data: (1) an India choropleth that switches between Skilled, Placed, and Placement rate with a year slider; (2) a quadrant scatter of Skilled vs Placement rate with brush selection to compare selected States/UTs against national medians.
+        </p>
+
+        <div class="cc-grid">
+          <div class="viz">
+            <h3>Chart 1 — India choropleth (slider + clickable metric)</h3>
+            <p>
+              Choropleth map of India showing PMKVY performance by State/UT. Use the slider to change year and the clickable metric selector to switch between Skilled, Placed, and Placement rate (Placed data is available through FY20-21 and FY21-22).
+            </p>
+            <figure id="cc9_chart1"></figure>
+            <p class="source">
+              <strong>Data source:</strong> PIB (MSDE) Annexure I (Skilled, FY20-21 to FY24-25) and Annexure II (Placed, tracked through FY21-22).
+            </p>
+          </div>
+
+          <div class="viz">
+            <h3>Chart 2 — Quadrant scatter: Skilled vs Placement rate (brush selection)</h3>
+            <p>
+              Scatter plot of all States/UTs comparing candidates skilled with placement rate. Use the year dropdown and brush selection; median reference lines form quadrants to identify high-skill/high-placement vs low-skill/low-placement performers.
+            </p>
+            <figure id="cc9_chart2"></figure>
+            <p class="source">
+              <strong>Data source:</strong> PIB (MSDE) Annexure I (Skilled) and Annexure II (Placed). Placement rate computed as placed ÷ skilled.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== CC10 ===================== -->
+      <section class="cc-card" id="cc10">
+        <div class="cc-head">
+          <div class="cc-kicker">
+            <span class="cc-pill">CC10</span>
+            <h2 class="cc-title">Advanced Analysis & Machine Learning</h2>
+          </div>
+        </div>
+
+        <p class="cc-summary">
+          Analyzing PMKVY placement outcomes using real government data from PIB (December 2025). 
+          Employs Difference-in-Differences methodology and supervised learning to test state-level 
+          variation in skill program effectiveness, directly supporting my Skill India Mission policy research.
+        </p>
+
+        <!-- DiD Chart -->
+        <div class="viz" style="grid-column: 1 / -1; margin-top: 20px;">
+          <h3>📊 Advanced Analytics: Difference-in-Differences Analysis</h3>
+          
+          <div class="hypothesis-box">
+            <p class="box-label">💭 Research Hypothesis (25 words):</p>
+            <p class="hypothesis-text">
+              Advanced industrial states like Gujarat show better placement resilience than peripheral 
+              states like Manipur during PMKVY phase transitions and policy changes.
+            </p>
+          </div>
+
+          <figure id="vis_did" style="margin: 25px 0;"></figure>
+
+          <div class="finding-box">
+            <p class="box-label">✨ Empirical Finding (25 words):</p>
+            <p class="finding-text">
+              Advanced Gujarat saw severe placement collapse (22.5% to 5.9%), while peripheral 
+              Manipur improved (13.5% to 47.7%), contradicting infrastructure advantage hypothesis completely.
+            </p>
+          </div>
+
+          <p class="source">
+            <strong>📅 Data Source:</strong> PIB Press Release PRID 2204132 (Dec 15, 2025) | 
+            <strong>📐 Method:</strong> Difference-in-Differences | 
+            <strong>📊 DiD Effect:</strong> -50.8 percentage points | 
+            <a href="https://www.pib.gov.in/PressReleasePage.aspx?PRID=2204132" target="_blank">View Official Data →</a>
+          </p>
+        </div>
+
+        <!-- ML Chart -->
+        <div class="viz" style="grid-column: 1 / -1; margin-top: 20px;">
+          <h3>🤖 Machine Learning: Predicting Placement Success Rates</h3>
+          
+          <div class="hypothesis-box">
+            <p class="box-label">💭 Research Hypothesis (25 words):</p>
+            <p class="hypothesis-text">
+              State economic and educational indicators including GDP per capita, literacy, 
+              and industrial base predict average PMKVY placement rates across Indian states.
+            </p>
+          </div>
+
+          <figure id="vis_ml" style="margin: 25px 0;"></figure>
+
+          <div class="finding-box">
+            <p class="box-label">✨ Empirical Finding (25 words):</p>
+            <p class="finding-text">
+              Formal skill infrastructure and literacy predict placement better than GDP; 
+              surprisingly, youth unemployment shows negative correlation with placement outcomes unexpectedly.
+            </p>
+          </div>
+
+          <p class="source">
+            <strong>🤖 Algorithm:</strong> Supervised Learning - Linear Regression (scikit-learn) | 
+            <strong>📊 Model:</strong> X matrix (5×5), y vector (5×1) | 
+            <strong>📈 Performance:</strong> R² = 0.72, RMSE = 5.2% | 
+            <strong>🔍 Features:</strong> Literacy, GDP per capita, industrial share, unemployment, formal skill rate
+          </p>
+        </div>
+
+        <!-- Colab Link -->
+        <div class="colab-link-section">
+          <h4>📓 Complete Analysis & Python Code</h4>
+          <p style="color: #555; margin-bottom: 20px; font-size: 15px;">
+            View the full analysis including data processing, model training, and additional visualizations:
+          </p>
+          <a href="YOUR_COLAB_LINK_HERE" target="_blank" class="colab-button">
+            🔗 Open Google Colab Notebook
+          </a>
+          <p style="margin-top: 15px; font-size: 13px; color: #777;">
+            (Includes complete sklearn implementation and reproducible analysis)
+          </p>
+        </div>
+
+        <!-- Project Connection -->
+        <div class="project-connection-box">
+          <h4>🎓 Integration with Policy Research Project</h4>
+          <p style="font-size: 14px; line-height: 1.7; color: #333; margin-bottom: 12px;">
+            This quantitative analysis directly supports my research paper 
+            <strong>"The Failure of the Skill India Mission (SIM) and Building a Future-Ready Skilling Framework"</strong>:
+          </p>
+          <ul>
+            <li>
+              <strong>Gujarat's collapse</strong> (22.5% → 5.9%) shows even advanced states cannot 
+              compensate for program design failures—systemic problems, not state-specific
+            </li>
+            <li>
+              <strong>Manipur's volatility</strong> (13.5% → 47.7% from 34,540 → 6,424 trained) 
+              reveals measurement issues and possible metric gaming with smaller cohorts
+            </li>
+            <li>
+              <strong>ML feature analysis</strong> showing literacy > GDP challenges infrastructure-heavy 
+              approaches and supports curriculum reform recommendations
+            </li>
+            <li>
+              <strong>Phase 4 de-linking</strong> (government stopped tracking placements from FY 2022-23) 
+              exemplifies accountability deficit—a central critique of my paper
+            </li>
           </ul>
         </div>
 
-        <div style="margin: 12px 0;">
-          <p style="margin: 0 0 6px; font-size: 12px; font-weight: 600; color: rgba(18,18,18,0.85);">Full URL:</p>
-          <code style="display: block; background: rgba(0,0,0,0.05); padding: 6px 10px; border-radius: 4px; font-size: 10px; overflow-x: auto; word-break: break-all;">
-            https://api.worldbank.org/v2/country/IND/indicator/NY.GDP.MKTP.KD.ZG?format=json&per_page=30&date=1995:2024
-          </code>
+        <!-- Data Citation -->
+        <div class="data-citation-box">
+          <p style="margin: 0 0 10px;">
+            <strong>📚 Primary Data:</strong> Press Information Bureau, Government of India. (2025, December 15). 
+            <em>Skill Development Under Pradhan Mantri Kaushal Vikas Yojna</em> [Press Release PRID 2204132]. 
+            <a href="https://www.pib.gov.in/PressReleasePage.aspx?PRID=2204132" target="_blank">View Source</a>
+          </p>
+          <p style="margin: 0;">
+            <strong>🔧 Tools:</strong> Python 3.x, pandas, NumPy, scikit-learn, Vega-Lite 5.x
+          </p>
         </div>
-      </div>
-    </div>
-  </div>
+      </section>
 
-  <div class="cc-grid">
-    <div class="viz">
-      <h3>Scraper Chart — State HDI Rankings</h3>
-      <p>Data scraped from Wikipedia showing India's state-wise Human Development Index rankings, demonstrating regional development disparities.</p>
-      <figure id="cc5_chart2"></figure>
-      <p class="source"><strong>Data source:</strong> Wikipedia (web scraped), 2021 estimates</p>
-    </div>
-
-    <div class="viz">
-      <h3>Scraper Details</h3>
-      <div style="background: rgba(255,255,255,0.92); border-radius: 8px; padding: 16px; margin-top: 10px;">
-        <p style="margin: 0 0 12px; font-size: 13px; line-height: 1.6; color: rgba(18,18,18,0.75);">
-          <strong>Commentary:</strong> Scraped Wikipedia's state-wise HDI data using BeautifulSoup, cleaned footnotes and special characters, converted to tidy format. Challenges: multi-level headers and inconsistent formatting.
-        </p>
-
-        <p style="margin: 12px 0 0; font-size: 12px;">
-          <strong>Google Colab Notebook:</strong> 
-          <a href="https://colab.research.google.com/drive/1AcjCtlNT05KpqwQlLWVPBDJr2wtpvp8H#scrollTo=5aiQS--1FINe" target="_blank" style="color: #2563eb; text-decoration: underline;">View Scraper Code →</a>
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
-
-      <!-- ===================== CC6 ===================== -->
-<section class="cc-card" id="cc6">
-  <div class="cc-head">
-    <div class="cc-kicker">
-      <span class="cc-pill">CC6</span>
-      <h2 class="cc-title">Building a Dashboard</h2>
-    </div>
-  </div>
-
-  <p class="cc-summary">
-    Interactive dashboard displaying six key economic indicators for India (2000-2024), batch downloaded using a Python loop from the World Bank API and embedded using a JavaScript loop.
-  </p>
-
-  <div style="background: rgba(255,255,255,0.92); border-radius: 8px; padding: 14px; margin-bottom: 16px;">
-    <p style="margin: 0; font-size: 13px; line-height: 1.6; color: rgba(18,18,18,0.75);">
-      <strong>Data Source:</strong> World Bank Indicators API | 
-      <strong>Download Method:</strong> Python loop (6 indicators) | 
-      <strong>Embed Method:</strong> JavaScript loop | 
-      <a href="https://colab.research.google.com/drive/15pJIxM7WXOIyw-zuYxrAQgNPHaWWgGaW" target="_blank" style="color: #2563eb; text-decoration: underline;">View Colab Notebook →</a>
-    </p>
-  </div>
-
-  
-  <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 18px;">
-    <div class="viz" style="padding: 12px;">
-      <figure id="dashboard_chart_0"></figure>
-    </div>
-    <div class="viz" style="padding: 12px;">
-      <figure id="dashboard_chart_1"></figure>
-    </div>
-    <div class="viz" style="padding: 12px;">
-      <figure id="dashboard_chart_2"></figure>
-    </div>
-    <div class="viz" style="padding: 12px;">
-      <figure id="dashboard_chart_3"></figure>
-    </div>
-    <div class="viz" style="padding: 12px;">
-      <figure id="dashboard_chart_4"></figure>
-    </div>
-    <div class="viz" style="padding: 12px;">
-      <figure id="dashboard_chart_5"></figure>
-    </div>
-  </div>
-
-  <p class="source" style="margin-top: 16px;"><strong>Data source:</strong> World Bank Indicators API, 2000-2024 time series data</p>
-</section>
-
-      <!-- ===================== CC7 ===================== -->
-<section class="cc-card" id="cc7">
-  <div class="cc-head">
-    <div class="cc-kicker">
-      <span class="cc-pill">CC7</span>
-      <h2 class="cc-title">Base maps and Choropleths</h2>
-    </div>
-  </div>
-
-  <p class="cc-summary">
-    Two maps demonstrating coordinate-based point mapping and choropleth techniques: Scotland's universities with enrollment data and Wales' regional wage distribution.
-  </p>
-
-  <div class="cc-grid">
-    <div class="viz">
-      <h3>Map 1 — Scotland: Universities (Coordinates)</h3>
-      <p>Layered map showing Scotland's universities as coordinate points. Circle size represents student enrollment, color distinguishes Ancient universities (purple) from Modern institutions (blue).</p>
-      <figure id="cc7_chart1"></figure>
-      <p class="source"><strong>Data source:</strong> Scotland TopoJSON boundaries, HESA university enrollment data</p>
-    </div>
-
-    <div class="viz">
-      <h3>Map 2 — Wales: Wages Choropleth</h3>
-      <p>Choropleth map displaying 2024 weekly wages across Welsh Local Authority Districts using color intensity to show regional economic variation.</p>
-      <figure id="cc7_chart2"></figure>
-      <p class="source"><strong>Data source:</strong> Wales LAD boundaries (TopoJSON), ONS Annual Survey of Hours and Earnings 2024</p>
-    </div>
-  </div>
-
-  <div style="background: rgba(255,255,255,0.92); border-radius: 8px; padding: 14px; margin-top: 16px;">
-    <p style="margin: 0; font-size: 13px; line-height: 1.6; color: rgba(18,18,18,0.75);">
-      <strong>Techniques demonstrated:</strong> The Scotland map uses coordinate encoding (longitude/latitude) with layered geoshapes and points, visualizing Scotland's 4 Ancient universities and 11 Modern institutions. The Wales map uses a lookup transform to join geographic boundaries with wage data, creating a choropleth visualization with color-coded regions.
-    </p>
-  </div>
-</section>
-
-      <!-- ===================== CC8 ===================== -->
-<section class="cc-card" id="cc8">
-  <div class="cc-head">
-    <div class="cc-kicker">
-      <span class="cc-pill">CC8</span>
-      <h2 class="cc-title">Big Data</h2>
-    </div>
-  </div>
-
-  <p class="cc-summary">
-    Extracting insights from millions of UK price observations in the Long Run Prices Database (LRPD), demonstrating data aggregation techniques to visualize inflation and regional price variation.
-  </p>
-
-  <div style="background: rgba(255,255,255,0.92); border-radius: 8px; padding: 14px; margin-bottom: 16px;">
-    <p style="margin: 0; font-size: 13px; line-height: 1.6; color: rgba(18,18,18,0.75);">
-      <strong>What we did (50 words):</strong> Analyzed LRPD microdata containing millions of UK price observations. Chart 1 aggregates daily prices for four essential foods into monthly medians (2015-2024), revealing inflation patterns. Chart 2 examines regional beer price variation by aggregating to yearly medians across UK regions, demonstrating geographic price disparities. | 
-      <a href="https://colab.research.google.com/drive/1jEaM-d92CCTri8ApQ5vapoY5cb2pPruf" target="_blank" style="color: #2563eb; text-decoration: underline;">View Notebook →</a>
-    </p>
-  </div>
-
-  <div class="cc-grid">
-    <div class="viz">
-      <h3>Chart 1 — Essential Food Price Inflation</h3>
-      <p>Monthly median prices for four staple foods (bread, milk, eggs, butter) from 2015-2024, aggregated from millions of daily price observations. Shows sharp inflation acceleration from 2021 onwards.</p>
-      <figure id="cc8_chart1"></figure>
-      <p class="source"><strong>Data source:</strong> LRPD (Davies 2021), millions of observations aggregated to monthly medians</p>
-    </div>
-
-    <div class="viz">
-      <h3>Chart 2 — Regional Beer Price Variation</h3>
-      <p>Median price of a pint of lager across UK regions (2020-2024), revealing persistent geographic price disparities with London consistently highest.</p>
-      <figure id="cc8_chart2"></figure>
-      <p class="source"><strong>Data source:</strong> LRPD microdata, aggregated by region and year</p>
-    </div>
-  </div>
-</section>
-
-      <!-- ===================== CC9 ===================== -->
-<section class="cc-card" id="cc9">
-  <div class="cc-head">
-    <div class="cc-kicker">
-      <span class="cc-pill">CC9</span>
-      <h2 class="cc-title">Advanced Analytics using Interactive Charts</h2>
-    </div>
-  </div>
-
-  <p class="cc-summary">
-    Two interactive visuals using PMKVY State/UT data: (1) an India choropleth that switches between Skilled, Placed, and Placement rate with a year slider; (2) a quadrant scatter of Skilled vs Placement rate with brush selection to compare selected States/UTs against national medians.
-  </p>
-
-  <div class="cc-grid">
-    <div class="viz">
-      <h3>Chart 1 — India choropleth (slider + clickable metric)</h3>
-      <p>
-        Choropleth map of India showing PMKVY performance by State/UT. Use the slider to change year and the clickable metric selector to switch between Skilled, Placed, and Placement rate (Placed data is available through FY20-21 and FY21-22).
-      </p>
-      <figure id="cc9_chart1"></figure>
-      <p class="source">
-        <strong>Data source:</strong> PIB (MSDE) Annexure I (Skilled, FY20-21 to FY24-25) and Annexure II (Placed, tracked through FY21-22).
-      </p>
-    </div>
-
-    <div class="viz">
-      <h3>Chart 2 — Quadrant scatter: Skilled vs Placement rate (brush selection)</h3>
-      <p>
-        Scatter plot of all States/UTs comparing candidates skilled with placement rate. Use the year dropdown and brush selection; median reference lines form quadrants to identify high-skill/high-placement vs low-skill/low-placement performers.
-      </p>
-      <figure id="cc9_chart2"></figure>
-      <p class="source">
-        <strong>Data source:</strong> PIB (MSDE) Annexure I (Skilled) and Annexure II (Placed). Placement rate computed as placed ÷ skilled.
-      </p>
-    </div>
-  </div>
-</section>
-      <!-- CC10 -->
-
-<div class="week10-section">
-  
-  <div class="section-header">
-    <h2>Week 10: Advanced Analysis & Machine Learning</h2>
-    <p class="section-intro">
-      Analyzing PMKVY placement outcomes using <strong>real government data</strong> from the 
-      Press Information Bureau (December 2025). This work employs Difference-in-Differences 
-      methodology and supervised learning to test hypotheses about state-level variation in 
-      skill program effectiveness, directly supporting my policy research on Skill India Mission failures.
-    </p>
-  </div>
-  
-  <div class="chart-card">
-    <h3 class="chart-title">
-      📊 Advanced Analytics: Difference-in-Differences Analysis
-    </h3>
-    
-    <div class="hypothesis-box">
-      <p class="box-label">💭 Research Hypothesis (25 words):</p>
-      <p class="hypothesis-text">
-        Advanced industrial states like Gujarat show better placement resilience than peripheral 
-        states like Manipur during PMKVY phase transitions and policy changes.
-      </p>
-    </div>
-
-    <div id="vis_did" style="margin: 35px 0;"></div>
-
-    <div class="finding-box">
-      <p class="box-label">✨ Empirical Finding (25 words):</p>
-      <p class="finding-text">
-        Advanced Gujarat saw severe placement collapse (22.5% to 5.9%), while peripheral 
-        Manipur improved (13.5% to 47.7%), contradicting infrastructure advantage hypothesis completely.
-      </p>
-    </div>
-
-    <div class="metadata">
-      <p>
-        <strong>📅 Data Source:</strong> Press Information Bureau, Government of India - 
-        Press Release PRID 2204132 (December 15, 2025) | 
-        <strong>📐 Methodology:</strong> Difference-in-Differences (DiD) comparing treatment 
-        (Gujarat: advanced state) vs control (Manipur: peripheral state) | 
-        <strong>🗺️ Geographic Coverage:</strong> 2 states across FY 2020-21 to FY 2021-22 | 
-        <strong>📊 DiD Effect:</strong> -50.8 percentage points | 
-        <strong>🔗 Official Source:</strong> 
-        <a href="https://www.pib.gov.in/PressReleasePage.aspx?PRID=2204132" target="_blank">
-          PIB Press Release
-        </a>
-      </p>
-    </div>
-  </div>
-
-  <div class="chart-card">
-    <h3 class="chart-title">
-      🤖 Machine Learning: Predicting Placement Success Rates
-    </h3>
-    
-    <div class="hypothesis-box">
-      <p class="box-label">💭 Research Hypothesis (25 words):</p>
-      <p class="hypothesis-text">
-        State economic and educational indicators including GDP per capita, literacy, 
-        and industrial base predict average PMKVY placement rates across Indian states.
-      </p>
-    </div>
-
-    <div id="vis_ml" style="margin: 35px 0;"></div>
-
-    <div class="finding-box">
-      <p class="box-label">✨ Empirical Finding (25 words):</p>
-      <p class="finding-text">
-        Formal skill infrastructure and literacy predict placement better than GDP; 
-        surprisingly, youth unemployment shows negative correlation with placement outcomes unexpectedly.
-      </p>
-    </div>
-
-    <div class="metadata">
-      <p>
-        <strong>🤖 Algorithm:</strong> Supervised Learning - Linear Regression (scikit-learn) | 
-        <strong>📊 Model Specification:</strong> X matrix (5 states × 5 features), y vector (5 states × 1 target) | 
-        <strong>📈 Performance Metrics:</strong> R² = 0.72, RMSE = 5.2% | 
-        <strong>🔍 Features:</strong> Literacy rate, GDP per capita, industrial share, youth unemployment, 
-        formal skill rate | 
-        <strong>🎯 Target Variable:</strong> Average placement rate (FY 2020-21 & 2021-22) | 
-        <strong>💡 Key Insight:</strong> Educational infrastructure (β=0.45) outperforms economic 
-        indicators (β=-0.08) in predicting outcomes
-      </p>
-    </div>
-  </div>
-
-
-  <div class="colab-section">
-    <h4>📓 Complete Analysis & Python Code</h4>
-    <p>
-      View the full analysis including data processing, statistical calculations, 
-      model training, and additional visualizations in the interactive Google Colab notebook:
-    </p>
-    <a href="YOUR_COLAB_LINK_HERE" target="_blank" class="colab-button">
-      🔗 Open Google Colab Notebook
-    </a>
-    <p style="margin-top: 20px; font-size: 14px; color: #777;">
-      (Includes complete sklearn implementation, data transformations, and reproducible analysis)
-    </p>
-  </div>
-
-
-  <div class="project-connection">
-    <h4>🎓 Integration with Policy Research Project</h4>
-    <p style="margin-bottom: 20px;">
-      This quantitative analysis directly supports my research paper titled 
-      <strong>"The Failure of the Skill India Mission (SIM) and Building a Future-Ready 
-      Skilling Framework."</strong> The empirical findings provide critical evidence for 
-      the paper's core arguments:
-    </p>
-    <ul>
-      <li>
-        <strong>Gujarat's dramatic collapse</strong> (22.5% → 5.9% placement rate) demonstrates 
-        that even advanced states with robust manufacturing infrastructure cannot compensate for 
-        fundamental PMKVY program design failures, supporting the argument that SIM's problems 
-        are systemic rather than state-specific
-      </li>
-      <li>
-        <strong>Manipur's volatile improvement</strong> (13.5% → 47.7%), achieved with drastically 
-        reduced training volume (34,540 → 6,424 candidates), reveals serious measurement validity 
-        issues and suggests possible gaming of performance metrics with smaller cohorts
-      </li>
-      <li>
-        <strong>Machine learning feature analysis</strong> showing literacy rate and existing skill 
-        infrastructure as stronger predictors than GDP per capita directly challenges the conventional 
-        infrastructure-heavy policy approach and supports recommendations for curriculum reform 
-        and educational capacity building
-      </li>
-      <li>
-        <strong>Phase 4 placement de-linking</strong> (from FY 2022-23 onwards, government stopped 
-        tracking placement outcomes) exemplifies the accountability deficit and metric manipulation 
-        that undermines evidence-based policymaking—a central critique of the research paper
-      </li>
-    </ul>
-    <p style="margin-top: 20px; padding-top: 20px; border-top: 2px solid #ffe082;">
-      <strong>📄 Research Application:</strong> These empirical findings inform the paper's 
-      comparative case study methodology (Gujarat vs Manipur) and provide quantitative 
-      evidence for policy recommendations emphasizing educational foundations over 
-      infrastructure investment.
-    </p>
-  </div>
-
-  <div class="data-citation">
-    <p style="margin-bottom: 15px;"
-      <strong>📚 Primary Data Citation:</strong>
-    </p>
-    <p style="margin-bottom: 15px;">
-      Press Information Bureau, Government of India. (2025, December 15). 
-      <em>Skill Development Under Pradhan Mantri Kaushal Vikas Yojna</em> 
-      [Lok Sabha Written Reply, Press Release PRID 2204132]. Ministry of Skill Development 
-      and Entrepreneurship. Retrieved from 
-      <a href="https://www.pib.gov.in/PressReleasePage.aspx?PRID=2204132" target="_blank">
-        https://www.pib.gov.in/PressReleasePage.aspx?PRID=2204132
-      </a>
-    </p>
-    <p style="margin-bottom: 15px;">
-      <strong>📊 Supplementary Data:</strong> Periodic Labour Force Survey (PLFS) 2023-24, 
-      Ministry of Statistics and Programme Implementation; Reserve Bank of India State Finances; 
-      Census of India 2011
-    </p>
-    <p>
-      <strong>🔧 Analytical Tools:</strong> Python 3.x, pandas, NumPy, scikit-learn, 
-      matplotlib, seaborn, Vega-Lite 5.x
-    </p>
-  </div>
-
-</div>
-
-<script type="text/javascript">
-  const vegaConfig = {
-    actions: {
-      export: true,      
-      source: false,     
-      compiled: false,   
-      editor: false      
-    },   
-    renderer: 'svg'      
-  };
-
-  vegaEmbed('#vis_did', 'chart1_did_interactive.json', vegaConfig)
-    .then(function(result) {
-      console.log('✅ DiD chart loaded successfully');
-    })
-    .catch(function(error) {
-      console.error('❌ Error loading DiD chart:', error);
-      document.getElementById('vis_did').innerHTML = 
-        '<div style="padding: 40px; text-align: center; color: #c62828; background: #ffebee; border-radius: 8px;">' +
-        '<p style="font-size: 16px; margin: 0;"><strong>⚠️ Chart failed to load</strong></p>' +
-        '<p style="font-size: 14px; margin: 10px 0 0 0;">Please check that <code>chart1_did_interactive.json</code> is in the correct folder.</p>' +
-        '</div>';
-    });
-
-  vegaEmbed('#vis_ml', 'chart2_ml_interactive.json', vegaConfig)
-    .then(function(result) {
-      console.log('✅ ML chart loaded successfully');
-    })
-    .catch(function(error) {
-      console.error('❌ Error loading ML chart:', error);
-      document.getElementById('vis_ml').innerHTML = 
-        '<div style="padding: 40px; text-align: center; color: #c62828; background: #ffebee; border-radius: 8px;">' +
-        '<p style="font-size: 16px; margin: 0;"><strong>⚠️ Chart failed to load</strong></p>' +
-        '<p style="font-size: 14px; margin: 10px 0 0 0;">Please check that <code>chart2_ml_interactive.json</code> is in the correct folder.</p>' +
-        '</div>';
-    });
-</script>
+    </section>
 
     <div class="copyright">© Chingkhei Wangjam</div>
   </main>
 
   <script>
-    
+    const CHARTS = {
+      // CC1 
+      "cc1_chart1": { spec: "CC1 Chart 1.json", options: { actions: true } },
+      "cc1_chart2": { spec: "CC1 Chart 2.json", options: { actions: true } },
 
+      // CC2
+      "cc2_chart1": { spec: "CC2 Inflation Trends in Japan.json", options: { actions: true } },
+      "cc2_chart2": { spec: "CC2 Growth rate Japan.json", options: { actions: true } },
 
-const CHARTS = {
-  // CC1 
-  "cc1_chart1": { spec: "CC1 Chart 1.json", options: { actions: true } },
-  "cc1_chart2": { spec: "CC1 Chart 2.json", options: { actions: true } },
+      // CC3
+      "cc3_chart1": { spec: "chart1_dbt_success.json", options: { actions: true } },
+      "cc3_chart2": { spec: "chart2_exclusion.json", options: { actions: true } },
 
-  // CC2
-  "cc2_chart1": { spec: "CC2 Inflation Trends in Japan.json", options: { actions: true } },
-  "cc2_chart2": { spec: "CC2 Growth rate Japan.json", options: { actions: true } },
+      // CC4 
+      "cc4_chart1": { spec: "chart_original_gdp.json", options: { actions: true } },
+      "cc4_chart2": { spec: "chart_improved_gdp.json", options: { actions: true } },
 
-  // CC3
-  "cc3_chart1": { spec: "chart1_dbt_success.json", options: { actions: true } },
-  "cc3_chart2": { spec: "chart2_exclusion.json", options: { actions: true } },
+      // CC5
+      "cc5_chart1": { spec: "chart_worldbank_api.json", options: { actions: true } },
+      "cc5_chart2": { spec: "chart_scraped_hdi.json", options: { actions: true } },
 
-  // CC4 
-  "cc4_chart1": { spec: "chart_original_gdp.json", options: { actions: true } },
-  "cc4_chart2": { spec: "chart_improved_gdp.json", options: { actions: true } },
+      // CC7
+      "cc7_chart1": { spec: "cc7_scotland_universities.json", options: { actions: true } },
+      "cc7_chart2": { spec: "cc7_wales_wages.json", options: { actions: true } },
 
-  // CC5
-  "cc5_chart1": { spec: "chart_worldbank_api.json", options: { actions: true } },
-  "cc5_chart2": { spec: "chart_scraped_hdi.json", options: { actions: true } },
+      // CC8
+      "cc8_chart1": { spec: "cc8_food_prices.json", options: { actions: true } },
+      "cc8_chart2": { spec: "cc8_beer_regional.json", options: { actions: true } },
 
+      // CC9
+      "cc9_chart1": { spec: "cc9_india_pmkvy_choropleth_v2.json", options: { actions: true } },
+      "cc9_chart2": { spec: "cc9_scatter_quadrant_clean.json", options: { actions: true } }
+    };
 
-  "cc7_chart1": { spec: "cc7_scotland_universities.json", options: { actions: true } },
-  "cc7_chart2": { spec: "cc7_wales_wages.json", options: { actions: true } },
+    // Embed all charts
+    for (const [id, cfg] of Object.entries(CHARTS)) {
+      if (cfg.spec) {
+        vegaEmbed(`#${id}`, cfg.spec, cfg.options).catch(console.error);
+      }
+    }
 
-  "cc8_chart1": { spec: "cc8_food_prices.json", options: { actions: true } },
-  "cc8_chart2": { spec: "cc8_beer_regional.json", options: { actions: true } },
+    // CC6 Dashboard Loop
+    const dashboardCharts = [
+      "dashboard_gdp.json",
+      "dashboard_inflation.json",
+      "dashboard_unemployment.json",
+      "dashboard_exports.json",
+      "dashboard_fdi.json",
+      "dashboard_govt_exp.json"
+    ];
 
-"cc9_chart1": { spec: "cc9_india_pmkvy_choropleth_v2.json", options: { actions: true } },
-"cc9_chart2": { spec: "cc9_scatter_quadrant_clean.json", options: { actions: true } },
-};
-
-
-for (const [id, cfg] of Object.entries(CHARTS)) {
-  if (cfg.spec) {
-    vegaEmbed(`#${id}`, cfg.spec, cfg.options).catch(console.error);
-  }
-}
-
-/* For CC6 Dashboard Loop - I am embedding 6 charts using JavaScript loop*/
-
-const dashboardCharts = [
-  "dashboard_gdp.json",
-  "dashboard_inflation.json",
-  "dashboard_unemployment.json",
-  "dashboard_exports.json",
-  "dashboard_fdi.json",
-  "dashboard_govt_exp.json"
-];
-
-dashboardCharts.forEach((spec, index) => {
-  const elementId = `#dashboard_chart_${index}`;
-  const options = { actions: false }; // 
-  
-  vegaEmbed(elementId, spec, options)
-    .then(() => {
-      console.log(`✓ Dashboard chart ${index + 1} embedded successfully`);
-    })
-    .catch(error => {
-      console.error(`✗ Error embedding dashboard chart ${index + 1}:`, error);
+    dashboardCharts.forEach((spec, index) => {
+      const elementId = `#dashboard_chart_${index}`;
+      const options = { actions: false };
+      
+      vegaEmbed(elementId, spec, options)
+        .then(() => console.log(`✓ Dashboard chart ${index + 1} embedded`))
+        .catch(error => console.error(`✗ Dashboard chart ${index + 1} error:`, error));
     });
-});
 
-console.log(`Dashboard: Attempting to embed ${dashboardCharts.length} charts using loop`);
+    // CC10 Charts - Week 10 Interactive Visualizations
+    const vegaConfigCC10 = {
+      actions: { export: true, source: false, compiled: false, editor: false },
+      renderer: 'svg'
+    };
 
+    vegaEmbed('#vis_did', 'chart1_did_interactive.json', vegaConfigCC10)
+      .then(() => console.log('✅ CC10 DiD chart loaded successfully'))
+      .catch(error => {
+        console.error('❌ CC10 DiD chart error:', error);
+        document.getElementById('vis_did').innerHTML = 
+          '<p style="color: #c62828; padding: 30px; text-align: center; background: #ffebee; border-radius: 8px;">' +
+          '<strong>⚠️ Chart failed to load.</strong><br>' +
+          'Check that <code>chart1_did_interactive.json</code> is in the correct folder.</p>';
+      });
 
-    
+    vegaEmbed('#vis_ml', 'chart2_ml_interactive.json', vegaConfigCC10)
+      .then(() => console.log('✅ CC10 ML chart loaded successfully'))
+      .catch(error => {
+        console.error('❌ CC10 ML chart error:', error);
+        document.getElementById('vis_ml').innerHTML = 
+          '<p style="color: #c62828; padding: 30px; text-align: center; background: #ffebee; border-radius: 8px;">' +
+          '<strong>⚠️ Chart failed to load.</strong><br>' +
+          'Check that <code>chart2_ml_interactive.json</code> is in the correct folder.</p>';
+      });
+
+    console.log('Portfolio: All charts embedding initiated');
   </script>
 </body>
 </html>
