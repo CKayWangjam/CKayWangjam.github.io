@@ -541,33 +541,42 @@
 </section>
 
       <!-- ===================== CC9 ===================== -->
-      <section class="cc-card" id="cc9">
-        <div class="cc-head">
-          <div class="cc-kicker">
-            <span class="cc-pill">CC9</span>
-            <h2 class="cc-title">Advanced Analytics using Interactive Charts</h2>
-          </div>
-        </div>
+<section class="cc-card" id="cc9">
+  <div class="cc-head">
+    <div class="cc-kicker">
+      <span class="cc-pill">CC9</span>
+      <h2 class="cc-title">Advanced Analytics using Interactive Charts</h2>
+    </div>
+  </div>
 
-        <p class="cc-summary">Write a 1–2 sentence summary of what you built and what skill you practiced.</p>
+  <p class="cc-summary">
+    Two interactive visuals using PMKVY State/UT data: (1) an India choropleth that switches between Skilled, Placed, and Placement rate with a year slider; (2) a quadrant scatter of Skilled vs Placement rate with brush selection to compare selected States/UTs against national medians.
+  </p>
 
-        <div class="cc-grid">
-          <div class="viz">
-            <h3>Chart/Map 1 — Title</h3>
-            <p>Description placeholder.</p>
-            <figure id="cc9_chart1"></figure>
-            <p class="source"><strong>Data source:</strong> Add source here.</p>
-          </div>
+  <div class="cc-grid">
+    <div class="viz">
+      <h3>Chart 1 — India choropleth (slider + clickable metric)</h3>
+      <p>
+        Choropleth map of India showing PMKVY performance by State/UT. Use the slider to change year and the clickable metric selector to switch between Skilled, Placed, and Placement rate (Placed data is available through FY20-21 and FY21-22).
+      </p>
+      <figure id="cc9_chart1"></figure>
+      <p class="source">
+        <strong>Data source:</strong> PIB (MSDE) Annexure I (Skilled, FY20-21 to FY24-25) and Annexure II (Placed, tracked through FY21-22).
+      </p>
+    </div>
 
-          <div class="viz">
-            <h3>Chart/Map 2 — Title</h3>
-            <p>Description placeholder.</p>
-            <figure id="cc9_chart2"></figure>
-            <p class="source"><strong>Data source:</strong> Add source here.</p>
-          </div>
-        </div>
-      </section>
-
+    <div class="viz">
+      <h3>Chart 2 — Quadrant scatter: Skilled vs Placement rate (brush selection)</h3>
+      <p>
+        Scatter plot of all States/UTs comparing candidates skilled with placement rate. Use the year dropdown and brush selection; median reference lines form quadrants to identify high-skill/high-placement vs low-skill/low-placement performers.
+      </p>
+      <figure id="cc9_chart2"></figure>
+      <p class="source">
+        <strong>Data source:</strong> PIB (MSDE) Annexure I (Skilled) and Annexure II (Placed). Placement rate computed as placed ÷ skilled.
+      </p>
+    </div>
+  </div>
+</section>
       <!-- ===================== CC10 ===================== -->
       <section class="cc-card" id="cc10">
         <div class="cc-head">
@@ -603,9 +612,7 @@
 
   <script>
     
-/* =========================================================
-   CHART REGISTRY 
-   ========================================================= */
+
 
 const CHARTS = {
   // CC1 
@@ -635,8 +642,8 @@ const CHARTS = {
   "cc8_chart1": { spec: "cc8_food_prices.json", options: { actions: true } },
   "cc8_chart2": { spec: "cc8_beer_regional.json", options: { actions: true } },
 
-  "cc9_chart1": { spec: null, options: { actions: true } },
-  "cc9_chart2": { spec: null, options: { actions: true } },
+ "cc9_chart1": { spec: "cc9_india_pmkvy_choropleth.json", options: { actions: true } },
+"cc9_chart2": { spec: "cc9_scatter_quadrant_brush.json", options: { actions: true } },
 
   "cc10_chart1": { spec: null, options: { actions: true } },
   "cc10_chart2": { spec: null, options: { actions: true } }

@@ -1,0 +1,71 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "India choropleth of PMKVY performance by State/UT with year slider and metric selector.",
+  "width": "container",
+  "height": 520,
+
+  "data": {
+    "url": "india_choropleth_map.json",
+    "format": {
+      "type": "topojson",
+      "feature": "states"
+    }
+  },
+
+  "params": [
+    {
+      "name": "yearSel",
+      "value": "FY-20-21",
+      "bind": {
+        "input": "select",
+        "options": ["FY-20-21", "FY-21-22", "FY-22-23", "FY-23-24", "FY-24-25"],
+        "name": "Year: "
+      }
+    },
+    {
+      "name": "metricSel",
+      "value": "skilled",
+      "bind": {
+        "input": "radio",
+        "options": ["skilled", "placed", "placement_rate"],
+        "name": "Metric: "
+      }
+    }
+  ],
+
+  "transform": [
+    {
+      "lookup": "properties.ST_NM",
+      "from": {
+        "data": { "url": "cc9_pmkvy_tidy.json" },
+        "key": "state",
+        "fields": ["fy", "skilled", "placed", "placement_rate"]
+      }
+    },
+    { "filter": "datum.fy == yearSel" },
+    {
+      "calculate": "metricSel == 'skilled' ? datum.skilled : (metricSel == 'placed' ? datum.placed : datum.placement_rate)",
+      "as": "value"
+    }
+  ],
+
+  "mark": {
+    "type": "geoshape",
+    "stroke": "white",
+    "strokeWidth": 0.5
+  },
+
+  "encoding": {
+    "color": {
+      "field": "value",
+      "type": "quantitative",
+      "title": null
+    },
+    "tooltip": [
+      { "field": "properties.ST_NM", "type": "nominal", "title": "State/UT" },
+      { "field": "skilled", "type": "quantitative", "format": "," },
+      { "field": "placed", "type": "quantitative", "format": "," },
+      { "field": "placement_rate", "type": "quantitative", "format": ".1%" }
+    ]
+  }
+}
