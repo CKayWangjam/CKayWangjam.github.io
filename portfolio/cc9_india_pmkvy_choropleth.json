@@ -32,9 +32,9 @@
 
   "transform": [
     {
-      "calculate": "coalesce(datum.properties.st_nm, datum.properties.ST_NM, datum.properties.state, datum.properties.STATE, datum.properties.NAME_1, datum.properties.NAME)",
-      "as": "state_raw"
-    },
+  "calculate": "datum.properties && datum.properties.st_nm ? datum.properties.st_nm : (datum.properties && datum.properties.ST_NM ? datum.properties.ST_NM : (datum.properties && datum.properties.state ? datum.properties.state : (datum.properties && datum.properties.STATE ? datum.properties.STATE : (datum.properties && datum.properties.NAME_1 ? datum.properties.NAME_1 : (datum.properties && datum.properties.NAME ? datum.properties.NAME : null)))))",
+  "as": "state_raw"
+},
     {
       "calculate": "replace(lower(datum.state_raw), /[^a-z]/g, '')",
       "as": "state_key"
