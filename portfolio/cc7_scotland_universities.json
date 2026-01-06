@@ -1,0 +1,113 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Layered map of Scotland showing universities as coordinate points with enrollment data and university classification.",
+  "title": "Scotland: Universities and Student Enrollment",
+  "width": 400,
+  "height": 500,
+  "layer": [
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/jhellingsdata/RADataHub/refs/heads/main/MappingWorkshop/geo_data/scotland.topojson",
+        "format": {"type": "topojson", "feature": "data"}
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "#f0f9ff",
+        "stroke": "#0369a1",
+        "strokeWidth": 1
+      },
+      "projection": {
+        "type": "mercator",
+        "scale": 2000,
+        "center": [-4, 57],
+        "translate": [200, 250]
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {"university": "University of Edinburgh", "lat": 55.9445, "lon": -3.1892, "students": 34000, "type": "Ancient", "founded": 1583},
+          {"university": "University of Glasgow", "lat": 55.8719, "lon": -4.2884, "students": 33000, "type": "Ancient", "founded": 1451},
+          {"university": "University of St Andrews", "lat": 56.3398, "lon": -2.7967, "students": 10000, "type": "Ancient", "founded": 1413},
+          {"university": "University of Aberdeen", "lat": 57.1497, "lon": -2.0993, "students": 14000, "type": "Ancient", "founded": 1495},
+          {"university": "Heriot-Watt University", "lat": 55.9106, "lon": -3.3148, "students": 12000, "type": "Modern", "founded": 1821},
+          {"university": "University of Strathclyde", "lat": 55.8617, "lon": -4.2425, "students": 23000, "type": "Modern", "founded": 1796},
+          {"university": "University of Dundee", "lat": 56.4574, "lon": -2.9786, "students": 16000, "type": "Modern", "founded": 1881},
+          {"university": "University of Stirling", "lat": 56.1454, "lon": -3.9214, "students": 12500, "type": "Modern", "founded": 1967},
+          {"university": "Edinburgh Napier University", "lat": 55.9342, "lon": -3.2129, "students": 14000, "type": "Modern", "founded": 1964},
+          {"university": "Glasgow Caledonian University", "lat": 55.8661, "lon": -4.2506, "students": 17000, "type": "Modern", "founded": 1875},
+          {"university": "Robert Gordon University", "lat": 57.1191, "lon": -2.1383, "students": 11000, "type": "Modern", "founded": 1750},
+          {"university": "University of the West of Scotland", "lat": 55.8478, "lon": -4.4331, "students": 16000, "type": "Modern", "founded": 1897},
+          {"university": "Abertay University", "lat": 56.4631, "lon": -2.9756, "students": 4500, "type": "Modern", "founded": 1888},
+          {"university": "Queen Margaret University", "lat": 55.9397, "lon": -3.0632, "students": 5000, "type": "Modern", "founded": 1875},
+          {"university": "University of the Highlands and Islands", "lat": 57.4778, "lon": -4.2247, "students": 8500, "type": "Modern", "founded": 2011}
+        ]
+      },
+      "projection": {
+        "type": "mercator",
+        "scale": 2000,
+        "center": [-4, 57],
+        "translate": [200, 250]
+      },
+      "mark": {
+        "type": "circle",
+        "opacity": 0.8,
+        "stroke": "white",
+        "strokeWidth": 1.5
+      },
+      "encoding": {
+        "longitude": {"field": "lon", "type": "quantitative"},
+        "latitude": {"field": "lat", "type": "quantitative"},
+        "size": {
+          "field": "students",
+          "type": "quantitative",
+          "scale": {"type": "sqrt", "range": [100, 1200]},
+          "legend": {"title": "Student Enrollment"}
+        },
+        "color": {
+          "field": "type",
+          "type": "nominal",
+          "scale": {
+            "domain": ["Ancient", "Modern"],
+            "range": ["#7c3aed", "#2563eb"]
+          },
+          "legend": {"title": "University Type"}
+        },
+        "tooltip": [
+          {"field": "university", "type": "nominal", "title": "University"},
+          {"field": "students", "type": "quantitative", "title": "Students", "format": ","},
+          {"field": "type", "type": "nominal", "title": "Type"},
+          {"field": "founded", "type": "quantitative", "title": "Founded"}
+        ]
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {"university": "Edinburgh", "lat": 55.9445, "lon": -3.1892},
+          {"university": "Glasgow", "lat": 55.8719, "lon": -4.2884},
+          {"university": "St Andrews", "lat": 56.3398, "lon": -2.7967},
+          {"university": "Aberdeen", "lat": 57.1497, "lon": -2.0993}
+        ]
+      },
+      "projection": {
+        "type": "mercator",
+        "scale": 2000,
+        "center": [-4, 57],
+        "translate": [200, 250]
+      },
+      "mark": {
+        "type": "text",
+        "dy": -18,
+        "fontSize": 9,
+        "fontWeight": "bold",
+        "color": "#1e293b"
+      },
+      "encoding": {
+        "longitude": {"field": "lon", "type": "quantitative"},
+        "latitude": {"field": "lat", "type": "quantitative"},
+        "text": {"field": "university", "type": "nominal"}
+      }
+    }
+  ]
+}

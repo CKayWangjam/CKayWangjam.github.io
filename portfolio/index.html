@@ -413,7 +413,7 @@
 
         <p style="margin: 12px 0 0; font-size: 12px;">
           <strong>Google Colab Notebook:</strong> 
-          <a href="portfolio/CC5_India_State_HDI_Scraper.ipynb" target="_blank" style="color: #2563eb; text-decoration: underline;">View Scraper Code →</a>
+          <a href="https://colab.research.google.com/drive/1AcjCtlNT05KpqwQlLWVPBDJr2wtpvp8H#scrollTo=5aiQS--1FINe" target="_blank" style="color: #2563eb; text-decoration: underline;">View Scraper Code →</a>
         </p>
       </div>
     </div>
@@ -468,32 +468,40 @@
 </section>
 
       <!-- ===================== CC7 ===================== -->
-      <section class="cc-card" id="cc7">
-        <div class="cc-head">
-          <div class="cc-kicker">
-            <span class="cc-pill">CC7</span>
-            <h2 class="cc-title">Base maps and Choropleths</h2>
-          </div>
-        </div>
+<section class="cc-card" id="cc7">
+  <div class="cc-head">
+    <div class="cc-kicker">
+      <span class="cc-pill">CC7</span>
+      <h2 class="cc-title">Base maps and Choropleths</h2>
+    </div>
+  </div>
 
-        <p class="cc-summary">Write a 1–2 sentence summary of what you built and what skill you practiced.</p>
+  <p class="cc-summary">
+    Two maps demonstrating coordinate-based point mapping and choropleth techniques: Scotland's universities with enrollment data and Wales' regional wage distribution.
+  </p>
 
-        <div class="cc-grid">
-          <div class="viz">
-            <h3>Chart/Map 1 — Title</h3>
-            <p>Description placeholder.</p>
-            <figure id="cc7_chart1"></figure>
-            <p class="source"><strong>Data source:</strong> Add source here.</p>
-          </div>
+  <div class="cc-grid">
+    <div class="viz">
+      <h3>Map 1 — Scotland: Universities (Coordinates)</h3>
+      <p>Layered map showing Scotland's universities as coordinate points. Circle size represents student enrollment, color distinguishes Ancient universities (purple) from Modern institutions (blue).</p>
+      <figure id="cc7_chart1"></figure>
+      <p class="source"><strong>Data source:</strong> Scotland TopoJSON boundaries, HESA university enrollment data</p>
+    </div>
 
-          <div class="viz">
-            <h3>Chart/Map 2 — Title</h3>
-            <p>Description placeholder.</p>
-            <figure id="cc7_chart2"></figure>
-            <p class="source"><strong>Data source:</strong> Add source here.</p>
-          </div>
-        </div>
-      </section>
+    <div class="viz">
+      <h3>Map 2 — Wales: Wages Choropleth</h3>
+      <p>Choropleth map displaying 2024 weekly wages across Welsh Local Authority Districts using color intensity to show regional economic variation.</p>
+      <figure id="cc7_chart2"></figure>
+      <p class="source"><strong>Data source:</strong> Wales LAD boundaries (TopoJSON), ONS Annual Survey of Hours and Earnings 2024</p>
+    </div>
+  </div>
+
+  <div style="background: rgba(255,255,255,0.92); border-radius: 8px; padding: 14px; margin-top: 16px;">
+    <p style="margin: 0; font-size: 13px; line-height: 1.6; color: rgba(18,18,18,0.75);">
+      <strong>Techniques demonstrated:</strong> The Scotland map uses coordinate encoding (longitude/latitude) with layered geoshapes and points, visualizing Scotland's 4 Ancient universities and 11 Modern institutions. The Wales map uses a lookup transform to join geographic boundaries with wage data, creating a choropleth visualization with color-coded regions.
+    </p>
+  </div>
+</section>
 
       <!-- ===================== CC8 ===================== -->
       <section class="cc-card" id="cc8">
@@ -612,8 +620,8 @@ const CHARTS = {
   "cc5_chart2": { spec: "chart_scraped_hdi.json", options: { actions: true } },
 
 
-  "cc7_chart1": { spec: null, options: { actions: true } },
-  "cc7_chart2": { spec: null, options: { actions: true } },
+  "cc7_chart1": { spec: "cc7_scotland_universities.json", options: { actions: true } },
+  "cc7_chart2": { spec: "cc7_wales_wages.json", options: { actions: true } },
 
   "cc8_chart1": { spec: null, options: { actions: true } },
   "cc8_chart2": { spec: null, options: { actions: true } },
