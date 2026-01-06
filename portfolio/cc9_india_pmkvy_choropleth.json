@@ -1,15 +1,12 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "India choropleth of PMKVY performance by State/UT with year slider and metric selector.",
+  "description": "India (district-level geometry) choropleth colored by State/UT PMKVY values. Year selector + metric selector.",
   "width": "container",
   "height": 520,
 
   "data": {
-    "url": "india_choropleth_map.json",
-    "format": {
-      "type": "topojson",
-      "feature": "states"
-    }
+    "url": "https://raw.githubusercontent.com/EconomicsObservatory/courses/main/datasets/advanced/india_districts.topojson",
+    "format": { "type": "topojson", "feature": "india-districts-727" }
   },
 
   "params": [
@@ -35,11 +32,19 @@
 
   "transform": [
     {
-      "lookup": "properties.ST_NM",
+      "calculate": "coalesce(datum.properties.st_nm, datum.properties.ST_NM, datum.properties.state, datum.properties.STATE, datum.properties.NAME_1, datum.properties.NAME)",
+      "as": "state_raw"
+    },
+    {
+      "calculate": "replace(lower(datum.state_raw), /[^a-z]/g, '')",
+      "as": "state_key"
+    },
+    {
+      "lookup": "state_key",
       "from": {
         "data": { "url": "cc9_pmkvy_tidy.json" },
-        "key": "state",
-        "fields": ["fy", "skilled", "placed", "placement_rate"]
+        "key": "state_key",
+        "fields": ["state", "fy", "skilled", "placed", "placement_rate"]
       }
     },
     { "filter": "datum.fy == yearSel" },
@@ -49,20 +54,14 @@
     }
   ],
 
-  "mark": {
-    "type": "geoshape",
-    "stroke": "white",
-    "strokeWidth": 0.5
-  },
+  "mark": { "type": "geoshape", "stroke": "white", "strokeWidth": 0.2 },
 
   "encoding": {
-    "color": {
-      "field": "value",
-      "type": "quantitative",
-      "title": null
-    },
+    "color": { "field": "value", "type": "quantitative", "title": null },
     "tooltip": [
-      { "field": "properties.ST_NM", "type": "nominal", "title": "State/UT" },
+      { "field": "state_raw", "type": "nominal", "title": "State (map)" },
+      { "field": "state", "type": "nominal", "title": "Matched state" },
+      { "field": "fy", "type": "nominal", "title": "Year" },
       { "field": "skilled", "type": "quantitative", "format": "," },
       { "field": "placed", "type": "quantitative", "format": "," },
       { "field": "placement_rate", "type": "quantitative", "format": ".1%" }
