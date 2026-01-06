@@ -330,32 +330,55 @@
       </section>
 
       <!-- ===================== CC5 ===================== -->
-      <section class="cc-card" id="cc5">
-        <div class="cc-head">
-          <div class="cc-kicker">
-            <span class="cc-pill">CC5</span>
-            <h2 class="cc-title">Scraper and APIs</h2>
-          </div>
-        </div>
+<section class="cc-card" id="cc5">
+  <div class="cc-head">
+    <div class="cc-kicker">
+      <span class="cc-pill">CC5</span>
+      <h2 class="cc-title">Scraper and APIs</h2>
+    </div>
+  </div>
 
-        <p class="cc-summary">Write a 1–2 sentence summary of what you built and what skill you practiced.</p>
+  <p class="cc-summary">
+    Using the World Bank Indicators API to retrieve live economic data for India, demonstrating real-time data integration in policy visualizations.
+  </p>
 
-        <div class="cc-grid">
-          <div class="viz">
-            <h3>Chart/Map 1 — Title</h3>
-            <p>Description placeholder.</p>
-            <figure id="cc5_chart1"></figure>
-            <p class="source"><strong>Data source:</strong> Add source here.</p>
-          </div>
+  <div class="cc-grid">
+    <div class="viz">
+      <h3>Chart — India's GDP Growth (Live API)</h3>
+      <p>Real-time data from World Bank showing India's annual GDP growth rate from 1995-2024. This chart automatically updates when new data is published.</p>
+      <figure id="cc5_chart1"></figure>
+      <p class="source"><strong>Data source:</strong> World Bank Indicators API</p>
+    </div>
 
-          <div class="viz">
-            <h3>Chart/Map 2 — Title</h3>
-            <p>Description placeholder.</p>
-            <figure id="cc5_chart2"></figure>
-            <p class="source"><strong>Data source:</strong> Add source here.</p>
-          </div>
-        </div>
-      </section>
+    <div class="viz">
+      <h3>API FUNCTIONAL DESCRIPTION
+This chart uses the World Bank Indicators API to retrieve India's GDP growth rate data in real-time. The API provides access to the World Development Indicators database, which contains over 1,400 time series indicators for 217 economies.
+
+Base URL:
+
+https://api.worldbank.org/v2/country/{COUNTRY}/indicator/{INDICATOR}
+Parameters used:
+
+COUNTRY: IND (India's ISO country code)
+INDICATOR: NY.GDP.MKTP.KD.ZG (GDP growth annual %)
+format: json (returns data in JSON format)
+per_page: 30 (number of results per page)
+date: 1995:2024 (date range filter)
+Full API URL used in this chart:
+
+https://api.worldbank.org/v2/country/IND/indicator/NY.GDP.MKTP.KD.ZG?format=json&per_page=30&date=1995:2024
+How it works:
+
+The API call requests GDP growth data for India (IND) from 1995-2024
+Data is returned in JSON format with nested arrays
+Vega-Lite extracts the data from [1] property (second array)
+The chart filters out null values and displays the time series
+No API key required - completely free and open access
+Note: This chart automatically updates when the World Bank publishes new data. You can modify the country code (IND) or indicator code to visualize different data series.</h3>
+
+    </div>
+  </div>
+</section>
 
       <!-- ===================== CC6 ===================== -->
       <section class="cc-card" id="cc6">
@@ -521,7 +544,7 @@
       "cc4_chart1": { spec: "chart_original_gdp.json", options: { actions: true } },
       "cc4_chart2": { spec: "chart_improved_gdp.json", options: { actions: true } },
 
-      "cc5_chart1": { spec: null, options: { actions: true } },
+      "cc5_chart1": { spec: "chart_worldbank_api.json", options: { actions: true } },
       "cc5_chart2": { spec: null, options: { actions: true } },
 
       "cc6_chart1": { spec: null, options: { actions: true } },

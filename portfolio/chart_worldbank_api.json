@@ -1,0 +1,60 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "India's GDP Growth Rate (Annual %)",
+    "fontSize": 16,
+    "font": "Arial",
+    "fontWeight": "bold",
+    "subtitle": "Data sourced live from World Bank API",
+    "subtitleFontSize": 12,
+    "subtitleColor": "#666"
+  },
+  "width": 500,
+  "height": 300,
+  "data": {
+    "url": "https://api.worldbank.org/v2/country/IND/indicator/NY.GDP.MKTP.KD.ZG?format=json&per_page=30&date=1995:2024",
+    "format": {
+      "type": "json",
+      "property": "[1]"
+    }
+  },
+  "transform": [
+    {
+      "filter": "datum.value != null"
+    },
+    {
+      "calculate": "toNumber(datum.date)",
+      "as": "year"
+    }
+  ],
+  "mark": {
+    "type": "line",
+    "point": true,
+    "color": "#16a34a",
+    "strokeWidth": 2.5
+  },
+  "encoding": {
+    "x": {
+      "field": "year",
+      "type": "quantitative",
+      "axis": {
+        "title": "Year",
+        "format": "d",
+        "labelAngle": 0
+      }
+    },
+    "y": {
+      "field": "value",
+      "type": "quantitative",
+      "axis": {
+        "title": "GDP Growth Rate (%)",
+        "grid": true
+      }
+    },
+    "tooltip": [
+      {"field": "year", "type": "quantitative", "title": "Year", "format": "d"},
+      {"field": "value", "type": "quantitative", "title": "GDP Growth (%)", "format": ".2f"},
+      {"field": "country.value", "type": "nominal", "title": "Country"}
+    ]
+  }
+}
