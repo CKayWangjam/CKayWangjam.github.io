@@ -460,3 +460,32 @@ h4{
     padding: 10px 12px 12px;
   }
 }
+
+.cc-title {
+  font-family: "Source Serif 4", serif;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+
+.cc-summary,
+.viz p,
+.viz .source,
+.breadcrumb,
+.meta {
+  font-family: "Source Sans 3", system-ui, sans-serif;
+}
+
+.viz h3 {
+  font-family: "Source Sans 3", system-ui, sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.9px;
+  text-transform: uppercase;
+}
+
+.cc-summary { font-size: 14px; line-height: 1.75; }
+.viz p { font-size: 13px; line-height: 1.65; }
+.viz .source { font-size: 12px; line-height: 1.5; }
+
+.viz figure { width: 100%; }
+
+.cc-card { padding: 22px 22px; }
