@@ -1,13 +1,13 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "India PMKVY state-level choropleth - clean boundaries",
+  "description": "India PMKVY choropleth with year and metric selectors",
   "width": 500,
   "height": 520,
   "data": {
-    "url": "https://cdn.jsdelivr.net/gh/udit-001/india-maps-data@8d907bc/topojson/india.json",
-    "format": {"type": "topojson", "feature": "states"}
+    "url": "https://raw.githubusercontent.com/EconomicsObservatory/courses/main/datasets/advanced/india_districts.topojson",
+    "format": {"type": "topojson", "feature": "india-districts-727"}
   },
-  "projection": {"type": "mercator"},
+  "projection": {"type": "identity", "reflectY": true},
   "params": [
     {
       "name": "fySel",
@@ -40,7 +40,7 @@
     }
   ],
   "transform": [
-    {"calculate": "replace(lower(datum.properties.name), /[^a-z]/g, '')", "as": "state_key"},
+    {"calculate": "replace(lower(datum.properties.st_nm), /[^a-z]/g, '')", "as": "state_key"},
     {
       "lookup": "state_key",
       "from": {
@@ -63,7 +63,7 @@
   "mark": {
     "type": "geoshape",
     "stroke": "white",
-    "strokeWidth": 1.2
+    "strokeWidth": 0.8
   },
   "encoding": {
     "color": {
@@ -94,7 +94,7 @@
       "value": 0.85
     },
     "tooltip": [
-      {"field": "properties.name", "type": "nominal", "title": "State"},
+      {"field": "state_raw", "type": "nominal", "title": "State/UT"},
       {"field": "skilled", "type": "quantitative", "title": "Candidates Skilled", "format": ","},
       {"field": "placed", "type": "quantitative", "title": "Candidates Placed", "format": ","},
       {"field": "placement_rate", "type": "quantitative", "title": "Placement Rate", "format": ".1%"}
