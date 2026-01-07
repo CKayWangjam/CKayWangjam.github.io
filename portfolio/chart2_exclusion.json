@@ -6,8 +6,8 @@
     "font": "Arial",
     "anchor": "start"
   },
-  "width": 420,
-  "height": 350,
+  "width": 360,
+  "height": 300,
   "data": {
     "url": "dbt_exclusion.csv"
   },

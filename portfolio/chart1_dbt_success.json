@@ -6,7 +6,7 @@
     "font": "Arial",
     "anchor": "start"
   },
-  "width": 420,
+  "width": 360,
   "height": 300,
   "data": {
     "url": "dbt_growth.csv"
