@@ -50,7 +50,7 @@
         "min": 1990,
         "max": 2024,
         "step": 1,
-        "name": "📅 Year: "
+        "name": "Year: "
       }
     },
     {
@@ -70,7 +70,7 @@
           "Elderly Dependency Ratio",
           "Median Age (years)"
         ],
-        "name": "📊 Indicator: "
+        "name": "Indicator: "
       }
     }
   ],
