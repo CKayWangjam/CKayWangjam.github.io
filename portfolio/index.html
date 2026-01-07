@@ -117,26 +117,24 @@
       line-height: 1.65;
     }
 
-    /* IMPORTANT: Do NOT force svg/canvas width/height with !important.
-       Vega/Vega-Lite relies on explicit sizing; overriding it causes huge charts + huge menu. */
     .viz figure{
       margin: 0;
       padding: 0;
       width: 100%;
       flex: 1;
-      min-height: 280px; /* uniform chart area */
+      min-height: 280px; 
       display: flex;
       align-items: center;
       justify-content: center;
     }
 
-    /* Keep the embed container responsive without touching inner svg/canvas sizing. */
+   
     .viz figure > .vega-embed{
       width: 100%;
       max-width: 100%;
     }
 
-    /* Make the Vega "..." menu normal-sized, and prevent global button styles from inflating it */
+    
     .viz .vega-embed summary,
     .viz .vega-embed details,
     .viz .vega-embed .vega-actions,
@@ -160,7 +158,7 @@
       color: rgba(18,18,18,0.55);
       border-top: 1px solid rgba(0,0,0,0.08);
       padding-top: 10px;
-      text-align: left; /* sources read better left-aligned */
+      text-align: left; 
     }
     .viz .source strong{ font-weight: 600; }
 
@@ -217,7 +215,7 @@
 
     <section class="cc-stack">
 
-      <!-- ===================== CC1 ===================== -->
+      <!-- CC1  -->
       <section class="cc-card" id="cc1">
         <div class="cc-head">
           <h2 class="cc-title">CC1: Hosting and Embedding</h2>
@@ -229,14 +227,14 @@
 
         <div class="cc-grid">
           <div class="viz">
-            <h3>Chart 1</h3>
+            
             <figure id="cc1_chart1"></figure>
             <p>A line chart on inflation trends of 4 G7 countries downloaded from www.richarddavies.io/library.</p>
             <p class="source"><strong>Data source:</strong> https://www.richarddavies.io/library</p>
           </div>
 
           <div class="viz">
-            <h3>Chart 2</h3>
+          
             <figure id="cc1_chart2"></figure>
             <p>An area chart on global debt downloaded from www.richarddavies.io/library.</p>
             <p class="source"><strong>Data source:</strong> https://www.richarddavies.io/library</p>
@@ -244,7 +242,7 @@
         </div>
       </section>
 
-      <!-- ===================== CC2 ===================== -->
+      <!-- CC2  -->
       <section class="cc-card" id="cc2">
         <div class="cc-head">
           <h2 class="cc-title">CC2: Creating my own visualisations</h2>
@@ -252,30 +250,27 @@
 
         <div class="cc-grid">
           <div class="viz">
-            <h3>Japan's Deflationary Spiral: CPI changes from 1960 to 2020</h3>
+         
             <figure id="cc2_chart1"></figure>
-            <p>This chart shows Japan's annual inflation rate (CPI) from 1960 to 2020.</p>
+            <p>Japan's Deflationary Spiral: CPI changes from 1960 to 2020.</p>
             <p class="source"><strong>Data source:</strong> https://www.economicsobservatory.com/</p>
           </div>
 
           <div class="viz">
             <h3>Japan's GDP Growth Trajectory 1960-2020</h3>
             <figure id="cc2_chart2"></figure>
-            <p>This chart shows Japan's GDP growth rate from 1960 to 2020.</p>
+            <p>Japan's GDP Growth Trajectory: 1960-2020.</p>
             <p class="source"><strong>Data source:</strong> https://www.economicsobservatory.com/</p>
           </div>
         </div>
       </section>
 
-      <!-- ===================== CC3 ===================== -->
+      <!-- CC3  -->
       <section class="cc-card" id="cc3">
         <div class="cc-head">
           <h2 class="cc-title">CC3: Policy Commentary</h2>
         </div>
 
-        <p class="cc-summary">
-          Using data visualization to examine India's Direct Benefit Transfer (DBT) system: exploring the tension between claimed efficiency gains and documented exclusion errors.
-        </p>
 
         <div style="background: rgba(255,255,255,0.85); border-radius: 12px; padding: 16px; margin-bottom: 16px; border-left: 4px solid #2563eb;">
           <p style="margin: 0; font-size: 14px; line-height: 1.6; color: rgba(18,18,18,0.80);">
@@ -285,22 +280,22 @@
 
         <div class="cc-grid">
           <div class="viz">
-            <h3>Chart 1 — Government's Success Claims</h3>
-            <p>Official data showing beneficiary growth and savings from 2013-2023.</p>
             <figure id="cc3_chart1"></figure>
+            <p>Government's Success Claims: Official data showing beneficiary growth and savings from 2013-2023.</p>
+
             <p class="source"><strong>Data source:</strong> DBT Bharat Portal, Ministry of Finance Reports</p>
           </div>
 
           <div class="viz">
-            <h3>Chart 2 — The Exclusion Crisis</h3>
-            <p>Evidence showing ration denials due to authentication failures during 2017.</p>
             <figure id="cc3_chart2"></figure>
+            <p>The Exclusion Crisis: Evidence showing ration denials due to authentication failures during 2017.</p>
+            
             <p class="source"><strong>Data source:</strong> State Food Department data, Drèze et al. (2017)</p>
           </div>
         </div>
       </section>
 
-      <!-- ===================== CC4 ===================== -->
+      <!--  CC4  -->
       <section class="cc-card" id="cc4">
         <div class="cc-head">
           <h2 class="cc-title">CC4: Replicate, Recreate and Improve</h2>
@@ -312,42 +307,34 @@
 
         <div class="cc-grid">
           <div class="viz">
-            <h3>Original Chart — Economic Survey 2023-24</h3>
+    
             <p>Source: Ministry of Finance, Government of India.</p>
             <figure>
-              <img src="India's sustained momentum in GDP.png" alt="Original GDP growth chart from Economic Survey" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+              <img src="India's Sustained Momentum in GDP.png" alt="Original GDP growth chart from Economic Survey" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
             </figure>
+            <p>Original Chart — Economic Survey 2023-24</p>
             <p class="source"><strong>Data source:</strong> Economic Survey 2023-24, Ministry of Finance</p>
           </div>
 
           <div class="viz">
-            <h3>Replicated Chart — Original Style</h3>
-            <p>Vega-Lite replication maintaining government's basic design and color scheme.</p>
             <figure id="cc4_chart1"></figure>
+<p>Replicated Chart — Original Style: Vega-Lite replication maintaining government's basic design and color scheme.</p>
             <p class="source"><strong>Data source:</strong> Economic Survey 2023-24</p>
           </div>
         </div>
 
         <div class="cc-grid">
           <div class="viz">
-            <h3>Improved Chart — Enhanced Design</h3>
-            <p>Enhanced version with annotations and clearer hierarchy.</p>
-            <figure id="cc4_chart2"></figure>
+           <figure id="cc4_chart2"></figure>
+            <p>Improved Chart — Enhanced Design: Enhanced version with annotations and clearer hierarchy.</p>
+             <p>Improvements Made: Added color-coding, data labels, annotations, improved typography, and clearer hierarchy for readability.</p>
             <p class="source"><strong>Data source:</strong> Economic Survey 2023-24</p>
           </div>
-
-          <div class="viz">
-            <h3>Improvements Made</h3>
-            <div style="background: rgba(22,163,74,0.08); border-radius: 8px; padding: 14px; margin-top: 10px; text-align:left;">
-              <p style="font-size: 13px; line-height: 1.7; color: rgba(18,18,18,0.80); margin: 0;">
-                Added color-coding, data labels, annotations, improved typography, and clearer hierarchy for readability.
-              </p>
-            </div>
           </div>
         </div>
       </section>
 
-      <!-- ===================== CC5 ===================== -->
+      <!--  CC5 -->
       <section class="cc-card" id="cc5">
         <div class="cc-head">
           <h2 class="cc-title">CC5: Scraper and APIs</h2>
@@ -359,9 +346,9 @@
 
         <div class="cc-grid">
           <div class="viz">
-            <h3>API Chart — India's GDP Growth</h3>
+      <figure id="cc5_chart1"></figure>
             <p>Real-time data from World Bank API showing India's annual GDP growth rate.</p>
-            <figure id="cc5_chart1"></figure>
+            
             <p class="source"><strong>Data source:</strong> World Bank Indicators API (live)</p>
           </div>
 
@@ -380,9 +367,9 @@ https://api.worldbank.org/v2/country/IND/indicator/NY.GDP.MKTP.KD.ZG?format=json
 
         <div class="cc-grid">
           <div class="viz">
-            <h3>Scraper Chart — State HDI Rankings</h3>
-            <p>Data scraped from Wikipedia showing India's state-wise HDI rankings.</p>
             <figure id="cc5_chart2"></figure>
+            <p>Data scraped from Wikipedia showing India's state-wise HDI rankings.</p>
+            
             <p class="source"><strong>Data source:</strong> Wikipedia (web scraped), 2021 estimates</p>
           </div>
 
@@ -401,12 +388,19 @@ https://api.worldbank.org/v2/country/IND/indicator/NY.GDP.MKTP.KD.ZG?format=json
         </div>
       </section>
 
-      <!-- ===================== CC6 ===================== -->
+      <!--  CC6  -->
       <section class="cc-card" id="cc6">
         <div class="cc-head">
           <h2 class="cc-title">CC6: Building a Dashboard</h2>
         </div>
-
+ <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 18px;">
+          <div class="viz" style="padding: 12px; min-height: 320px;"><figure id="dashboard_chart_0"></figure></div>
+          <div class="viz" style="padding: 12px; min-height: 320px;"><figure id="dashboard_chart_1"></figure></div>
+          <div class="viz" style="padding: 12px; min-height: 320px;"><figure id="dashboard_chart_2"></figure></div>
+          <div class="viz" style="padding: 12px; min-height: 320px;"><figure id="dashboard_chart_3"></figure></div>
+          <div class="viz" style="padding: 12px; min-height: 320px;"><figure id="dashboard_chart_4"></figure></div>
+          <div class="viz" style="padding: 12px; min-height: 320px;"><figure id="dashboard_chart_5"></figure></div>
+        </div>
         <p class="cc-summary">
           Interactive dashboard displaying six key economic indicators for India (2000-2024), batch downloaded using a Python loop from the World Bank API and embedded using a JavaScript loop.
         </p>
@@ -420,19 +414,10 @@ https://api.worldbank.org/v2/country/IND/indicator/NY.GDP.MKTP.KD.ZG?format=json
           </p>
         </div>
 
-        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 18px;">
-          <div class="viz" style="padding: 12px; min-height: 320px;"><figure id="dashboard_chart_0"></figure></div>
-          <div class="viz" style="padding: 12px; min-height: 320px;"><figure id="dashboard_chart_1"></figure></div>
-          <div class="viz" style="padding: 12px; min-height: 320px;"><figure id="dashboard_chart_2"></figure></div>
-          <div class="viz" style="padding: 12px; min-height: 320px;"><figure id="dashboard_chart_3"></figure></div>
-          <div class="viz" style="padding: 12px; min-height: 320px;"><figure id="dashboard_chart_4"></figure></div>
-          <div class="viz" style="padding: 12px; min-height: 320px;"><figure id="dashboard_chart_5"></figure></div>
-        </div>
-
-        <p class="source" style="margin-top: 16px; text-align:left;"><strong>Data source:</strong> World Bank Indicators API, 2000-2024 time series data</p>
+       
       </section>
 
-      <!-- ===================== CC7 ===================== -->
+      <!-- CC7 -->
       <section class="cc-card" id="cc7">
         <div class="cc-head">
           <h2 class="cc-title">CC7: Base maps and Choropleths</h2>
@@ -444,22 +429,22 @@ https://api.worldbank.org/v2/country/IND/indicator/NY.GDP.MKTP.KD.ZG?format=json
 
         <div class="cc-grid">
           <div class="viz">
-            <h3>Map 1 — Scotland: Universities (Coordinates)</h3>
-            <p>Circle size represents student enrollment; color distinguishes Ancient vs Modern institutions.</p>
-            <figure id="cc7_chart1"></figure>
+             <figure id="cc7_chart1"></figure>
+            <p>Map of Scotland Showinh Universities: Circle size represents student enrollment; color distinguishes Ancient vs Modern institutions.</p>
+           
             <p class="source"><strong>Data source:</strong> Scotland TopoJSON boundaries, HESA university enrollment data</p>
           </div>
 
           <div class="viz">
-            <h3>Map 2 — Wales: Wages Choropleth</h3>
+         <figure id="cc7_chart2"></figure>
             <p>Choropleth map displaying 2024 weekly wages across Welsh Local Authority Districts.</p>
-            <figure id="cc7_chart2"></figure>
+           
             <p class="source"><strong>Data source:</strong> Wales LAD boundaries (TopoJSON), ONS ASHE 2024</p>
           </div>
         </div>
       </section>
 
-      <!-- ===================== CC8 ===================== -->
+      <!--  CC8  -->
       <section class="cc-card" id="cc8">
         <div class="cc-head">
           <h2 class="cc-title">CC8: Big Data</h2>
@@ -471,49 +456,45 @@ https://api.worldbank.org/v2/country/IND/indicator/NY.GDP.MKTP.KD.ZG?format=json
 
         <div class="cc-grid">
           <div class="viz">
-            <h3>Chart 1 — Essential Food Price Inflation</h3>
-            <p>Monthly median prices for staple foods (2015-2024).</p>
             <figure id="cc8_chart1"></figure>
+            <p>Essential Food Price Inflation: Monthly median prices for staple foods (2015-2024).</p>
+            
             <p class="source"><strong>Data source:</strong> LRPD (Davies 2021)</p>
           </div>
 
           <div class="viz">
-            <h3>Chart 2 — Regional Beer Price Variation</h3>
-            <p>Median price of a pint of lager across UK regions (2020-2024).</p>
             <figure id="cc8_chart2"></figure>
+            <p>Regional Beer Price Variation: Median price of a pint of lager across UK regions (2020-2024).</p>
+            
             <p class="source"><strong>Data source:</strong> LRPD microdata</p>
           </div>
         </div>
       </section>
 
-      <!-- ===================== CC9 ===================== -->
+      <!--  CC9 -->
       <section class="cc-card" id="cc9">
         <div class="cc-head">
           <h2 class="cc-title">CC9: Advanced Analytics using Interactive Charts</h2>
         </div>
 
-        <p class="cc-summary">
-          Two interactive visuals using PMKVY State/UT data: choropleth + quadrant scatter with brush selection.
-        </p>
-
         <div class="cc-grid">
           <div class="viz">
-            <h3>Chart 1 — India choropleth (slider + metric)</h3>
-            <p>Use the slider to change year and switch between Skilled, Placed, and Placement rate.</p>
             <figure id="cc9_chart1"></figure>
+            <p>Use the slider to change year and switch between Skilled, Placed, and Placement rate.</p>
+            
             <p class="source"><strong>Data source:</strong> PIB (MSDE) Annexure I & II</p>
           </div>
 
           <div class="viz">
-            <h3>Chart 2 — Quadrant scatter (brush selection)</h3>
-            <p>Compare Skilled vs Placement rate; medians form quadrants.</p>
             <figure id="cc9_chart2"></figure>
+            <p>Compare Skilled vs Placement rate; medians form quadrants.</p>
+            
             <p class="source"><strong>Data source:</strong> PIB (MSDE) Annexure I & II</p>
           </div>
         </div>
       </section>
 
-      <!-- ===================== CC10 ===================== -->
+      <!--  CC10 -->
       <section class="cc-card" id="cc10">
         <div class="cc-head">
           <h2 class="cc-title">CC10: Machine Learning</h2>
@@ -525,16 +506,16 @@ https://api.worldbank.org/v2/country/IND/indicator/NY.GDP.MKTP.KD.ZG?format=json
 
         <div class="cc-grid">
           <div class="viz">
-            <h3>Chart 1 — Difference-in-Differences (interactive)</h3>
-            <p>Interactive DiD chart comparing placement outcomes across two states over time.</p>
             <figure id="cc10_chart1"></figure>
+            <p>Interactive DiD chart comparing placement outcomes across two states over time.</p>
+            
             <p class="source"><strong>Data source:</strong> PIB (MSDE) PMKVY tables.</p>
           </div>
 
           <div class="viz">
-            <h3>Chart 2 — ML model diagnostic / feature importance</h3>
+             <figure id="cc10_chart2"></figure>
             <p>Model output chart (e.g., predicted vs actual, or feature importance).</p>
-            <figure id="cc10_chart2"></figure>
+           
             <p class="source"><strong>Data source:</strong> PIB (MSDE) PMKVY tables + derived features.</p>
           </div>
         </div>
