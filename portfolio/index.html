@@ -4,27 +4,24 @@
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <title>Portfolio | Chingkhei Wangjam</title>
   <link rel="stylesheet" href="../index.css">
 
-  <!-- Vega stack -->
+
   <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 
   <style>
-    /* ===== Page-level spacing + hero centering ===== */
+    
     .portfolio-page .topbar{ margin-bottom: 8px; }
     .portfolio-page .hero{ padding-top: 22px; padding-bottom: 18px; }
     .portfolio-page .hero h1{ margin-top: 10px; margin-bottom: 10px; }
     .portfolio-page .hero p{ margin: 0 auto 0; }
-    .portfolio-page .rule{ margin: 16px 0; }
-    .portfolio-page .brand-accent{ color: inherit; } /* unify brand color */
+    .portfolio-page .rule{ margin: 16px 0; } 
 
     .hero.hero-centered{
       text-align: center;
@@ -71,7 +68,17 @@
       letter-spacing: 0.2px;
       color: rgba(18,18,18,0.98);
     }
-
+.cc-title::before {
+  content: attr(data-week);
+  display: block;
+  font-family: "Poppins", sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: rgba(18,18,18,0.45);
+  margin-bottom: 4px;
+}
     .cc-summary{
       margin: 0 auto 14px;
       max-width: 95ch;
@@ -88,7 +95,7 @@
       align-items: stretch;
     }
 
-    /* ===== Viz cards ===== */
+    
     .viz{
       background: rgba(255,255,255,0.92);
       border-radius: 16px;
@@ -99,16 +106,10 @@
       display: flex;
       flex-direction: column;
       text-align: center;
-      min-height: 420px; /* keeps both viz cards uniform height */
+      min-height: 420px; 
     }
 
-    .viz h3{
-      margin: 0 0 10px 0;
-      font-size: 14px;
-      font-weight: 600;
-      letter-spacing: 0.2px;
-      color: rgba(18,18,18,0.85);
-    }
+   
 
     .viz p{
       margin: 8px 0 12px;
@@ -118,15 +119,15 @@
     }
 
     .viz figure{
-      margin: 0;
-      padding: 0;
-      width: 100%;
-      flex: 1;
-      min-height: 280px; 
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+  margin: 12px 0;
+  padding: 0;
+  width: 100%;
+  flex: 1;
+  min-height: 320px; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
    
     .viz figure > .vega-embed{
@@ -342,7 +343,6 @@
             <p>Improved Chart — Enhanced Design: Enhanced version with annotations and clearer hierarchy.</p>
              <p>Improvements Made: Added color-coding, data labels, annotations, improved typography, and clearer hierarchy for readability.</p>
             <p class="source"><strong>Data source:</strong> Economic Survey 2023-24</p>
-          </div>
           </div>
         </div>
       </section>
