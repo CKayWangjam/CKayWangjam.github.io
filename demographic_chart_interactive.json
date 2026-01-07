@@ -41,18 +41,18 @@
   },
   "params": [
     {
-      "name": "yearSlider",
+      "name": "demo_year_slider",
       "value": 2024,
       "bind": {
         "input": "range",
         "min": 1990,
         "max": 2024,
         "step": 1,
-        "name": "Select Year:"
+        "name": "Year: "
       }
     },
     {
-      "name": "metricSelect",
+      "name": "demo_metric_select",
       "value": "Working_Age_Percent",
       "bind": {
         "input": "select",
@@ -66,27 +66,32 @@
           "Working-Age Population (%)",
           "Youth Dependency Ratio",
           "Elderly Dependency Ratio",
-          "Median Age"
+          "Median Age (years)"
         ],
-        "name": "Select Indicator:"
+        "name": "Indicator: "
       }
     },
     {
-      "name": "countryHover",
-      "select": {"type": "point", "fields": ["Country"], "on": "mouseover"}
+      "name": "demo_country_hover",
+      "select": {
+        "type": "point",
+        "fields": ["Country"],
+        "on": "mouseover",
+        "clear": "mouseout"
+      }
     }
   ],
   "transform": [
-    {"filter": "datum.Year <= yearSlider"},
-    {"calculate": "datum[metricSelect]", "as": "SelectedValue"}
+    {"filter": "datum.Year <= demo_year_slider"},
+    {"calculate": "datum[demo_metric_select]", "as": "Selected_Value"}
   ],
   "layer": [
     {
       "mark": {
         "type": "line",
-        "strokeWidth": 3,
+        "strokeWidth": 3.5,
         "point": {
-          "size": 80,
+          "size": 100,
           "filled": true
         }
       },
@@ -106,7 +111,7 @@
           }
         },
         "y": {
-          "field": "SelectedValue",
+          "field": "Selected_Value",
           "type": "quantitative",
           "axis": {
             "title": "Value",
@@ -134,8 +139,11 @@
           }
         },
         "opacity": {
-          "condition": {"param": "countryHover", "value": 1},
-          "value": 0.4
+          "condition": {
+            "param": "demo_country_hover",
+            "value": 1
+          },
+          "value": 0.3
         },
         "tooltip": [
           {"field": "Country", "type": "nominal", "title": "Country"},
@@ -148,29 +156,26 @@
       }
     },
     {
+      "transform": [
+        {"filter": "datum.Year == demo_year_slider"}
+      ],
       "mark": {
         "type": "point",
-        "size": 150,
+        "size": 250,
         "filled": true,
         "stroke": "white",
-        "strokeWidth": 2
+        "strokeWidth": 3
       },
-      "transform": [
-        {"filter": "datum.Year == yearSlider"}
-      ],
       "encoding": {
         "x": {"field": "Year", "type": "quantitative"},
-        "y": {"field": "SelectedValue", "type": "quantitative"},
+        "y": {"field": "Selected_Value", "type": "quantitative"},
         "color": {"field": "Country", "type": "nominal", "legend": null},
         "tooltip": [
           {"field": "Country", "type": "nominal"},
           {"field": "Year", "type": "quantitative"},
-          {"field": "SelectedValue", "type": "quantitative", "title": "Value", "format": ".1f"}
+          {"field": "Selected_Value", "type": "quantitative", "title": "Value", "format": ".1f"}
         ]
       }
     }
-  ],
-  "config": {
-    "view": {"stroke": null}
-  }
+  ]
 }
