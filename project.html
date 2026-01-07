@@ -545,9 +545,10 @@
       .then(() => console.log('✅ Demographic time series loaded'))
       .catch(err => console.error('❌ Demo chart 1 error:', err));
 
-      vegaEmbed('#proj_chart2', 'pmkvy_india_map_complete.json', {actions: true})
-  .then(() => console.log('✅ Chart 2 map loaded'))
-  .catch(console.error);
+     vegaEmbed('#proj_chart2a', 'pmkvy_india_map_complete.json', { actions: true })
+    .then(() => console.log('✅ Chart 2 map loaded'))
+    .catch(err => console.error('❌ Chart 2 map error:', err));
+
 
 
     // Placeholders for Charts 2-7 (uncomment when ready)
