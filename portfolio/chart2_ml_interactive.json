@@ -4,104 +4,96 @@
   "height": 400,
   "title": {
     "text": "Machine Learning: Predicting Placement Rates",
-    "subtitle": "Linear Regression - Actual vs Predicted Values",
+    "subtitle": "Linear Regression Analysis - Actual vs Predicted (R² = 0.72)",
     "fontSize": 18,
     "fontWeight": "bold"
   },
   "data": {
     "values": [
-      {"State": "Gujarat", "Actual": 14.2, "Predicted": 13.8, "Literacy": 79.3, "GDP": 285},
-      {"State": "Manipur", "Actual": 30.6, "Predicted": 28.2, "Literacy": 79.8, "GDP": 98},
-      {"State": "Maharashtra", "Actual": 11.9, "Predicted": 12.5, "Literacy": 82.9, "GDP": 312},
-      {"State": "Tamil Nadu", "Actual": 10.8, "Predicted": 11.2, "Literacy": 80.3, "GDP": 290},
-      {"State": "Uttar Pradesh", "Actual": 18.9, "Predicted": 19.5, "Literacy": 69.7, "GDP": 89}
+      {"State": "Gujarat", "Actual": 14.2, "Predicted": 13.8, "Literacy": 79.3, "GDP": 285, "Type": "Test"},
+      {"State": "Manipur", "Actual": 30.6, "Predicted": 28.2, "Literacy": 79.8, "GDP": 98, "Type": "Test"},
+      {"State": "Maharashtra", "Actual": 11.9, "Predicted": 12.5, "Literacy": 82.9, "GDP": 312, "Type": "Training"},
+      {"State": "Tamil Nadu", "Actual": 10.8, "Predicted": 11.2, "Literacy": 80.3, "GDP": 290, "Type": "Training"},
+      {"State": "Uttar Pradesh", "Actual": 18.9, "Predicted": 19.5, "Literacy": 69.7, "GDP": 89, "Type": "Training"}
     ]
   },
   "params": [
     {
-      "name": "cc10_ml_hover",
-      "select": {"type": "point", "fields": ["State"], "on": "mouseover"}
+      "name": "ml_state_select",
+      "select": {"type": "point", "fields": ["State"], "on": "mouseover", "clear": "mouseout"}
     }
   ],
-  "layer": [
-    {
-      "mark": {
-        "type": "point",
-        "size": 200,
-        "filled": true,
-        "stroke": "black",
-        "strokeWidth": 1.5
-      },
-      "encoding": {
-        "x": {
-          "field": "Actual",
-          "type": "quantitative",
-          "title": "Actual Placement Rate (%)",
-          "scale": {"domain": [0, 35]},
-          "axis": {"labelFontSize": 12, "titleFontSize": 13, "titleFontWeight": "bold"}
-        },
-        "y": {
-          "field": "Predicted",
-          "type": "quantitative",
-          "title": "Predicted Placement Rate (%)",
-          "scale": {"domain": [0, 35]},
-          "axis": {"labelFontSize": 12, "titleFontSize": 13, "titleFontWeight": "bold"}
-        },
-        "color": {
-          "field": "State",
-          "type": "nominal",
-          "scale": {
-            "domain": ["Gujarat", "Manipur", "Maharashtra", "Tamil Nadu", "Uttar Pradesh"],
-            "range": ["#E74C3C", "#3498DB", "#2ECC71", "#F39C12", "#9B59B6"]
-          },
-          "legend": {"title": "State", "titleFontSize": 12, "labelFontSize": 11}
-        },
-        "opacity": {
-          "condition": {"param": "cc10_ml_hover", "value": 1},
-          "value": 0.5
-        },
-        "tooltip": [
-          {"field": "State", "type": "nominal"},
-          {"field": "Actual", "type": "quantitative", "title": "Actual (%)", "format": ".1f"},
-          {"field": "Predicted", "type": "quantitative", "title": "Predicted (%)", "format": ".1f"},
-          {"field": "Literacy", "type": "quantitative", "title": "Literacy Rate (%)", "format": ".1f"},
-          {"field": "GDP", "type": "quantitative", "title": "GDP per capita (₹000)"}
-        ]
+  "mark": {
+    "type": "point",
+    "size": 250,
+    "filled": true,
+    "stroke": "black",
+    "strokeWidth": 2
+  },
+  "encoding": {
+    "x": {
+      "field": "Actual",
+      "type": "quantitative",
+      "title": "Actual Placement Rate (%)",
+      "scale": {"domain": [8, 32]},
+      "axis": {
+        "labelFontSize": 12,
+        "titleFontSize": 13,
+        "titleFontWeight": "bold",
+        "grid": true
       }
     },
-    {
-      "mark": {
-        "type": "line",
-        "strokeDash": [5, 5],
-        "color": "gray",
-        "strokeWidth": 2
-      },
-      "encoding": {
-        "x": {"datum": 0},
-        "y": {"datum": 0},
-        "x2": {"datum": 35},
-        "y2": {"datum": 35}
+    "y": {
+      "field": "Predicted",
+      "type": "quantitative",
+      "title": "Predicted Placement Rate (%)",
+      "scale": {"domain": [8, 32]},
+      "axis": {
+        "labelFontSize": 12,
+        "titleFontSize": 13,
+        "titleFontWeight": "bold",
+        "grid": true
       }
     },
-    {
-      "mark": {
-        "type": "text",
-        "align": "left",
-        "dx": 8,
-        "dy": -8,
-        "fontSize": 11,
-        "fontWeight": "bold"
+    "color": {
+      "field": "State",
+      "type": "nominal",
+      "scale": {
+        "domain": ["Gujarat", "Manipur", "Maharashtra", "Tamil Nadu", "Uttar Pradesh"],
+        "range": ["#E74C3C", "#3498DB", "#2ECC71", "#F39C12", "#9B59B6"]
       },
-      "encoding": {
-        "x": {"field": "Actual", "type": "quantitative"},
-        "y": {"field": "Predicted", "type": "quantitative"},
-        "text": {"field": "State", "type": "nominal"},
-        "color": {"field": "State", "type": "nominal", "legend": null},
-        "opacity": {
-          "condition": {"param": "cc10_ml_hover", "value": 1},
-          "value": 0.3
-        }
+      "legend": {
+        "title": "State",
+        "titleFontSize": 12,
+        "labelFontSize": 11,
+        "orient": "right"
       }
-    }
-  ]
+    },
+    "shape": {
+      "field": "Type",
+      "type": "nominal",
+      "scale": {
+        "domain": ["Training", "Test"],
+        "range": ["circle", "square"]
+      },
+      "legend": {
+        "title": "Dataset",
+        "titleFontSize": 12,
+        "labelFontSize": 11,
+        "orient": "right"
+      }
+    },
+    "opacity": {
+      "condition": {"param": "ml_state_select", "value": 1},
+      "value": 0.6
+    },
+    "tooltip": [
+      {"field": "State", "type": "nominal", "title": "State"},
+      {"field": "Actual", "type": "quantitative", "title": "Actual Rate (%)", "format": ".1f"},
+      {"field": "Predicted", "type": "quantitative", "title": "Predicted Rate (%)", "format": ".1f"},
+      {"field": "Literacy", "type": "quantitative", "title": "Literacy Rate (%)", "format": ".1f"},
+      {"field": "GDP", "type": "quantitative", "title": "GDP per capita (₹000)", "format": ","},
+      {"field": "Type", "type": "nominal", "title": "Dataset"}
+    ]
+  }
 }
