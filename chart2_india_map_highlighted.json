@@ -3,8 +3,8 @@
   "width": 500,
   "height": 360,
   "title": {
-    "text": "PMKVY Across India: Gujarat vs Manipur Case Study",
-    "subtitle": "Training data (all years) | Placement data (FY 20-21, 21-22 only) - PIB Dec 2025",
+    "text": "PMKVY Performance Across India: State-wise Analysis",
+    "subtitle": "Highlighting Gujarat & Manipur case studies - Select metric and year to explore",
     "fontSize": 18,
     "fontWeight": "bold",
     "subtitleFontSize": 12,
@@ -13,12 +13,22 @@
   },
   "params": [
     {
-      "name": "mapYearSelect",
-      "value": "FY 2021-22",
+      "name": "yearSelector",
+      "value": "FY_2021_22",
       "bind": {
         "input": "select",
-        "options": ["FY 2020-21", "FY 2021-22", "FY 2022-23", "FY 2023-24", "FY 2024-25"],
-        "name": "📅 Select Year: "
+        "options": ["FY_2020_21", "FY_2021_22", "FY_2022_23", "FY_2023_24", "FY_2024_25"],
+        "labels": ["FY 2020-21", "FY 2021-22", "FY 2022-23", "FY 2023-24", "FY 2024-25"],
+        "name": "Year: "
+      }
+    },
+    {
+      "name": "metricSelector",
+      "value": "Skilled",
+      "bind": {
+        "input": "select",
+        "options": ["Skilled", "Placed"],
+        "name": "Metric: "
       }
     }
   ],
@@ -34,70 +44,94 @@
           "from": {
             "data": {
               "values": [
-                {"State": "Andhra Pradesh", "T_20_21": 66404, "P_20_21": 7555, "T_21_22": 13199, "P_21_22": 7100, "T_22_23": 5798, "T_23_24": 32449, "T_24_25": 35471},
-                {"State": "Assam", "T_20_21": 362506, "P_20_21": 9926, "T_21_22": 24517, "P_21_22": 11754, "T_22_23": 8721, "T_23_24": 38160, "T_24_25": 75182},
-                {"State": "Bihar", "T_20_21": 96288, "P_20_21": 11493, "T_21_22": 47643, "P_21_22": 15841, "T_22_23": 12213, "T_23_24": 23613, "T_24_25": 99982},
-                {"State": "Chhattisgarh", "T_20_21": 16151, "P_20_21": 1222, "T_21_22": 9495, "P_21_22": 568, "T_22_23": 4356, "T_23_24": 8385, "T_24_25": 16452},
-                {"State": "Gujarat", "T_20_21": 48489, "P_20_21": 10911, "T_21_22": 35001, "P_21_22": 2073, "T_22_23": 6503, "T_23_24": 19975, "T_24_25": 39762, "Highlight": "Gujarat"},
-                {"State": "Haryana", "T_20_21": 54719, "P_20_21": 7957, "T_21_22": 18191, "P_21_22": 4008, "T_22_23": 8963, "T_23_24": 27411, "T_24_25": 75942},
-                {"State": "Himachal Pradesh", "T_20_21": 15612, "P_20_21": 2021, "T_21_22": 8724, "P_21_22": 1580, "T_22_23": 3539, "T_23_24": 5348, "T_24_25": 19341},
-                {"State": "Jharkhand", "T_20_21": 15452, "P_20_21": 1606, "T_21_22": 34233, "P_21_22": 2276, "T_22_23": 5302, "T_23_24": 8796, "T_24_25": 30034},
-                {"State": "Karnataka", "T_20_21": 53066, "P_20_21": 5030, "T_21_22": 23153, "P_21_22": 6119, "T_22_23": 8410, "T_23_24": 13025, "T_24_25": 69486},
-                {"State": "Kerala", "T_20_21": 31077, "P_20_21": 1213, "T_21_22": 12968, "P_21_22": 3094, "T_22_23": 5673, "T_23_24": 8832, "T_24_25": 10449},
-                {"State": "Madhya Pradesh", "T_20_21": 95403, "P_20_21": 16010, "T_21_22": 46659, "P_21_22": 12649, "T_22_23": 21345, "T_23_24": 34884, "T_24_25": 259871},
-                {"State": "Maharashtra", "T_20_21": 148352, "P_20_21": 8830, "T_21_22": 39864, "P_21_22": 7089, "T_22_23": 14913, "T_23_24": 35284, "T_24_25": 75368},
-                {"State": "Manipur", "T_20_21": 34540, "P_20_21": 4661, "T_21_22": 6424, "P_21_22": 3064, "T_22_23": 1146, "T_23_24": 2879, "T_24_25": 20798, "Highlight": "Manipur"},
-                {"State": "Meghalaya", "T_20_21": 17769, "P_20_21": 1604, "T_21_22": 3406, "P_21_22": 4871, "T_22_23": 1245, "T_23_24": 2502, "T_24_25": 7938},
-                {"State": "Odisha", "T_20_21": 68828, "P_20_21": 3704, "T_21_22": 12645, "P_21_22": 4211, "T_22_23": 12116, "T_23_24": 21457, "T_24_25": 26231},
-                {"State": "Punjab", "T_20_21": 57054, "P_20_21": 17251, "T_21_22": 18539, "P_21_22": 9537, "T_22_23": 7568, "T_23_24": 11836, "T_24_25": 106699},
-                {"State": "Rajasthan", "T_20_21": 97822, "P_20_21": 17189, "T_21_22": 38511, "P_21_22": 14328, "T_22_23": 9232, "T_23_24": 23564, "T_24_25": 280156},
-                {"State": "Tamil Nadu", "T_20_21": 72404, "P_20_21": 6016, "T_21_22": 29057, "P_21_22": 3865, "T_22_23": 8029, "T_23_24": 34533, "T_24_25": 85689},
-                {"State": "Telangana", "T_20_21": 33999, "P_20_21": 6724, "T_21_22": 13107, "P_21_22": 4941, "T_22_23": 8040, "T_23_24": 15390, "T_24_25": 22188},
-                {"State": "Uttar Pradesh", "T_20_21": 239286, "P_20_21": 29901, "T_21_22": 69015, "P_21_22": 17547, "T_22_23": 25568, "T_23_24": 71801, "T_24_25": 463503},
-                {"State": "Uttarakhand", "T_20_21": 29412, "P_20_21": 9026, "T_21_22": 10522, "P_21_22": 3949, "T_22_23": 2942, "T_23_24": 11669, "T_24_25": 35364},
-                {"State": "West Bengal", "T_20_21": 53221, "P_20_21": 6946, "T_21_22": 31406, "P_21_22": 5333, "T_22_23": 12370, "T_23_24": 25768, "T_24_25": 36410}
+                {"State": "Andhra Pradesh", "S_20_21": 66404, "P_20_21": 7555, "S_21_22": 13199, "P_21_22": 7100, "S_22_23": 5798, "S_23_24": 32449, "S_24_25": 35471},
+                {"State": "Arunachal Pradesh", "S_20_21": 51991, "P_20_21": 2774, "S_21_22": 8884, "P_21_22": 5517, "S_22_23": 667, "S_23_24": 4152, "S_24_25": 10054},
+                {"State": "Assam", "S_20_21": 362506, "P_20_21": 9926, "S_21_22": 24517, "P_21_22": 11754, "S_22_23": 8721, "S_23_24": 38160, "S_24_25": 75182},
+                {"State": "Bihar", "S_20_21": 96288, "P_20_21": 11493, "S_21_22": 47643, "P_21_22": 15841, "S_22_23": 12213, "S_23_24": 23613, "S_24_25": 99982},
+                {"State": "Chhattisgarh", "S_20_21": 16151, "P_20_21": 1222, "S_21_22": 9495, "P_21_22": 568, "S_22_23": 4356, "S_23_24": 8385, "S_24_25": 16452},
+                {"State": "Goa", "S_20_21": 1709, "P_20_21": 17, "S_21_22": 604, "P_21_22": 47, "S_22_23": 176, "S_23_24": 183, "S_24_25": 236},
+                {"State": "Gujarat", "S_20_21": 48489, "P_20_21": 10911, "S_21_22": 35001, "P_21_22": 2073, "S_22_23": 6503, "S_23_24": 19975, "S_24_25": 39762, "Highlight": "Gujarat"},
+                {"State": "Haryana", "S_20_21": 54719, "P_20_21": 7957, "S_21_22": 18191, "P_21_22": 4008, "S_22_23": 8963, "S_23_24": 27411, "S_24_25": 75942},
+                {"State": "Himachal Pradesh", "S_20_21": 15612, "P_20_21": 2021, "S_21_22": 8724, "P_21_22": 1580, "S_22_23": 3539, "S_23_24": 5348, "S_24_25": 19341},
+                {"State": "Jammu and Kashmir", "S_20_21": 58927, "P_20_21": 7556, "S_21_22": 21339, "P_21_22": 2126, "S_22_23": 7352, "S_23_24": 28895, "S_24_25": 85557},
+                {"State": "Jharkhand", "S_20_21": 15452, "P_20_21": 1606, "S_21_22": 34233, "P_21_22": 2276, "S_22_23": 5302, "S_23_24": 8796, "S_24_25": 30034},
+                {"State": "Karnataka", "S_20_21": 53066, "P_20_21": 5030, "S_21_22": 23153, "P_21_22": 6119, "S_22_23": 8410, "S_23_24": 13025, "S_24_25": 69486},
+                {"State": "Kerala", "S_20_21": 31077, "P_20_21": 1213, "S_21_22": 12968, "P_21_22": 3094, "S_22_23": 5673, "S_23_24": 8832, "S_24_25": 10449},
+                {"State": "Madhya Pradesh", "S_20_21": 95403, "P_20_21": 16010, "S_21_22": 46659, "P_21_22": 12649, "S_22_23": 21345, "S_23_24": 34884, "S_24_25": 259871},
+                {"State": "Maharashtra", "S_20_21": 148352, "P_20_21": 8830, "S_21_22": 39864, "P_21_22": 7089, "S_22_23": 14913, "S_23_24": 35284, "S_24_25": 75368},
+                {"State": "Manipur", "S_20_21": 34540, "P_20_21": 4661, "S_21_22": 6424, "P_21_22": 3064, "S_22_23": 1146, "S_23_24": 2879, "S_24_25": 20798, "Highlight": "Manipur"},
+                {"State": "Meghalaya", "S_20_21": 17769, "P_20_21": 1604, "S_21_22": 3406, "P_21_22": 4871, "S_22_23": 1245, "S_23_24": 2502, "S_24_25": 7938},
+                {"State": "Mizoram", "S_20_21": 11433, "P_20_21": 1438, "S_21_22": 4742, "P_21_22": 1627, "S_22_23": 1162, "S_23_24": 3609, "S_24_25": 6888},
+                {"State": "Nagaland", "S_20_21": 14399, "P_20_21": 2836, "S_21_22": 4184, "P_21_22": 763, "S_22_23": 1803, "S_23_24": 3830, "S_24_25": 7299},
+                {"State": "Odisha", "S_20_21": 68828, "P_20_21": 3704, "S_21_22": 12645, "P_21_22": 4211, "S_22_23": 12116, "S_23_24": 21457, "S_24_25": 26231},
+                {"State": "Punjab", "S_20_21": 57054, "P_20_21": 17251, "S_21_22": 18539, "P_21_22": 9537, "S_22_23": 7568, "S_23_24": 11836, "S_24_25": 106699},
+                {"State": "Rajasthan", "S_20_21": 97822, "P_20_21": 17189, "S_21_22": 38511, "P_21_22": 14328, "S_22_23": 9232, "S_23_24": 23564, "S_24_25": 280156},
+                {"State": "Sikkim", "S_20_21": 3634, "P_20_21": 1479, "S_21_22": 1322, "P_21_22": 893, "S_22_23": 381, "S_23_24": 2802, "S_24_25": 2874},
+                {"State": "Tamil Nadu", "S_20_21": 72404, "P_20_21": 6016, "S_21_22": 29057, "P_21_22": 3865, "S_22_23": 8029, "S_23_24": 34533, "S_24_25": 85689},
+                {"State": "Telangana", "S_20_21": 33999, "P_20_21": 6724, "S_21_22": 13107, "P_21_22": 4941, "S_22_23": 8040, "S_23_24": 15390, "S_24_25": 22188},
+                {"State": "Tripura", "S_20_21": 46676, "P_20_21": 1420, "S_21_22": 4490, "P_21_22": 2468, "S_22_23": 1608, "S_23_24": 5005, "S_24_25": 14346},
+                {"State": "Uttar Pradesh", "S_20_21": 239286, "P_20_21": 29901, "S_21_22": 69015, "P_21_22": 17547, "S_22_23": 25568, "S_23_24": 71801, "S_24_25": 463503},
+                {"State": "Uttarakhand", "S_20_21": 29412, "P_20_21": 9026, "S_21_22": 10522, "P_21_22": 3949, "S_22_23": 2942, "S_23_24": 11669, "S_24_25": 35364},
+                {"State": "West Bengal", "S_20_21": 53221, "P_20_21": 6946, "S_21_22": 31406, "P_21_22": 5333, "S_22_23": 12370, "S_23_24": 25768, "S_24_25": 36410}
               ]
             },
             "key": "State",
-            "fields": ["T_20_21", "P_20_21", "T_21_22", "P_21_22", "T_22_23", "T_23_24", "T_24_25", "Highlight"]
+            "fields": ["S_20_21", "P_20_21", "S_21_22", "P_21_22", "S_22_23", "S_23_24", "S_24_25", "Highlight"]
           }
         },
         {
-          "calculate": "mapYearSelect == 'FY 2020-21' ? datum.T_20_21 : mapYearSelect == 'FY 2021-22' ? datum.T_21_22 : mapYearSelect == 'FY 2022-23' ? datum.T_22_23 : mapYearSelect == 'FY 2023-24' ? datum.T_23_24 : datum.T_24_25",
-          "as": "Trained"
+          "calculate": "yearSelector == 'FY_2020_21' ? datum.S_20_21 : yearSelector == 'FY_2021_22' ? datum.S_21_22 : yearSelector == 'FY_2022_23' ? datum.S_22_23 : yearSelector == 'FY_2023_24' ? datum.S_23_24 : datum.S_24_25",
+          "as": "Skilled"
         },
         {
-          "calculate": "mapYearSelect == 'FY 2020-21' ? datum.P_20_21 : mapYearSelect == 'FY 2021-22' ? datum.P_21_22 : null",
+          "calculate": "yearSelector == 'FY_2020_21' ? datum.P_20_21 : yearSelector == 'FY_2021_22' ? datum.P_21_22 : null",
           "as": "Placed"
         },
         {
-          "calculate": "datum.Placed != null ? (datum.Placed / datum.Trained * 100) : null",
+          "calculate": "datum.Placed != null && datum.Skilled > 0 ? (datum.Placed / datum.Skilled * 100) : null",
           "as": "Placement_Rate"
         },
         {
-          "calculate": "mapYearSelect == 'FY 2020-21' || mapYearSelect == 'FY 2021-22' ? 'Available' : 'De-linked under PMKVY 4.0'",
-          "as": "Placement_Status"
+          "calculate": "metricSelector == 'Skilled' ? datum.Skilled : datum.Placed",
+          "as": "DisplayValue"
+        },
+        {
+          "calculate": "yearSelector == 'FY_2020_21' || yearSelector == 'FY_2021_22' ? 'Data Available' : 'Placement de-linked (PMKVY 4.0)'",
+          "as": "PlacementStatus"
         }
       ],
       "mark": {
         "type": "geoshape",
-        "stroke": "white",
-        "strokeWidth": 1.5
+        "stroke": "rgba(255,255,255,0.95)",
+        "strokeWidth": 1.8
       },
       "encoding": {
         "color": {
           "condition": [
-            {"test": "datum.Highlight == 'Gujarat'", "value": "#1e40af"},
-            {"test": "datum.Highlight == 'Manipur'", "value": "#a78bfa"}
+            {
+              "test": "datum.Highlight == 'Gujarat'",
+              "value": "#1e40af"
+            },
+            {
+              "test": "datum.Highlight == 'Manipur'",
+              "value": "#a78bfa"
+            }
           ],
-          "value": "#f5f5f5"
+          "field": "DisplayValue",
+          "type": "quantitative",
+          "scale": {
+            "type": "threshold",
+            "domain": [5000, 20000, 50000, 100000, 200000],
+            "range": ["#f0f0f0", "#e0e0e0", "#d0d0d0", "#c0c0c0", "#b0b0b0", "#a0a0a0"]
+          },
+          "legend": null
         },
         "tooltip": [
           {"field": "properties.NAME_1", "type": "nominal", "title": "State"},
-          {"field": "Trained", "type": "quantitative", "title": "Candidates Trained", "format": ","},
+          {"field": "Skilled", "type": "quantitative", "title": "Candidates Skilled", "format": ","},
           {"field": "Placed", "type": "quantitative", "title": "Candidates Placed", "format": ","},
           {"field": "Placement_Rate", "type": "quantitative", "title": "Placement Rate (%)", "format": ".1f"},
-          {"field": "Placement_Status", "type": "nominal", "title": "Placement Data"}
+          {"field": "PlacementStatus", "type": "nominal", "title": "Status"}
         ]
       }
     },
@@ -106,7 +140,7 @@
         "values": [
           {"label": "Gujarat (Advanced)", "color": "#1e40af"},
           {"label": "Manipur (Peripheral)", "color": "#a78bfa"},
-          {"label": "Other States", "color": "#f5f5f5"}
+          {"label": "Other States", "color": "#d0d0d0"}
         ]
       },
       "mark": {"type": "point", "size": 0},
@@ -116,23 +150,21 @@
           "type": "nominal",
           "scale": {
             "domain": ["Gujarat (Advanced)", "Manipur (Peripheral)", "Other States"],
-            "range": ["#1e40af", "#a78bfa", "#f5f5f5"]
+            "range": ["#1e40af", "#a78bfa", "#d0d0d0"]
           },
           "legend": {
-            "title": "Case Study States",
-            "titleFontSize": 13,
+            "title": "Highlighted States",
+            "titleFontSize": 12,
             "titleFontWeight": "bold",
             "titleColor": "rgba(18,18,18,0.85)",
             "labelFontSize": 11,
             "labelColor": "rgba(18,18,18,0.75)",
-            "orient": "bottom-right",
+            "orient": "top-left",
             "offset": 5,
-            "symbolSize": 120,
+            "symbolSize": 100,
             "symbolType": "square",
-            "symbolStrokeWidth": 1,
-            "symbolStrokeColor": "rgba(0,0,0,0.15)",
             "fillColor": "rgba(255,255,255,0.95)",
-            "strokeColor": "rgba(0,0,0,0.08)",
+            "strokeColor": "rgba(0,0,0,0.10)",
             "padding": 6,
             "cornerRadius": 4
           }
@@ -140,30 +172,26 @@
       }
     },
     {
-      "data": {
-        "values": [
-          {"x": 0, "y": 0, "text": ""}
-        ]
-      },
+      "data": {"values": [{}]},
       "transform": [
         {
-          "calculate": "mapYearSelect == 'FY 2020-21' || mapYearSelect == 'FY 2021-22' ? '' : '⚠️ Placement tracking de-linked under PMKVY 4.0 (from FY 2022-23)'",
-          "as": "note"
+          "calculate": "(yearSelector == 'FY_2022_23' || yearSelector == 'FY_2023_24' || yearSelector == 'FY_2024_25') && metricSelector == 'Placed' ? '⚠️ Placement tracking de-linked under PMKVY 4.0 (from FY 2022-23)' : ''",
+          "as": "warning"
         }
       ],
       "mark": {
         "type": "text",
         "align": "center",
         "baseline": "bottom",
-        "dy": -5,
+        "dy": -8,
         "fontSize": 11,
         "fontWeight": "bold",
         "color": "#dc2626"
       },
       "encoding": {
-        "text": {"field": "note", "type": "nominal"},
+        "text": {"field": "warning", "type": "nominal"},
         "x": {"value": 250},
-        "y": {"value": 355}
+        "y": {"value": 350}
       }
     }
   ],
