@@ -1,16 +1,9 @@
 {
-  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 500,
-  "height": 520,
-  "title": {
-    "text": "PMKVY State-wise Performance Map",
-    "subtitle": "Select year and metric to explore - Hover to highlight states",
-    "fontSize": 18,
-    "fontWeight": "bold",
-    "subtitleFontSize": 12,
-    "color": "rgba(18,18,18,0.90)",
-    "subtitleColor": "rgba(18,18,18,0.60)"
-  },
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "width": 600,
+  "height": 700,
+  "autosize": { "type": "fit-x", "contains": "padding" },
+
   "params": [
     {
       "name": "yearPick",
@@ -19,7 +12,7 @@
         "input": "select",
         "options": ["2020_21", "2021_22", "2022_23", "2023_24", "2024_25"],
         "labels": ["FY 2020-21", "FY 2021-22", "FY 2022-23", "FY 2023-24", "FY 2024-25"],
-        "name": "📅 Year: "
+        "name": "Year: "
       }
     },
     {
@@ -29,7 +22,7 @@
         "input": "radio",
         "options": ["skilled", "placed"],
         "labels": ["Candidates Skilled", "Candidates Placed"],
-        "name": "📊 Show: "
+        "name": "Show: "
       }
     },
     {
@@ -42,122 +35,123 @@
       }
     }
   ],
+
   "data": {
     "url": "https://cdn.jsdelivr.net/gh/udit-001/india-maps-data@8d907bc/topojson/india.json",
-    "format": {"type": "topojson", "feature": "states"}
+    "format": { "type": "topojson", "feature": "states" }
   },
+
+  "projection": {
+    "type": "mercator",
+    "center": [82, 22],
+    "scale": 900
+  },
+
   "transform": [
-    {
-      "calculate": "lower(trim(datum.properties.name))",
-      "as": "state_clean"
-    },
+    { "calculate": "lower(trim(datum.properties.st_nm))", "as": "state_clean" },
+
     {
       "lookup": "state_clean",
       "from": {
         "data": {
           "values": [
-            {"state_clean": "andhra pradesh", "StateName": "Andhra Pradesh", "skilled_2020_21": 66404, "placed_2020_21": 7555, "skilled_2021_22": 13199, "placed_2021_22": 7100, "skilled_2022_23": 5798, "skilled_2023_24": 32449, "skilled_2024_25": 35471},
-            {"state_clean": "arunachal pradesh", "StateName": "Arunachal Pradesh", "skilled_2020_21": 51991, "placed_2020_21": 2774, "skilled_2021_22": 8884, "placed_2021_22": 5517, "skilled_2022_23": 667, "skilled_2023_24": 4152, "skilled_2024_25": 10054},
-            {"state_clean": "assam", "StateName": "Assam", "skilled_2020_21": 362506, "placed_2020_21": 9926, "skilled_2021_22": 24517, "placed_2021_22": 11754, "skilled_2022_23": 8721, "skilled_2023_24": 38160, "skilled_2024_25": 75182},
-            {"state_clean": "bihar", "StateName": "Bihar", "skilled_2020_21": 96288, "placed_2020_21": 11493, "skilled_2021_22": 47643, "placed_2021_22": 15841, "skilled_2022_23": 12213, "skilled_2023_24": 23613, "skilled_2024_25": 99982},
-            {"state_clean": "chhattisgarh", "StateName": "Chhattisgarh", "skilled_2020_21": 16151, "placed_2020_21": 1222, "skilled_2021_22": 9495, "placed_2021_22": 568, "skilled_2022_23": 4356, "skilled_2023_24": 8385, "skilled_2024_25": 16452},
-            {"state_clean": "delhi", "StateName": "Delhi", "skilled_2020_21": 55121, "placed_2020_21": 7510, "skilled_2021_22": 19965, "placed_2021_22": 3742, "skilled_2022_23": 2262, "skilled_2023_24": 10686, "skilled_2024_25": 12277},
-            {"state_clean": "goa", "StateName": "Goa", "skilled_2020_21": 1709, "placed_2020_21": 17, "skilled_2021_22": 604, "placed_2021_22": 47, "skilled_2022_23": 176, "skilled_2023_24": 183, "skilled_2024_25": 236},
-            {"state_clean": "gujarat", "StateName": "Gujarat", "skilled_2020_21": 48489, "placed_2020_21": 10911, "skilled_2021_22": 35001, "placed_2021_22": 2073, "skilled_2022_23": 6503, "skilled_2023_24": 19975, "skilled_2024_25": 39762},
-            {"state_clean": "haryana", "StateName": "Haryana", "skilled_2020_21": 54719, "placed_2020_21": 7957, "skilled_2021_22": 18191, "placed_2021_22": 4008, "skilled_2022_23": 8963, "skilled_2023_24": 27411, "skilled_2024_25": 75942},
-            {"state_clean": "himachal pradesh", "StateName": "Himachal Pradesh", "skilled_2020_21": 15612, "placed_2020_21": 2021, "skilled_2021_22": 8724, "placed_2021_22": 1580, "skilled_2022_23": 3539, "skilled_2023_24": 5348, "skilled_2024_25": 19341},
-            {"state_clean": "jammu and kashmir", "StateName": "Jammu & Kashmir", "skilled_2020_21": 58927, "placed_2020_21": 7556, "skilled_2021_22": 21339, "placed_2021_22": 2126, "skilled_2022_23": 7352, "skilled_2023_24": 28895, "skilled_2024_25": 85557},
-            {"state_clean": "jharkhand", "StateName": "Jharkhand", "skilled_2020_21": 15452, "placed_2020_21": 1606, "skilled_2021_22": 34233, "placed_2021_22": 2276, "skilled_2022_23": 5302, "skilled_2023_24": 8796, "skilled_2024_25": 30034},
-            {"state_clean": "karnataka", "StateName": "Karnataka", "skilled_2020_21": 53066, "placed_2020_21": 5030, "skilled_2021_22": 23153, "placed_2021_22": 6119, "skilled_2022_23": 8410, "skilled_2023_24": 13025, "skilled_2024_25": 69486},
-            {"state_clean": "kerala", "StateName": "Kerala", "skilled_2020_21": 31077, "placed_2020_21": 1213, "skilled_2021_22": 12968, "placed_2021_22": 3094, "skilled_2022_23": 5673, "skilled_2023_24": 8832, "skilled_2024_25": 10449},
-            {"state_clean": "madhya pradesh", "StateName": "Madhya Pradesh", "skilled_2020_21": 95403, "placed_2020_21": 16010, "skilled_2021_22": 46659, "placed_2021_22": 12649, "skilled_2022_23": 21345, "skilled_2023_24": 34884, "skilled_2024_25": 259871},
-            {"state_clean": "maharashtra", "StateName": "Maharashtra", "skilled_2020_21": 148352, "placed_2020_21": 8830, "skilled_2021_22": 39864, "placed_2021_22": 7089, "skilled_2022_23": 14913, "skilled_2023_24": 35284, "skilled_2024_25": 75368},
-            {"state_clean": "manipur", "StateName": "Manipur", "skilled_2020_21": 34540, "placed_2020_21": 4661, "skilled_2021_22": 6424, "placed_2021_22": 3064, "skilled_2022_23": 1146, "skilled_2023_24": 2879, "skilled_2024_25": 20798},
-            {"state_clean": "meghalaya", "StateName": "Meghalaya", "skilled_2020_21": 17769, "placed_2020_21": 1604, "skilled_2021_22": 3406, "placed_2021_22": 4871, "skilled_2022_23": 1245, "skilled_2023_24": 2502, "skilled_2024_25": 7938},
-            {"state_clean": "mizoram", "StateName": "Mizoram", "skilled_2020_21": 11433, "placed_2020_21": 1438, "skilled_2021_22": 4742, "placed_2021_22": 1627, "skilled_2022_23": 1162, "skilled_2023_24": 3609, "skilled_2024_25": 6888},
-            {"state_clean": "nagaland", "StateName": "Nagaland", "skilled_2020_21": 14399, "placed_2020_21": 2836, "skilled_2021_22": 4184, "placed_2021_22": 763, "skilled_2022_23": 1803, "skilled_2023_24": 3830, "skilled_2024_25": 7299},
-            {"state_clean": "odisha", "StateName": "Odisha", "skilled_2020_21": 68828, "placed_2020_21": 3704, "skilled_2021_22": 12645, "placed_2021_22": 4211, "skilled_2022_23": 12116, "skilled_2023_24": 21457, "skilled_2024_25": 26231},
-            {"state_clean": "punjab", "StateName": "Punjab", "skilled_2020_21": 57054, "placed_2020_21": 17251, "skilled_2021_22": 18539, "placed_2021_22": 9537, "skilled_2022_23": 7568, "skilled_2023_24": 11836, "skilled_2024_25": 106699},
-            {"state_clean": "rajasthan", "StateName": "Rajasthan", "skilled_2020_21": 97822, "placed_2020_21": 17189, "skilled_2021_22": 38511, "placed_2021_22": 14328, "skilled_2022_23": 9232, "skilled_2023_24": 23564, "skilled_2024_25": 280156},
-            {"state_clean": "sikkim", "StateName": "Sikkim", "skilled_2020_21": 3634, "placed_2020_21": 1479, "skilled_2021_22": 1322, "placed_2021_22": 893, "skilled_2022_23": 381, "skilled_2023_24": 2802, "skilled_2024_25": 2874},
-            {"state_clean": "tamil nadu", "StateName": "Tamil Nadu", "skilled_2020_21": 72404, "placed_2020_21": 6016, "skilled_2021_22": 29057, "placed_2021_22": 3865, "skilled_2022_23": 8029, "skilled_2023_24": 34533, "skilled_2024_25": 85689},
-            {"state_clean": "telangana", "StateName": "Telangana", "skilled_2020_21": 33999, "placed_2020_21": 6724, "skilled_2021_22": 13107, "placed_2021_22": 4941, "skilled_2022_23": 8040, "skilled_2023_24": 15390, "skilled_2024_25": 22188},
-            {"state_clean": "tripura", "StateName": "Tripura", "skilled_2020_21": 46676, "placed_2020_21": 1420, "skilled_2021_22": 4490, "placed_2021_22": 2468, "skilled_2022_23": 1608, "skilled_2023_24": 5005, "skilled_2024_25": 14346},
-            {"state_clean": "uttar pradesh", "StateName": "Uttar Pradesh", "skilled_2020_21": 239286, "placed_2020_21": 29901, "skilled_2021_22": 69015, "placed_2021_22": 17547, "skilled_2022_23": 25568, "skilled_2023_24": 71801, "skilled_2024_25": 463503},
-            {"state_clean": "uttarakhand", "StateName": "Uttarakhand", "skilled_2020_21": 29412, "placed_2020_21": 9026, "skilled_2021_22": 10522, "placed_2021_22": 3949, "skilled_2022_23": 2942, "skilled_2023_24": 11669, "skilled_2024_25": 35364},
-            {"state_clean": "west bengal", "StateName": "West Bengal", "skilled_2020_21": 53221, "placed_2020_21": 6946, "skilled_2021_22": 31406, "placed_2021_22": 5333, "skilled_2022_23": 12370, "skilled_2023_24": 25768, "skilled_2024_25": 36410}
+            { "state_clean": "andhra pradesh", "StateName": "Andhra Pradesh", "skilled_2020_21": 66404, "placed_2020_21": 7555, "skilled_2021_22": 13199, "placed_2021_22": 7100, "skilled_2022_23": 5798, "skilled_2023_24": 32449, "skilled_2024_25": 35471 },
+            { "state_clean": "arunachal pradesh", "StateName": "Arunachal Pradesh", "skilled_2020_21": 51991, "placed_2020_21": 2774, "skilled_2021_22": 8884, "placed_2021_22": 5517, "skilled_2022_23": 667, "skilled_2023_24": 4152, "skilled_2024_25": 10054 },
+            { "state_clean": "assam", "StateName": "Assam", "skilled_2020_21": 362506, "placed_2020_21": 9926, "skilled_2021_22": 24517, "placed_2021_22": 11754, "skilled_2022_23": 8721, "skilled_2023_24": 38160, "skilled_2024_25": 75182 },
+            { "state_clean": "bihar", "StateName": "Bihar", "skilled_2020_21": 96288, "placed_2020_21": 11493, "skilled_2021_22": 47643, "placed_2021_22": 15841, "skilled_2022_23": 12213, "skilled_2023_24": 23613, "skilled_2024_25": 99982 },
+            { "state_clean": "chhattisgarh", "StateName": "Chhattisgarh", "skilled_2020_21": 16151, "placed_2020_21": 1222, "skilled_2021_22": 9495, "placed_2021_22": 568, "skilled_2022_23": 4356, "skilled_2023_24": 8385, "skilled_2024_25": 16452 },
+            { "state_clean": "delhi", "StateName": "Delhi", "skilled_2020_21": 55121, "placed_2020_21": 7510, "skilled_2021_22": 19965, "placed_2021_22": 3742, "skilled_2022_23": 2262, "skilled_2023_24": 10686, "skilled_2024_25": 12277 },
+            { "state_clean": "goa", "StateName": "Goa", "skilled_2020_21": 1709, "placed_2020_21": 17, "skilled_2021_22": 604, "placed_2021_22": 47, "skilled_2022_23": 176, "skilled_2023_24": 183, "skilled_2024_25": 236 },
+            { "state_clean": "gujarat", "StateName": "Gujarat", "skilled_2020_21": 48489, "placed_2020_21": 10911, "skilled_2021_22": 35001, "placed_2021_22": 2073, "skilled_2022_23": 6503, "skilled_2023_24": 19975, "skilled_2024_25": 39762 },
+            { "state_clean": "haryana", "StateName": "Haryana", "skilled_2020_21": 54719, "placed_2020_21": 7957, "skilled_2021_22": 18191, "placed_2021_22": 4008, "skilled_2022_23": 8963, "skilled_2023_24": 27411, "skilled_2024_25": 75942 },
+            { "state_clean": "himachal pradesh", "StateName": "Himachal Pradesh", "skilled_2020_21": 15612, "placed_2020_21": 2021, "skilled_2021_22": 8724, "placed_2021_22": 1580, "skilled_2022_23": 3539, "skilled_2023_24": 5348, "skilled_2024_25": 19341 },
+            { "state_clean": "jammu and kashmir", "StateName": "Jammu & Kashmir", "skilled_2020_21": 58927, "placed_2020_21": 7556, "skilled_2021_22": 21339, "placed_2021_22": 2126, "skilled_2022_23": 7352, "skilled_2023_24": 28895, "skilled_2024_25": 85557 },
+            { "state_clean": "jharkhand", "StateName": "Jharkhand", "skilled_2020_21": 15452, "placed_2020_21": 1606, "skilled_2021_22": 34233, "placed_2021_22": 2276, "skilled_2022_23": 5302, "skilled_2023_24": 8796, "skilled_2024_25": 30034 },
+            { "state_clean": "karnataka", "StateName": "Karnataka", "skilled_2020_21": 53066, "placed_2020_21": 5030, "skilled_2021_22": 23153, "placed_2021_22": 6119, "skilled_2022_23": 8410, "skilled_2023_24": 13025, "skilled_2024_25": 69486 },
+            { "state_clean": "kerala", "StateName": "Kerala", "skilled_2020_21": 31077, "placed_2020_21": 1213, "skilled_2021_22": 12968, "placed_2021_22": 3094, "skilled_2022_23": 5673, "skilled_2023_24": 8832, "skilled_2024_25": 10449 },
+            { "state_clean": "madhya pradesh", "StateName": "Madhya Pradesh", "skilled_2020_21": 95403, "placed_2020_21": 16010, "skilled_2021_22": 46659, "placed_2021_22": 12649, "skilled_2022_23": 21345, "skilled_2023_24": 34884, "skilled_2024_25": 259871 },
+            { "state_clean": "maharashtra", "StateName": "Maharashtra", "skilled_2020_21": 148352, "placed_2020_21": 8830, "skilled_2021_22": 39864, "placed_2021_22": 7089, "skilled_2022_23": 14913, "skilled_2023_24": 35284, "skilled_2024_25": 75368 },
+            { "state_clean": "manipur", "StateName": "Manipur", "skilled_2020_21": 34540, "placed_2020_21": 4661, "skilled_2021_22": 6424, "placed_2021_22": 3064, "skilled_2022_23": 1146, "skilled_2023_24": 2879, "skilled_2024_25": 20798 },
+            { "state_clean": "meghalaya", "StateName": "Meghalaya", "skilled_2020_21": 17769, "placed_2020_21": 1604, "skilled_2021_22": 3406, "placed_2021_22": 4871, "skilled_2022_23": 1245, "skilled_2023_24": 2502, "skilled_2024_25": 7938 },
+            { "state_clean": "mizoram", "StateName": "Mizoram", "skilled_2020_21": 11433, "placed_2020_21": 1438, "skilled_2021_22": 4742, "placed_2021_22": 1627, "skilled_2022_23": 1162, "skilled_2023_24": 3609, "skilled_2024_25": 6888 },
+            { "state_clean": "nagaland", "StateName": "Nagaland", "skilled_2020_21": 14399, "placed_2020_21": 2836, "skilled_2021_22": 4184, "placed_2021_22": 763, "skilled_2022_23": 1803, "skilled_2023_24": 3830, "skilled_2024_25": 7299 },
+            { "state_clean": "odisha", "StateName": "Odisha", "skilled_2020_21": 68828, "placed_2020_21": 3704, "skilled_2021_22": 12645, "placed_2021_22": 4211, "skilled_2022_23": 12116, "skilled_2023_24": 21457, "skilled_2024_25": 26231 },
+            { "state_clean": "punjab", "StateName": "Punjab", "skilled_2020_21": 57054, "placed_2020_21": 17251, "skilled_2021_22": 18539, "placed_2021_22": 9537, "skilled_2022_23": 7568, "skilled_2023_24": 11836, "skilled_2024_25": 106699 },
+            { "state_clean": "rajasthan", "StateName": "Rajasthan", "skilled_2020_21": 97822, "placed_2020_21": 17189, "skilled_2021_22": 38511, "placed_2021_22": 14328, "skilled_2022_23": 9232, "skilled_2023_24": 23564, "skilled_2024_25": 280156 },
+            { "state_clean": "sikkim", "StateName": "Sikkim", "skilled_2020_21": 3634, "placed_2020_21": 1479, "skilled_2021_22": 1322, "placed_2021_22": 893, "skilled_2022_23": 381, "skilled_2023_24": 2802, "skilled_2024_25": 2874 },
+            { "state_clean": "tamil nadu", "StateName": "Tamil Nadu", "skilled_2020_21": 72404, "placed_2020_21": 6016, "skilled_2021_22": 29057, "placed_2021_22": 3865, "skilled_2022_23": 8029, "skilled_2023_24": 34533, "skilled_2024_25": 85689 },
+            { "state_clean": "telangana", "StateName": "Telangana", "skilled_2020_21": 33999, "placed_2020_21": 6724, "skilled_2021_22": 13107, "placed_2021_22": 4941, "skilled_2022_23": 8040, "skilled_2023_24": 15390, "skilled_2024_25": 22188 },
+            { "state_clean": "tripura", "StateName": "Tripura", "skilled_2020_21": 46676, "placed_2020_21": 1420, "skilled_2021_22": 4490, "placed_2021_22": 2468, "skilled_2022_23": 1608, "skilled_2023_24": 5005, "skilled_2024_25": 14346 },
+            { "state_clean": "uttar pradesh", "StateName": "Uttar Pradesh", "skilled_2020_21": 239286, "placed_2020_21": 29901, "skilled_2021_22": 69015, "placed_2021_22": 17547, "skilled_2022_23": 25568, "skilled_2023_24": 71801, "skilled_2024_25": 463503 },
+            { "state_clean": "uttarakhand", "StateName": "Uttarakhand", "skilled_2020_21": 29412, "placed_2020_21": 9026, "skilled_2021_22": 10522, "placed_2021_22": 3949, "skilled_2022_23": 2942, "skilled_2023_24": 11669, "skilled_2024_25": 35364 },
+            { "state_clean": "west bengal", "StateName": "West Bengal", "skilled_2020_21": 53221, "placed_2020_21": 6946, "skilled_2021_22": 31406, "placed_2021_22": 5333, "skilled_2022_23": 12370, "skilled_2023_24": 25768, "skilled_2024_25": 36410 },
+
+            { "state_clean": "andaman and nicobar islands", "StateName": "Andaman & Nicobar Islands", "skilled_2020_21": 1464, "skilled_2021_22": 613, "skilled_2022_23": 310, "skilled_2023_24": 648, "skilled_2024_25": 909, "placed_2020_21": null, "placed_2021_22": null },
+            { "state_clean": "chandigarh", "StateName": "Chandigarh", "skilled_2020_21": 3834, "skilled_2021_22": 893, "skilled_2022_23": 491, "skilled_2023_24": 319, "skilled_2024_25": 628, "placed_2020_21": 1851, "placed_2021_22": 402 },
+            { "state_clean": "ladakh", "StateName": "Ladakh", "skilled_2020_21": 181, "skilled_2021_22": 731, "skilled_2022_23": 246, "skilled_2023_24": 445, "skilled_2024_25": 312, "placed_2020_21": 67, "placed_2021_22": null },
+            { "state_clean": "lakshadweep", "StateName": "Lakshadweep", "skilled_2020_21": 90, "skilled_2021_22": 120, "skilled_2022_23": null, "skilled_2023_24": null, "skilled_2024_25": 120, "placed_2020_21": null, "placed_2021_22": null },
+            { "state_clean": "puducherry", "StateName": "Puducherry", "skilled_2020_21": 3241, "skilled_2021_22": 1622, "skilled_2022_23": 689, "skilled_2023_24": 1556, "skilled_2024_25": 3096, "placed_2020_21": 2128, "placed_2021_22": 748 },
+            { "state_clean": "dadra and nagar haveli and daman and diu", "StateName": "Dadra & Nagar Haveli and Daman & Diu", "skilled_2020_21": 222, "skilled_2021_22": 252, "skilled_2022_23": 31, "skilled_2023_24": 301, "skilled_2024_25": 1407, "placed_2020_21": 230, "placed_2021_22": 32 }
           ]
         },
         "key": "state_clean",
         "fields": [
           "StateName",
-          "skilled_2020_21", "placed_2020_21",
-          "skilled_2021_22", "placed_2021_22",
+          "skilled_2020_21",
+          "placed_2020_21",
+          "skilled_2021_22",
+          "placed_2021_22",
           "skilled_2022_23",
+          "placed_2022_23",
           "skilled_2023_24",
-          "skilled_2024_25"
+          "placed_2023_24",
+          "skilled_2024_25",
+          "placed_2024_25"
         ]
       }
     },
+
+    { "calculate": "metricPick + '_' + yearPick", "as": "data_field" },
+    { "calculate": "isValid(datum[datum.data_field]) ? datum[datum.data_field] : null", "as": "value" },
+
+    { "calculate": "isValid(datum.value) ? datum.value : -1", "as": "value_for_color" },
+
+    { "calculate": "isValid(datum['placed_' + yearPick]) ? datum['placed_' + yearPick] : null", "as": "placed_value" },
+    { "calculate": "isValid(datum['skilled_' + yearPick]) ? datum['skilled_' + yearPick] : null", "as": "skilled_value" },
+
     {
-      "calculate": "metricPick + '_' + yearPick",
-      "as": "data_field"
-    },
-    {
-      "calculate": "datum[datum.data_field]",
-      "as": "value"
-    },
-    {
-      "calculate": "datum['placed_' + yearPick]",
-      "as": "placed_value"
-    },
-    {
-      "calculate": "datum['skilled_' + yearPick]",
-      "as": "skilled_value"
-    },
-    {
-      "calculate": "datum.placed_value != null && datum.skilled_value > 0 ? (datum.placed_value / datum.skilled_value * 100) : null",
+      "calculate": "datum.placed_value != null && datum.skilled_value != null && datum.skilled_value > 0 ? (datum.placed_value / datum.skilled_value * 100) : null",
       "as": "rate"
     }
   ],
-  "mark": {
-    "type": "geoshape",
-    "stroke": "white",
-    "strokeWidth": 1.2
-  },
+
+  "mark": { "type": "geoshape", "stroke": "#b7a4a4", "strokeWidth": 1 },
+
   "encoding": {
     "color": {
-      "field": "value",
+      "field": "value_for_color",
       "type": "quantitative",
       "scale": {
         "type": "threshold",
-        "domain": [5000, 20000, 50000, 100000],
-        "scheme": "blues"
+        "domain": [-1, 5000, 20000, 50000, 100000],
+        "range": ["#f8f8f8", "#fde2e4", "#f9c6d0", "#f2a7ba", "#e981a6", "#d95d94"]
       },
       "legend": {
-        "title": "Value",
-        "titleFontSize": 12,
-        "titleFontWeight": "bold",
+        "title": "",
         "labelFontSize": 10,
         "orient": "bottom-left",
-        "offset": 5,
-        "fillColor": "rgba(255,255,255,0.95)",
-        "strokeColor": "rgba(0,0,0,0.10)",
         "padding": 8,
-        "cornerRadius": 4,
-        "gradientLength": 150,
-        "gradientThickness": 12
+        "cornerRadius": 4
       }
     },
-    "opacity": {
-      "condition": {"param": "stateHover", "value": 1},
-      "value": 0.85
-    },
+    "opacity": { "condition": { "param": "stateHover", "value": 1 }, "value": 0.85 },
     "tooltip": [
-      {"field": "StateName", "type": "nominal", "title": "State"},
-      {"field": "skilled_value", "type": "quantitative", "title": "Candidates Skilled", "format": ","},
-      {"field": "placed_value", "type": "quantitative", "title": "Candidates Placed", "format": ","},
-      {"field": "rate", "type": "quantitative", "title": "Placement Rate (%)", "format": ".1f"}
+      { "field": "StateName", "type": "nominal", "title": "State" },
+      { "field": "skilled_value", "type": "quantitative", "title": "Candidates Skilled", "format": "," },
+      { "field": "placed_value", "type": "quantitative", "title": "Candidates Placed", "format": "," },
+      { "field": "rate", "type": "quantitative", "title": "Placement Rate (%)", "format": ".1f" }
     ]
-  }
+  },
+
+  "config": { "view": { "stroke": null } }
 }
