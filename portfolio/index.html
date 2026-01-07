@@ -500,7 +500,7 @@ https://api.worldbank.org/v2/country/IND/indicator/NY.GDP.MKTP.KD.ZG?format=json
   </div>
 
   <p class="cc-summary">
-    Charts showing ML analysis predicting PMKVY placement success using state-level features. 
+     ML analysis predicting PMKVY placement success using state-level features. 
     Linear regression with R² = 0.72 reveals literacy and skill infrastructure outperform GDP as predictors.
   </p>
 
@@ -559,8 +559,8 @@ https://api.worldbank.org/v2/country/IND/indicator/NY.GDP.MKTP.KD.ZG?format=json
       "cc9_chart2": { spec: "cc9_scatter_quadrant_clean.json", options: { actions: true } },
 
       // CC10
-      "cc10_chart1": { spec: "ml_chart1_actual_vs_predicted.json", options: { actions: true } },
-      "cc10_chart2": { spec: "ml_chart2_feature_importance.json", options: { actions: true } }
+      "cc10_chart1": { spec: "chart1_did_interactive.json", options: { actions: true } },
+      "cc10_chart2": { spec: "chart2_ml_interactive.json", options: { actions: true } }
     };
 
     for (const [id, cfg] of Object.entries(CHARTS)) {
