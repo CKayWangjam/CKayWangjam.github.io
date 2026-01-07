@@ -7,8 +7,8 @@
     "subtitleFontSize": 11,
     "anchor": "start"
   },
-  "width": 500,
-  "height": 350,
+  "width": 350,
+  "height": 300,
   "data": { "url": "beer_prices_regional.csv" },
   "mark": { "type": "line", "point": true, "strokeWidth": 2 },
   "encoding": {
