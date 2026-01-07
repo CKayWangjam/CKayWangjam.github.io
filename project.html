@@ -16,7 +16,6 @@
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 
   <style>
-    
     .project-page .container {
       text-align: center;
     }
@@ -39,11 +38,13 @@
       margin: 12px auto 24px;
       color: rgba(18,18,18,0.95);
       text-align: center;
+      letter-spacing: 0.3px;
     }
 
     .section p {
       font-family: "Poppins", sans-serif;
       font-size: 15px;
+      font-weight: 400;
       line-height: 1.8;
       color: rgba(18,18,18,0.75);
       margin: 16px auto;
@@ -51,7 +52,6 @@
       text-align: center;
     }
 
-    
     .project-page .hero {
       text-align: center;
       margin: 0 auto;
@@ -59,6 +59,7 @@
     }
 
     .project-page .hero h1 {
+      font-family: "Cormorant Garamond", serif;
       text-align: center;
       margin: 18px auto 20px;
     }
@@ -69,9 +70,10 @@
       font-weight: 500;
       line-height: 1.6;
       color: rgba(18,18,18,0.75);
-      margin: 16px auto;
-      max-width: 80ch;
+      margin: 20px auto;
+      max-width: 85ch;
       text-align: center;
+      letter-spacing: 0.2px;
     }
 
     .viz-section {
@@ -92,11 +94,13 @@
       margin: 12px auto 16px;
       color: rgba(18,18,18,0.95);
       text-align: center;
+      letter-spacing: 0.3px;
     }
 
     .viz-section .section-intro {
       font-family: "Poppins", sans-serif;
       font-size: 15px;
+      font-weight: 400;
       line-height: 1.75;
       color: rgba(18,18,18,0.68);
       max-width: 850px;
@@ -108,11 +112,13 @@
       font-family: "Poppins", sans-serif;
       font-size: 20px;
       font-weight: 600;
+      letter-spacing: 0.3px;
       color: rgba(18,18,18,0.90);
       margin: 50px auto 24px;
       text-align: center;
     }
 
+    /* Chart grid */
     .chart-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -130,13 +136,20 @@
       display: flex;
       flex-direction: column;
       text-align: center;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .chart-card:hover {
+      transform: translateY(-2px);
+      box-shadow: inset 0 0 0 1px rgba(0,0,0,0.14), 
+                  0 4px 12px rgba(0,0,0,0.08);
     }
 
     .chart-card h3 {
       font-family: "Poppins", sans-serif;
       font-size: 15px;
       font-weight: 600;
-      letter-spacing: 0.2px;
+      letter-spacing: 0.3px;
       color: rgba(18,18,18,0.88);
       margin: 0 0 14px 0;
       text-align: center;
@@ -156,6 +169,7 @@
     .chart-card p {
       font-family: "Poppins", sans-serif;
       font-size: 13px;
+      font-weight: 400;
       line-height: 1.65;
       color: rgba(18,18,18,0.70);
       margin: 10px auto;
@@ -163,9 +177,11 @@
     }
 
     .chart-card .source {
+      font-family: "Poppins", sans-serif;
       margin-top: auto;
       padding-top: 12px;
       font-size: 12px;
+      font-weight: 400;
       color: rgba(18,18,18,0.55);
       border-top: 1px solid rgba(0,0,0,0.08);
       text-align: center;
@@ -176,7 +192,6 @@
       color: rgba(18,18,18,0.65);
     }
 
-    /
     .insight-box {
       background: linear-gradient(135deg, #fff9e6 0%, #ffe8a1 100%);
       padding: 28px;
@@ -190,6 +205,7 @@
     .insight-box p {
       font-family: "Poppins", sans-serif;
       font-size: 14px;
+      font-weight: 400;
       line-height: 1.8;
       color: rgba(18,18,18,0.80);
       margin: 0 auto;
@@ -201,8 +217,8 @@
       color: rgba(18,18,18,0.90);
     }
 
-    
     .chart-number {
+      font-family: "Poppins", sans-serif;
       display: inline-block;
       background: rgba(11,79,43,0.12);
       color: rgba(11,79,43,0.85);
@@ -214,13 +230,14 @@
       margin-right: 10px;
     }
 
-  
     .chart-placeholder {
+      font-family: "Poppins", sans-serif;
       text-align: center;
       color: rgba(18,18,18,0.55);
       font-style: italic;
       margin: 24px auto;
       font-size: 14px;
+      font-weight: 400;
     }
 
     @media (max-width: 980px){
@@ -245,14 +262,10 @@
   </header>
 
   <main class="container">
-   
     <section class="hero">
-      <div class="meta">Project</div>
-      <h1>Data Visualisation Project</h1>
-      <h2 style="font-family: 'Poppins', sans-serif; font-size: 20px; font-weight: 500; 
-                 line-height: 1.6; color: rgba(18,18,18,0.75); margin: 20px auto; max-width: 85ch;">
-        Workforce Mobility and Youth Labour Outcomes in India: Examining Sectoral Employment and Skilled Migration Trends
-      </h2>
+      <div class="meta">Data Visualisation Project</div>
+      <h1>Skill India Mission: Examining Skilling, Workforce Mobility and Sectoral Employment  Outcomes in India</h1>
+      
     </section>
 
     <div class="rule"></div>
@@ -281,6 +294,7 @@
 
     <div class="rule"></div>
 
+    
     <section class="viz-section" id="visualisations">
       <div class="meta">Data Visualisations</div>
       <h2>Visual Evidence & Analysis</h2>
@@ -289,9 +303,10 @@
         and comparative labor market outcomes. Data sourced from World Bank, PLFS, MSDE, and international databases.
       </p>
 
+      
       <div style="margin-top: 50px;">
         <h3>
-          
+          <span class="chart-number">CHART 1</span>
           Demographic Dividend: India's Window of Opportunity
         </h3>
 
@@ -335,7 +350,6 @@
         </div>
       </div>
 
-      
       <div style="margin-top: 70px;">
         <h3>
           <span class="chart-number">CHART 2</span>
@@ -400,7 +414,6 @@
 
     <div class="rule"></div>
 
-    <!-- Data Section - Centered -->
     <section class="section" id="data">
       <div class="meta">Data</div>
       <h2>Sources and Access</h2>
@@ -424,7 +437,6 @@
 
     <div class="rule"></div>
 
-    <!-- Tools Section - Centered -->
     <section class="section" id="tools">
       <div class="meta">Tools</div>
       <h2>Cleaning and Analysis</h2>
@@ -441,15 +453,13 @@
         enabling year sliders, metric selectors, and hover effects for user exploration. All analysis was 
         conducted in Google Colab notebooks for reproducibility, with code and data publicly accessible. 
         Charts were embedded in a responsive HTML/CSS portfolio using vegaEmbed, with consistent styling 
-        through custom CSS and the Poppins font family. The analytical pipeline demonstrates integration 
-        of multiple techniques: API data retrieval, web scraping, statistical modeling, and interactive 
-        visualization design.
+        through Poppins font family. The analytical pipeline demonstrates integration of multiple 
+        techniques: API data retrieval, web scraping, statistical modeling, and interactive visualization design.
       </p>
     </section>
 
     <div class="rule"></div>
 
-    <!-- Conclusions Section - Centered -->
     <section class="section" id="conclusions">
       <div class="meta">Conclusions</div>
       <h2>What the Evidence Suggests</h2>
@@ -489,7 +499,6 @@
   </footer>
 
   <script>
-    // Chart 1: Demographic charts
     vegaEmbed('#demo_chart1', 'demographic_chart_interactive.json', {actions: true})
       .then(() => console.log('✅ Demographic time series loaded'))
       .catch(err => console.error('❌ Demo chart 1 error:', err));
@@ -510,4 +519,3 @@
   </script>
 </body>
 </html>
-```
