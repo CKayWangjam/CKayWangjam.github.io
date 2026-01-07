@@ -1,0 +1,86 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 600,
+  "height": 400,
+  "title": {
+    "text": "Demographic Structure Comparison (2024)",
+    "subtitle": "Age dependency ratios - India's youth bulge vs aging societies",
+    "fontSize": 18,
+    "fontWeight": "bold",
+    "subtitleFontSize": 13
+  },
+  "data": {
+    "values": [
+      {"Country": "India", "Category": "Youth (0-14)", "Dependency_Ratio": 40.2, "Type": "Young"},
+      {"Country": "India", "Category": "Working Age (15-64)", "Dependency_Ratio": 0, "Type": "Working"},
+      {"Country": "India", "Category": "Elderly (65+)", "Dependency_Ratio": 10.5, "Type": "Old"},
+      
+      {"Country": "Japan", "Category": "Youth (0-14)", "Dependency_Ratio": 19.8, "Type": "Young"},
+      {"Country": "Japan", "Category": "Working Age (15-64)", "Dependency_Ratio": 0, "Type": "Working"},
+      {"Country": "Japan", "Category": "Elderly (65+)", "Dependency_Ratio": 51.2, "Type": "Old"},
+      
+      {"Country": "Germany", "Category": "Youth (0-14)", "Dependency_Ratio": 21.8, "Type": "Young"},
+      {"Country": "Germany", "Category": "Working Age (15-64)", "Dependency_Ratio": 0, "Type": "Working"},
+      {"Country": "Germany", "Category": "Elderly (65+)", "Dependency_Ratio": 35.2, "Type": "Old"}
+    ]
+  },
+  "params": [
+    {
+      "name": "highlightCountry",
+      "select": {"type": "point", "fields": ["Country"], "on": "mouseover"}
+    }
+  ],
+  "mark": {
+    "type": "bar",
+    "cornerRadius": 4
+  },
+  "encoding": {
+    "x": {
+      "field": "Country",
+      "type": "nominal",
+      "axis": {
+        "title": null,
+        "labelFontSize": 12,
+        "labelFontWeight": "bold"
+      }
+    },
+    "y": {
+      "field": "Dependency_Ratio",
+      "type": "quantitative",
+      "axis": {
+        "title": "Dependency Ratio (per 100 working-age people)",
+        "titleFontSize": 13,
+        "titleFontWeight": "bold",
+        "labelFontSize": 11,
+        "grid": true,
+        "gridOpacity": 0.3
+      }
+    },
+    "color": {
+      "field": "Type",
+      "type": "nominal",
+      "scale": {
+        "domain": ["Young", "Old"],
+        "range": ["#4CAF50", "#F44336"]
+      },
+      "legend": {
+        "title": "Age Group",
+        "titleFontSize": 12,
+        "titleFontWeight": "bold",
+        "labelFontSize": 11,
+        "orient": "top-right",
+        "labelExpr": "datum.value == 'Young' ? 'Youth (0-14)' : 'Elderly (65+)'"
+      }
+    },
+    "opacity": {
+      "condition": {"param": "highlightCountry", "value": 1},
+      "value": 0.6
+    },
+    "xOffset": {"field": "Type"},
+    "tooltip": [
+      {"field": "Country", "type": "nominal"},
+      {"field": "Category", "type": "nominal", "title": "Age Group"},
+      {"field": "Dependency_Ratio", "type": "quantitative", "title": "Dependency Ratio", "format": ".1f"}
+    ]
+  }
+}

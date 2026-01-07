@@ -1,0 +1,176 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 600,
+  "height": 400,
+  "title": {
+    "text": "Demographic Dividend & Decline: Three Countries Compared",
+    "subtitle": "Working-age population (15-64) as % of total - India's opportunity vs Japan & Germany's challenge",
+    "fontSize": 18,
+    "fontWeight": "bold",
+    "subtitleFontSize": 13
+  },
+  "data": {
+    "values": [
+      {"Country": "India", "Year": 1990, "Working_Age_Percent": 58.2, "Young_Dependency": 70.5, "Old_Dependency": 8.1, "Median_Age": 21.2},
+      {"Country": "India", "Year": 1995, "Working_Age_Percent": 59.1, "Young_Dependency": 66.8, "Old_Dependency": 8.3, "Median_Age": 21.9},
+      {"Country": "India", "Year": 2000, "Working_Age_Percent": 60.3, "Young_Dependency": 62.2, "Old_Dependency": 8.5, "Median_Age": 22.8},
+      {"Country": "India", "Year": 2005, "Working_Age_Percent": 62.1, "Young_Dependency": 56.5, "Old_Dependency": 8.7, "Median_Age": 24.1},
+      {"Country": "India", "Year": 2010, "Working_Age_Percent": 64.3, "Young_Dependency": 51.0, "Old_Dependency": 8.9, "Median_Age": 25.6},
+      {"Country": "India", "Year": 2015, "Working_Age_Percent": 66.1, "Young_Dependency": 46.5, "Old_Dependency": 9.2, "Median_Age": 27.3},
+      {"Country": "India", "Year": 2020, "Working_Age_Percent": 67.3, "Young_Dependency": 42.8, "Old_Dependency": 9.8, "Median_Age": 28.7},
+      {"Country": "India", "Year": 2024, "Working_Age_Percent": 67.8, "Young_Dependency": 40.2, "Old_Dependency": 10.5, "Median_Age": 29.5},
+      
+      {"Country": "Japan", "Year": 1990, "Working_Age_Percent": 69.5, "Young_Dependency": 28.2, "Old_Dependency": 17.1, "Median_Age": 37.4},
+      {"Country": "Japan", "Year": 1995, "Working_Age_Percent": 69.2, "Young_Dependency": 25.1, "Old_Dependency": 20.8, "Median_Age": 39.6},
+      {"Country": "Japan", "Year": 2000, "Working_Age_Percent": 68.1, "Young_Dependency": 22.7, "Old_Dependency": 25.2, "Median_Age": 41.4},
+      {"Country": "Japan", "Year": 2005, "Working_Age_Percent": 66.1, "Young_Dependency": 21.5, "Old_Dependency": 30.3, "Median_Age": 43.1},
+      {"Country": "Japan", "Year": 2010, "Working_Age_Percent": 63.8, "Young_Dependency": 21.3, "Old_Dependency": 35.1, "Median_Age": 44.7},
+      {"Country": "Japan", "Year": 2015, "Working_Age_Percent": 60.7, "Young_Dependency": 21.1, "Old_Dependency": 43.3, "Median_Age": 46.5},
+      {"Country": "Japan", "Year": 2020, "Working_Age_Percent": 59.2, "Young_Dependency": 20.5, "Old_Dependency": 48.8, "Median_Age": 48.6},
+      {"Country": "Japan", "Year": 2024, "Working_Age_Percent": 58.5, "Young_Dependency": 19.8, "Old_Dependency": 51.2, "Median_Age": 49.5},
+      
+      {"Country": "Germany", "Year": 1990, "Working_Age_Percent": 68.2, "Young_Dependency": 24.8, "Old_Dependency": 21.7, "Median_Age": 37.6},
+      {"Country": "Germany", "Year": 1995, "Working_Age_Percent": 68.5, "Young_Dependency": 23.5, "Old_Dependency": 23.1, "Median_Age": 38.8},
+      {"Country": "Germany", "Year": 2000, "Working_Age_Percent": 67.6, "Young_Dependency": 23.2, "Old_Dependency": 24.0, "Median_Age": 39.9},
+      {"Country": "Germany", "Year": 2005, "Working_Age_Percent": 66.4, "Young_Dependency": 21.8, "Old_Dependency": 28.3, "Median_Age": 41.8},
+      {"Country": "Germany", "Year": 2010, "Working_Age_Percent": 65.9, "Young_Dependency": 20.4, "Old_Dependency": 31.2, "Median_Age": 43.9},
+      {"Country": "Germany", "Year": 2015, "Working_Age_Percent": 65.0, "Young_Dependency": 20.1, "Old_Dependency": 32.1, "Median_Age": 45.9},
+      {"Country": "Germany", "Year": 2020, "Working_Age_Percent": 64.2, "Young_Dependency": 21.5, "Old_Dependency": 33.8, "Median_Age": 47.8},
+      {"Country": "Germany", "Year": 2024, "Working_Age_Percent": 63.8, "Young_Dependency": 21.8, "Old_Dependency": 35.2, "Median_Age": 48.2}
+    ]
+  },
+  "params": [
+    {
+      "name": "yearSlider",
+      "value": 2024,
+      "bind": {
+        "input": "range",
+        "min": 1990,
+        "max": 2024,
+        "step": 1,
+        "name": "Select Year:"
+      }
+    },
+    {
+      "name": "metricSelect",
+      "value": "Working_Age_Percent",
+      "bind": {
+        "input": "select",
+        "options": [
+          "Working_Age_Percent",
+          "Young_Dependency",
+          "Old_Dependency",
+          "Median_Age"
+        ],
+        "labels": [
+          "Working-Age Population (%)",
+          "Youth Dependency Ratio",
+          "Elderly Dependency Ratio",
+          "Median Age"
+        ],
+        "name": "Select Indicator:"
+      }
+    },
+    {
+      "name": "countryHover",
+      "select": {"type": "point", "fields": ["Country"], "on": "mouseover"}
+    }
+  ],
+  "transform": [
+    {"filter": "datum.Year <= yearSlider"},
+    {"calculate": "datum[metricSelect]", "as": "SelectedValue"}
+  ],
+  "layer": [
+    {
+      "mark": {
+        "type": "line",
+        "strokeWidth": 3,
+        "point": {
+          "size": 80,
+          "filled": true
+        }
+      },
+      "encoding": {
+        "x": {
+          "field": "Year",
+          "type": "quantitative",
+          "scale": {"domain": [1990, 2024]},
+          "axis": {
+            "title": "Year",
+            "titleFontSize": 13,
+            "titleFontWeight": "bold",
+            "labelFontSize": 11,
+            "tickCount": 8,
+            "grid": true,
+            "gridOpacity": 0.3
+          }
+        },
+        "y": {
+          "field": "SelectedValue",
+          "type": "quantitative",
+          "axis": {
+            "title": "Value",
+            "titleFontSize": 13,
+            "titleFontWeight": "bold",
+            "labelFontSize": 11,
+            "grid": true,
+            "gridOpacity": 0.3
+          }
+        },
+        "color": {
+          "field": "Country",
+          "type": "nominal",
+          "scale": {
+            "domain": ["India", "Japan", "Germany"],
+            "range": ["#FF6B35", "#004E89", "#F77F00"]
+          },
+          "legend": {
+            "title": "Country",
+            "titleFontSize": 12,
+            "titleFontWeight": "bold",
+            "labelFontSize": 11,
+            "orient": "top-right",
+            "offset": 10
+          }
+        },
+        "opacity": {
+          "condition": {"param": "countryHover", "value": 1},
+          "value": 0.4
+        },
+        "tooltip": [
+          {"field": "Country", "type": "nominal", "title": "Country"},
+          {"field": "Year", "type": "quantitative", "title": "Year"},
+          {"field": "Working_Age_Percent", "type": "quantitative", "title": "Working-Age Pop (%)", "format": ".1f"},
+          {"field": "Young_Dependency", "type": "quantitative", "title": "Youth Dependency", "format": ".1f"},
+          {"field": "Old_Dependency", "type": "quantitative", "title": "Elderly Dependency", "format": ".1f"},
+          {"field": "Median_Age", "type": "quantitative", "title": "Median Age", "format": ".1f"}
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "point",
+        "size": 150,
+        "filled": true,
+        "stroke": "white",
+        "strokeWidth": 2
+      },
+      "transform": [
+        {"filter": "datum.Year == yearSlider"}
+      ],
+      "encoding": {
+        "x": {"field": "Year", "type": "quantitative"},
+        "y": {"field": "SelectedValue", "type": "quantitative"},
+        "color": {"field": "Country", "type": "nominal", "legend": null},
+        "tooltip": [
+          {"field": "Country", "type": "nominal"},
+          {"field": "Year", "type": "quantitative"},
+          {"field": "SelectedValue", "type": "quantitative", "title": "Value", "format": ".1f"}
+        ]
+      }
+    }
+  ],
+  "config": {
+    "view": {"stroke": null}
+  }
+}
