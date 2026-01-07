@@ -6,20 +6,20 @@
   --space-lg: 64px;
   --space-xl: 92px;
 
-  --bg: #f1efe8; 
-  --paper: #fbfaf6;              
+  --bg: #f1efe8;
+  --paper: #fbfaf6;
   --paper-2: rgba(251,250,246,0.82);
 
   --ink: #121212;
   --muted: rgba(18,18,18,0.68);
 
-  --brown-nav: #3a2b22;          
-  --brown-nav-2: #2e221b;        
-  --champagne: #c7bcae;          
-  
-  --footer-green: #0b4f2b;       
-  --footer-green-2: #083b20;     
-  --gold: #d6c38a;              
+  --brown-nav: #3a2b22;
+  --brown-nav-2: #2e221b;
+  --champagne: #c7bcae;
+
+  --footer-green: #0b4f2b;
+  --footer-green-2: #083b20;
+  --gold: #d6c38a;
 
   --line: rgba(0,0,0,0.12);
   --line-soft: rgba(0,0,0,0.08);
@@ -40,13 +40,12 @@ html, body{
   margin: 0;
   background: var(--bg);
   color: var(--ink);
- body {
-  font-family: "Source Sans 3", system-ui, sans-serif;
-}
   letter-spacing: 0.08px;
 }
 
 body{
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  font-weight: 400;
   background:
     radial-gradient(1100px 620px at 14% -12%, rgba(255,255,255,0.70), transparent 58%),
     radial-gradient(900px 520px at 92% 0%, rgba(199,188,174,0.22), transparent 55%),
@@ -57,7 +56,7 @@ body{
 a{ color: inherit; text-decoration: none; }
 
 p{
-  font-family: "Poppins", sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: 400;
   line-height: 1.75;
   margin: 0.65rem 0;
@@ -69,50 +68,54 @@ h1,h2,h3,h4,h5,h6{ margin: 0; }
 section{ scroll-margin-top: 96px; }
 
 h1{
-  font-family: "Source Serif 4", serif;
-  font-weight: 500;
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
   font-size: clamp(32px, 3.5vw, 48px);
   line-height: 1.3;
-  letter-spacing: 0.5px;
+  letter-spacing: -0.01em;
   color: var(--ink);
 }
 
 h2{
-  font-family: "Source Serif 4", serif;
+  font-family: "Inter", sans-serif;
   font-weight: 600;
   font-size: clamp(22px, 2.1vw, 28px);
   line-height: 1.35;
-  letter-spacing: 0.3px;
+  letter-spacing: -0.005em;
   color: var(--ink);
 }
 
 h3{
-  font-family: "Source Serif 4", serif;
+  font-family: "Inter", sans-serif;
   font-weight: 600;
   font-size: 16px;
   line-height: 1.4;
-  letter-spacing: 0.3px;
+  letter-spacing: 0.2px;
   color: rgba(18,18,18,0.85);
 }
 
 h4{
-  font-family: "Source Serif 4", serif;
+  font-family: "Inter", sans-serif;
   font-weight: 600;
   font-size: 18px;
   line-height: 1.4;
-  letter-spacing: 0.2px;
+  letter-spacing: 0.15px;
   color: var(--ink);
 }
 
 .brand a{
-  font-family: "Source Sans 3", system-ui, sans-serif;
-  font-weight: 500;
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 700;
   font-size: 24px;
   letter-spacing: 0.3px;
 }
 
+.brand a .brand-accent{
+  color: var(--champagne);
+}
+
 .meta{
-  font-family: "Source Serif 4", serif;
+  font-family: "Inter", sans-serif;
   font-size: 12px;
   font-weight: 500;
   letter-spacing: 0.95px;
@@ -161,10 +164,6 @@ h4{
   justify-content: space-between;
 }
 
-.brand a .brand-accent{
-  color: var(--champagne);
-}
-
 .nav{
   display: flex;
   gap: 24px;
@@ -173,10 +172,10 @@ h4{
 
 .nav a{
   position: relative;
-  font-family: "Source Serif 4", serif;
+  font-family: "Cormorant Garamond", serif;
   font-size: 14px;
-  font-weight: 500;
-  letter-spacing: 0.3px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
   color: var(--nav-ink-muted);
   opacity: 0.92;
   padding: 10px 10px 12px;
@@ -225,7 +224,7 @@ h4{
 }
 
 .hero p{
-  font-family: "Source Serif 4", serif;
+  font-family: "Inter", sans-serif;
   font-size: 15px;
   line-height: 1.75;
   color: var(--muted);
@@ -239,7 +238,7 @@ h4{
 }
 
 .pill{
-  font-family: "Source Serif 4", serif;
+  font-family: "Inter", sans-serif;
   display: inline-flex;
   align-items: center;
   padding: 9px 14px;
@@ -259,18 +258,9 @@ h4{
   margin-right: auto;
 }
 
-.hero-centered .meta {
-  justify-content: center;
-}
-
-.hero-centered h1 {
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.hero-centered .pill-row {
-  justify-content: center;
-}
+.hero-centered .meta { justify-content: center; }
+.hero-centered h1 { margin-left: auto; margin-right: auto; }
+.hero-centered .pill-row { justify-content: center; }
 
 .pill-candidate {
   background: linear-gradient(180deg, var(--footer-green), var(--footer-green-2));
@@ -278,7 +268,7 @@ h4{
   font-size: 14px;
   font-weight: 600;
   padding: 10px 18px;
-  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.15), 
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.15),
               0 4px 12px rgba(11,79,43,0.25);
   transition: all 0.3s ease;
 }
@@ -334,20 +324,20 @@ h4{
 }
 
 .card h2{
-  font-family: "Source Serif 4", serif;
+  font-family: "Inter", sans-serif;
   font-weight: 600;
   margin-top: 8px;
   margin-bottom: 10px;
 }
 
-.card p{ 
-  font-family: "Source Serif 4", serif;
+.card p{
+  font-family: "Inter", sans-serif;
   font-size: 14px;
   line-height: 1.6;
 }
 
 .badge{
-  font-family: "Source Serif 4", serif;
+  font-family: "Inter", sans-serif;
   display: inline-flex;
   align-items: center;
   font-size: 11px;
@@ -395,8 +385,8 @@ h4{
 }
 
 .footer-title{
-  font-family: "Source Sans 3", system-ui, sans-serif;
-  font-weight: 500;
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 700;
   font-size: 24px;
   letter-spacing: 0.4px;
   color: var(--gold);
@@ -411,11 +401,12 @@ h4{
 }
 
 .footer-link{
-  font-family: "Poppins", sans-serif;
+  font-family: "Cormorant Garamond", serif;
   color: var(--champagne);
   opacity: 0.92;
-  font-size: 14px;
-  font-weight: 400;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
   transition: opacity 0.2s ease;
 }
 
@@ -431,7 +422,7 @@ h4{
 }
 
 .breadcrumb{
-  font-family: "Source Serif 4", serif;
+  font-family: "Inter", sans-serif;
   font-size: 13px;
   font-weight: 500;
   color: rgba(18,18,18,0.55);
