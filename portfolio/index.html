@@ -791,34 +791,7 @@
           </p>
         </div>
 
-        <!-- Project Connection -->
-        <div class="project-connection-box">
-          <h4>🎓 Integration with Policy Research Project</h4>
-          <p style="font-size: 14px; line-height: 1.7; color: #333; margin-bottom: 12px;">
-            This quantitative analysis directly supports my research paper 
-            <strong>"The Failure of the Skill India Mission (SIM) and Building a Future-Ready Skilling Framework"</strong>:
-          </p>
-          <ul>
-            <li>
-              <strong>Gujarat's collapse</strong> (22.5% → 5.9%) shows even advanced states cannot 
-              compensate for program design failures—systemic problems, not state-specific
-            </li>
-            <li>
-              <strong>Manipur's volatility</strong> (13.5% → 47.7% from 34,540 → 6,424 trained) 
-              reveals measurement issues and possible metric gaming with smaller cohorts
-            </li>
-            <li>
-              <strong>ML feature analysis</strong> showing literacy > GDP challenges infrastructure-heavy 
-              approaches and supports curriculum reform recommendations
-            </li>
-            <li>
-              <strong>Phase 4 de-linking</strong> (government stopped tracking placements from FY 2022-23) 
-              exemplifies accountability deficit—a central critique of my paper
-            </li>
-          </ul>
-        </div>
-
-        <!-- Data Citation -->
+     
         <div class="data-citation-box">
           <p style="margin: 0 0 10px;">
             <strong>📚 Primary Data:</strong> Press Information Bureau, Government of India. (2025, December 15). 
@@ -871,7 +844,7 @@
       "cc9_chart2": { spec: "cc9_scatter_quadrant_clean.json", options: { actions: true } }
     };
 
-    // Embed all charts
+   
     for (const [id, cfg] of Object.entries(CHARTS)) {
       if (cfg.spec) {
         vegaEmbed(`#${id}`, cfg.spec, cfg.options).catch(console.error);
