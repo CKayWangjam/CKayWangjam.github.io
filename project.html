@@ -16,9 +16,9 @@
 
   <style>
     
-    h1, h2, h3, h4, h5, h6, {
-      font-family: "Poppins", sans-serif !important;
-    }
+   h1, h2, h3, h4, h5, h6 {
+  font-family: "Poppins", sans-serif !important;
+}
 
 .project-page { font-family: "Poppins", sans-serif; }
 
@@ -485,11 +485,7 @@
           <h4>Interactive India Choropleth Map</h4>
           <figure id="chart2"></figure>
           <p class="chart-desc">
-            This map visualizes PMKVY implementation across all Indian states and union territories, with 
-            interactive year selection (FY 2020-21 through 2024-25) and metric toggle between candidates skilled and 
-            candidates placed. States are color-coded by data volume using a blue gradient scheme, with darker shades 
-            indicating higher numbers. Hovering over individual states reveals detailed tooltips showing training numbers, 
-            placement figures, and placement rates.
+            This interactive choropleth maps PMKVY performance across all states and union territories. Users can select FY (2020–21 to 2024–25) and toggle between candidates skilled and candidates placed. Areas are shaded in faint pink by volume; hover tooltips show skilled, placed (where available), and computed placement rate
           </p>
           <p class="source">
             <strong>Source:</strong> PIB Press Release PRID 2204132 (December 2025) - Annexure I (Training) & Annexure II (Placement) | 
@@ -740,7 +736,7 @@
       <div class="data-grid">
         
         <div class="data-card">
-          <h3>📊 Primary Data Sources</h3>
+          <h3>Primary Data Sources</h3>
           <ul>
             <li><strong>PMKVY Performance Data:</strong> Press Information Bureau Release (December 15, 2025)</li>
             <li><strong>Demographic Indicators:</strong> World Bank World Development Indicators and United Nations Population Division time-series data (1990-2024) ulation percentages.</li>
@@ -751,7 +747,7 @@
         </div>
         
         <div class="data-card accent">
-          <h3>⚠️ Data Challenges & Limitations</h3>
+          <h3> Data Challenges & Limitations</h3>
           <ul>
             <li><strong>Placement Tracking De-linking:</strong> Government's decision to eliminate placement outcome measurement from PMKVY 4.0 onwards (FY 2022-23+) creates fundamental accountability gap, preventing assessment of whether training achieves employment objectives in recent years despite continued training volume reporting</li>
             <li><strong>Administrative Classification Inconsistencies:</strong> State and union territory naming conventions vary across PIB parliamentary annexures, census databases, and geographic boundary files, requiring extensive manual matching and harmonization to enable cross-dataset analysis</li>
@@ -762,7 +758,7 @@
         </div>
         
         <div class="data-card">
-          <h3>🔧 Analytical Tools & Statistical Methods</h3>
+          <h3>Analytical Tools & Statistical Methods</h3>
           <ul>
             <li><strong>Google Colab with pandas:</strong> Comprehensive data cleaning including merging PIB parliamentary question annexures, harmonizing state naming conventions across datasets, calculating derived variables (placement rates, dependency ratios), and restructuring data for visualization compatibility</li>
             <li><strong>scikit-learn Machine Learning:</strong> Implemented supervised learning using LinearRegression to identify state-level predictors of placement success; StandardScaler for feature normalization ensuring comparability across different measurement scales; train-test split methodology for model validation</li>
