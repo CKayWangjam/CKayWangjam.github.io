@@ -6,6 +6,7 @@
     "subtitle": "CPI, % | Source: JSB (WB) through ECO API",
     "fontSize": "14",
     "subtitleFontSize": "10",
+    "subtitleFontStyle": "italic",
     "color": "#000000",
     "subtitleColor": "#000000"
   },
