@@ -19,7 +19,7 @@
         "input": "select",
         "options": ["2020_21", "2021_22", "2022_23", "2023_24", "2024_25"],
         "labels": ["FY 2020-21", "FY 2021-22", "FY 2022-23", "FY 2023-24", "FY 2024-25"],
-        "name": "📅 Year: "
+        "name": "Year: "
       }
     },
     {
@@ -29,7 +29,7 @@
         "input": "radio",
         "options": ["skilled", "placed"],
         "labels": ["Candidates Skilled", "Candidates Placed"],
-        "name": "📊 Show: "
+        "name": "Show: "
       }
     },
     {
