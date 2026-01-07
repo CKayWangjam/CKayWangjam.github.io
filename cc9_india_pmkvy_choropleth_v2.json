@@ -1,0 +1,103 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "India PMKVY choropleth with year and metric selectors",
+  "width": 500,
+  "height": 520,
+  "data": {
+    "url": "https://raw.githubusercontent.com/EconomicsObservatory/courses/main/datasets/advanced/india_districts.topojson",
+    "format": {"type": "topojson", "feature": "india-districts-727"}
+  },
+  "projection": {"type": "identity", "reflectY": true},
+  "params": [
+    {
+      "name": "fySel",
+      "value": "FY-21-22",
+      "bind": {
+        "input": "select",
+        "options": ["FY-20-21", "FY-21-22", "FY-22-23", "FY-23-24", "FY-24-25"],
+        "labels": ["FY 2020-21", "FY 2021-22", "FY 2022-23", "FY 2023-24", "FY 2024-25"],
+        "name": "📅 Year: "
+      }
+    },
+    {
+      "name": "metric",
+      "value": "skilled",
+      "bind": {
+        "input": "radio",
+        "options": ["skilled", "placed"],
+        "labels": ["Candidates Skilled", "Candidates Placed"],
+        "name": "📊 Show: "
+      }
+    },
+    {
+      "name": "hoverState",
+      "select": {
+        "type": "point",
+        "on": "mouseover",
+        "clear": "mouseout",
+        "fields": ["state_key"]
+      }
+    }
+  ],
+  "transform": [
+    {"calculate": "replace(lower(datum.properties.st_nm), /[^a-z]/g, '')", "as": "state_key"},
+    {
+      "lookup": "state_key",
+      "from": {
+        "data": {"url": "cc9_pmkvy_state_wide.json"},
+        "key": "state_key",
+        "fields": [
+          "state_raw",
+          "skilled_FY-20-21", "skilled_FY-21-22", "skilled_FY-22-23", "skilled_FY-23-24", "skilled_FY-24-25",
+          "placed_FY-20-21", "placed_FY-21-22", "placed_FY-22-23", "placed_FY-23-24", "placed_FY-24-25",
+          "placement_rate_FY-20-21", "placement_rate_FY-21-22"
+        ]
+      }
+    },
+    {"calculate": "metric + '_' + fySel", "as": "colname"},
+    {"calculate": "datum[datum.colname]", "as": "value"},
+    {"calculate": "datum['skilled_' + fySel]", "as": "skilled"},
+    {"calculate": "datum['placed_' + fySel]", "as": "placed"},
+    {"calculate": "datum['placement_rate_' + fySel]", "as": "placement_rate"}
+  ],
+  "mark": {
+    "type": "geoshape",
+    "stroke": "white",
+    "strokeWidth": 0.8
+  },
+  "encoding": {
+    "color": {
+      "field": "value",
+      "type": "quantitative",
+      "scale": {
+        "type": "threshold",
+        "domain": [5000, 20000, 50000, 100000],
+        "scheme": "blues"
+      },
+      "legend": {
+        "title": "Value",
+        "titleFontSize": 12,
+        "titleFontWeight": "bold",
+        "labelFontSize": 10,
+        "orient": "bottom-left",
+        "offset": 5,
+        "fillColor": "rgba(255,255,255,0.95)",
+        "strokeColor": "rgba(0,0,0,0.10)",
+        "padding": 8,
+        "cornerRadius": 4,
+        "gradientLength": 150,
+        "gradientThickness": 12
+      }
+    },
+    "opacity": {
+      "condition": {"param": "hoverState", "value": 1},
+      "value": 0.85
+    },
+    "tooltip": [
+      {"field": "state_raw", "type": "nominal", "title": "State/UT"},
+      {"field": "skilled", "type": "quantitative", "title": "Candidates Skilled", "format": ","},
+      {"field": "placed", "type": "quantitative", "title": "Candidates Placed", "format": ","},
+      {"field": "placement_rate", "type": "quantitative", "title": "Placement Rate", "format": ".1%"}
+    ]
+  }
+}
