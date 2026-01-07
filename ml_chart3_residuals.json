@@ -1,0 +1,54 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 400,
+  "height": 340,
+  "title": {
+    "text": "Residual Plot",
+    "subtitle": "Model prediction errors - points near zero line are better predictions",
+    "fontSize": 16,
+    "fontWeight": "bold"
+  },
+  "data": {
+    "values": [
+      {"Predicted": 28.2, "Residual": 2.4, "State": "Manipur"},
+      {"Predicted": 19.5, "Residual": -0.6, "State": "Uttar Pradesh"}
+    ]
+  },
+  "layer": [
+    {
+      "mark": {"type": "point", "filled": true, "size": 200, "color": "#9B59B6"},
+      "encoding": {
+        "x": {
+          "field": "Predicted",
+          "type": "quantitative",
+          "scale": {"domain": [8, 32]},
+          "axis": {"title": "Predicted (%)", "titleFontSize": 12, "titleFontWeight": "bold", "grid": true}
+        },
+        "y": {
+          "field": "Residual",
+          "type": "quantitative",
+          "scale": {"domain": [-8, 8]},
+          "axis": {"title": "Residuals (%)", "titleFontSize": 12, "titleFontWeight": "bold", "grid": true}
+        },
+        "tooltip": [
+          {"field": "State", "type": "nominal"},
+          {"field": "Predicted", "type": "quantitative", "title": "Predicted (%)", "format": ".1f"},
+          {"field": "Residual", "type": "quantitative", "title": "Error (%)", "format": ".1f"}
+        ]
+      }
+    },
+    {
+      "mark": {"type": "rule", "strokeDash": [5, 5], "color": "#E74C3C", "strokeWidth": 2},
+      "encoding": {"y": {"datum": 0}}
+    },
+    {
+      "data": {"values": [{"x": 28, "y": 6, "text": "Zero error line"}]},
+      "mark": {"type": "text", "fontSize": 10, "color": "#E74C3C", "fontStyle": "italic"},
+      "encoding": {
+        "x": {"field": "x", "type": "quantitative"},
+        "y": {"field": "y", "type": "quantitative"},
+        "text": {"field": "text"}
+      }
+    }
+  ]
+}

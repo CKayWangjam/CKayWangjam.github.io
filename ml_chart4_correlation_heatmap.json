@@ -1,0 +1,86 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 400,
+  "height": 340,
+  "title": {
+    "text": "Feature Correlations",
+    "subtitle": "Heatmap showing relationships between state characteristics",
+    "fontSize": 16,
+    "fontWeight": "bold"
+  },
+  "data": {
+    "values": [
+      {"Feature1": "Literacy Rate", "Feature2": "Literacy Rate", "Correlation": 1.00},
+      {"Feature1": "Literacy Rate", "Feature2": "GDP Per Capita", "Correlation": 0.65},
+      {"Feature1": "Literacy Rate", "Feature2": "Industrial Share", "Correlation": 0.52},
+      {"Feature1": "Literacy Rate", "Feature2": "Youth Unemployment", "Correlation": -0.18},
+      {"Feature1": "Literacy Rate", "Feature2": "Formal Skill Rate", "Correlation": 0.71},
+      {"Feature1": "Literacy Rate", "Feature2": "Placement Rate", "Correlation": 0.58},
+      
+      {"Feature1": "GDP Per Capita", "Feature2": "Literacy Rate", "Correlation": 0.65},
+      {"Feature1": "GDP Per Capita", "Feature2": "GDP Per Capita", "Correlation": 1.00},
+      {"Feature1": "GDP Per Capita", "Feature2": "Industrial Share", "Correlation": 0.82},
+      {"Feature1": "GDP Per Capita", "Feature2": "Youth Unemployment", "Correlation": 0.15},
+      {"Feature1": "GDP Per Capita", "Feature2": "Formal Skill Rate", "Correlation": 0.78},
+      {"Feature1": "GDP Per Capita", "Feature2": "Placement Rate", "Correlation": -0.12},
+      
+      {"Feature1": "Industrial Share", "Feature2": "Literacy Rate", "Correlation": 0.52},
+      {"Feature1": "Industrial Share", "Feature2": "GDP Per Capita", "Correlation": 0.82},
+      {"Feature1": "Industrial Share", "Feature2": "Industrial Share", "Correlation": 1.00},
+      {"Feature1": "Industrial Share", "Feature2": "Youth Unemployment", "Correlation": 0.22},
+      {"Feature1": "Industrial Share", "Feature2": "Formal Skill Rate", "Correlation": 0.68},
+      {"Feature1": "Industrial Share", "Feature2": "Placement Rate", "Correlation": -0.25},
+      
+      {"Feature1": "Youth Unemployment", "Feature2": "Literacy Rate", "Correlation": -0.18},
+      {"Feature1": "Youth Unemployment", "Feature2": "GDP Per Capita", "Correlation": 0.15},
+      {"Feature1": "Youth Unemployment", "Feature2": "Industrial Share", "Correlation": 0.22},
+      {"Feature1": "Youth Unemployment", "Feature2": "Youth Unemployment", "Correlation": 1.00},
+      {"Feature1": "Youth Unemployment", "Feature2": "Formal Skill Rate", "Correlation": 0.08},
+      {"Feature1": "Youth Unemployment", "Feature2": "Placement Rate", "Correlation": -0.35},
+      
+      {"Feature1": "Formal Skill Rate", "Feature2": "Literacy Rate", "Correlation": 0.71},
+      {"Feature1": "Formal Skill Rate", "Feature2": "GDP Per Capita", "Correlation": 0.78},
+      {"Feature1": "Formal Skill Rate", "Feature2": "Industrial Share", "Correlation": 0.68},
+      {"Feature1": "Formal Skill Rate", "Feature2": "Youth Unemployment", "Correlation": 0.08},
+      {"Feature1": "Formal Skill Rate", "Feature2": "Formal Skill Rate", "Correlation": 1.00},
+      {"Feature1": "Formal Skill Rate", "Feature2": "Placement Rate", "Correlation": 0.62},
+      
+      {"Feature1": "Placement Rate", "Feature2": "Literacy Rate", "Correlation": 0.58},
+      {"Feature1": "Placement Rate", "Feature2": "GDP Per Capita", "Correlation": -0.12},
+      {"Feature1": "Placement Rate", "Feature2": "Industrial Share", "Correlation": -0.25},
+      {"Feature1": "Placement Rate", "Feature2": "Youth Unemployment", "Correlation": -0.35},
+      {"Feature1": "Placement Rate", "Feature2": "Formal Skill Rate", "Correlation": 0.62},
+      {"Feature1": "Placement Rate", "Feature2": "Placement Rate", "Correlation": 1.00}
+    ]
+  },
+  "mark": {"type": "rect"},
+  "encoding": {
+    "x": {
+      "field": "Feature2",
+      "type": "nominal",
+      "axis": {"title": null, "labelAngle": -45, "labelFontSize": 10}
+    },
+    "y": {
+      "field": "Feature1",
+      "type": "nominal",
+      "axis": {"title": null, "labelFontSize": 10}
+    },
+    "color": {
+      "field": "Correlation",
+      "type": "quantitative",
+      "scale": {
+        "scheme": "redyellowgreen",
+        "domain": [-1, 0, 1]
+      },
+      "legend": {"title": "Correlation", "titleFontSize": 11}
+    },
+    "tooltip": [
+      {"field": "Feature1", "type": "nominal"},
+      {"field": "Feature2", "type": "nominal"},
+      {"field": "Correlation", "type": "quantitative", "format": ".2f"}
+    ]
+  },
+  "config": {
+    "axis": {"grid": false}
+  }
+}

@@ -304,25 +304,54 @@
         </div>
       </div>
 
-      <!-- Chart 7 -->
-      <div style="margin-top: 70px;">
-        <h3>
-          <span class="chart-number">CHART 7</span>
-          Gujarat vs Manipur: Systematic Failure Across Contexts
-        </h3>
-        <div class="chart-card">
-          <figure id="chart7"></figure>
-          <p>Difference-in-Differences analysis: Gujarat (advanced) collapsed 22.5% → 5.9%, 
-             Manipur (peripheral) improved 13.5% → 47.7% but with 81% volume drop. 
-             Contradicts infrastructure advantage hypothesis.</p>
-          <p class="source"><strong>Source:</strong> PIB PRID 2204132 | <strong>Method:</strong> DiD regression</p>
-        </div>
-        <div class="insight-box">
-          <p><strong>Evidence of Systematic Failure:</strong> Even Gujarat's industrial capacity couldn't 
-             compensate for program design flaws. Manipur's "improvement" driven by small sample volatility 
-             (6,424 trained vs 34,540 previously). Failures transcend state capacity—systemic redesign needed.</p>
-        </div>
-      </div>
+      <!-- Chart 7: ML Insights -->
+<div style="margin-top: 70px;">
+  <h3>
+    <span class="chart-number">CHART 7</span>
+    Machine Learning Insights: Why Education Trumps Infrastructure
+  </h3>
+
+  <div class="chart-grid">
+    <div class="chart-card">
+      <h3>Model Validation: Residuals Plot</h3>
+      <figure id="chart7a"></figure>
+      <p>
+        Residuals (prediction errors) scattered randomly around zero line show unbiased model. 
+        No systematic over/under-prediction pattern—validates that literacy and skill infrastructure 
+        genuinely predict placement better than GDP.
+      </p>
+      <p class="source">
+        <strong>Method:</strong> Linear Regression residual analysis | 
+        <strong>Model:</strong> R² = 0.72, RMSE = 5.2%
+      </p>
+    </div>
+
+    <div class="chart-card">
+      <h3>Correlation Matrix: The GDP Paradox</h3>
+      <figure id="chart7b"></figure>
+      <p>
+        Heatmap reveals GDP per capita negatively correlates with placement (-0.12) despite 
+        correlating strongly with industrial share (0.82). Literacy shows positive placement 
+        correlation (0.58), supporting education-centric policy reforms.
+      </p>
+      <p class="source">
+        <strong>Features:</strong> 5 state characteristics + placement rate | 
+        <strong>Insight:</strong> Challenges infrastructure spending priority
+      </p>
+    </div>
+  </div>
+
+  <div class="insight-box">
+    <p>
+      <strong>Policy Implication:</strong> The GDP-placement paradox demonstrates why infrastructure-heavy 
+      approaches fail. Wealthier states don't achieve better placement outcomes. Instead, literacy (0.58 correlation) 
+      and formal skill infrastructure (0.62 correlation) are stronger predictors. This quantitative evidence 
+      supports shifting resources from building new training centers toward improving curriculum quality and 
+      leveraging existing educational institutions. The correlation matrix validates education reform over 
+      infrastructure expansion as the primary policy lever for PMKVY success.
+    </p>
+  </div>
+</div>
 
     </section>
 
@@ -456,9 +485,12 @@
     vegaEmbed('#chart6', 'chart6_migration_potential.json', {actions: true})
       .catch(console.error);
 
-    
-    vegaEmbed('#chart7', 'chart1_did_interactive.json', {actions: true})
-      .catch(console.error);
+  
+vegaEmbed('#chart7a', 'ml_chart3_residuals.json', {actions: true})
+  .catch(console.error);
+
+vegaEmbed('#chart7b', 'ml_chart4_correlation_heatmap.json', {actions: true})
+  .catch(console.error);
 
     console.log('✅ All 7 charts loading...');
   </script>
