@@ -16,29 +16,8 @@
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 
   <style>
-    .project-page .container { text-align: center; }
     
-    .section {
-      margin: 60px auto;
-      max-width: 900px;
-      text-align: center;
-    }
-    
-    .section h2 {
-      font-family: "Poppins", sans-serif;
-      font-size: 28px;
-      font-weight: 600;
-      margin: 12px auto 24px;
-      text-align: center;
-    }
-    
-    .section p {
-      font-family: "Poppins", sans-serif;
-      font-size: 15px;
-      line-height: 1.8;
-      color: rgba(18,18,18,0.75);
-      margin: 16px auto;
-      max-width: 85ch;
+    .project-page .container {
       text-align: center;
     }
     
@@ -53,44 +32,112 @@
       margin: 18px auto 20px;
     }
     
+    .section {
+      margin: 60px auto;
+      max-width: 900px;
+      text-align: center;
+    }
+    
+    .section .meta {
+      font-family: "Poppins", sans-serif;
+      text-align: center;
+      margin: 0 auto 16px;
+    }
+    
+    .section h2 {
+      font-family: "Poppins", sans-serif;
+      font-size: 28px;
+      font-weight: 600;
+      margin: 12px auto 24px;
+      text-align: center;
+      letter-spacing: 0.3px;
+      color: rgba(18,18,18,0.95);
+    }
+    
+    .section p {
+      font-family: "Poppins", sans-serif;
+      font-size: 15px;
+      font-weight: 400;
+      line-height: 1.8;
+      color: rgba(18,18,18,0.75);
+      margin: 16px auto;
+      max-width: 85ch;
+      text-align: center;
+    }
+  
     .viz-section {
       margin: 80px auto;
       max-width: 1200px;
+      text-align: center;
+    }
+    
+    .viz-section .meta {
+      font-family: "Poppins", sans-serif;
+    }
+    
+    .viz-section h2 {
+      font-family: "Poppins", sans-serif;
+      font-size: 32px;
+      font-weight: 700;
+      margin: 12px auto 40px;
+      text-align: center;
+      letter-spacing: 0.3px;
+      color: rgba(18,18,18,0.95);
     }
     
     .viz-section h3 {
       font-family: "Poppins", sans-serif;
       font-size: 20px;
       font-weight: 600;
-      margin: 60px auto 24px;
+      letter-spacing: 0.3px;
+      color: rgba(18,18,18,0.90);
+      margin: 70px auto 24px;
       text-align: center;
     }
     
     .chart-card {
       background: rgba(255,255,255,0.92);
       border-radius: 16px;
-      padding: 20px;
+      padding: 24px;
       box-shadow: inset 0 0 0 1px rgba(0,0,0,0.10);
-      min-height: 520px;
+      min-height: 560px;
       display: flex;
       flex-direction: column;
       margin: 0 auto;
       max-width: 700px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    
+    .chart-card:hover {
+      transform: translateY(-2px);
+      box-shadow: inset 0 0 0 1px rgba(0,0,0,0.14), 0 4px 12px rgba(0,0,0,0.08);
+    }
+    
+    .chart-card h3 {
+      font-family: "Poppins", sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      color: rgba(18,18,18,0.88);
+      margin: 0 0 16px 0;
+      text-align: center;
     }
     
     .chart-card figure {
       margin: 12px auto;
       flex: 1;
-      min-height: 420px;
+      min-height: 400px;
       width: 100%;
       display: flex;
       align-items: center;
       justify-content: center;
+      overflow: visible;
     }
     
     .chart-card p {
       font-family: "Poppins", sans-serif;
       font-size: 13px;
+      font-weight: 400;
       line-height: 1.65;
       margin: 10px auto;
       text-align: center;
@@ -98,9 +145,11 @@
     }
     
     .chart-card .source {
+      font-family: "Poppins", sans-serif;
       margin-top: auto;
-      padding-top: 12px;
+      padding-top: 14px;
       font-size: 12px;
+      font-weight: 400;
       border-top: 1px solid rgba(0,0,0,0.08);
       text-align: center;
       color: rgba(18,18,18,0.55);
@@ -111,18 +160,33 @@
       color: rgba(18,18,18,0.65);
     }
     
+    .chart-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin: 30px auto;
+      max-width: 1100px;
+    }
+    
+    .chart-grid .chart-card {
+      max-width: none;
+      min-height: 540px;
+    }
+    
     .insight-box {
-      background: linear-gradient(135deg, #fff9e6 0%, #ffe8a1 100%);
+      background: linear-gradient(135deg, rgba(11,79,43,0.06) 0%, rgba(11,79,43,0.12) 100%);
       padding: 28px;
-      border-left: 5px solid #ffc107;
+      border-left: 4px solid rgba(11,79,43,0.6);
       border-radius: 12px;
       margin: 30px auto;
       max-width: 900px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
     }
     
     .insight-box p {
       font-family: "Poppins", sans-serif;
       font-size: 14px;
+      font-weight: 400;
       line-height: 1.8;
       margin: 0;
       text-align: center;
@@ -131,11 +195,12 @@
     
     .insight-box strong {
       font-weight: 600;
-      color: rgba(18,18,18,0.90);
+      color: rgba(11,79,43,0.95);
     }
     
     .chart-number {
       font-family: "Poppins", sans-serif;
+      display: inline-block;
       background: rgba(11,79,43,0.12);
       color: rgba(11,79,43,0.85);
       padding: 5px 14px;
@@ -144,6 +209,104 @@
       font-weight: 700;
       letter-spacing: 0.8px;
       margin-right: 10px;
+    }
+    
+    .data-grid {
+      max-width: 1000px;
+      margin: 40px auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      text-align: left;
+    }
+    
+    .data-card {
+      background: rgba(255,255,255,0.95);
+      padding: 28px;
+      border-radius: 14px;
+      box-shadow: inset 0 0 0 1px rgba(0,0,0,0.08);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    
+    .data-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+    
+    .data-card h3 {
+      font-family: "Poppins", sans-serif;
+      font-size: 17px;
+      font-weight: 700;
+      margin: 0 0 18px 0;
+      color: rgba(11,79,43,0.90);
+      border-bottom: 2px solid rgba(11,79,43,0.3);
+      padding-bottom: 10px;
+    }
+    
+    .data-card ul {
+      list-style: none;
+      padding-left: 0;
+      font-size: 13px;
+      line-height: 1.8;
+      color: rgba(18,18,18,0.75);
+    }
+    
+    .data-card li {
+      margin: 12px 0;
+      padding-left: 22px;
+      position: relative;
+    }
+    
+    .data-card li::before {
+      content: "•";
+      position: absolute;
+      left: 6px;
+      color: rgba(11,79,43,0.7);
+      font-weight: bold;
+      font-size: 18px;
+    }
+    
+    .data-card strong {
+      font-weight: 600;
+      color: rgba(18,18,18,0.85);
+    }
+    
+    .data-card.challenge {
+      background: rgba(11,79,43,0.04);
+      border-left: 4px solid rgba(11,79,43,0.4);
+    }
+    
+    .data-card.challenge h3 {
+      color: rgba(11,79,43,0.85);
+    }
+   
+    .colab-button {
+      display: inline-block;
+      padding: 14px 32px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      text-decoration: none;
+      border-radius: 30px;
+      font-family: "Poppins", sans-serif;
+      font-weight: 700;
+      font-size: 15px;
+      letter-spacing: 0.3px;
+      box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+      transition: all 0.3s ease;
+    }
+    
+    .colab-button:hover {
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
+    }
+    
+    @media (max-width: 980px) {
+      .chart-grid {
+        grid-template-columns: 1fr;
+      }
+      .data-grid {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
@@ -180,7 +343,7 @@
         but placement rates collapsed from 18.4% to 10.1%. This project examines why SIM failed and how 
         curriculum alignment with domestic and international labor demand can transform outcomes.
       </p>
-      <p style="font-weight: 600; color: rgba(18,18,18,0.85);">
+      <p style="font-weight: 600; color: rgba(18,18,18,0.85); font-family: 'Poppins', sans-serif;">
         <strong>Research Questions:</strong> (1) Why has PMKVY failed despite training millions? 
         (2) How can curriculum alignment improve employability? (3) What reforms could deliver quality skills?
       </p>
@@ -190,11 +353,9 @@
 
     <section class="viz-section" id="visualisations">
       <div class="meta">Analysis</div>
-      <h2 style="font-family: 'Poppins', sans-serif; font-size: 32px; font-weight: 700; text-align: center;">
-        Visual Evidence & Analysis
-      </h2>
+      <h2>Visual Evidence & Analysis</h2>
 
-      <!-- Chart 1 -->
+      <!-- Chart 1: Demographic -->
       <div style="margin-top: 50px;">
         <h3>
           <span class="chart-number">CHART 1</span>
@@ -213,7 +374,7 @@
         </div>
       </div>
 
-      <!-- Chart 2 -->
+      <!-- Chart 2: India Map -->
       <div style="margin-top: 70px;">
         <h3>
           <span class="chart-number">CHART 2</span>
@@ -221,17 +382,18 @@
         </h3>
         <div class="chart-card">
           <figure id="chart2"></figure>
-          <p>Select year (FY 20-21 to 24-25) and metric (Skilled/Placed). Bubble size shows volume. 
-             Placement data only FY 20-21 and 21-22 (de-linked in Phase 4).</p>
-          <p class="source"><strong>Source:</strong> PIB PRID 2204132 (Dec 2025)</p>
+          <p>Select year (FY 20-21 to 24-25) and metric (Skilled/Placed). States colored by data volume. 
+             Hover to highlight individual states. Placement data only available FY 20-21 and 21-22.</p>
+          <p class="source"><strong>Source:</strong> PIB PRID 2204132 (Dec 2025) | <strong>Coverage:</strong> All Indian states</p>
         </div>
         <div class="insight-box">
-          <p><strong>Finding:</strong> UP trained 463,503 in FY 24-25 (largest), but no placement tracking. 
-             Geographic spread shows program scale, but accountability eliminated from 2022 onwards.</p>
+          <p><strong>Finding:</strong> Uttar Pradesh trained 463,503 candidates in FY 24-25 (largest volume), 
+             but no placement tracking exists. Geographic distribution shows program scale, yet accountability 
+             was eliminated from 2022 onwards.</p>
         </div>
       </div>
 
-      <!-- Chart 3 -->
+      <!-- Chart 3: PMKVY Phases -->
       <div style="margin-top: 70px;">
         <h3>
           <span class="chart-number">CHART 3</span>
@@ -240,17 +402,17 @@
         <div class="chart-card">
           <figure id="chart3"></figure>
           <p>Placement rates declined from 18.4% (Phase 1) to 10.1% (Phase 3). 
-             Phase 4 eliminated placement tracking entirely—metric manipulation to hide failure.</p>
+             Phase 4 eliminated placement tracking entirely—metric manipulation to obscure failure.</p>
           <p class="source"><strong>Source:</strong> MSDE Annual Reports, Parliamentary Answers</p>
         </div>
         <div class="insight-box">
           <p><strong>Critical Finding:</strong> De-linking placement from Phase 4 onwards represents 
              accountability evasion. Government continues claiming "160 million trained" while refusing 
-             to measure employment outcomes.</p>
+             to measure employment outcomes—the program's core objective.</p>
         </div>
       </div>
 
-      <!-- Chart 4 -->
+      <!-- Chart 4: Quantity vs Quality -->
       <div style="margin-top: 70px;">
         <h3>
           <span class="chart-number">CHART 4</span>
@@ -264,11 +426,12 @@
         </div>
         <div class="insight-box">
           <p><strong>Core Problem:</strong> As training volume exploded to 160 million, placement rate 
-             collapsed. Supply-driven model ignores labor demand, creating certified-but-unemployable graduates.</p>
+             collapsed. Supply-driven model ignores labor market demand, creating millions of 
+             certified-but-unemployable graduates.</p>
         </div>
       </div>
 
-      <!-- Chart 5 -->
+      <!-- Chart 5: Global Shortage -->
       <div style="margin-top: 70px;">
         <h3>
           <span class="chart-number">CHART 5</span>
@@ -281,12 +444,13 @@
           <p class="source"><strong>Source:</strong> GATI Report 2025, OECD Labor Projections</p>
         </div>
         <div class="insight-box">
-          <p><strong>Opportunity:</strong> MSDE signed MoCs with these countries but partnerships remain 
-             under-utilized. SIM's domestic failures prevent India from capitalizing on global demand.</p>
+          <p><strong>Opportunity:</strong> MSDE signed Memoranda of Cooperation with these countries, 
+             but partnerships remain under-utilized. SIM's domestic failures prevent India from capitalizing 
+             on unprecedented global demand.</p>
         </div>
       </div>
 
-      <!-- Chart 6-->
+      <!-- Chart 6: Migration Potential -->
       <div style="margin-top: 70px;">
         <h3>
           <span class="chart-number">CHART 6</span>
@@ -299,78 +463,80 @@
           <p class="source"><strong>Source:</strong> Ministry of External Affairs, Expert Projections</p>
         </div>
         <div class="insight-box">
-          <p><strong>Reform Priority:</strong> Migration & Mobility Partnerships with 20+ countries exist 
-             but require SIM curriculum reform. Current training doesn't meet international certification standards.</p>
+          <p><strong>Reform Priority:</strong> Migration & Mobility Partnerships with 20+ countries exist, 
+             but require SIM curriculum reform. Current training doesn't meet international certification 
+             standards, limiting skilled migration potential.</p>
         </div>
       </div>
 
       <!-- Chart 7: ML Insights -->
-<div style="margin-top: 70px;">
-  <h3>
-    <span class="chart-number">CHART 7</span>
-    Machine Learning Insights: Why Education Trumps Infrastructure
-  </h3>
+      <div style="margin-top: 70px;">
+        <h3>
+          <span class="chart-number">CHART 7</span>
+          Machine Learning Insights: Why Education Trumps Infrastructure
+        </h3>
 
-  <div class="chart-grid">
-    <div class="chart-card">
-      <h3>Model Validation: Residuals Plot</h3>
-      <figure id="chart7a"></figure>
-      <p>
-        Residuals (prediction errors) scattered randomly around zero line show unbiased model. 
-        No systematic over/under-prediction pattern—validates that literacy and skill infrastructure 
-        genuinely predict placement better than GDP.
-      </p>
-      <p class="source">
-        <strong>Method:</strong> Linear Regression residual analysis | 
-        <strong>Model:</strong> R² = 0.72, RMSE = 5.2%
-      </p>
-    </div>
+        <div class="chart-grid">
+          <div class="chart-card">
+            <h3>Model Validation: Residuals Plot</h3>
+            <figure id="chart7a"></figure>
+            <p>
+              Residuals (prediction errors) scattered randomly around zero line show unbiased model. 
+              No systematic over/under-prediction pattern validates that literacy and skill infrastructure 
+              genuinely predict placement better than GDP.
+            </p>
+            <p class="source">
+              <strong>Method:</strong> Linear Regression residual analysis | 
+              <strong>Model:</strong> R² = 0.72, RMSE = 5.2%
+            </p>
+          </div>
 
-    <div class="chart-card">
-      <h3>Correlation Matrix: The GDP Paradox</h3>
-      <figure id="chart7b"></figure>
-      <p>
-        Heatmap reveals GDP per capita negatively correlates with placement (-0.12) despite 
-        correlating strongly with industrial share (0.82). Literacy shows positive placement 
-        correlation (0.58), supporting education-centric policy reforms.
-      </p>
-      <p class="source">
-        <strong>Features:</strong> 5 state characteristics + placement rate | 
-        <strong>Insight:</strong> Challenges infrastructure spending priority
-      </p>
-    </div>
-  </div>
+          <div class="chart-card">
+            <h3>Correlation Matrix: The GDP Paradox</h3>
+            <figure id="chart7b"></figure>
+            <p>
+              Heatmap reveals GDP per capita negatively correlates with placement (-0.12) despite 
+              correlating strongly with industrial share (0.82). Literacy shows positive placement 
+              correlation (0.58), supporting education-centric policy reforms.
+            </p>
+            <p class="source">
+              <strong>Features:</strong> 5 state characteristics + placement rate | 
+              <strong>Insight:</strong> Challenges infrastructure spending priority
+            </p>
+          </div>
+        </div>
 
-  <div class="insight-box">
-    <p>
-      <strong>Policy Implication:</strong> The GDP-placement paradox demonstrates why infrastructure-heavy 
-      approaches fail. Wealthier states don't achieve better placement outcomes. Instead, literacy (0.58 correlation) 
-      and formal skill infrastructure (0.62 correlation) are stronger predictors. This quantitative evidence 
-      supports shifting resources from building new training centers toward improving curriculum quality and 
-      leveraging existing educational institutions. The correlation matrix validates education reform over 
-      infrastructure expansion as the primary policy lever for PMKVY success.
-    </p>
-  </div>
-</div>
+        <div class="insight-box">
+          <p>
+            <strong>Policy Implication:</strong> The GDP-placement paradox demonstrates why infrastructure-heavy 
+            approaches fail. Wealthier states don't achieve better placement outcomes. Instead, literacy (0.58 correlation) 
+            and formal skill infrastructure (0.62 correlation) are stronger predictors. This quantitative evidence 
+            supports shifting resources from building new training centers toward improving curriculum quality and 
+            leveraging existing educational institutions. The correlation matrix validates education reform over 
+            infrastructure expansion as the primary policy lever for PMKVY success.
+          </p>
+        </div>
+      </div>
 
     </section>
 
     <div class="rule"></div>
 
-    
+    <!-- Conclusions -->
     <section class="section" id="conclusions">
       <div class="meta">Conclusions</div>
       <h2>What the Evidence Suggests</h2>
       <p>
         The quantitative analysis reveals three critical findings. First, PMKVY's failures transcend 
-        state-level capacity differences—even Gujarat experienced catastrophic placement collapse, 
-        suggesting systematic program design flaws. Second, government de-linked placement tracking 
-        from PMKVY 4.0 (FY 2022-23), eliminating accountability while claiming success based solely on 
-        training volume.
+        state-level capacity differences—even Gujarat experienced catastrophic placement collapse from 
+        22.5% to 5.9%, suggesting systematic program design flaws rather than implementation issues. 
+        Second, government de-linked placement tracking from PMKVY 4.0 (FY 2022-23), eliminating 
+        accountability while claiming success based solely on training volume.
       </p>
       <p>
-        Third, India's demographic dividend creates a 20-30 year window that is narrowing as youth 
-        dependency declines and elderly dependency rises. Combined with global labor shortages totaling 
+        Third, machine learning analysis demonstrates that literacy and existing skill infrastructure 
+        predict placement better than GDP per capita, challenging infrastructure-heavy policy approaches. 
+        Combined with India's narrowing demographic dividend window and global labor shortages totaling 
         50 million workers by 2030, India could expand annual migration from 700K to 2.5M workers—but 
         only through fundamental SIM reform focused on curriculum-industry alignment, international 
         certification standards, and quality-over-quantity metrics.
@@ -379,68 +545,65 @@
 
     <div class="rule"></div>
 
-    
+    <!-- Data & Methodology -->
     <section class="section" id="data">
-      <div class="meta">Data Sources & Methodology</div>
-      <h2>Data, Tools & Challenges</h2>
+      <div class="meta">Methodology</div>
+      <h2>Data Sources, Tools & Challenges</h2>
       
-      <div style="max-width: 900px; margin: 40px auto; display: grid; grid-template-columns: 1fr 1fr; gap: 24px; text-align: left;">
+      <div class="data-grid">
         
-      
-        <div style="background: rgba(255,255,255,0.95); padding: 24px; border-radius: 12px; box-shadow: inset 0 0 0 1px rgba(0,0,0,0.08);">
-          <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 16px; color: #0b4f2b; border-bottom: 2px solid #0b4f2b; padding-bottom: 8px;">Data Sources</h3>
-          <ul style="list-style: disc; padding-left: 20px; font-size: 13px; line-height: 1.8; color: rgba(18,18,18,0.75);">
-            <li><strong>PMKVY Data:</strong> PIB Press Release PRID 2204132 (Dec 2025) - State-wise training and placement FY 2020-25</li>
-            <li><strong>Demographics:</strong> World Bank WDI, UN Population Division (1990-2024)</li>
-            <li><strong>Labor Market:</strong> PLFS Annual Reports, India Graduate Skills Index 2025</li>
-            <li><strong>Migration:</strong> GATI Report 2025, OECD Labor Statistics, Ministry of External Affairs</li>
-            <li><strong>State Economics:</strong> RBI State Finance Reports, Census 2011</li>
-          </ul>
-        </div>
-   
-        <div style="background: rgba(220,38,38,0.08); padding: 24px; border-radius: 12px; border-left: 4px solid #dc2626;">
-          <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 16px; color: #dc2626; border-bottom: 2px solid #dc2626; padding-bottom: 8px;">Data Challenges</h3>
-          <ul style="list-style: disc; padding-left: 20px; font-size: 13px; line-height: 1.8; color: rgba(18,18,18,0.75);">
-            <li><strong>Placement De-linking:</strong> Government stopped tracking placement from FY 2022-23, eliminating accountability for employment outcomes</li>
-            <li><strong>Administrative Variations:</strong> State name inconsistencies required manual matching across datasets</li>
-            <li><strong>Missing Granularity:</strong> Sector-wise placement data not published, preventing industry-specific analysis</li>
-            <li><strong>Projection Uncertainty:</strong> Global shortage estimates vary across sources; used conservative GATI figures</li>
+        <div class="data-card">
+          <h3> Primary Data Sources</h3>
+          <ul>
+            <li><strong>PMKVY Performance:</strong> PIB Press Release PRID 2204132 (Dec 2025) providing state-wise training and placement data for FY 2020-21 through FY 2024-25</li>
+            <li><strong>Demographics:</strong> World Bank World Development Indicators and UN Population Division (1990-2024 time series)</li>
+            <li><strong>Labor Market:</strong> Periodic Labour Force Survey (PLFS) Annual Reports and India Graduate Skills Index 2025</li>
+            <li><strong>Migration Data:</strong> GATI Report 2025, OECD Labor Market Statistics, Ministry of External Affairs</li>
+            <li><strong>State Economics:</strong> Reserve Bank of India State Finance Reports and Census 2011</li>
           </ul>
         </div>
         
-        
-        <div style="background: rgba(255,255,255,0.95); padding: 24px; border-radius: 12px; box-shadow: inset 0 0 0 1px rgba(0,0,0,0.08);">
-          <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 16px; color: #0b4f2b; border-bottom: 2px solid #0b4f2b; padding-bottom: 8px;">Analytical Tools</h3>
-          <ul style="list-style: disc; padding-left: 20px; font-size: 13px; line-height: 1.8; color: rgba(18,18,18,0.75);">
-            <li><strong>Python 3.x:</strong> pandas for data cleaning, merging PIB annexures</li>
-            <li><strong>scikit-learn:</strong> LinearRegression for state-level predictors, StandardScaler for normalization</li>
-            <li><strong>Statistical Methods:</strong> Difference-in-Differences (Gujarat vs Manipur)</li>
-            <li><strong>Visualization:</strong> Vega-Lite 5.x with interactive parameters (sliders, selectors, hover effects)</li>
-            <li><strong>Reproducibility:</strong> Google Colab notebooks with public access</li>
+        <div class="data-card challenge">
+          <h3>Data Challenges & Limitations</h3>
+          <ul>
+            <li><strong>Placement De-linking:</strong> Government stopped tracking placement outcomes from FY 2022-23 onwards, eliminating accountability for the program's primary objective</li>
+            <li><strong>State Name Variations:</strong> Inconsistent naming conventions across PIB annexures, census data, and geographic datasets required extensive manual matching</li>
+            <li><strong>Missing Sector Data:</strong> Industry-specific placement breakdowns not published, preventing analysis of skill-demand alignment</li>
+            <li><strong>Projection Uncertainty:</strong> Global labor shortage estimates vary significantly across sources; conservative GATI projections used</li>
           </ul>
         </div>
-      
-        <div style="background: rgba(255,255,255,0.95); padding: 24px; border-radius: 12px; box-shadow: inset 0 0 0 1px rgba(0,0,0,0.08);">
-          <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 16px; color: #0b4f2b; border-bottom: 2px solid #0b4f2b; padding-bottom: 8px;">Research Design</h3>
-          <p style="font-size: 13px; line-height: 1.8; color: rgba(18,18,18,0.75); margin: 0;">
-            <strong>Comparative Case Study:</strong> Gujarat (advanced industrial) vs Manipur (peripheral agrarian) 
-            to test whether state capacity moderates program outcomes. <strong>Theoretical Framework:</strong> 
-            Principal-agent theory for policy implementation, CIPP model for evaluation. 
-            <strong>Analysis:</strong> Triangulation of official data with qualitative stakeholder interviews 
-            and international comparisons (Germany's Indo-German Green Skills programme).
-          </p>
+        
+        <div class="data-card">
+          <h3>Analytical Tools & Methods</h3>
+          <ul>
+            <li><strong>Python 3.x with pandas:</strong> Data cleaning, merging parliamentary question annexures across different administrative classifications</li>
+            <li><strong>scikit-learn:</strong> LinearRegression for identifying state-level predictors, StandardScaler for feature normalization</li>
+            <li><strong>Statistical Analysis:</strong> Difference-in-Differences methodology comparing Gujarat (advanced) vs Manipur (peripheral)</li>
+            <li><strong>Visualization:</strong> Vega-Lite 5.x with interactive parameters including year sliders, metric selectors, and hover effects</li>
+            <li><strong>Reproducibility:</strong> Google Colab notebooks with publicly accessible code and data</li>
+          </ul>
+        </div>
+        
+        <div class="data-card challenge">
+          <h3>Research Design</h3>
+          <ul>
+            <li><strong>Comparative Framework:</strong> Case study analysis of Gujarat (advanced industrial state with manufacturing clusters) versus Manipur (peripheral agrarian economy) to test whether state capacity moderates program outcomes</li>
+            <li><strong>Theoretical Lens:</strong> Principal-agent theory for understanding policy implementation incentives; CIPP evaluation model for assessing inputs, processes, and outputs</li>
+            <li><strong>Validation Approach:</strong> Triangulation of official quantitative data with qualitative stakeholder perspectives and international comparisons (Germany's Indo-German Green Skills programme)</li>
+          </ul>
         </div>
         
       </div>
       
-      <div style="margin-top: 40px; text-align: center;">
+      <div style="margin-top: 50px; text-align: center;">
         <a href="https://colab.research.google.com/drive/1WO-X0Aut0yWITAjlEoXqgZqAzF1AgNKa" 
            target="_blank"
-           style="display: inline-block; padding: 14px 32px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
-                  color: white; text-decoration: none; border-radius: 30px; font-weight: 700; font-size: 15px; 
-                  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4); transition: all 0.3s ease;">
+           class="colab-button">
           📓 View Complete Analysis in Google Colab
         </a>
+        <p style="font-family: 'Poppins', sans-serif; font-size: 12px; color: rgba(18,18,18,0.55); margin-top: 12px;">
+          Includes data cleaning, statistical analysis, and complete ML implementation
+        </p>
       </div>
       
     </section>
@@ -461,38 +624,46 @@
   </footer>
 
   <script>
-   
+    // Chart 1: Demographics
     vegaEmbed('#chart1', 'demographic_chart_interactive.json', {actions: true})
-      .catch(console.error);
+      .then(() => console.log('✅ Chart 1 loaded'))
+      .catch(err => console.error('❌ Chart 1:', err));
 
-    
-    vegaEmbed('#chart2', 'cc9_india_pmkvy_choropleth_v2.json', {actions: true})
-    .catch(console.error);
+    // Chart 2: India Map - Use portfolio version
+    vegaEmbed('#chart2', 'portfolio/cc9_india_pmkvy_choropleth_v2.json', {actions: true})
+      .then(() => console.log('✅ Chart 2 loaded'))
+      .catch(err => console.error('❌ Chart 2:', err));
 
-   
+    // Chart 3: PMKVY Phases
     vegaEmbed('#chart3', 'chart3_pmkvy_phases.json', {actions: true})
-      .catch(console.error);
+      .then(() => console.log('✅ Chart 3 loaded'))
+      .catch(err => console.error('❌ Chart 3:', err));
 
-   
+    // Chart 4: Quantity vs Quality
     vegaEmbed('#chart4', 'chart4_quantity_vs_quality.json', {actions: true})
-      .catch(console.error);
+      .then(() => console.log('✅ Chart 4 loaded'))
+      .catch(err => console.error('❌ Chart 4:', err));
 
-    
+    // Chart 5: Global Shortage
     vegaEmbed('#chart5', 'chart5_global_shortage.json', {actions: true})
-      .catch(console.error);
+      .then(() => console.log('✅ Chart 5 loaded'))
+      .catch(err => console.error('❌ Chart 5:', err));
 
-    
+    // Chart 6: Migration Potential
     vegaEmbed('#chart6', 'chart6_migration_potential.json', {actions: true})
-      .catch(console.error);
+      .then(() => console.log('✅ Chart 6 loaded'))
+      .catch(err => console.error('❌ Chart 6:', err));
 
-  
-vegaEmbed('#chart7a', 'ml_chart3_residuals.json', {actions: true})
-  .catch(console.error);
+    // Chart 7: ML Insights (2 charts)
+    vegaEmbed('#chart7a', 'ml_chart3_residuals.json', {actions: true})
+      .then(() => console.log('✅ Chart 7a loaded'))
+      .catch(err => console.error('❌ Chart 7a:', err));
 
-vegaEmbed('#chart7b', 'ml_chart4_correlation_heatmap.json', {actions: true})
-  .catch(console.error);
+    vegaEmbed('#chart7b', 'ml_chart4_correlation_heatmap.json', {actions: true})
+      .then(() => console.log('✅ Chart 7b loaded'))
+      .catch(err => console.error('❌ Chart 7b:', err));
 
-    console.log('✅ All 7 charts loading...');
+    console.log('✅ Project page initialized - loading all charts...');
   </script>
 </body>
 </html>
