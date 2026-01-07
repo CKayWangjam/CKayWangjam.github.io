@@ -1,0 +1,70 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 700,
+  "height": 400,
+  "title": {
+    "text": "PMKVY Placement Rates: Gujarat vs Manipur",
+    "subtitle": "Difference-in-Differences Analysis - Real Government Data (PIB Dec 2025)",
+    "fontSize": 18,
+    "fontWeight": "bold"
+  },
+  "data": {
+    "values": [
+      {"State": "Gujarat", "Year": "FY 2020-21", "Rate": 22.5, "Trained": 48489, "Placed": 10911},
+      {"State": "Gujarat", "Year": "FY 2021-22", "Rate": 5.9, "Trained": 35001, "Placed": 2073},
+      {"State": "Manipur", "Year": "FY 2020-21", "Rate": 13.5, "Trained": 34540, "Placed": 4661},
+      {"State": "Manipur", "Year": "FY 2021-22", "Rate": 47.7, "Trained": 6424, "Placed": 3064}
+    ]
+  },
+  "params": [
+    {
+      "name": "cc10_hover",
+      "select": {"type": "point", "fields": ["State"], "on": "mouseover"}
+    }
+  ],
+  "mark": {
+    "type": "line",
+    "point": {"size": 150, "filled": true},
+    "strokeWidth": 4
+  },
+  "encoding": {
+    "x": {
+      "field": "Year",
+      "type": "ordinal",
+      "title": "Fiscal Year",
+      "axis": {"labelAngle": 0, "labelFontSize": 12, "titleFontSize": 13, "titleFontWeight": "bold"}
+    },
+    "y": {
+      "field": "Rate",
+      "type": "quantitative",
+      "title": "Placement Rate (%)",
+      "scale": {"domain": [0, 50]},
+      "axis": {"labelFontSize": 12, "titleFontSize": 13, "titleFontWeight": "bold"}
+    },
+    "color": {
+      "field": "State",
+      "type": "nominal",
+      "scale": {
+        "domain": ["Gujarat", "Manipur"],
+        "range": ["#E74C3C", "#3498DB"]
+      },
+      "legend": {
+        "title": "State",
+        "titleFontSize": 12,
+        "labelFontSize": 11,
+        "orient": "top-right"
+      }
+    },
+    "opacity": {
+      "condition": {"param": "cc10_hover", "value": 1},
+      "value": 0.4
+    },
+    "tooltip": [
+      {"field": "State", "type": "nominal", "title": "State"},
+      {"field": "Year", "type": "ordinal", "title": "Fiscal Year"},
+      {"field": "Rate", "type": "quantitative", "title": "Placement Rate (%)", "format": ".1f"},
+      {"field": "Trained", "type": "quantitative", "title": "Candidates Trained", "format": ","},
+      {"field": "Placed", "type": "quantitative", "title": "Candidates Placed", "format": ","}
+    ]
+  }
+}
