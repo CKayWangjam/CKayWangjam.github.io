@@ -1,0 +1,204 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 440,
+  "height": 360,
+  "title": {
+    "text": "Expected decline in global commodity prices in 2025",
+    "fontSize": 13,
+    "fontWeight": "bold",
+    "anchor": "start",
+    "offset": 10
+  },
+  "data": {
+    "values": [
+      {
+        "Category": "Total",
+        "Year": "2023 (Actual)",
+        "Index": 108,
+        "Type": "Actual"
+      },
+      {
+        "Category": "Total",
+        "Year": "2024 (Forecast)",
+        "Index": 105,
+        "Type": "Forecast"
+      },
+      {
+        "Category": "Total",
+        "Year": "2025 (Forecast)",
+        "Index": 101,
+        "Type": "Forecast"
+      },
+      {
+        "Category": "Food",
+        "Year": "2023 (Actual)",
+        "Index": 125,
+        "Type": "Actual"
+      },
+      {
+        "Category": "Food",
+        "Year": "2024 (Forecast)",
+        "Index": 118,
+        "Type": "Forecast"
+      },
+      {
+        "Category": "Food",
+        "Year": "2025 (Forecast)",
+        "Index": 113,
+        "Type": "Forecast"
+      },
+      {
+        "Category": "Energy",
+        "Year": "2023 (Actual)",
+        "Index": 106,
+        "Type": "Actual"
+      },
+      {
+        "Category": "Energy",
+        "Year": "2024 (Forecast)",
+        "Index": 103,
+        "Type": "Forecast"
+      },
+      {
+        "Category": "Energy",
+        "Year": "2025 (Forecast)",
+        "Index": 99,
+        "Type": "Forecast"
+      },
+      {
+        "Category": "Oils and Meals",
+        "Year": "2023 (Actual)",
+        "Index": 118,
+        "Type": "Actual"
+      },
+      {
+        "Category": "Oils and Meals",
+        "Year": "2024 (Forecast)",
+        "Index": 110,
+        "Type": "Forecast"
+      },
+      {
+        "Category": "Oils and Meals",
+        "Year": "2025 (Forecast)",
+        "Index": 105,
+        "Type": "Forecast"
+      },
+      {
+        "Category": "Fertilisers",
+        "Year": "2023 (Actual)",
+        "Index": 153,
+        "Type": "Actual"
+      },
+      {
+        "Category": "Fertilisers",
+        "Year": "2024 (Forecast)",
+        "Index": 120,
+        "Type": "Forecast"
+      },
+      {
+        "Category": "Fertilisers",
+        "Year": "2025 (Forecast)",
+        "Index": 113,
+        "Type": "Forecast"
+      },
+      {
+        "Category": "Base Metals",
+        "Year": "2023 (Actual)",
+        "Index": 108,
+        "Type": "Actual"
+      },
+      {
+        "Category": "Base Metals",
+        "Year": "2024 (Forecast)",
+        "Index": 110,
+        "Type": "Forecast"
+      },
+      {
+        "Category": "Base Metals",
+        "Year": "2025 (Forecast)",
+        "Index": 111,
+        "Type": "Forecast"
+      }
+    ]
+  },
+  "mark": {"type": "bar", "stroke": "rgba(0,0,0,0.15)", "strokeWidth": 1},
+  "encoding": {
+    "x": {
+      "field": "Category",
+      "type": "nominal",
+      "axis": {
+        "title": null,
+        "labelAngle": 0,
+        "labelFontSize": 11,
+        "labelFontWeight": "normal",
+        "labelPadding": 10,
+        "tickSize": 0,
+        "domainWidth": 2,
+        "domainColor": "#2c7873"
+      },
+      "sort": [
+        "Total",
+        "Food",
+        "Energy",
+        "Oils and Meals",
+        "Fertilisers",
+        "Base Metals"
+      ]
+    },
+    "y": {
+      "field": "Index",
+      "type": "quantitative",
+      "scale": {"domain": [40, 160]},
+      "axis": {
+        "title": "Index",
+        "titleFontSize": 13,
+        "titleFontWeight": "normal",
+        "titleAngle": 0,
+        "titleAlign": "left",
+        "titleY": -15,
+        "titleX": -40,
+        "labelFontSize": 13,
+        "grid": true,
+        "gridColor": "#e0e0e0",
+        "gridOpacity": 0.5,
+        "tickCount": 8,
+        "domainWidth": 0
+      }
+    },
+    "y2": {"datum": 40},
+    "xOffset": {
+      "field": "Year",
+      "type": "nominal",
+      "sort": ["2023 (Actual)", "2024 (Forecast)", "2025 (Forecast)"]
+    },
+    "color": {
+      "field": "Year",
+      "type": "nominal",
+      "scale": {
+        "domain": ["2023 (Actual)", "2024 (Forecast)", "2025 (Forecast)"],
+        "range": ["#8B7FB8", "#D4AF37", "#2c7873"]
+      },
+      "legend": {
+        "title": null,
+        "orient": "top",
+        "direction": "horizontal",
+        "symbolType": "square",
+        "symbolSize": 200,
+        "labelFontSize": 13,
+        "labelLimit": 200,
+        "offset": 10,
+        "padding": 10
+      }
+    },
+    "tooltip": [
+      {"field": "Category", "type": "nominal", "title": "Category"},
+      {"field": "Year", "type": "nominal", "title": "Year"},
+      {"field": "Index", "type": "quantitative", "title": "Index Value"}
+    ]
+  },
+  "config": {
+    "background": "#f0f8f8",
+    "view": {"stroke": null},
+    "axis": {"labelColor": "#2d2d2d", "titleColor": "#2d2d2d"}
+  }
+}

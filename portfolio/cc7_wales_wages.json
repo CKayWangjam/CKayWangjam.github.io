@@ -1,13 +1,19 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "Choropleth map of Wales showing 2024 wage data by Local Authority District.",
-  "title": "Wales: Wages by Local Authority (2024)",
+  "description": "Choropleth map of Wales showing annual pay by Local Authority District.",
+  "title": {
+    "text": "Wales: Annual Pay by Local Authority (2024)",
+    "fontSize": 13,
+    "anchor": "middle"
+  },
   "width": 400,
   "height": 500,
+
   "data": {
     "url": "https://raw.githubusercontent.com/jhellingsdata/RADataHub/refs/heads/main/MappingWorkshop/geo_data/LAD_WLS_2025_05.topojson",
-    "format": {"type": "topojson", "feature": "object_name"}
+    "format": { "type": "topojson", "feature": "object_name" }
   },
+
   "transform": [
     {
       "lookup": "properties.LAD25CD",
@@ -23,26 +29,43 @@
       "filter": "datum.date == 2024"
     }
   ],
+
   "mark": {
     "type": "geoshape",
     "stroke": "white",
     "strokeWidth": 0.8
   },
+
   "encoding": {
     "color": {
       "field": "value",
       "type": "quantitative",
-      "scale": {
-        "scheme": "goldred"
-      },
-      "title": "Weekly Wages (£)"
+      "scale": { "scheme": "goldred" },
+      "legend": {
+        "title": "Annual Pay (£)",
+        "format": ",.0f"
+      }
     },
     "tooltip": [
-      {"field": "properties.LAD25NM", "type": "nominal", "title": "Local Authority"},
-      {"field": "value", "type": "quantitative", "title": "Wages (£)", "format": ",.0f"},
-      {"field": "date", "type": "quantitative", "title": "Year"}
+      {
+        "field": "properties.LAD25NM",
+        "type": "nominal",
+        "title": "Local Authority"
+      },
+      {
+        "field": "value",
+        "type": "quantitative",
+        "title": "Annual Pay (£)",
+        "format": ",.0f"
+      },
+      {
+        "field": "date",
+        "type": "quantitative",
+        "title": "Year"
+      }
     ]
   },
+
   "projection": {
     "type": "mercator"
   }

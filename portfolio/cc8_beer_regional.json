@@ -9,57 +9,37 @@
   },
   "width": 500,
   "height": 350,
-  "data": {
-    "url": "beer_prices_regional.csv"
-  },
-  "mark": {
-    "type": "line",
-    "point": true,
-    "strokeWidth": 2
-  },
+  "data": { "url": "beer_prices_regional.csv" },
+  "mark": { "type": "line", "point": true, "strokeWidth": 2 },
   "encoding": {
     "x": {
       "field": "year",
       "type": "quantitative",
       "title": "Year",
-      "axis": {
-        "format": "d",
-        "labelAngle": 0,
-        "grid": false
-      },
-      "scale": {
-        "domain": [2020, 2024]
-      }
+      "axis": { "format": "d", "labelAngle": 0, "grid": false },
+      "scale": { "domain": [2020, 2024] }
     },
     "y": {
       "field": "median_price",
       "type": "quantitative",
       "title": "Median Price (£)",
       "axis": {
-        "labelExpr": "'£' + datum.label",
+        "labelExpr": "'£' + format(datum.value, '.2f')",
         "grid": true,
         "gridDash": [2, 2]
       },
-      "scale": {
-        "domain": [3, 6]
-      }
+      "scale": { "domain": [3, 6] }
     },
     "color": {
       "field": "region",
       "type": "nominal",
-      "scale": {
-        "scheme": "category20"
-      },
-      "legend": {
-        "title": "Region",
-        "orient": "right",
-        "columns": 1
-      }
+      "scale": { "scheme": "tableau20" },
+      "legend": { "title": "Region", "orient": "right", "columns": 1 }
     },
     "tooltip": [
-      {"field": "region", "type": "nominal", "title": "Region"},
-      {"field": "year", "type": "quantitative", "title": "Year"},
-      {"field": "median_price", "type": "quantitative", "title": "Price", "format": "£.2f"}
+      { "field": "region", "type": "nominal", "title": "Region" },
+      { "field": "year", "type": "quantitative", "title": "Year", "format": "d" },
+      { "field": "median_price", "type": "quantitative", "title": "Price (£)", "format": ".2f" }
     ]
   }
 }

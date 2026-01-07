@@ -305,44 +305,56 @@
         </div>
       </section>
 
-      <!--  CC4  -->
-      <section class="cc-card" id="cc4">
-        <div class="cc-head">
-          <h2 class="cc-title">CC4: Replicate, Recreate and Improve</h2>
-        </div>
+      <!-- CC4 -->
+<section class="cc-card" id="cc4">
+  <div class="cc-head">
+    <h2 class="cc-title">CC4: Replicate, Recreate and Improve</h2>
+  </div>
 
-        <p class="cc-summary">
-          Replicating and improving a chart from India's Economic Survey 2023-24, showing GDP growth trends from FY20-FY25.
-        </p>
+  <p class="cc-summary">
+    Replicating and improving a chart on global commodity price forecasts from an economic report, 
+    showing actual 2023 data and projected declines through 2025.
+  </p>
 
-        <div class="cc-grid">
-          <div class="viz">
+  <div class="cc-grid">
+    <div class="viz">
+      <figure>
+        <img src="commodity_prices.png" alt="Original commodity prices chart" 
+             style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+      </figure>
+      <p>Original Chart from Economic Survey 2024-2025, Government of India.</p>
+      <p class="source"><strong>Data source:</strong> https://www.indiabudget.gov.in/economicsurvey/doc/echapter.pdf</p>
+    </div>
+
+    <div class="viz">
+      <figure id="cc4_chart1"></figure>
+      <p>Replicated Chart: Vega-Lite recreation maintaining grouped bar layout, color scheme.</p>
+      <p class="source"><strong>Data source:</strong> Same as original</p>
+    </div>
+  </div>
+
+  <div class="cc-grid">
+    <div class="viz">
+      <figure id="cc4_chart2"></figure>
+      <p>Improved Chart: Transformed to dot plot distinguishing actual (filled circles) from forecasts (hollow circles). 
+         Added interactive category filter and faint grid background for better readability.</p>
+    </div>
     
-            <p>Source: Ministry of Finance, Government of India.</p>
-            <figure>
-              <img src="India's Sustained Momentum in GDP.png" alt="Original GDP growth chart from Economic Survey" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-            </figure>
-            <p>Original Chart — Economic Survey 2023-24</p>
-            <p class="source"><strong>Data source:</strong> Economic Survey 2023-24, Ministry of Finance</p>
-          </div>
-
-          <div class="viz">
-            <figure id="cc4_chart1"></figure>
-<p>Replicated Chart — Original Style: Vega-Lite replication maintaining government's basic design and color scheme.</p>
-            <p class="source"><strong>Data source:</strong> Economic Survey 2023-24</p>
-          </div>
-        </div>
-
-        <div class="cc-grid">
-          <div class="viz">
-           <figure id="cc4_chart2"></figure>
-            <p>Improved Chart — Enhanced Design: Enhanced version with annotations and clearer hierarchy.</p>
-             <p>Improvements Made: Added color-coding, data labels, annotations, improved typography, and clearer hierarchy for readability.</p>
-            <p class="source"><strong>Data source:</strong> Economic Survey 2023-24</p>
-          </div>
-        </div>
-      </section>
-
+    <div class="viz">
+      <div style="background: rgba(11,79,43,0.06); border-radius: 8px; padding: 18px; margin-top: 20px;">
+        <p style="font-size: 13px; line-height: 1.7; color: rgba(18,18,18,0.80); margin: 0; text-align: left;">
+          <strong>Key Improvements:</strong><br>
+          • Changed from bars to dots for clearer year-to-year comparison<br>
+          • Used solid circles (2023 actual) vs hollow circles (2024-2025 forecasts) to visually distinguish data certainty<br>
+          • Added interactive category filter allowing users to isolate individual commodities<br>
+          • Enhanced grid visibility for easier value reading<br>
+          • Improved color palette with softer, more professional tones<br>
+          • Better tooltips showing data type and values
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
       <!--  CC5 -->
       <section class="cc-card" id="cc5">
         <div class="cc-head">
@@ -552,10 +564,10 @@ https://api.worldbank.org/v2/country/IND/indicator/NY.GDP.MKTP.KD.ZG?format=json
       "cc3_chart1": { spec: "chart1_dbt_success.json", options: { actions: true } },
       "cc3_chart2": { spec: "chart2_exclusion.json", options: { actions: true } },
 
+      
       // CC4
-      "cc4_chart1": { spec: "chart_original_gdp.json", options: { actions: true } },
-      "cc4_chart2": { spec: "chart_improved_gdp.json", options: { actions: true } },
-
+"cc4_chart1": { spec: "commodity_prices_replicated.json", options: { actions: true } },
+"cc4_chart2": { spec: "commodity_prices_improved.json", options: { actions: true } },
       // CC5
       "cc5_chart1": { spec: "chart_worldbank_api.json", options: { actions: true } },
       "cc5_chart2": { spec: "cc5_scraper_life_expectancy.json", options: { actions: true } },
