@@ -4,191 +4,180 @@
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
   <title>Portfolio | Chingkhei Wangjam</title>
   <link rel="stylesheet" href="../index.css">
 
+  <!-- Vega stack -->
   <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 
-  <style> 
-  .hero.hero-centered{
-    text-align:center;
-    margin-left:auto;
-    margin-right:auto;
-  }
+  <style>
+    /* ===== Page-level spacing + hero centering ===== */
+    .portfolio-page .topbar{ margin-bottom: 8px; }
+    .portfolio-page .hero{ padding-top: 22px; padding-bottom: 18px; }
+    .portfolio-page .hero h1{ margin-top: 10px; margin-bottom: 10px; }
+    .portfolio-page .hero p{ margin: 0 auto 0; }
+    .portfolio-page .rule{ margin: 16px 0; }
+    .portfolio-page .brand-accent{ color: inherit; } /* unify brand color */
 
-  .hero.hero-centered .breadcrumb{
-    display:flex;
-    justify-content:center;
-    gap:6px;
-    flex-wrap:wrap;
-  }
+    .hero.hero-centered{
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .hero.hero-centered .breadcrumb{
+      display: flex;
+      justify-content: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .hero.hero-centered p{
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 95ch;
+    }
 
-  .hero.hero-centered p{
-    margin-left:auto;
-    margin-right:auto;
-  }
+    /* ===== CC layout ===== */
+    .cc-stack{
+      display: grid;
+      gap: 20px;
+      margin-top: 8px;
+    }
 
-  .cc-stack{
-    display:grid;
-    gap:22px;
-    margin-top:10px;
-  }
+    .cc-card{
+      background: rgba(255,255,255,0.74);
+      border-radius: 18px;
+      padding: 18px;
+      box-shadow: inset 0 0 0 1px rgba(0,0,0,0.10);
+    }
 
-  .cc-card{
-    background: rgba(255,255,255,0.74);
-    border-radius:18px;
-    padding:18px;
-    box-shadow: inset 0 0 0 1px rgba(0,0,0,0.10);
-    text-align:center;
-  }
+    .cc-head{
+      display: flex;
+      justify-content: center;
+      margin-bottom: 10px;
+      text-align: center;
+    }
 
-  .cc-head{
-    display:flex;
-    justify-content:center;
-    margin-bottom:12px;
-  }
+    .cc-title{
+      margin: 0;
+      font-weight: 600;
+      font-size: 21px;
+      letter-spacing: 0.2px;
+      color: rgba(18,18,18,0.98);
+    }
 
-  .cc-kicker{
-    display:flex;
-    align-items:center;
-    gap:12px;
-  }
+    .cc-summary{
+      margin: 0 auto 14px;
+      max-width: 95ch;
+      text-align: center;
+      color: rgba(18,18,18,0.70);
+      line-height: 1.7;
+      font-size: 14px;
+    }
 
-  .cc-title{
-    font-weight:600;
-    font-size:21px;
-    letter-spacing:0.2px;
-    margin:0;
-    color: rgba(18,18,18,0.98);
-  }
+    .cc-grid{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      align-items: stretch;
+    }
 
-  .cc-summary{
-    margin:0 auto 14px;
-    max-width:95ch;
-    color: rgba(18,18,18,0.70);
-    line-height:1.7;
-    font-size:14px;
-  }
+    /* ===== Viz cards ===== */
+    .viz{
+      background: rgba(255,255,255,0.92);
+      border-radius: 16px;
+      padding: 14px;
+      box-shadow: inset 0 0 0 1px rgba(0,0,0,0.10);
+      overflow: hidden;
 
-  .cc-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:16px;
-  }
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      min-height: 420px; /* keeps both viz cards uniform height */
+    }
 
-  .viz{
-    background: rgba(255,255,255,0.92);
-    border-radius:16px;
-    padding:14px;
-    box-shadow: inset 0 0 0 1px rgba(0,0,0,0.10);
-    overflow:hidden;
-    display:flex;
-    flex-direction:column;
-    text-align:center;
-  }
+    .viz h3{
+      margin: 0 0 10px 0;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.2px;
+      color: rgba(18,18,18,0.85);
+    }
 
-  .viz h3{
-    margin:0 0 10px 0;
-    font-size:14px;
-    font-weight:600;
-    letter-spacing:0.2px;
-    color: rgba(18,18,18,0.85);
-  }
+    .viz p{
+      margin: 8px 0 12px;
+      font-size: 13px;
+      color: rgba(18,18,18,0.66);
+      line-height: 1.65;
+    }
 
-  .viz p{
-    margin:8px 0 14px;
-    font-size:13px;
-    color: rgba(18,18,18,0.66);
-    line-height:1.65;
-  }
+    /* IMPORTANT: Do NOT force svg/canvas width/height with !important.
+       Vega/Vega-Lite relies on explicit sizing; overriding it causes huge charts + huge menu. */
+    .viz figure{
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      flex: 1;
+      min-height: 280px; /* uniform chart area */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-  .viz figure{
-    margin:0;
-    padding:0;
-    width:100%;
-    flex:1;
-    min-height:260px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-  }
-  .viz figure > .vega-embed,
-  .viz figure .vega-embed,
-  .viz figure canvas,
-  .viz figure svg{
-    width:100% !important;
-    height:auto !important;
-  }
+    /* Keep the embed container responsive without touching inner svg/canvas sizing. */
+    .viz figure > .vega-embed{
+      width: 100%;
+      max-width: 100%;
+    }
 
-  .viz .source{
-    margin-top:10px;
-    font-size:12px;
-    line-height:1.5;
-    color: rgba(18,18,18,0.55);
-    border-top:1px solid rgba(0,0,0,0.08);
-    padding-top:10px;
-  }
+    /* Make the Vega "..." menu normal-sized, and prevent global button styles from inflating it */
+    .viz .vega-embed summary,
+    .viz .vega-embed details,
+    .viz .vega-embed .vega-actions,
+    .viz .vega-embed .vega-actions a,
+    .viz .vega-embed .vega-actions button{
+      font: inherit;
+      font-size: 12px;
+      line-height: 1.2;
+    }
+    .viz .vega-embed .vega-actions a,
+    .viz .vega-embed .vega-actions button{
+      padding: 2px 6px;
+      margin: 0;
+      border-radius: 8px;
+    }
 
-  .viz .source strong{ font-weight:600; }
+    .viz .source{
+      margin-top: 10px;
+      font-size: 12px;
+      line-height: 1.5;
+      color: rgba(18,18,18,0.55);
+      border-top: 1px solid rgba(0,0,0,0.08);
+      padding-top: 10px;
+      text-align: left; /* sources read better left-aligned */
+    }
+    .viz .source strong{ font-weight: 600; }
 
-  .copyright{
-    margin-top:26px;
-    padding:18px 0 6px;
-    text-align:center;
-    color: rgba(18,18,18,0.55);
-    font-size:13px;
-  }
+    .copyright{
+      margin-top: 22px;
+      padding: 16px 0 6px;
+      text-align: center;
+      color: rgba(18,18,18,0.55);
+      font-size: 13px;
+    }
 
-  @media (max-width:980px){
-    .cc-grid{ grid-template-columns:1fr; }
-    .viz figure{ min-height:240px; }
-  }
-  .portfolio-page .topbar{ margin-bottom:10px; }
-  .portfolio-page .hero{ padding-top:24px; padding-bottom:22px; }
-  .portfolio-page .rule{ margin:18px 0; }
-  .portfolio-page .brand-accent{ color: inherit; }
-
-
-.viz figure{
-  display: block;
-  width: 100%;
-}
-
-
-.viz .vega-embed{
-  width: 100%;
-}
-
-
-.viz svg,
-.viz canvas{
-  max-width: 100%;
-  height: auto;
-}
-
-.viz .vega-embed .vega-actions,
-.viz .vega-embed details,
-.viz .vega-embed summary{
-  font-family: inherit;
-  font-size: 12px;
-  line-height: 1.2;
-}
-
-.viz .vega-embed .vega-actions a,
-.viz .vega-embed .vega-actions button{
-  padding: 0 !important;
-  margin: 0 !important;
-  border-radius: 0 !important;
-  font-size: 12px !important;
-  line-height: 1.2 !important;
-}
-</style>
-
+    @media (max-width: 980px){
+      .cc-grid{ grid-template-columns: 1fr; }
+      .viz{ min-height: 380px; }
+      .viz figure{ min-height: 250px; }
+    }
+  </style>
 </head>
 
 <body class="portfolio-page">
@@ -231,9 +220,7 @@
       <!-- ===================== CC1 ===================== -->
       <section class="cc-card" id="cc1">
         <div class="cc-head">
-          <div class="cc-kicker">
-            <h2 class="cc-title">CC1:Hosting and Embedding</h2>
-          </div>
+          <h2 class="cc-title">CC1: Hosting and Embedding</h2>
         </div>
 
         <p class="cc-summary">
@@ -260,30 +247,21 @@
       <!-- ===================== CC2 ===================== -->
       <section class="cc-card" id="cc2">
         <div class="cc-head">
-          <div class="cc-kicker">
-        
-            <h2 class="cc-title">CC2:Creating my own visualisations</h2>
-          </div>
+          <h2 class="cc-title">CC2: Creating my own visualisations</h2>
         </div>
 
         <div class="cc-grid">
           <div class="viz">
             <h3>Japan's Deflationary Spiral: CPI changes from 1960 to 2020</h3>
             <figure id="cc2_chart1"></figure>
-            <p>This chart shows Japan's annual inflation rate (CPI) from 1960 to 2020. 
-              The sudden spike exceeding 20% in 1970s reflects the impact of the 1973 
-              oil shock on Japan's heavily import-dependent economy. After this, it 
-              declined sharply and has remained remarkably low since 1990.</p>
+            <p>This chart shows Japan's annual inflation rate (CPI) from 1960 to 2020.</p>
             <p class="source"><strong>Data source:</strong> https://www.economicsobservatory.com/</p>
           </div>
 
           <div class="viz">
             <h3>Japan's GDP Growth Trajectory 1960-2020</h3>
             <figure id="cc2_chart2"></figure>
-            <p>This chart shows Japan's GDP growth rate from 1960 to 2020, revealing
-              high growth during the post war 1960s-70s economic boom, followed by 
-              declining growth rates and a sharp contraction during the 2008 
-              financial crisis, with persistently low growth in recent decades.</p>
+            <p>This chart shows Japan's GDP growth rate from 1960 to 2020.</p>
             <p class="source"><strong>Data source:</strong> https://www.economicsobservatory.com/</p>
           </div>
         </div>
@@ -292,9 +270,7 @@
       <!-- ===================== CC3 ===================== -->
       <section class="cc-card" id="cc3">
         <div class="cc-head">
-          <div class="cc-kicker">
-            <h2 class="cc-title">CC3:Policy Commentary</h2>
-          </div>
+          <h2 class="cc-title">CC3: Policy Commentary</h2>
         </div>
 
         <p class="cc-summary">
@@ -310,16 +286,16 @@
         <div class="cc-grid">
           <div class="viz">
             <h3>Chart 1 — Government's Success Claims</h3>
-            <p>Official data showing 16-fold beneficiary growth and ₹3.48 lakh crore in savings from 2013-2023, demonstrating DBT's claimed efficiency gains.</p>
+            <p>Official data showing beneficiary growth and savings from 2013-2023.</p>
             <figure id="cc3_chart1"></figure>
             <p class="source"><strong>Data source:</strong> DBT Bharat Portal, Ministry of Finance Reports</p>
           </div>
 
           <div class="viz">
             <h3>Chart 2 — The Exclusion Crisis</h3>
-            <p>Research evidence showing 33 lakh Rajasthan families and 2.5 lakh Jharkhand residents monthly denied rations due to authentication failures during 2017.</p>
+            <p>Evidence showing ration denials due to authentication failures during 2017.</p>
             <figure id="cc3_chart2"></figure>
-            <p class="source"><strong>Data source:</strong> State Food Department data, Drèze et al. (2017) research</p>
+            <p class="source"><strong>Data source:</strong> State Food Department data, Drèze et al. (2017)</p>
           </div>
         </div>
       </section>
@@ -327,20 +303,17 @@
       <!-- ===================== CC4 ===================== -->
       <section class="cc-card" id="cc4">
         <div class="cc-head">
-          <div class="cc-kicker">
-  
-            <h2 class="cc-title">CC4:Replicate, Recreate and Improve</h2>
-          </div>
+          <h2 class="cc-title">CC4: Replicate, Recreate and Improve</h2>
         </div>
 
         <p class="cc-summary">
-          Replicating and improving a chart from India's Economic Survey 2023-24, which shows GDP growth trends from FY20-FY25 including COVID-19 impact and recovery.
+          Replicating and improving a chart from India's Economic Survey 2023-24, showing GDP growth trends from FY20-FY25.
         </p>
 
         <div class="cc-grid">
           <div class="viz">
             <h3>Original Chart — Economic Survey 2023-24</h3>
-            <p>Source: Ministry of Finance, Government of India. Basic bar chart showing sustained GDP growth momentum with minimal styling.</p>
+            <p>Source: Ministry of Finance, Government of India.</p>
             <figure>
               <img src="India's sustained momentum in GDP.png" alt="Original GDP growth chart from Economic Survey" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
             </figure>
@@ -349,7 +322,7 @@
 
           <div class="viz">
             <h3>Replicated Chart — Original Style</h3>
-            <p>Vega-Lite replication maintaining government's basic design and color scheme, showing both IMF and RBI forecasts for FY25.</p>
+            <p>Vega-Lite replication maintaining government's basic design and color scheme.</p>
             <figure id="cc4_chart1"></figure>
             <p class="source"><strong>Data source:</strong> Economic Survey 2023-24</p>
           </div>
@@ -358,16 +331,16 @@
         <div class="cc-grid">
           <div class="viz">
             <h3>Improved Chart — Enhanced Design</h3>
-            <p>Enhanced version with color-coded bars, data labels, COVID-19 annotations, and improved visual hierarchy for better insight communication.</p>
+            <p>Enhanced version with annotations and clearer hierarchy.</p>
             <figure id="cc4_chart2"></figure>
             <p class="source"><strong>Data source:</strong> Economic Survey 2023-24</p>
           </div>
 
           <div class="viz">
             <h3>Improvements Made</h3>
-            <div style="background: rgba(22,163,74,0.08); border-radius: 8px; padding: 14px; margin-top: 10px;">
+            <div style="background: rgba(22,163,74,0.08); border-radius: 8px; padding: 14px; margin-top: 10px; text-align:left;">
               <p style="font-size: 13px; line-height: 1.7; color: rgba(18,18,18,0.80); margin: 0;">
-                Added color-coding (red for negative, green for positive, gray for forecasts), data labels on bars, COVID-19 context annotations, improved typography, zero reference line, and clearer visual hierarchy for better readability.
+                Added color-coding, data labels, annotations, improved typography, and clearer hierarchy for readability.
               </p>
             </div>
           </div>
@@ -377,10 +350,7 @@
       <!-- ===================== CC5 ===================== -->
       <section class="cc-card" id="cc5">
         <div class="cc-head">
-          <div class="cc-kicker">
-          
-            <h2 class="cc-title">CC5:Scraper and APIs</h2>
-          </div>
+          <h2 class="cc-title">CC5: Scraper and APIs</h2>
         </div>
 
         <p class="cc-summary">
@@ -390,42 +360,20 @@
         <div class="cc-grid">
           <div class="viz">
             <h3>API Chart — India's GDP Growth</h3>
-            <p>Real-time data from World Bank API showing India's annual GDP growth rate. This chart automatically updates when new data is published.</p>
+            <p>Real-time data from World Bank API showing India's annual GDP growth rate.</p>
             <figure id="cc5_chart1"></figure>
             <p class="source"><strong>Data source:</strong> World Bank Indicators API (live)</p>
           </div>
 
           <div class="viz">
             <h3>API Functional Description</h3>
-            <div style="background: rgba(255,255,255,0.92); border-radius: 8px; padding: 16px; margin-top: 10px;">
+            <div style="background: rgba(255,255,255,0.92); border-radius: 8px; padding: 16px; margin-top: 10px; text-align:left;">
               <p style="margin: 0 0 12px; font-size: 13px; line-height: 1.6; color: rgba(18,18,18,0.75);">
                 This chart uses the <strong>World Bank Indicators API</strong> to retrieve India's GDP growth rate data in real-time.
               </p>
-
-              <div style="margin: 12px 0;">
-                <p style="margin: 0 0 6px; font-size: 12px; font-weight: 600; color: rgba(18,18,18,0.85);">Base URL:</p>
-                <code style="display: block; background: rgba(0,0,0,0.05); padding: 6px 10px; border-radius: 4px; font-size: 11px; overflow-x: auto;">
-                  https://api.worldbank.org/v2/country/{COUNTRY}/indicator/{INDICATOR}
-                </code>
-              </div>
-
-              <div style="margin: 12px 0;">
-                <p style="margin: 0 0 6px; font-size: 12px; font-weight: 600; color: rgba(18,18,18,0.85);">Parameters:</p>
-                <ul style="margin: 0; padding-left: 18px; font-size: 12px; line-height: 1.6;">
-                  <li><strong>COUNTRY</strong>: IND (India)</li>
-                  <li><strong>INDICATOR</strong>: NY.GDP.MKTP.KD.ZG (GDP growth %)</li>
-                  <li><strong>format</strong>: json</li>
-                  <li><strong>per_page</strong>: 30</li>
-                  <li><strong>date</strong>: 1995:2024</li>
-                </ul>
-              </div>
-
-              <div style="margin: 12px 0;">
-                <p style="margin: 0 0 6px; font-size: 12px; font-weight: 600; color: rgba(18,18,18,0.85);">Full URL:</p>
-                <code style="display: block; background: rgba(0,0,0,0.05); padding: 6px 10px; border-radius: 4px; font-size: 10px; overflow-x: auto; word-break: break-all;">
-                  https://api.worldbank.org/v2/country/IND/indicator/NY.GDP.MKTP.KD.ZG?format=json&per_page=30&date=1995:2024
-                </code>
-              </div>
+              <code style="display:block; background: rgba(0,0,0,0.05); padding: 8px 10px; border-radius: 6px; font-size: 11px; overflow-x:auto;">
+https://api.worldbank.org/v2/country/IND/indicator/NY.GDP.MKTP.KD.ZG?format=json&per_page=30&date=1995:2024
+              </code>
             </div>
           </div>
         </div>
@@ -433,21 +381,20 @@
         <div class="cc-grid">
           <div class="viz">
             <h3>Scraper Chart — State HDI Rankings</h3>
-            <p>Data scraped from Wikipedia showing India's state-wise Human Development Index rankings, demonstrating regional development disparities.</p>
+            <p>Data scraped from Wikipedia showing India's state-wise HDI rankings.</p>
             <figure id="cc5_chart2"></figure>
             <p class="source"><strong>Data source:</strong> Wikipedia (web scraped), 2021 estimates</p>
           </div>
 
           <div class="viz">
             <h3>Scraper Details</h3>
-            <div style="background: rgba(255,255,255,0.92); border-radius: 8px; padding: 16px; margin-top: 10px;">
+            <div style="background: rgba(255,255,255,0.92); border-radius: 8px; padding: 16px; margin-top: 10px; text-align:left;">
               <p style="margin: 0 0 12px; font-size: 13px; line-height: 1.6; color: rgba(18,18,18,0.75);">
-                <strong>Commentary:</strong> Scraped Wikipedia's state-wise HDI data using BeautifulSoup, cleaned footnotes and special characters, converted to tidy format. Challenges: multi-level headers and inconsistent formatting.
+                <strong>Commentary:</strong> Scraped Wikipedia using BeautifulSoup, cleaned footnotes/special chars, and converted to tidy format.
               </p>
-
-              <p style="margin: 12px 0 0; font-size: 12px;">
-                <strong>Google Colab Notebook:</strong> 
-                <a href="https://colab.research.google.com/drive/1AcjCtlNT05KpqwQlLWVPBDJr2wtpvp8H#scrollTo=5aiQS--1FINe" target="_blank" style="color: #2563eb; text-decoration: underline;">View Scraper Code →</a>
+              <p style="margin: 0; font-size: 12px;">
+                <strong>Google Colab Notebook:</strong>
+                <a href="https://colab.research.google.com/drive/1AcjCtlNT05KpqwQlLWVPBDJr2wtpvp8H#scrollTo=5aiQS--1FINe" target="_blank" style="text-decoration: underline;">View Scraper Code →</a>
               </p>
             </div>
           </div>
@@ -457,10 +404,7 @@
       <!-- ===================== CC6 ===================== -->
       <section class="cc-card" id="cc6">
         <div class="cc-head">
-          <div class="cc-kicker">
-           
-            <h2 class="cc-title">CC6: Building a Dashboard</h2>
-          </div>
+          <h2 class="cc-title">CC6: Building a Dashboard</h2>
         </div>
 
         <p class="cc-summary">
@@ -468,45 +412,30 @@
         </p>
 
         <div style="background: rgba(255,255,255,0.92); border-radius: 8px; padding: 14px; margin-bottom: 16px;">
-          <p style="margin: 0; font-size: 13px; line-height: 1.6; color: rgba(18,18,18,0.75);">
-            <strong>Data Source:</strong> World Bank Indicators API | 
-            <strong>Download Method:</strong> Python loop (6 indicators) | 
-            <strong>Embed Method:</strong> JavaScript loop | 
-            <a href="https://colab.research.google.com/drive/15pJIxM7WXOIyw-zuYxrAQgNPHaWWgGaW" target="_blank" style="color: #2563eb; text-decoration: underline;">View Colab Notebook →</a>
+          <p style="margin: 0; font-size: 13px; line-height: 1.6; color: rgba(18,18,18,0.75); text-align:center;">
+            <strong>Data Source:</strong> World Bank Indicators API |
+            <strong>Download Method:</strong> Python loop (6 indicators) |
+            <strong>Embed Method:</strong> JavaScript loop |
+            <a href="https://colab.research.google.com/drive/15pJIxM7WXOIyw-zuYxrAQgNPHaWWgGaW" target="_blank" style="text-decoration: underline;">View Colab Notebook →</a>
           </p>
         </div>
 
         <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 18px;">
-          <div class="viz" style="padding: 12px;">
-            <figure id="dashboard_chart_0"></figure>
-          </div>
-          <div class="viz" style="padding: 12px;">
-            <figure id="dashboard_chart_1"></figure>
-          </div>
-          <div class="viz" style="padding: 12px;">
-            <figure id="dashboard_chart_2"></figure>
-          </div>
-          <div class="viz" style="padding: 12px;">
-            <figure id="dashboard_chart_3"></figure>
-          </div>
-          <div class="viz" style="padding: 12px;">
-            <figure id="dashboard_chart_4"></figure>
-          </div>
-          <div class="viz" style="padding: 12px;">
-            <figure id="dashboard_chart_5"></figure>
-          </div>
+          <div class="viz" style="padding: 12px; min-height: 320px;"><figure id="dashboard_chart_0"></figure></div>
+          <div class="viz" style="padding: 12px; min-height: 320px;"><figure id="dashboard_chart_1"></figure></div>
+          <div class="viz" style="padding: 12px; min-height: 320px;"><figure id="dashboard_chart_2"></figure></div>
+          <div class="viz" style="padding: 12px; min-height: 320px;"><figure id="dashboard_chart_3"></figure></div>
+          <div class="viz" style="padding: 12px; min-height: 320px;"><figure id="dashboard_chart_4"></figure></div>
+          <div class="viz" style="padding: 12px; min-height: 320px;"><figure id="dashboard_chart_5"></figure></div>
         </div>
 
-        <p class="source" style="margin-top: 16px;"><strong>Data source:</strong> World Bank Indicators API, 2000-2024 time series data</p>
+        <p class="source" style="margin-top: 16px; text-align:left;"><strong>Data source:</strong> World Bank Indicators API, 2000-2024 time series data</p>
       </section>
 
       <!-- ===================== CC7 ===================== -->
       <section class="cc-card" id="cc7">
         <div class="cc-head">
-          <div class="cc-kicker">
-  
-            <h2 class="cc-title">CC7:Base maps and Choropleths</h2>
-          </div>
+          <h2 class="cc-title">CC7: Base maps and Choropleths</h2>
         </div>
 
         <p class="cc-summary">
@@ -516,59 +445,43 @@
         <div class="cc-grid">
           <div class="viz">
             <h3>Map 1 — Scotland: Universities (Coordinates)</h3>
-            <p>Layered map showing Scotland's universities as coordinate points. Circle size represents student enrollment, color distinguishes Ancient universities (purple) from Modern institutions (blue).</p>
+            <p>Circle size represents student enrollment; color distinguishes Ancient vs Modern institutions.</p>
             <figure id="cc7_chart1"></figure>
             <p class="source"><strong>Data source:</strong> Scotland TopoJSON boundaries, HESA university enrollment data</p>
           </div>
 
           <div class="viz">
             <h3>Map 2 — Wales: Wages Choropleth</h3>
-            <p>Choropleth map displaying 2024 weekly wages across Welsh Local Authority Districts using color intensity to show regional economic variation.</p>
+            <p>Choropleth map displaying 2024 weekly wages across Welsh Local Authority Districts.</p>
             <figure id="cc7_chart2"></figure>
-            <p class="source"><strong>Data source:</strong> Wales LAD boundaries (TopoJSON), ONS Annual Survey of Hours and Earnings 2024</p>
+            <p class="source"><strong>Data source:</strong> Wales LAD boundaries (TopoJSON), ONS ASHE 2024</p>
           </div>
-        </div>
-
-        <div style="background: rgba(255,255,255,0.92); border-radius: 8px; padding: 14px; margin-top: 16px;">
-          <p style="margin: 0; font-size: 13px; line-height: 1.6; color: rgba(18,18,18,0.75);">
-            <strong>Techniques demonstrated:</strong> The Scotland map uses coordinate encoding (longitude/latitude) with layered geoshapes and points, visualizing Scotland's 4 Ancient universities and 11 Modern institutions. The Wales map uses a lookup transform to join geographic boundaries with wage data, creating a choropleth visualization with color-coded regions.
-          </p>
         </div>
       </section>
 
       <!-- ===================== CC8 ===================== -->
       <section class="cc-card" id="cc8">
         <div class="cc-head">
-          <div class="cc-kicker">
-          
-            <h2 class="cc-title">CC8:Big Data</h2>
-          </div>
+          <h2 class="cc-title">CC8: Big Data</h2>
         </div>
 
         <p class="cc-summary">
-          Extracting insights from millions of UK price observations in the Long Run Prices Database (LRPD), demonstrating data aggregation techniques to visualize inflation and regional price variation.
+          Extracting insights from millions of UK price observations in the Long Run Prices Database (LRPD).
         </p>
-
-        <div style="background: rgba(255,255,255,0.92); border-radius: 8px; padding: 14px; margin-bottom: 16px;">
-          <p style="margin: 0; font-size: 13px; line-height: 1.6; color: rgba(18,18,18,0.75);">
-            <strong>What we did (50 words):</strong> Analyzed LRPD microdata containing millions of UK price observations. Chart 1 aggregates daily prices for four essential foods into monthly medians (2015-2024), revealing inflation patterns. Chart 2 examines regional beer price variation by aggregating to yearly medians across UK regions, demonstrating geographic price disparities. | 
-            <a href="https://colab.research.google.com/drive/1jEaM-d92CCTri8ApQ5vapoY5cb2pPruf" target="_blank" style="color: #2563eb; text-decoration: underline;">View Notebook →</a>
-          </p>
-        </div>
 
         <div class="cc-grid">
           <div class="viz">
             <h3>Chart 1 — Essential Food Price Inflation</h3>
-            <p>Monthly median prices for four staple foods (bread, milk, eggs, butter) from 2015-2024, aggregated from millions of daily price observations. Shows sharp inflation acceleration from 2021 onwards.</p>
+            <p>Monthly median prices for staple foods (2015-2024).</p>
             <figure id="cc8_chart1"></figure>
-            <p class="source"><strong>Data source:</strong> LRPD (Davies 2021), millions of observations aggregated to monthly medians</p>
+            <p class="source"><strong>Data source:</strong> LRPD (Davies 2021)</p>
           </div>
 
           <div class="viz">
             <h3>Chart 2 — Regional Beer Price Variation</h3>
-            <p>Median price of a pint of lager across UK regions (2020-2024), revealing persistent geographic price disparities with London consistently highest.</p>
+            <p>Median price of a pint of lager across UK regions (2020-2024).</p>
             <figure id="cc8_chart2"></figure>
-            <p class="source"><strong>Data source:</strong> LRPD microdata, aggregated by region and year</p>
+            <p class="source"><strong>Data source:</strong> LRPD microdata</p>
           </div>
         </div>
       </section>
@@ -576,137 +489,123 @@
       <!-- ===================== CC9 ===================== -->
       <section class="cc-card" id="cc9">
         <div class="cc-head">
-          <div class="cc-kicker">
-    
-            <h2 class="cc-title">CC9:Advanced Analytics using Interactive Charts</h2>
-          </div>
+          <h2 class="cc-title">CC9: Advanced Analytics using Interactive Charts</h2>
         </div>
 
         <p class="cc-summary">
-          Two interactive visuals using PMKVY State/UT data: (1) an India choropleth that switches between Skilled, Placed, and Placement rate with a year slider; (2) a quadrant scatter of Skilled vs Placement rate with brush selection to compare selected States/UTs against national medians.
+          Two interactive visuals using PMKVY State/UT data: choropleth + quadrant scatter with brush selection.
         </p>
 
         <div class="cc-grid">
           <div class="viz">
-            <h3>Chart 1 — India choropleth (slider + clickable metric)</h3>
-            <p>
-              Choropleth map of India showing PMKVY performance by State/UT. Use the slider to change year and the clickable metric selector to switch between Skilled, Placed, and Placement rate (Placed data is available through FY20-21 and FY21-22).
-            </p>
+            <h3>Chart 1 — India choropleth (slider + metric)</h3>
+            <p>Use the slider to change year and switch between Skilled, Placed, and Placement rate.</p>
             <figure id="cc9_chart1"></figure>
-            <p class="source">
-              <strong>Data source:</strong> PIB (MSDE) Annexure I (Skilled, FY20-21 to FY24-25) and Annexure II (Placed, tracked through FY21-22).
-            </p>
+            <p class="source"><strong>Data source:</strong> PIB (MSDE) Annexure I & II</p>
           </div>
 
           <div class="viz">
-            <h3>Chart 2 — Quadrant scatter: Skilled vs Placement rate (brush selection)</h3>
-            <p>
-              Scatter plot of all States/UTs comparing candidates skilled with placement rate. Use the year dropdown and brush selection; median reference lines form quadrants to identify high-skill/high-placement vs low-skill/low-placement performers.
-            </p>
+            <h3>Chart 2 — Quadrant scatter (brush selection)</h3>
+            <p>Compare Skilled vs Placement rate; medians form quadrants.</p>
             <figure id="cc9_chart2"></figure>
-            <p class="source">
-              <strong>Data source:</strong> PIB (MSDE) Annexure I (Skilled) and Annexure II (Placed). Placement rate computed as placed ÷ skilled.
-            </p>
+            <p class="source"><strong>Data source:</strong> PIB (MSDE) Annexure I & II</p>
           </div>
         </div>
       </section>
 
       <!-- ===================== CC10 ===================== -->
-<section class="cc-card" id="cc10">
-  <div class="cc-head">
-    <div class="cc-kicker">
+      <section class="cc-card" id="cc10">
+        <div class="cc-head">
+          <h2 class="cc-title">CC10: Machine Learning</h2>
+        </div>
 
-      <h2 class="cc-title">CC10:Machine Learning</h2>
-    </div>
-  </div>
+        <p class="cc-summary">
+          Two interactive charts using PMKVY data: Difference-in-Differences comparison and a simple predictive model summary visual.
+        </p>
 
-  <p class="cc-summary">
-    Two interactive charts using PMKVY data: (1) Difference-in-Differences comparison across two states; (2) a simple predictive model summary visual.
-  </p>
+        <div class="cc-grid">
+          <div class="viz">
+            <h3>Chart 1 — Difference-in-Differences (interactive)</h3>
+            <p>Interactive DiD chart comparing placement outcomes across two states over time.</p>
+            <figure id="cc10_chart1"></figure>
+            <p class="source"><strong>Data source:</strong> PIB (MSDE) PMKVY tables.</p>
+          </div>
 
-  <div class="cc-grid">
-    <div class="viz">
-      <h3>Chart 1 — Difference-in-Differences (interactive)</h3>
-      <p>Interactive DiD chart comparing placement outcomes across two states over time.</p>
-      <figure id="cc10_chart1"></figure>
-      <p class="source"><strong>Data source:</strong> PIB (MSDE) PMKVY tables.</p>
-    </div>
-
-    <div class="viz">
-      <h3>Chart 2 — ML model diagnostic / feature importance</h3>
-      <p>Model output chart (e.g., predicted vs actual, or feature importance).</p>
-      <figure id="cc10_chart2"></figure>
-      <p class="source"><strong>Data source:</strong> PIB (MSDE) PMKVY tables + your derived features.</p>
-    </div>
-  </div>
-</section>
+          <div class="viz">
+            <h3>Chart 2 — ML model diagnostic / feature importance</h3>
+            <p>Model output chart (e.g., predicted vs actual, or feature importance).</p>
+            <figure id="cc10_chart2"></figure>
+            <p class="source"><strong>Data source:</strong> PIB (MSDE) PMKVY tables + derived features.</p>
+          </div>
+        </div>
+      </section>
 
     </section>
 
     <div class="copyright">© Chingkhei Wangjam</div>
   </main>
 
-<script>
-  const CHARTS = {
-    // CC1
-    "cc1_chart1": { spec: "CC1 Chart 1.json", options: { actions: true } },
-    "cc1_chart2": { spec: "CC1 Chart 2.json", options: { actions: true } },
+  <script>
+    const CHARTS = {
+      // CC1
+      "cc1_chart1": { spec: "CC1 Chart 1.json", options: { actions: true } },
+      "cc1_chart2": { spec: "CC1 Chart 2.json", options: { actions: true } },
 
-    // CC2
-    "cc2_chart1": { spec: "CC2 Inflation Trends in Japan.json", options: { actions: true } },
-    "cc2_chart2": { spec: "CC2 Growth rate Japan.json", options: { actions: true } },
+      // CC2
+      "cc2_chart1": { spec: "CC2 Inflation Trends in Japan.json", options: { actions: true } },
+      "cc2_chart2": { spec: "CC2 Growth rate Japan.json", options: { actions: true } },
 
-    // CC3
-    "cc3_chart1": { spec: "chart1_dbt_success.json", options: { actions: true } },
-    "cc3_chart2": { spec: "chart2_exclusion.json", options: { actions: true } },
+      // CC3
+      "cc3_chart1": { spec: "chart1_dbt_success.json", options: { actions: true } },
+      "cc3_chart2": { spec: "chart2_exclusion.json", options: { actions: true } },
 
-    // CC4
-    "cc4_chart1": { spec: "chart_original_gdp.json", options: { actions: true } },
-    "cc4_chart2": { spec: "chart_improved_gdp.json", options: { actions: true } },
+      // CC4
+      "cc4_chart1": { spec: "chart_original_gdp.json", options: { actions: true } },
+      "cc4_chart2": { spec: "chart_improved_gdp.json", options: { actions: true } },
 
-    // CC5
-    "cc5_chart1": { spec: "chart_worldbank_api.json", options: { actions: true } },
-    "cc5_chart2": { spec: "chart_scraped_hdi.json", options: { actions: true } },
+      // CC5
+      "cc5_chart1": { spec: "chart_worldbank_api.json", options: { actions: true } },
+      "cc5_chart2": { spec: "chart_scraped_hdi.json", options: { actions: true } },
 
-    // CC7
-    "cc7_chart1": { spec: "cc7_scotland_universities.json", options: { actions: true } },
-    "cc7_chart2": { spec: "cc7_wales_wages.json", options: { actions: true } },
+      // CC7
+      "cc7_chart1": { spec: "cc7_scotland_universities.json", options: { actions: true } },
+      "cc7_chart2": { spec: "cc7_wales_wages.json", options: { actions: true } },
 
-    // CC8
-    "cc8_chart1": { spec: "cc8_food_prices.json", options: { actions: true } },
-    "cc8_chart2": { spec: "cc8_beer_regional.json", options: { actions: true } },
+      // CC8
+      "cc8_chart1": { spec: "cc8_food_prices.json", options: { actions: true } },
+      "cc8_chart2": { spec: "cc8_beer_regional.json", options: { actions: true } },
 
-    // CC9
-    "cc9_chart1": { spec: "cc9_india_pmkvy_choropleth_v2.json", options: { actions: true } },
-    "cc9_chart2": { spec: "cc9_scatter_quadrant_clean.json", options: { actions: true } },
+      // CC9
+      "cc9_chart1": { spec: "cc9_india_pmkvy_choropleth_v2.json", options: { actions: true } },
+      "cc9_chart2": { spec: "cc9_scatter_quadrant_clean.json", options: { actions: true } },
 
-    // CC10
-    "cc10_chart1": { spec: "chart1_did_interactive.json", options: { actions: true } },
-    "cc10_chart2": { spec: "chart2_ml_interactive.json", options: { actions: true } }
-  };
+      // CC10
+      "cc10_chart1": { spec: "chart1_did_interactive.json", options: { actions: true } },
+      "cc10_chart2": { spec: "chart2_ml_interactive.json", options: { actions: true } }
+    };
 
-  for (const [id, cfg] of Object.entries(CHARTS)) {
-    vegaEmbed(`#${id}`, cfg.spec, cfg.options).catch(err => {
-      console.error(`❌ ${id} failed:`, err);
+    for (const [id, cfg] of Object.entries(CHARTS)) {
+      vegaEmbed(`#${id}`, cfg.spec, cfg.options).catch(err => {
+        console.error(`❌ ${id} failed:`, err);
+      });
+    }
+
+    // CC6 Dashboard loop
+    const dashboardCharts = [
+      "dashboard_gdp.json",
+      "dashboard_inflation.json",
+      "dashboard_unemployment.json",
+      "dashboard_exports.json",
+      "dashboard_fdi.json",
+      "dashboard_govt_exp.json"
+    ];
+
+    dashboardCharts.forEach((spec, index) => {
+      vegaEmbed(`#dashboard_chart_${index}`, spec, { actions: false })
+        .catch(err => console.error(`❌ Dashboard chart ${index + 1} failed:`, err));
     });
-  }
 
-  // CC6 Dashboard loop
-  const dashboardCharts = [
-    "dashboard_gdp.json",
-    "dashboard_inflation.json",
-    "dashboard_unemployment.json",
-    "dashboard_exports.json",
-    "dashboard_fdi.json",
-    "dashboard_govt_exp.json"
-  ];
-
-  dashboardCharts.forEach((spec, index) => {
-    vegaEmbed(`#dashboard_chart_${index}`, spec, { actions: false })
-      .catch(err => console.error(`❌ Dashboard chart ${index+1} failed:`, err));
-  });
-
-  console.log("✅ Portfolio embeds triggered");
-</script>
+    console.log("✅ Portfolio embeds triggered");
+  </script>
 </body>
 </html>
