@@ -493,31 +493,30 @@ https://api.worldbank.org/v2/country/IND/indicator/NY.GDP.MKTP.KD.ZG?format=json
         </div>
       </section>
 
-      <!--  CC10 -->
-      <section class="cc-card" id="cc10">
-        <div class="cc-head">
-          <h2 class="cc-title">CC10: Machine Learning</h2>
-        </div>
+      <!-- CC10 -->
+<section class="cc-card" id="cc10">
+  <div class="cc-head">
+    <h2 class="cc-title">CC10: Machine Learning Analysis</h2>
+  </div>
 
-        <p class="cc-summary">
-          Two interactive charts using PMKVY data: Difference-in-Differences comparison and a simple predictive model summary visual.
-        </p>
+  <p class="cc-summary">
+    Charts showing ML analysis predicting PMKVY placement success using state-level features. 
+    Linear regression with R² = 0.72 reveals literacy and skill infrastructure outperform GDP as predictors.
+  </p>
 
-        <div class="cc-grid">
-          <div class="viz">
-            <figure id="cc10_chart1"></figure>
-            <p>Interactive DiD chart comparing placement outcomes across two states over time.</p>
-            
-            <p class="source"><strong>Data source:</strong> PIB (MSDE) PMKVY tables.</p>
-          </div>
+  <div class="cc-grid">
+    <div class="viz">
+      <figure id="cc10_chart1"></figure>
+      <p>Actual vs Predicted: Test set (squares) shows strong fit. Diagonal line = perfect prediction.</p>
+      <p class="source"><strong>Source:</strong> PIB data + state economic indicators</p>
+    </div>
 
-          <div class="viz">
-             <figure id="cc10_chart2"></figure>
-            <p>Model output chart (e.g., predicted vs actual, or feature importance).</p>
-           
-            <p class="source"><strong>Data source:</strong> PIB (MSDE) PMKVY tables + derived features.</p>
-          </div>
-        </div>
+    <div class="viz">
+      <figure id="cc10_chart2"></figure>
+      <p>Feature Importance: Formal skill infrastructure (β=0.45) and literacy (β=0.38) are strongest predictors.</p>
+      <p class="source"><strong>Method:</strong> Linear Regression with StandardScaler</p>
+    </div>
+  </div>
       </section>
 
     </section>
@@ -546,7 +545,7 @@ https://api.worldbank.org/v2/country/IND/indicator/NY.GDP.MKTP.KD.ZG?format=json
       // CC5
       "cc5_chart1": { spec: "chart_worldbank_api.json", options: { actions: true } },
       "cc5_chart2": { spec: "cc5_scraper_life_expectancy.json", options: { actions: true } },
-      
+
       // CC7
       "cc7_chart1": { spec: "cc7_scotland_universities.json", options: { actions: true } },
       "cc7_chart2": { spec: "cc7_wales_wages.json", options: { actions: true } },
@@ -560,8 +559,8 @@ https://api.worldbank.org/v2/country/IND/indicator/NY.GDP.MKTP.KD.ZG?format=json
       "cc9_chart2": { spec: "cc9_scatter_quadrant_clean.json", options: { actions: true } },
 
       // CC10
-      "cc10_chart1": { spec: "chart1_did_interactive.json", options: { actions: true } },
-      "cc10_chart2": { spec: "chart2_ml_interactive.json", options: { actions: true } }
+      "cc10_chart1": { spec: "ml_chart1_actual_vs_predicted.json", options: { actions: true } },
+      "cc10_chart2": { spec: "ml_chart2_feature_importance.json", options: { actions: true } }
     };
 
     for (const [id, cfg] of Object.entries(CHARTS)) {

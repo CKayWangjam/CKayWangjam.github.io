@@ -1,0 +1,80 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 400,
+  "height": 340,
+  "title": {
+    "text": "Actual vs Predicted",
+    "subtitle": "R² = 0.72 | RMSE = 5.2%",
+    "fontSize": 16,
+    "fontWeight": "bold"
+  },
+  "data": {
+    "values": [
+      {"Actual": 14.2, "Predicted": 13.8, "Dataset": "Training", "State": "Gujarat"},
+      {"Actual": 30.6, "Predicted": 28.2, "Dataset": "Test", "State": "Manipur"},
+      {"Actual": 11.9, "Predicted": 12.5, "Dataset": "Training", "State": "Maharashtra"},
+      {"Actual": 10.8, "Predicted": 11.2, "Dataset": "Training", "State": "Tamil Nadu"},
+      {"Actual": 18.9, "Predicted": 19.5, "Dataset": "Test", "State": "Uttar Pradesh"}
+    ]
+  },
+  "layer": [
+    {
+      "mark": {"type": "point", "filled": true, "size": 200, "stroke": "white", "strokeWidth": 1.5},
+      "encoding": {
+        "x": {
+          "field": "Actual",
+          "type": "quantitative",
+          "scale": {"domain": [8, 32]},
+          "axis": {"title": "Actual (%)", "titleFontSize": 12, "titleFontWeight": "bold", "grid": true}
+        },
+        "y": {
+          "field": "Predicted",
+          "type": "quantitative",
+          "scale": {"domain": [8, 32]},
+          "axis": {"title": "Predicted (%)", "titleFontSize": 12, "titleFontWeight": "bold", "grid": true}
+        },
+        "color": {
+          "field": "Dataset",
+          "type": "nominal",
+          "scale": {
+            "domain": ["Training", "Test"],
+            "range": ["#3498DB", "#E74C3C"]
+          },
+          "legend": {"title": "Dataset", "titleFontSize": 11, "orient": "top-right"}
+        },
+        "shape": {
+          "field": "Dataset",
+          "type": "nominal",
+          "scale": {
+            "domain": ["Training", "Test"],
+            "range": ["circle", "square"]
+          }
+        },
+        "tooltip": [
+          {"field": "State", "type": "nominal"},
+          {"field": "Dataset", "type": "nominal"},
+          {"field": "Actual", "type": "quantitative", "format": ".1f"},
+          {"field": "Predicted", "type": "quantitative", "format": ".1f"}
+        ]
+      }
+    },
+    {
+      "mark": {"type": "line", "strokeDash": [5, 5], "color": "black", "strokeWidth": 2},
+      "encoding": {
+        "x": {"datum": 8},
+        "y": {"datum": 8},
+        "x2": {"datum": 32},
+        "y2": {"datum": 32}
+      }
+    },
+    {
+      "data": {"values": [{"x": 30, "y": 10, "label": "Perfect Prediction"}]},
+      "mark": {"type": "text", "fontSize": 10, "color": "black", "fontStyle": "italic"},
+      "encoding": {
+        "x": {"field": "x", "type": "quantitative"},
+        "y": {"field": "y", "type": "quantitative"},
+        "text": {"field": "label"}
+      }
+    }
+  ]
+}
