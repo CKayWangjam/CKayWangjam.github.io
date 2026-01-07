@@ -15,315 +15,124 @@
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 
   <style>
-  /* Portfolio-specific styles */
   .cc-stack{
-    display: grid;
-    gap: 26px;
-    margin-top: 18px;
+    display:grid;
+    gap:26px;
+    margin-top:18px;
   }
 
   .cc-card{
     background: rgba(255,255,255,0.74);
     border-radius: 18px;
-    padding: 18px 18px;
+    padding: 18px;
     box-shadow: inset 0 0 0 1px rgba(0,0,0,0.10);
   }
 
   .cc-head{
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    gap: 14px;
-    flex-wrap: wrap;
-    margin-bottom: 14px;
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    gap:14px;
+    flex-wrap:wrap;
+    margin-bottom:14px;
   }
 
   .cc-kicker{
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
   }
 
   .cc-pill{
-    font-family: "Poppins", sans-serif;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    height: 28px;
-    padding: 0 12px;
-    border-radius: 999px;
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.9px;
-    text-transform: uppercase;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    height:28px;
+    padding:0 12px;
+    border-radius:999px;
+    font-size:12px;
+    font-weight:600;
+    letter-spacing:0.9px;
+    text-transform:uppercase;
     background: rgba(0,0,0,0.06);
     box-shadow: inset 0 0 0 1px rgba(0,0,0,0.10);
     color: rgba(18,18,18,0.88);
-    white-space: nowrap;
+    white-space:nowrap;
   }
 
   .cc-title{
-    font-family: "Poppins", sans-serif;
-    font-weight: 600;
-    font-size: 24px;
-    letter-spacing: 0.3px;
-    margin: 0;
+    font-weight:600;
+    font-size:24px;
+    letter-spacing:0.3px;
+    margin:0;
     color: rgba(18,18,18,0.98);
   }
 
   .cc-summary{
-    font-family: "Poppins", sans-serif;
-    margin: 0 0 14px;
-    max-width: 95ch;
+    margin:0 0 14px;
+    max-width:95ch;
     color: rgba(18,18,18,0.70);
-    line-height: 1.7;
-    font-size: 14px;
-    font-weight: 400;
+    line-height:1.7;
+    font-size:14px;
   }
 
   .cc-grid{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:16px;
   }
 
   .viz{
     background: rgba(255,255,255,0.92);
     border-radius: 16px;
-    padding: 14px 14px 14px;
+    padding: 14px;
     box-shadow: inset 0 0 0 1px rgba(0,0,0,0.10);
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
+    overflow:hidden;
+    display:flex;
+    flex-direction:column;
   }
 
   .viz h3{
-    font-family: "Poppins", sans-serif;
-    margin: 0 0 12px 0;
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: 0.3px;
-    text-transform: none;
+    margin:0 0 12px 0;
+    font-size:14px;
+    font-weight:600;
+    letter-spacing:0.2px;
     color: rgba(18,18,18,0.85);
   }
 
   .viz p{
-    font-family: "Poppins", sans-serif;
-    margin: 8px 0 16px;
-    font-size: 13px;
-    font-weight: 400;
+    margin:8px 0 16px;
+    font-size:13px;
     color: rgba(18,18,18,0.66);
-    line-height: 1.65;
+    line-height:1.65;
   }
 
   .viz figure{
-    margin: 0;
-    padding: 0;
-    background: transparent;
-    box-shadow: none;
-    border-radius: 0;
+    margin:0;
+    padding:0;
   }
 
   .viz .source{
-    font-family: "Poppins", sans-serif;
-    margin-top: 10px;
-    font-size: 12px;
-    font-weight: 400;
-    line-height: 1.5;
+    margin-top:10px;
+    font-size:12px;
+    line-height:1.5;
     color: rgba(18,18,18,0.55);
-    border-top: 1px solid rgba(0,0,0,0.08);
-    padding-top: 10px;
+    border-top:1px solid rgba(0,0,0,0.08);
+    padding-top:10px;
   }
 
-  .viz .source strong{
-    font-weight: 600;
-    color: rgba(18,18,18,0.65);
-  }
+  .viz .source strong{ font-weight:600; }
 
   .copyright{
-    font-family: "Poppins", sans-serif;
-    margin-top: 26px;
-    padding: 18px 0 6px;
-    text-align: center;
+    margin-top:26px;
+    padding:18px 0 6px;
+    text-align:center;
     color: rgba(18,18,18,0.55);
-    font-size: 13px;
-    font-weight: 400;
-  }
-
-  .hero p {
-    margin-bottom: 1.5rem;
-  }
-
-  /* Week 10 Specific Styles */
-  .hypothesis-box, .finding-box {
-    padding: 20px;
-    margin: 18px 0;
-    border-radius: 10px;
-  }
-
-  .hypothesis-box {
-    background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
-    border-left: 6px solid #2196f3;
-  }
-
-  .finding-box {
-    background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
-    border-left: 6px solid #9c27b0;
-  }
-
-  .box-label {
-    font-family: "Poppins", sans-serif;
-    margin: 0 0 8px;
-    font-weight: 700;
-    font-size: 12px;
-    text-transform: uppercase;
-    letter-spacing: 0.8px;
-  }
-
-  .hypothesis-box .box-label {
-    color: #1565c0;
-  }
-
-  .finding-box .box-label {
-    color: #6a1b9a;
-  }
-
-  .hypothesis-text, .finding-text {
-    font-family: "Poppins", sans-serif;
-    font-size: 15px;
-    font-weight: 400;
-    line-height: 1.75;
-    font-style: italic;
-    margin: 0;
-    color: rgba(18,18,18,0.88);
-  }
-
-  .colab-link-section {
-    text-align: center;
-    margin: 40px 0;
-    padding: 32px;
-    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-    border-radius: 16px;
-  }
-
-  .colab-link-section h4 {
-    font-family: "Poppins", sans-serif;
-    color: #1a237e;
-    font-size: 20px;
-    font-weight: 700;
-    margin-bottom: 12px;
-    letter-spacing: 0.2px;
-  }
-
-  .colab-link-section p {
-    font-family: "Poppins", sans-serif;
-    font-weight: 400;
-  }
-
-  .colab-button {
-    font-family: "Poppins", sans-serif;
-    display: inline-block;
-    padding: 14px 32px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    text-decoration: none;
-    border-radius: 30px;
-    font-weight: 700;
-    font-size: 16px;
-    letter-spacing: 0.3px;
-    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
-    transition: all 0.3s ease;
-  }
-
-  .colab-button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
-  }
-
-  .project-connection-box {
-    background: linear-gradient(135deg, #fff9e6 0%, #ffe8a1 100%);
-    padding: 28px;
-    border-left: 6px solid #ffc107;
-    border-radius: 12px;
-    margin: 32px 0;
-  }
-
-  .project-connection-box h4 {
-    font-family: "Poppins", sans-serif;
-    color: #f57f17;
-    font-size: 19px;
-    font-weight: 700;
-    margin-top: 0;
-    margin-bottom: 14px;
-    letter-spacing: 0.2px;
-  }
-
-  .project-connection-box p {
-    font-family: "Poppins", sans-serif;
-    font-weight: 400;
-  }
-
-  .project-connection-box ul {
-    list-style: none;
-    padding-left: 0;
-    font-size: 14px;
-    line-height: 1.75;
-  }
-
-  .project-connection-box li {
-    font-family: "Poppins", sans-serif;
-    font-weight: 400;
-    margin: 12px 0;
-    padding-left: 24px;
-    position: relative;
-  }
-
-  .project-connection-box li::before {
-    content: "✓";
-    position: absolute;
-    left: 0;
-    color: #f57f17;
-    font-weight: bold;
-    font-size: 18px;
-  }
-
-  .project-connection-box strong {
-    font-weight: 600;
-  }
-
-  .data-citation-box {
-    background: #fafafa;
-    padding: 20px;
-    border-radius: 10px;
-    margin: 28px 0;
-    font-size: 12px;
-    color: #666;
-    border: 1px solid #e0e0e0;
-  }
-
-  .data-citation-box p {
-    font-family: "Poppins", sans-serif;
-    font-weight: 400;
-  }
-
-  .data-citation-box strong {
-    font-weight: 600;
-  }
-
-  .data-citation-box a {
-    color: #1976d2;
-    text-decoration: none;
-    border-bottom: 1px dotted #1976d2;
-    font-weight: 500;
-  }
-
-  .data-citation-box a:hover {
-    color: #0d47a1;
-    border-bottom: 1px solid #0d47a1;
+    font-size:13px;
   }
 
   @media (max-width: 980px){
-    .cc-grid{ grid-template-columns: 1fr; }
+    .cc-grid{ grid-template-columns:1fr; }
   }
 </style>
 </head>
@@ -751,199 +560,101 @@
       </section>
 
       <!-- ===================== CC10 ===================== -->
-      <section class="cc-card" id="cc10">
-        <div class="cc-head">
-          <div class="cc-kicker">
-            <span class="cc-pill">CC10</span>
-            <h2 class="cc-title">Advanced Analysis & Machine Learning</h2>
-          </div>
-        </div>
+<section class="cc-card" id="cc10">
+  <div class="cc-head">
+    <div class="cc-kicker">
+      <span class="cc-pill">CC10</span>
+      <h2 class="cc-title">Machine Learning</h2>
+    </div>
+  </div>
 
-        <p class="cc-summary">
-          Analyzing PMKVY placement outcomes using real government data from PIB (December 2025). 
-          Employs Difference-in-Differences methodology and supervised learning to test state-level 
-          variation in skill program effectiveness, directly supporting my Skill India Mission policy research.
-        </p>
+  <p class="cc-summary">
+    Two interactive charts using PMKVY data: (1) Difference-in-Differences comparison across two states; (2) a simple predictive model summary visual.
+  </p>
 
-        <!-- DiD Chart -->
-        <div class="viz" style="grid-column: 1 / -1; margin-top: 20px;">
-          <h3>📊 Advanced Analytics: Difference-in-Differences Analysis</h3>
-          
-          <div class="hypothesis-box">
-            <p class="box-label">💭 Research Hypothesis (25 words):</p>
-            <p class="hypothesis-text">
-              Advanced industrial states like Gujarat show better placement resilience than peripheral 
-              states like Manipur during PMKVY phase transitions and policy changes.
-            </p>
-          </div>
+  <div class="cc-grid">
+    <div class="viz">
+      <h3>Chart 1 — Difference-in-Differences (interactive)</h3>
+      <p>Interactive DiD chart comparing placement outcomes across two states over time.</p>
+      <figure id="cc10_chart1"></figure>
+      <p class="source"><strong>Data source:</strong> PIB (MSDE) PMKVY tables.</p>
+    </div>
 
-          <figure id="vis_did" style="margin: 25px 0;"></figure>
-
-          <div class="finding-box">
-            <p class="box-label">✨ Empirical Finding (25 words):</p>
-            <p class="finding-text">
-              Advanced Gujarat saw severe placement collapse (22.5% to 5.9%), while peripheral 
-              Manipur improved (13.5% to 47.7%), contradicting infrastructure advantage hypothesis completely.
-            </p>
-          </div>
-
-          <p class="source">
-            <strong>📅 Data Source:</strong> PIB Press Release PRID 2204132 (Dec 15, 2025) | 
-            <strong>📐 Method:</strong> Difference-in-Differences | 
-            <strong>📊 DiD Effect:</strong> -50.8 percentage points | 
-            <a href="https://www.pib.gov.in/PressReleasePage.aspx?PRID=2204132" target="_blank">View Official Data →</a>
-          </p>
-        </div>
-
-        <!-- ML Chart -->
-        <div class="viz" style="grid-column: 1 / -1; margin-top: 20px;">
-          <h3>🤖 Machine Learning: Predicting Placement Success Rates</h3>
-          
-          <div class="hypothesis-box">
-            <p class="box-label">💭 Research Hypothesis (25 words):</p>
-            <p class="hypothesis-text">
-              State economic and educational indicators including GDP per capita, literacy, 
-              and industrial base predict average PMKVY placement rates across Indian states.
-            </p>
-          </div>
-
-          <figure id="vis_ml" style="margin: 25px 0;"></figure>
-
-          <div class="finding-box">
-            <p class="box-label">✨ Empirical Finding (25 words):</p>
-            <p class="finding-text">
-              Formal skill infrastructure and literacy predict placement better than GDP; 
-              surprisingly, youth unemployment shows negative correlation with placement outcomes unexpectedly.
-            </p>
-          </div>
-
-          <p class="source">
-            <strong>🤖 Algorithm:</strong> Supervised Learning - Linear Regression (scikit-learn) | 
-            <strong>📊 Model:</strong> X matrix (5×5), y vector (5×1) | 
-            <strong>📈 Performance:</strong> R² = 0.72, RMSE = 5.2% | 
-            <strong>🔍 Features:</strong> Literacy, GDP per capita, industrial share, unemployment, formal skill rate
-          </p>
-        </div>
-
-        <div class="colab-link-section">
-          <h4>📓 Complete Analysis & Python Code</h4>
-          <p style="color: #555; margin-bottom: 20px; font-size: 15px;">
-            View the full analysis including data processing, model training, and additional visualizations:
-          </p>
-          <a href="https://colab.research.google.com/drive/1WO-X0Aut0yWITAjlEoXqgZqAzF1AgNKa#scrollTo=0bSCTMjFYpdW" target="_blank" class="colab-button">
-            🔗 Open Google Colab Notebook
-          </a>
-          <p style="margin-top: 15px; font-size: 13px; color: #777;">
-            (Includes complete sklearn implementation and reproducible analysis)
-          </p>
-        </div>
-
-     
-        <div class="data-citation-box">
-          <p style="margin: 0 0 10px;">
-            <strong>📚 Primary Data:</strong> Press Information Bureau, Government of India. (2025, December 15). 
-            <em>Skill Development Under Pradhan Mantri Kaushal Vikas Yojna</em> [Press Release PRID 2204132]. 
-            <a href="https://www.pib.gov.in/PressReleasePage.aspx?PRID=2204132" target="_blank">View Source</a>
-          </p>
-          <p style="margin: 0;">
-            <strong>🔧 Tools:</strong> Python 3.x, pandas, NumPy, scikit-learn, Vega-Lite 5.x
-          </p>
-        </div>
-      </section>
+    <div class="viz">
+      <h3>Chart 2 — ML model diagnostic / feature importance</h3>
+      <p>Model output chart (e.g., predicted vs actual, or feature importance).</p>
+      <figure id="cc10_chart2"></figure>
+      <p class="source"><strong>Data source:</strong> PIB (MSDE) PMKVY tables + your derived features.</p>
+    </div>
+  </div>
+</section>
 
     </section>
 
     <div class="copyright">© Chingkhei Wangjam</div>
   </main>
 
-  <script>
-    const CHARTS = {
-      // CC1 
-      "cc1_chart1": { spec: "CC1 Chart 1.json", options: { actions: true } },
-      "cc1_chart2": { spec: "CC1 Chart 2.json", options: { actions: true } },
+<script>
+  const CHARTS = {
+    // CC1
+    "cc1_chart1": { spec: "CC1 Chart 1.json", options: { actions: true } },
+    "cc1_chart2": { spec: "CC1 Chart 2.json", options: { actions: true } },
 
-      // CC2
-      "cc2_chart1": { spec: "CC2 Inflation Trends in Japan.json", options: { actions: true } },
-      "cc2_chart2": { spec: "CC2 Growth rate Japan.json", options: { actions: true } },
+    // CC2
+    "cc2_chart1": { spec: "CC2 Inflation Trends in Japan.json", options: { actions: true } },
+    "cc2_chart2": { spec: "CC2 Growth rate Japan.json", options: { actions: true } },
 
-      // CC3
-      "cc3_chart1": { spec: "chart1_dbt_success.json", options: { actions: true } },
-      "cc3_chart2": { spec: "chart2_exclusion.json", options: { actions: true } },
+    // CC3
+    "cc3_chart1": { spec: "chart1_dbt_success.json", options: { actions: true } },
+    "cc3_chart2": { spec: "chart2_exclusion.json", options: { actions: true } },
 
-      // CC4 
-      "cc4_chart1": { spec: "chart_original_gdp.json", options: { actions: true } },
-      "cc4_chart2": { spec: "chart_improved_gdp.json", options: { actions: true } },
+    // CC4
+    "cc4_chart1": { spec: "chart_original_gdp.json", options: { actions: true } },
+    "cc4_chart2": { spec: "chart_improved_gdp.json", options: { actions: true } },
 
-      // CC5
-      "cc5_chart1": { spec: "chart_worldbank_api.json", options: { actions: true } },
-      "cc5_chart2": { spec: "chart_scraped_hdi.json", options: { actions: true } },
+    // CC5
+    "cc5_chart1": { spec: "chart_worldbank_api.json", options: { actions: true } },
+    "cc5_chart2": { spec: "chart_scraped_hdi.json", options: { actions: true } },
 
-      // CC7
-      "cc7_chart1": { spec: "cc7_scotland_universities.json", options: { actions: true } },
-      "cc7_chart2": { spec: "cc7_wales_wages.json", options: { actions: true } },
+    // CC7
+    "cc7_chart1": { spec: "cc7_scotland_universities.json", options: { actions: true } },
+    "cc7_chart2": { spec: "cc7_wales_wages.json", options: { actions: true } },
 
-      // CC8
-      "cc8_chart1": { spec: "cc8_food_prices.json", options: { actions: true } },
-      "cc8_chart2": { spec: "cc8_beer_regional.json", options: { actions: true } },
+    // CC8
+    "cc8_chart1": { spec: "cc8_food_prices.json", options: { actions: true } },
+    "cc8_chart2": { spec: "cc8_beer_regional.json", options: { actions: true } },
 
-      // CC9
-      "cc9_chart1": { spec: "cc9_india_pmkvy_choropleth_v2.json", options: { actions: true } },
-      "cc9_chart2": { spec: "cc9_scatter_quadrant_clean.json", options: { actions: true } }
-    };
+    // CC9
+    "cc9_chart1": { spec: "cc9_india_pmkvy_choropleth_v2.json", options: { actions: true } },
+    "cc9_chart2": { spec: "cc9_scatter_quadrant_clean.json", options: { actions: true } },
 
-   
-    for (const [id, cfg] of Object.entries(CHARTS)) {
-      if (cfg.spec) {
-        vegaEmbed(`#${id}`, cfg.spec, cfg.options).catch(console.error);
-      }
-    }
+    // CC10
+    "cc10_chart1": { spec: "chart1_did_interactive.json", options: { actions: true } },
+    "cc10_chart2": { spec: "chart2_ml_interactive.json", options: { actions: true } }
+  };
 
-    // CC6 Dashboard Loop
-    const dashboardCharts = [
-      "dashboard_gdp.json",
-      "dashboard_inflation.json",
-      "dashboard_unemployment.json",
-      "dashboard_exports.json",
-      "dashboard_fdi.json",
-      "dashboard_govt_exp.json"
-    ];
-
-    dashboardCharts.forEach((spec, index) => {
-      const elementId = `#dashboard_chart_${index}`;
-      const options = { actions: false };
-      
-      vegaEmbed(elementId, spec, options)
-        .then(() => console.log(`✓ Dashboard chart ${index + 1} embedded`))
-        .catch(error => console.error(`✗ Dashboard chart ${index + 1} error:`, error));
+  for (const [id, cfg] of Object.entries(CHARTS)) {
+    vegaEmbed(`#${id}`, cfg.spec, cfg.options).catch(err => {
+      console.error(`❌ ${id} failed:`, err);
     });
+  }
 
-    // CC10 Charts - Week 10 Interactive Visualizations
-    const vegaConfigCC10 = {
-      actions: { export: true, source: false, compiled: false, editor: false },
-      renderer: 'svg'
-    };
+  // CC6 Dashboard loop
+  const dashboardCharts = [
+    "dashboard_gdp.json",
+    "dashboard_inflation.json",
+    "dashboard_unemployment.json",
+    "dashboard_exports.json",
+    "dashboard_fdi.json",
+    "dashboard_govt_exp.json"
+  ];
 
-    vegaEmbed('#vis_did', 'chart1_did_interactive.json', vegaConfigCC10)
-      .then(() => console.log('✅ CC10 DiD chart loaded successfully'))
-      .catch(error => {
-        console.error('❌ CC10 DiD chart error:', error);
-        document.getElementById('vis_did').innerHTML = 
-          '<p style="color: #c62828; padding: 30px; text-align: center; background: #ffebee; border-radius: 8px;">' +
-          '<strong>⚠️ Chart failed to load.</strong><br>' +
-          'Check that <code>chart1_did_interactive.json</code> is in the correct folder.</p>';
-      });
+  dashboardCharts.forEach((spec, index) => {
+    vegaEmbed(`#dashboard_chart_${index}`, spec, { actions: false })
+      .catch(err => console.error(`❌ Dashboard chart ${index+1} failed:`, err));
+  });
 
-    vegaEmbed('#vis_ml', 'chart2_ml_interactive.json', vegaConfigCC10)
-      .then(() => console.log('✅ CC10 ML chart loaded successfully'))
-      .catch(error => {
-        console.error('❌ CC10 ML chart error:', error);
-        document.getElementById('vis_ml').innerHTML = 
-          '<p style="color: #c62828; padding: 30px; text-align: center; background: #ffebee; border-radius: 8px;">' +
-          '<strong>⚠️ Chart failed to load.</strong><br>' +
-          'Check that <code>chart2_ml_interactive.json</code> is in the correct folder.</p>';
-      });
-
-    console.log('Portfolio: All charts embedding initiated');
-  </script>
+  console.log("✅ Portfolio embeds triggered");
+</script>
 </body>
 </html>
