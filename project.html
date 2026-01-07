@@ -306,58 +306,41 @@
       </p>
 
       
-      <div style="margin-top: 50px;">
-        <h3>
-          <span class="chart-number">CHART 1</span>
-          Demographic Dividend: India's Window of Opportunity
-        </h3>
+      <!-- Chart 1 -->
+<div style="margin-top: 50px;">
+  <h3>
+    <span class="chart-number">CHART 1</span>
+    Demographic Dividend: India's Window of Opportunity
+  </h3>
 
-        <div class="chart-grid">
-          <div class="chart-card">
-            <h3>Time Series Analysis (1990-2024)</h3>
-            <figure id="demo_chart1"></figure>
-            <p>
-              Use the year slider to explore demographic transitions. India's working-age population 
-              peaked at 67.8% in 2024, while Japan's declined to 58.5% with severe elderly dependency.
-            </p>
-            <p class="source">
-              <strong>Data source:</strong> World Bank WDI, UN Population Division | 
-              <strong>Indicators:</strong> Working-age %, youth dependency, elderly dependency, median age
-            </p>
-          </div>
+  <div style="max-width: 700px; margin: 0 auto;">
+    <div class="chart-card">
+      <h3>Demographic Transitions (1990-2024)</h3>
+      <figure id="demo_chart1"></figure>
+      <p>
+        Use the year slider to explore demographic transitions over time. Switch between 
+        working-age population, youth dependency, elderly dependency, and median age. 
+        India's working-age population peaked at 67.8% in 2024, while Japan's declined to 58.5%.
+      </p>
+      <p class="source">
+        <strong>Data source:</strong> World Bank World Development Indicators (WDI), UN Population Division | 
+        <strong>Indicators:</strong> Working-age %, youth dependency, elderly dependency, median age | 
+        <strong>Coverage:</strong> 1990-2024
+      </p>
+    </div>
+  </div>
 
-          <div class="chart-card">
-            <h3>Cross-Sectional Comparison (2024)</h3>
-            <figure id="demo_chart2"></figure>
-            <p>
-              Current demographic pressures: India supports 40 youth per 100 workers (green) 
-              while Japan faces 51 elderly per 100 workers (red)—contrasting burdens.
-            </p>
-            <p class="source">
-              <strong>Data source:</strong> World Bank WDI (2024) | 
-              <strong>Metrics:</strong> Youth dependency (0-14), Elderly dependency (65+)
-            </p>
-          </div>
-        </div>
-
-        <div class="insight-box">
-          <p>
-            <strong>Key Insight:</strong> India's demographic dividend window is NOW—with 67.8% working-age 
-            population and median age of 29.5 years, compared to Japan (49.5 years) and Germany (48.2 years). 
-            This creates a 20-30 year opportunity to convert youth into economic growth through effective skill 
-            development. PMKVY's failures waste this once-in-a-generation advantage that developed nations 
-            can no longer access. The declining youth dependency ratio (70.5 in 1990 → 40.2 in 2024) shows 
-            the window is narrowing as birth rates fall.
-          </p>
-        </div>
-      </div>
-
-      <div style="margin-top: 70px;">
-        <h3>
-          <span class="chart-number">CHART 2</span>
-          PMKVY Placement Outcomes: State-wise Analysis
-        </h3>
-        <p class="chart-placeholder">
+  <div class="insight-box">
+    <p>
+      <strong>Key Insight:</strong> India's demographic dividend window is NOW—with 67.8% working-age 
+      population and median age of 29.5 years, compared to Japan (49.5 years) and Germany (48.2 years). 
+      This creates a 20-30 year opportunity to convert youth into economic growth through effective skill 
+      development. PMKVY's failures waste this once-in-a-generation advantage that developed nations 
+      can no longer access. The declining youth dependency ratio (70.5 in 1990 → 40.2 in 2024) shows 
+      the window is narrowing as birth rates fall.
+    </p>
+  </div>
+</div>
          <!-- Chart 2: PMKVY State-wise Map -->
 <div style="margin-top: 70px;">
   <h3>
@@ -553,10 +536,6 @@
     vegaEmbed('#demo_chart1', 'demographic_chart_interactive.json', {actions: true})
       .then(() => console.log('✅ Demographic time series loaded'))
       .catch(err => console.error('❌ Demo chart 1 error:', err));
-
-    vegaEmbed('#demo_chart2', 'demographic_comparison_2024.json', {actions: true})
-      .then(() => console.log('✅ Demographic comparison loaded'))
-      .catch(err => console.error('❌ Demo chart 2 error:', err));
 
       vegaEmbed('#proj_chart2a', 'chart2_india_map_highlighted.json', {actions: true})
   .then(() => console.log('✅ Chart 2 map loaded'))
