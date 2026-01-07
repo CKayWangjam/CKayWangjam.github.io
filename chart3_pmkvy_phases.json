@@ -1,0 +1,74 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 500,
+  "height": 380,
+  "title": {
+    "text": "PMKVY Placement Rates: Declining Across Phases",
+    "subtitle": "From 18.4% (Phase 1) to 10.1% (Phase 3) - Government stopped tracking in Phase 4",
+    "fontSize": 18,
+    "fontWeight": "bold"
+  },
+  "data": {
+    "values": [
+      {"Phase": "PMKVY 1.0", "Period": "2015-16", "Placement_Rate": 18.4, "Trained": 1960000, "Placed": 360000, "Status": "Tracked"},
+      {"Phase": "PMKVY 2.0", "Period": "2016-20", "Placement_Rate": 23.4, "Trained": 8000000, "Placed": 1872000, "Status": "Tracked"},
+      {"Phase": "PMKVY 3.0", "Period": "2020-22", "Placement_Rate": 10.1, "Trained": 8000000, "Placed": 808000, "Status": "Tracked"},
+      {"Phase": "PMKVY 4.0", "Period": "2022-25", "Placement_Rate": null, "Trained": 50000000, "Placed": null, "Status": "De-linked"}
+    ]
+  },
+  "layer": [
+    {
+      "mark": {"type": "line", "point": {"size": 200, "filled": true}, "strokeWidth": 4, "color": "#dc2626"},
+      "encoding": {
+        "x": {
+          "field": "Phase",
+          "type": "ordinal",
+          "axis": {"title": "PMKVY Phase", "labelAngle": 0, "titleFontSize": 13, "titleFontWeight": "bold"}
+        },
+        "y": {
+          "field": "Placement_Rate",
+          "type": "quantitative",
+          "scale": {"domain": [0, 30]},
+          "axis": {"title": "Placement Rate (%)", "titleFontSize": 13, "titleFontWeight": "bold"}
+        },
+        "tooltip": [
+          {"field": "Phase", "type": "nominal"},
+          {"field": "Period", "type": "nominal"},
+          {"field": "Placement_Rate", "type": "quantitative", "title": "Placement Rate (%)", "format": ".1f"},
+          {"field": "Trained", "type": "quantitative", "format": ","},
+          {"field": "Placed", "type": "quantitative", "format": ","},
+          {"field": "Status", "type": "nominal"}
+        ]
+      }
+    },
+    {
+      "data": {"values": [{"x": 3.5, "y": 5}]},
+      "mark": {
+        "type": "text",
+        "text": "⚠️ Placement tracking",
+        "fontSize": 11,
+        "fontWeight": "bold",
+        "color": "#dc2626",
+        "dy": -10
+      },
+      "encoding": {
+        "x": {"field": "x", "type": "quantitative"},
+        "y": {"field": "y", "type": "quantitative"}
+      }
+    },
+    {
+      "data": {"values": [{"x": 3.5, "y": 5}]},
+      "mark": {
+        "type": "text",
+        "text": "de-linked from Phase 4",
+        "fontSize": 10,
+        "color": "#dc2626",
+        "dy": 5
+      },
+      "encoding": {
+        "x": {"field": "x", "type": "quantitative"},
+        "y": {"field": "y", "type": "quantitative"}
+      }
+    }
+  ]
+}

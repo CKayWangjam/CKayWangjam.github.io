@@ -1,0 +1,41 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 500,
+  "height": 380,
+  "title": {
+    "text": "Global Worker Shortage by 2030",
+    "subtitle": "50 million worker deficit across 7 countries - India's migration opportunity",
+    "fontSize": 18,
+    "fontWeight": "bold"
+  },
+  "data": {
+    "values": [
+      {"Country": "Germany", "Shortage_Millions": 12.5, "Sectors": "Manufacturing, Healthcare, Tech"},
+      {"Country": "Japan", "Shortage_Millions": 11.0, "Sectors": "Healthcare, Construction, Hospitality"},
+      {"Country": "United States", "Shortage_Millions": 8.5, "Sectors": "Healthcare, Tech, Logistics"},
+      {"Country": "United Kingdom", "Shortage_Millions": 6.2, "Sectors": "NHS, Hospitality, Transport"},
+      {"Country": "Canada", "Shortage_Millions": 5.0, "Sectors": "Healthcare, Tech, Trades"},
+      {"Country": "Australia", "Shortage_Millions": 4.3, "Sectors": "Construction, Healthcare, Agriculture"},
+      {"Country": "South Korea", "Shortage_Millions": 2.5, "Sectors": "Manufacturing, Healthcare, Tech"}
+    ]
+  },
+  "mark": {"type": "bar", "cornerRadius": 6, "color": "#1e40af"},
+  "encoding": {
+    "y": {
+      "field": "Country",
+      "type": "nominal",
+      "sort": "-x",
+      "axis": {"title": null, "labelFontSize": 12}
+    },
+    "x": {
+      "field": "Shortage_Millions",
+      "type": "quantitative",
+      "axis": {"title": "Worker Shortage (Millions)", "titleFontSize": 13, "titleFontWeight": "bold"}
+    },
+    "tooltip": [
+      {"field": "Country"},
+      {"field": "Shortage_Millions", "title": "Shortage (Millions)", "format": ".1f"},
+      {"field": "Sectors", "title": "Key Sectors"}
+    ]
+  }
+}

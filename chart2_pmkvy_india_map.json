@@ -1,0 +1,104 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 500,
+  "height": 520,
+  "title": {
+    "text": "PMKVY Performance Across Indian States",
+    "subtitle": "Select year and metric - Hover to highlight states",
+    "fontSize": 18,
+    "fontWeight": "bold",
+    "subtitleFontSize": 12
+  },
+  "params": [
+    {
+      "name": "yearSelect",
+      "value": "2021_22",
+      "bind": {
+        "input": "select",
+        "options": ["2020_21", "2021_22", "2022_23", "2023_24", "2024_25"],
+        "labels": ["FY 2020-21", "FY 2021-22", "FY 2022-23", "FY 2023-24", "FY 2024-25"],
+        "name": "📅 Year: "
+      }
+    },
+    {
+      "name": "metricSelect",
+      "value": "Skilled",
+      "bind": {
+        "input": "radio",
+        "options": ["Skilled", "Placed"],
+        "labels": ["Candidates Skilled", "Candidates Placed"],
+        "name": "📊 Metric: "
+      }
+    },
+    {
+      "name": "mapHover",
+      "select": {"type": "point", "on": "mouseover", "clear": "mouseout", "fields": ["State"]}
+    }
+  ],
+  "data": {
+    "values": [
+      {"State": "Andhra Pradesh", "S_2020_21": 66404, "P_2020_21": 7555, "S_2021_22": 13199, "P_2021_22": 7100, "S_2022_23": 5798, "S_2023_24": 32449, "S_2024_25": 35471, "lat": 15.9129, "lon": 79.7400},
+      {"State": "Assam", "S_2020_21": 362506, "P_2020_21": 9926, "S_2021_22": 24517, "P_2021_22": 11754, "S_2022_23": 8721, "S_2023_24": 38160, "S_2024_25": 75182, "lat": 26.2006, "lon": 92.9376},
+      {"State": "Bihar", "S_2020_21": 96288, "P_2020_21": 11493, "S_2021_22": 47643, "P_2021_22": 15841, "S_2022_23": 12213, "S_2023_24": 23613, "S_2024_25": 99982, "lat": 25.0961, "lon": 85.3131},
+      {"State": "Gujarat", "S_2020_21": 48489, "P_2020_21": 10911, "S_2021_22": 35001, "P_2021_22": 2073, "S_2022_23": 6503, "S_2023_24": 19975, "S_2024_25": 39762, "lat": 22.2587, "lon": 71.1924},
+      {"State": "Haryana", "S_2020_21": 54719, "P_2020_21": 7957, "S_2021_22": 18191, "P_2021_22": 4008, "S_2022_23": 8963, "S_2023_24": 27411, "S_2024_25": 75942, "lat": 29.0588, "lon": 76.0856},
+      {"State": "Karnataka", "S_2020_21": 53066, "P_2020_21": 5030, "S_2021_22": 23153, "P_2021_22": 6119, "S_2022_23": 8410, "S_2023_24": 13025, "S_2024_25": 69486, "lat": 15.3173, "lon": 75.7139},
+      {"State": "Kerala", "S_2020_21": 31077, "P_2020_21": 1213, "S_2021_22": 12968, "P_2021_22": 3094, "S_2022_23": 5673, "S_2023_24": 8832, "S_2024_25": 10449, "lat": 10.8505, "lon": 76.2711},
+      {"State": "Madhya Pradesh", "S_2020_21": 95403, "P_2020_21": 16010, "S_2021_22": 46659, "P_2021_22": 12649, "S_2022_23": 21345, "S_2023_24": 34884, "S_2024_25": 259871, "lat": 22.9734, "lon": 78.6569},
+      {"State": "Maharashtra", "S_2020_21": 148352, "P_2020_21": 8830, "S_2021_22": 39864, "P_2021_22": 7089, "S_2022_23": 14913, "S_2023_24": 35284, "S_2024_25": 75368, "lat": 19.7515, "lon": 75.7139},
+      {"State": "Manipur", "S_2020_21": 34540, "P_2020_21": 4661, "S_2021_22": 6424, "P_2021_22": 3064, "S_2022_23": 1146, "S_2023_24": 2879, "S_2024_25": 20798, "lat": 24.6637, "lon": 93.9063},
+      {"State": "Odisha", "S_2020_21": 68828, "P_2020_21": 3704, "S_2021_22": 12645, "P_2021_22": 4211, "S_2022_23": 12116, "S_2023_24": 21457, "S_2024_25": 26231, "lat": 20.9517, "lon": 85.0985},
+      {"State": "Punjab", "S_2020_21": 57054, "P_2020_21": 17251, "S_2021_22": 18539, "P_2021_22": 9537, "S_2022_23": 7568, "S_2023_24": 11836, "S_2024_25": 106699, "lat": 31.1471, "lon": 75.3412},
+      {"State": "Rajasthan", "S_2020_21": 97822, "P_2020_21": 17189, "S_2021_22": 38511, "P_2021_22": 14328, "S_2022_23": 9232, "S_2023_24": 23564, "S_2024_25": 280156, "lat": 27.0238, "lon": 74.2179},
+      {"State": "Tamil Nadu", "S_2020_21": 72404, "P_2020_21": 6016, "S_2021_22": 29057, "P_2021_22": 3865, "S_2022_23": 8029, "S_2023_24": 34533, "S_2024_25": 85689, "lat": 11.1271, "lon": 78.6569},
+      {"State": "Telangana", "S_2020_21": 33999, "P_2020_21": 6724, "S_2021_22": 13107, "P_2021_22": 4941, "S_2022_23": 8040, "S_2023_24": 15390, "S_2024_25": 22188, "lat": 18.1124, "lon": 79.0193},
+      {"State": "Uttar Pradesh", "S_2020_21": 239286, "P_2020_21": 29901, "S_2021_22": 69015, "P_2021_22": 17547, "S_2022_23": 25568, "S_2023_24": 71801, "S_2024_25": 463503, "lat": 26.8467, "lon": 80.9462},
+      {"State": "West Bengal", "S_2020_21": 53221, "P_2020_21": 6946, "S_2021_22": 31406, "P_2021_22": 5333, "S_2022_23": 12370, "S_2023_24": 25768, "S_2024_25": 36410, "lat": 22.9868, "lon": 87.8550}
+    ]
+  },
+  "transform": [
+    {"calculate": "metricSelect + '_' + yearSelect", "as": "field_name"},
+    {"calculate": "datum[datum.field_name]", "as": "value"},
+    {"calculate": "datum['P_' + yearSelect]", "as": "Placed"},
+    {"calculate": "datum['S_' + yearSelect]", "as": "Skilled"},
+    {"calculate": "datum.Placed && datum.Skilled ? (datum.Placed / datum.Skilled * 100) : null", "as": "Rate"}
+  ],
+  "layer": [
+    {
+      "data": {
+        "url": "https://cdn.jsdelivr.net/gh/udit-001/india-maps-data@8d907bc/topojson/india.json",
+        "format": {"type": "topojson", "feature": "states"}
+      },
+      "mark": {"type": "geoshape", "fill": "#e5e7eb", "stroke": "white", "strokeWidth": 1.2}
+    },
+    {
+      "mark": {"type": "circle", "size": 300, "stroke": "white", "strokeWidth": 2},
+      "encoding": {
+        "longitude": {"field": "lon", "type": "quantitative"},
+        "latitude": {"field": "lat", "type": "quantitative"},
+        "color": {
+          "field": "value",
+          "type": "quantitative",
+          "scale": {"type": "linear", "scheme": "blues"},
+          "legend": {
+            "title": "Value",
+            "titleFontSize": 12,
+            "orient": "bottom-left",
+            "gradientLength": 120
+          }
+        },
+        "opacity": {
+          "condition": {"param": "mapHover", "value": 1},
+          "value": 0.85
+        },
+        "tooltip": [
+          {"field": "State", "type": "nominal"},
+          {"field": "Skilled", "type": "quantitative", "format": ","},
+          {"field": "Placed", "type": "quantitative", "format": ","},
+          {"field": "Rate", "type": "quantitative", "title": "Placement Rate (%)", "format": ".1f"}
+        ]
+      }
+    }
+  ],
+  "projection": {"type": "mercator"}
+}

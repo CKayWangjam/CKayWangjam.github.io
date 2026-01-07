@@ -1,0 +1,43 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 500,
+  "height": 380,
+  "title": {
+    "text": "India's Untapped Migration Potential",
+    "subtitle": "Current 700K vs potential 2.5M workers annually - if skills align with global standards",
+    "fontSize": 18,
+    "fontWeight": "bold"
+  },
+  "data": {
+    "values": [
+      {"Category": "Current Annual Migration", "Workers_Thousands": 700, "Type": "Current", "Color": "#94a3b8"},
+      {"Category": "Potential Annual Migration", "Workers_Thousands": 2500, "Type": "Potential", "Color": "#22c55e"}
+    ]
+  },
+  "mark": {"type": "bar", "cornerRadius": 8},
+  "encoding": {
+    "x": {
+      "field": "Category",
+      "type": "nominal",
+      "axis": {"title": null, "labelAngle": 0, "labelFontSize": 12}
+    },
+    "y": {
+      "field": "Workers_Thousands",
+      "type": "quantitative",
+      "axis": {"title": "Workers (Thousands per year)", "titleFontSize": 13, "titleFontWeight": "bold"}
+    },
+    "color": {
+      "field": "Type",
+      "type": "nominal",
+      "scale": {
+        "domain": ["Current", "Potential"],
+        "range": ["#94a3b8", "#22c55e"]
+      },
+      "legend": null
+    },
+    "tooltip": [
+      {"field": "Category"},
+      {"field": "Workers_Thousands", "title": "Workers (Thousands)", "format": ","}
+    ]
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 500,
+  "height": 380,
+  "title": {
+    "text": "Quantity vs Quality: 160 Million Trained, Placement Declining",
+    "subtitle": "Cumulative training volume (bars) vs placement rate (line) - 2015-2024",
+    "fontSize": 18,
+    "fontWeight": "bold"
+  },
+  "data": {
+    "values": [
+      {"Year": "2015-16", "Cumulative_Trained_Millions": 2.0, "Placement_Rate": 18.4},
+      {"Year": "2016-17", "Cumulative_Trained_Millions": 4.5, "Placement_Rate": 20.8},
+      {"Year": "2017-18", "Cumulative_Trained_Millions": 7.2, "Placement_Rate": 24.1},
+      {"Year": "2018-19", "Cumulative_Trained_Millions": 10.5, "Placement_Rate": 23.4},
+      {"Year": "2019-20", "Cumulative_Trained_Millions": 14.0, "Placement_Rate": 21.2},
+      {"Year": "2020-21", "Cumulative_Trained_Millions": 16.0, "Placement_Rate": 14.2},
+      {"Year": "2021-22", "Cumulative_Trained_Millions": 16.6, "Placement_Rate": 10.1},
+      {"Year": "2022-23", "Cumulative_Trained_Millions": 18.8, "Placement_Rate": null},
+      {"Year": "2023-24", "Cumulative_Trained_Millions": 24.2, "Placement_Rate": null},
+      {"Year": "2024-25", "Cumulative_Trained_Millions": 160.0, "Placement_Rate": null}
+    ]
+  },
+  "encoding": {"x": {"field": "Year", "type": "ordinal", "axis": {"labelAngle": -45, "title": null}}},
+  "layer": [
+    {
+      "mark": {"type": "bar", "color": "#60a5fa", "opacity": 0.7},
+      "encoding": {
+        "y": {
+          "field": "Cumulative_Trained_Millions",
+          "type": "quantitative",
+          "axis": {"title": "Cumulative Trained (Millions)", "titleColor": "#60a5fa", "titleFontSize": 13}
+        },
+        "tooltip": [
+          {"field": "Year"},
+          {"field": "Cumulative_Trained_Millions", "title": "Trained (M)", "format": ".1f"}
+        ]
+      }
+    },
+    {
+      "mark": {"type": "line", "point": {"size": 100}, "strokeWidth": 3, "color": "#dc2626"},
+      "encoding": {
+        "y": {
+          "field": "Placement_Rate",
+          "type": "quantitative",
+          "axis": {"title": "Placement Rate (%)", "titleColor": "#dc2626", "orient": "right", "titleFontSize": 13}
+        },
+        "tooltip": [
+          {"field": "Year"},
+          {"field": "Placement_Rate", "title": "Placement %", "format": ".1f"}
+        ]
+      }
+    }
+  ],
+  "resolve": {"scale": {"y": "independent"}}
+}
