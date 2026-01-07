@@ -5,9 +5,11 @@
   "title": {
     "text": "Demographic Dividend & Decline: Three Countries Compared",
     "subtitle": "Interactive exploration of demographic transitions (1990-2024)",
-    "fontSize": 18,
+    "fontSize": 14,
     "fontWeight": "bold",
-    "subtitleFontSize": 13
+    "subtitleFontSize": 11,
+    "color": "rgba(18,18,18,0.90)",
+    "subtitleColor": "rgba(18,18,18,0.60)"
   },
   "data": {
     "values": [
@@ -80,8 +82,9 @@
     {
       "mark": {
         "type": "line",
-        "strokeWidth": 4,
-        "point": {"size": 120, "filled": true}
+        "strokeWidth": 3.5,
+        "point": {"size": 110, "filled": true, "opacity": 0.90},
+        "clip": true
       },
       "encoding": {
         "x": {
@@ -92,10 +95,15 @@
             "title": "Year",
             "titleFontSize": 13,
             "titleFontWeight": "bold",
+            "titleColor": "rgba(18,18,18,0.85)",
             "labelFontSize": 11,
+            "labelColor": "rgba(18,18,18,0.70)",
             "tickCount": 8,
+            "format": "d",
             "grid": true,
-            "gridOpacity": 0.3
+            "gridColor": "rgba(0,0,0,0.06)",
+            "gridOpacity": 1,
+            "domainColor": "rgba(0,0,0,0.20)"
           }
         },
         "y": {
@@ -105,9 +113,13 @@
             "title": "Value",
             "titleFontSize": 13,
             "titleFontWeight": "bold",
+            "titleColor": "rgba(18,18,18,0.85)",
             "labelFontSize": 11,
+            "labelColor": "rgba(18,18,18,0.70)",
             "grid": true,
-            "gridOpacity": 0.3
+            "gridColor": "rgba(0,0,0,0.06)",
+            "gridOpacity": 1,
+            "domainColor": "rgba(0,0,0,0.20)"
           }
         },
         "color": {
@@ -115,23 +127,34 @@
           "type": "nominal",
           "scale": {
             "domain": ["India", "Japan", "Germany"],
-            "range": ["#FF6B35", "#004E89", "#F77F00"]
+            "range": ["#1e40af", "#a78bfa", "#fca5a5"]
           },
           "legend": {
             "title": "Country",
             "titleFontSize": 13,
             "titleFontWeight": "bold",
+            "titleColor": "rgba(18,18,18,0.85)",
             "labelFontSize": 12,
-            "orient": "top-right",
-            "offset": 10,
-            "symbolSize": 150,
-            "symbolStrokeWidth": 2
+            "labelColor": "rgba(18,18,18,0.75)",
+            "orient": "bottom",
+            "direction": "horizontal",
+            "symbolSize": 200,
+            "symbolStrokeWidth": 0,
+            "padding": 10,
+            "offset": 15,
+            "cornerRadius": 4,
+            "fillColor": "rgba(255,255,255,0.95)",
+            "strokeColor": "rgba(0,0,0,0.10)"
           }
+        },
+        "strokeWidth": {
+          "condition": {"test": "datum.Country == 'India'", "value": 4},
+          "value": 3
         },
         "tooltip": [
           {"field": "Country", "type": "nominal", "title": "Country"},
           {"field": "Year", "type": "quantitative", "title": "Year"},
-          {"field": "Working_Age_Percent", "type": "quantitative", "title": "Working-Age Pop (%)", "format": ".1f"},
+          {"field": "Working_Age_Percent", "type": "quantitative", "title": "Working-Age (%)", "format": ".1f"},
           {"field": "Young_Dependency", "type": "quantitative", "title": "Youth Dependency", "format": ".1f"},
           {"field": "Old_Dependency", "type": "quantitative", "title": "Elderly Dependency", "format": ".1f"},
           {"field": "Median_Age", "type": "quantitative", "title": "Median Age", "format": ".1f"}
@@ -144,15 +167,24 @@
       ],
       "mark": {
         "type": "point",
-        "size": 300,
+        "size": 280,
         "filled": true,
         "stroke": "white",
-        "strokeWidth": 3
+        "strokeWidth": 3.5,
+        "opacity": 0.95
       },
       "encoding": {
         "x": {"field": "Year", "type": "quantitative"},
         "y": {"field": "SelectedMetric", "type": "quantitative"},
-        "color": {"field": "Country", "type": "nominal", "legend": null},
+        "color": {
+          "field": "Country",
+          "type": "nominal",
+          "scale": {
+            "domain": ["India", "Japan", "Germany"],
+            "range": ["#1e40af", "#a78bfa", "#fca5a5"]
+          },
+          "legend": null
+        },
         "tooltip": [
           {"field": "Country", "type": "nominal", "title": "Country"},
           {"field": "Year", "type": "quantitative", "title": "Selected Year"},
@@ -160,5 +192,9 @@
         ]
       }
     }
-  ]
+  ],
+  "config": {
+    "view": {"stroke": null},
+    "background": "transparent"
+  }
 }
