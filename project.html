@@ -6,7 +6,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <title>Project | Chingkhei Wangjam</title>
   <link rel="stylesheet" href="index.css">
@@ -17,94 +17,137 @@
 
   <style>
     
+    h1, h2, h3, h4, h5, h6, .brand a {
+      font-family: "Poppins", sans-serif !important;
+    }
+    
+   
     .project-page .container {
-      text-align: center;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 20px 80px;
     }
     
     .project-page .hero {
       text-align: center;
-      max-width: 1000px;
-      margin: 0 auto;
+      max-width: 900px;
+      margin: 40px auto 60px;
+    }
+    
+    .project-page .hero .meta {
+      font-family: "Poppins", sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: rgba(11,79,43,0.7);
+      margin-bottom: 18px;
     }
     
     .project-page .hero h1 {
-      font-family: "Cormorant Garamond", serif;
-      margin: 18px auto 20px;
+      font-family: "Poppins", sans-serif;
+      font-size: clamp(26px, 4vw, 38px);
+      font-weight: 700;
+      line-height: 1.35;
+      letter-spacing: 0.3px;
+      color: rgba(18,18,18,0.95);
+      margin: 0;
     }
     
     .section {
-      margin: 60px auto;
+      margin: 80px auto;
       max-width: 900px;
-      text-align: center;
     }
     
     .section .meta {
       font-family: "Poppins", sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.3px;
+      text-transform: uppercase;
+      color: rgba(11,79,43,0.65);
+      margin-bottom: 14px;
       text-align: center;
-      margin: 0 auto 16px;
     }
     
     .section h2 {
       font-family: "Poppins", sans-serif;
-      font-size: 28px;
-      font-weight: 600;
-      margin: 12px auto 24px;
+      font-size: 30px;
+      font-weight: 700;
+      margin: 0 0 28px 0;
       text-align: center;
       letter-spacing: 0.3px;
       color: rgba(18,18,18,0.95);
     }
     
-    .section p {
+    .section-text {
       font-family: "Poppins", sans-serif;
       font-size: 15px;
       font-weight: 400;
-      line-height: 1.8;
+      line-height: 1.85;
       color: rgba(18,18,18,0.75);
-      margin: 16px auto;
-      max-width: 85ch;
-      text-align: center;
-    }
-  
-    .viz-section {
-      margin: 80px auto;
-      max-width: 1200px;
+      margin: 22px auto;
+      max-width: 80ch;
       text-align: center;
     }
     
-    .viz-section .meta {
-      font-family: "Poppins", sans-serif;
+    .research-questions {
+      background: rgba(11,79,43,0.05);
+      border-left: 4px solid rgba(11,79,43,0.5);
+      padding: 22px 28px;
+      border-radius: 10px;
+      margin: 28px auto;
+      max-width: 80ch;
+      text-align: left;
     }
     
-    .viz-section h2 {
+    .research-questions p {
       font-family: "Poppins", sans-serif;
-      font-size: 32px;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 1.75;
+      color: rgba(18,18,18,0.85);
+      margin: 0;
+    }
+    
+    .chart-section {
+      margin: 90px auto;
+      max-width: 1100px;
+    }
+    
+    .chart-section h3 {
+      font-family: "Poppins", sans-serif;
+      font-size: 22px;
       font-weight: 700;
-      margin: 12px auto 40px;
-      text-align: center;
       letter-spacing: 0.3px;
-      color: rgba(18,18,18,0.95);
+      color: rgba(18,18,18,0.92);
+      margin: 0 0 28px 0;
+      text-align: center;
     }
     
-    .viz-section h3 {
+    .chart-number {
       font-family: "Poppins", sans-serif;
-      font-size: 20px;
-      font-weight: 600;
-      letter-spacing: 0.3px;
-      color: rgba(18,18,18,0.90);
-      margin: 70px auto 24px;
-      text-align: center;
+      display: inline-block;
+      background: rgba(11,79,43,0.12);
+      color: rgba(11,79,43,0.85);
+      padding: 6px 16px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin-right: 12px;
     }
     
     .chart-card {
       background: rgba(255,255,255,0.92);
       border-radius: 16px;
-      padding: 24px;
+      padding: 28px;
       box-shadow: inset 0 0 0 1px rgba(0,0,0,0.10);
-      min-height: 560px;
+      min-height: 580px;
       display: flex;
       flex-direction: column;
       margin: 0 auto;
-      max-width: 700px;
+      max-width: 750px;
       transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
     
@@ -113,20 +156,20 @@
       box-shadow: inset 0 0 0 1px rgba(0,0,0,0.14), 0 4px 12px rgba(0,0,0,0.08);
     }
     
-    .chart-card h3 {
+    .chart-card h4 {
       font-family: "Poppins", sans-serif;
       font-size: 15px;
       font-weight: 600;
-      letter-spacing: 0.3px;
+      letter-spacing: 0.2px;
       color: rgba(18,18,18,0.88);
-      margin: 0 0 16px 0;
+      margin: 0 0 18px 0;
       text-align: center;
     }
     
     .chart-card figure {
-      margin: 12px auto;
+      margin: 16px auto;
       flex: 1;
-      min-height: 400px;
+      min-height: 420px;
       width: 100%;
       display: flex;
       align-items: center;
@@ -134,20 +177,23 @@
       overflow: visible;
     }
     
-    .chart-card p {
+    .chart-desc {
       font-family: "Poppins", sans-serif;
-      font-size: 13px;
+      font-size: 14px;
       font-weight: 400;
-      line-height: 1.65;
-      margin: 10px auto;
+      line-height: 1.75;
+      color: rgba(18,18,18,0.72);
+      margin: 16px 0;
       text-align: center;
-      color: rgba(18,18,18,0.70);
+      max-width: 65ch;
+      margin-left: auto;
+      margin-right: auto;
     }
     
     .chart-card .source {
       font-family: "Poppins", sans-serif;
       margin-top: auto;
-      padding-top: 14px;
+      padding-top: 16px;
       font-size: 12px;
       font-weight: 400;
       border-top: 1px solid rgba(0,0,0,0.08);
@@ -157,74 +203,61 @@
     
     .chart-card .source strong {
       font-weight: 600;
-      color: rgba(18,18,18,0.65);
+      color: rgba(18,18,18,0.68);
     }
     
     .chart-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 20px;
+      gap: 22px;
       margin: 30px auto;
       max-width: 1100px;
     }
     
     .chart-grid .chart-card {
       max-width: none;
-      min-height: 540px;
+      min-height: 560px;
     }
     
-    .insight-box {
-      background: linear-gradient(135deg, rgba(11,79,43,0.06) 0%, rgba(11,79,43,0.12) 100%);
-      padding: 28px;
-      border-left: 4px solid rgba(11,79,43,0.6);
+    .finding-box {
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+      border-left: 4px solid rgba(11,79,43,0.4);
+      padding: 32px;
       border-radius: 12px;
-      margin: 30px auto;
-      max-width: 900px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      margin: 35px auto;
+      max-width: 850px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.04);
     }
     
-    .insight-box p {
+    .finding-box p {
       font-family: "Poppins", sans-serif;
-      font-size: 14px;
+      font-size: 15px;
       font-weight: 400;
-      line-height: 1.8;
+      line-height: 1.85;
       margin: 0;
       text-align: center;
       color: rgba(18,18,18,0.80);
     }
     
-    .insight-box strong {
-      font-weight: 600;
-      color: rgba(11,79,43,0.95);
-    }
-    
-    .chart-number {
-      font-family: "Poppins", sans-serif;
-      display: inline-block;
-      background: rgba(11,79,43,0.12);
-      color: rgba(11,79,43,0.85);
-      padding: 5px 14px;
-      border-radius: 999px;
-      font-size: 11px;
+    .finding-box strong {
       font-weight: 700;
-      letter-spacing: 0.8px;
-      margin-right: 10px;
+      color: rgba(11,79,43,0.95);
     }
     
     .data-grid {
       max-width: 1000px;
-      margin: 40px auto;
+      margin: 45px auto;
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 20px;
-      text-align: left;
+      gap: 22px;
     }
     
     .data-card {
       background: rgba(255,255,255,0.95);
-      padding: 28px;
+      padding: 32px;
       border-radius: 14px;
       box-shadow: inset 0 0 0 1px rgba(0,0,0,0.08);
+      text-align: left;
       transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
     
@@ -237,23 +270,28 @@
       font-family: "Poppins", sans-serif;
       font-size: 17px;
       font-weight: 700;
-      margin: 0 0 18px 0;
+      margin: 0 0 20px 0;
       color: rgba(11,79,43,0.90);
-      border-bottom: 2px solid rgba(11,79,43,0.3);
-      padding-bottom: 10px;
+      border-bottom: 2px solid rgba(11,79,43,0.25);
+      padding-bottom: 12px;
+    }
+    
+    .data-card p, .data-card li {
+      font-family: "Poppins", sans-serif;
+      font-size: 14px;
+      line-height: 1.8;
+      color: rgba(18,18,18,0.75);
     }
     
     .data-card ul {
       list-style: none;
       padding-left: 0;
-      font-size: 13px;
-      line-height: 1.8;
-      color: rgba(18,18,18,0.75);
+      margin: 0;
     }
     
     .data-card li {
-      margin: 12px 0;
-      padding-left: 22px;
+      margin: 14px 0;
+      padding-left: 24px;
       position: relative;
     }
     
@@ -263,26 +301,23 @@
       left: 6px;
       color: rgba(11,79,43,0.7);
       font-weight: bold;
-      font-size: 18px;
+      font-size: 20px;
+      line-height: 1;
     }
     
     .data-card strong {
       font-weight: 600;
-      color: rgba(18,18,18,0.85);
+      color: rgba(18,18,18,0.88);
     }
     
-    .data-card.challenge {
+    .data-card.accent {
       background: rgba(11,79,43,0.04);
-      border-left: 4px solid rgba(11,79,43,0.4);
+      border-left: 4px solid rgba(11,79,43,0.35);
     }
     
-    .data-card.challenge h3 {
-      color: rgba(11,79,43,0.85);
-    }
-   
     .colab-button {
       display: inline-block;
-      padding: 14px 32px;
+      padding: 16px 38px;
       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       color: white;
       text-decoration: none;
@@ -290,14 +325,22 @@
       font-family: "Poppins", sans-serif;
       font-weight: 700;
       font-size: 15px;
-      letter-spacing: 0.3px;
-      box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+      letter-spacing: 0.4px;
+      box-shadow: 0 6px 20px rgba(102, 126, 234, 0.35);
       transition: all 0.3s ease;
     }
     
     .colab-button:hover {
-      transform: translateY(-2px) scale(1.02);
-      box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 10px 30px rgba(102, 126, 234, 0.55);
+    }
+    
+    .colab-note {
+      font-family: "Poppins", sans-serif;
+      font-size: 12px;
+      color: rgba(18,18,18,0.55);
+      margin-top: 14px;
+      font-weight: 400;
     }
     
     @media (max-width: 980px) {
@@ -326,6 +369,7 @@
   </header>
 
   <main class="container">
+    
     <section class="hero">
       <div class="meta">Data Visualisation Project</div>
       <h1>The Failure of the Skill India Mission and Building a Future-Ready Skilling Framework</h1>
@@ -334,186 +378,369 @@
     <div class="rule"></div>
 
     <section class="section" id="aims">
-      <div class="meta">Aims & Research Questions</div>
+      <div class="meta">Aims & Context</div>
       <h2>Project Overview</h2>
-      <p>
-        India's demographic dividend—with 60% working-age population and median age under 30—creates 
-        unprecedented opportunity for growth. Yet 25% of youth are NEET, only 4.7% have formal vocational 
-        training, and youth unemployment reaches 30%. The Skill India Mission (SIM) trained 160 million 
-        but placement rates collapsed from 18.4% to 10.1%. This project examines why SIM failed and how 
-        curriculum alignment with domestic and international labor demand can transform outcomes.
+      
+      <p class="section-text">
+        India stands at a critical juncture. With 60% of its population in the working-age bracket (15-59 years) 
+        and a median age under 30, the country possesses an unprecedented demographic dividend—a window of 
+        opportunity that aging economies like Japan (median age 49.5) and Germany (48.2) have permanently lost. 
+        This youth bulge could fuel decades of rapid economic growth, but only if productively engaged through 
+        effective skill development and employment generation.
       </p>
-      <p style="font-weight: 600; color: rgba(18,18,18,0.85); font-family: 'Poppins', sans-serif;">
-        <strong>Research Questions:</strong> (1) Why has PMKVY failed despite training millions? 
-        (2) How can curriculum alignment improve employability? (3) What reforms could deliver quality skills?
+      
+      <p class="section-text">
+        Yet India's reality contradicts this potential. Nearly 25% of youth are classified as NEET (Not in 
+        Education, Employment, or Training), only 4.7% of the workforce possesses formal vocational training, 
+        and youth unemployment hovers near 30% according to the India Graduate Skills Index 2025. The Skill 
+        India Mission (SIM), launched in 2015 with its flagship Pradhan Mantri Kaushal Vikas Yojana (PMKVY), 
+        was designed to address this crisis. As of December 2024, SIM claimed to have trained over 160 million 
+        individuals. However, placement rates tell a different story: collapsing from 18.4% in Phase 1 to 23.4% 
+        in Phase 2, and plummeting to just 10.1% in Phase 3—before the government eliminated placement tracking 
+        entirely in Phase 4 (from FY 2022-23 onwards).
       </p>
+      
+      <p class="section-text">
+        This project employs quantitative analysis and interactive data visualization to examine why SIM has 
+        systematically failed despite massive training volumes, and how curriculum alignment with both domestic 
+        industry needs and international labor demand could transform outcomes. The analysis is particularly 
+        urgent given global labor shortages: by 2030, developed economies including Germany, Japan, the United 
+        States, and others will face a combined deficit of approximately 50 million workers. India currently 
+        sends 700,000 workers abroad annually, but experts project this could expand to 2.5 million with proper 
+        skill alignment—creating sustainable employment pathways while addressing global demand.
+      </p>
+      
+      <div class="research-questions">
+        <p>
+          <strong>Research Questions:</strong><br>
+          (1) Why has the Skill India Mission and PMKVY failed to achieve sustainable employment outcomes despite 
+          training millions of youth?<br>
+          (2) How can aligning training curricula with domestic and international labor market demand improve 
+          trainee employability?<br>
+          (3) What systemic reforms—particularly in curriculum alignment, stakeholder coordination, and international 
+          partnerships—could transform SIM into a program that delivers quality skills rather than just certificates?
+        </p>
+      </div>
     </section>
 
     <div class="rule"></div>
 
-    <section class="viz-section" id="visualisations">
-      <div class="meta">Analysis</div>
-      <h2>Visual Evidence & Analysis</h2>
+    <section id="analysis" style="margin: 100px auto; max-width: 1100px;">
+      <div style="text-align: center; margin-bottom: 60px;">
+        <div style="font-family: 'Poppins', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 1.3px; text-transform: uppercase; color: rgba(11,79,43,0.65); margin-bottom: 14px;">
+          Analysis
+        </div>
+        <h2 style="font-family: 'Poppins', sans-serif; font-size: 32px; font-weight: 700; margin: 0; color: rgba(18,18,18,0.95);">
+          Visual Evidence & Findings
+        </h2>
+      </div>
 
-      <!-- Chart 1: Demographic -->
-      <div style="margin-top: 50px;">
+      <div class="chart-section">
         <h3>
           <span class="chart-number">CHART 1</span>
           India's Demographic Dividend Window
         </h3>
+        
         <div class="chart-card">
+          <h4>Comparative Demographic Transitions (1990-2024)</h4>
           <figure id="chart1"></figure>
-          <p>India's working-age population peaked at 67.8% (2024) while Japan declined to 58.5%. 
-             Use sliders to explore four demographic indicators from 1990-2024.</p>
-          <p class="source"><strong>Source:</strong> World Bank WDI, UN Population Division</p>
+          <p class="chart-desc">
+            This interactive visualization compares demographic transitions across India, Japan, and Germany from 1990 to 2024. 
+            Users can explore four key indicators using dropdown menus and year sliders: working-age population percentage 
+            (ages 15-64), youth dependency ratio (population under 15 per 100 working-age people), elderly dependency ratio 
+            (population 65+ per 100 working-age people), and median age. India's working-age population peaked at 67.8% in 2024, 
+            creating maximum productive capacity, while Japan's declined to 58.5% with a severe elderly dependency burden of 
+            51.2 dependents per 100 workers. Germany shows moderate aging with 63.8% working-age and 35.2 elderly dependency. 
+            The chart reveals India's narrowing opportunity window: youth dependency declined from 70.5 (1990) to 40.2 (2024) 
+            as birth rates fell, while elderly dependency remains low at 10.5 but will inevitably rise.
+          </p>
+          <p class="source">
+            <strong>Source:</strong> World Bank World Development Indicators (WDI), UN Population Division (1990-2024) | 
+            <strong>Methodology:</strong> Time-series analysis with interactive parameter selection
+          </p>
         </div>
-        <div class="insight-box">
-          <p><strong>Insight:</strong> India has a 20-30 year window before aging begins. 
-             PMKVY failures waste this once-in-a-generation advantage that Germany (48.2 years median age) 
-             and Japan (49.5 years) can no longer access.</p>
+        
+        <div class="finding-box">
+          <p>
+            <strong>Key Finding:</strong> India's demographic dividend window exists NOW and is closing. With a median age 
+            of 29.5 years versus Japan's 49.5 and Germany's 48.2, India possesses a 20-30 year advantage before population 
+            aging begins accelerating elderly dependency. PMKVY's systematic failures waste this once-in-a-generation 
+            structural advantage that developed economies can no longer replicate. The declining youth dependency ratio 
+            demonstrates the window is narrowing as fertility rates approach replacement levels—making effective skill 
+            development not merely important but temporally urgent for capitalizing on this transient demographic gift.
+          </p>
         </div>
       </div>
 
-      <!-- Chart 2: India Map -->
-      <div style="margin-top: 70px;">
+      <div class="chart-section">
         <h3>
           <span class="chart-number">CHART 2</span>
-          PMKVY State-wise Performance Map
+          PMKVY State-wise Performance: National Geographic Distribution
         </h3>
+        
         <div class="chart-card">
+          <h4>Interactive India Choropleth Map</h4>
           <figure id="chart2"></figure>
-          <p>Select year (FY 20-21 to 24-25) and metric (Skilled/Placed). States colored by data volume. 
-             Hover to highlight individual states. Placement data only available FY 20-21 and 21-22.</p>
-          <p class="source"><strong>Source:</strong> PIB PRID 2204132 (Dec 2025) | <strong>Coverage:</strong> All Indian states</p>
+          <p class="chart-desc">
+            This choropleth map visualizes PMKVY implementation across all Indian states and union territories, with 
+            interactive year selection (FY 2020-21 through 2024-25) and metric toggle between candidates skilled and 
+            candidates placed. States are color-coded by data volume using a blue gradient scheme, with darker shades 
+            indicating higher numbers. Hovering over individual states reveals detailed tooltips showing training numbers, 
+            placement figures, and placement rates. The geographic distribution exposes massive implementation variation: 
+            Uttar Pradesh trained 463,503 candidates in FY 2024-25 (the largest volume nationally), while smaller states 
+            like Goa trained just 236. Critically, the map reveals a structural accountability gap—placement data exists 
+            only for FY 2020-21 and 2021-22, after which the government de-linked outcome tracking under PMKVY 4.0, 
+            eliminating visibility into whether training translates to employment despite continuing to report impressive 
+            training volumes.
+          </p>
+          <p class="source">
+            <strong>Source:</strong> PIB Press Release PRID 2204132 (December 2025) - Annexure I (Training) & Annexure II (Placement) | 
+            <strong>Coverage:</strong> All Indian states and union territories, FY 2020-21 to FY 2024-25
+          </p>
         </div>
-        <div class="insight-box">
-          <p><strong>Finding:</strong> Uttar Pradesh trained 463,503 candidates in FY 24-25 (largest volume), 
-             but no placement tracking exists. Geographic distribution shows program scale, yet accountability 
-             was eliminated from 2022 onwards.</p>
+        
+        <div class="finding-box">
+          <p>
+            <strong>Geographic Evidence of Systematic Failure:</strong> The state-wise distribution demonstrates that 
+            PMKVY's problems transcend regional capacity differences. Even Gujarat—an advanced industrial state with 
+            significant manufacturing infrastructure—experienced placement rate collapse from 22.5% to 5.9% between 
+            consecutive years despite maintaining substantial training volumes. Conversely, Manipur showed placement rate 
+            improvement from 13.5% to 47.7%, but this occurred alongside an 81% drop in training volume (from 34,540 to 
+            6,424 candidates), suggesting small-sample statistical volatility rather than genuine programmatic success. 
+            The geographic analysis reveals that neither industrial advancement nor peripheral status protects against poor 
+            outcomes, indicating design-level failures rather than implementation variations. Most significantly, the 
+            complete absence of placement data from FY 2022-23 onwards represents metric manipulation—the government 
+            continues celebrating "160 million trained" while systematically avoiding accountability for employment outcomes.
+          </p>
         </div>
       </div>
 
-      <!-- Chart 3: PMKVY Phases -->
-      <div style="margin-top: 70px;">
+      <div class="chart-section">
         <h3>
           <span class="chart-number">CHART 3</span>
-          PMKVY Placement Rate Collapse
+          PMKVY Placement Rate Trajectory Across Four Phases
         </h3>
+        
         <div class="chart-card">
+          <h4>Program Performance Decline (2015-2025)</h4>
           <figure id="chart3"></figure>
-          <p>Placement rates declined from 18.4% (Phase 1) to 10.1% (Phase 3). 
-             Phase 4 eliminated placement tracking entirely—metric manipulation to obscure failure.</p>
-          <p class="source"><strong>Source:</strong> MSDE Annual Reports, Parliamentary Answers</p>
+          <p class="chart-desc">
+            This line chart tracks PMKVY placement rates across four distinct program phases from 2015 to 2025. Phase 1 
+            (2015-16) achieved 18.4% placement, which temporarily increased to 23.4% in Phase 2 (2016-20), before 
+            collapsing to just 10.1% in Phase 3 (2020-22)—a 13.3 percentage point decline from the peak. The red warning 
+            annotation highlights the critical policy shift in Phase 4 (2022-25): the government de-linked placement 
+            tracking entirely, making it impossible to assess whether the program achieves its stated employment objective. 
+            This visualization exposes the accountability evasion strategy—by eliminating outcome measurement while continuing 
+            to report input metrics (candidates trained), policymakers can claim success based on scale while obscuring 
+            employment failure. The declining trend across tracked phases, combined with the elimination of tracking in the 
+            current phase, provides quantitative evidence of systematic program deterioration and deliberate metric manipulation.
+          </p>
+          <p class="source">
+            <strong>Source:</strong> Ministry of Skill Development and Entrepreneurship (MSDE) Annual Reports, Parliamentary 
+            Written Answers (Lok Sabha) | <strong>Analysis:</strong> Phase-wise aggregation of placement data
+          </p>
         </div>
-        <div class="insight-box">
-          <p><strong>Critical Finding:</strong> De-linking placement from Phase 4 onwards represents 
-             accountability evasion. Government continues claiming "160 million trained" while refusing 
-             to measure employment outcomes—the program's core objective.</p>
+        
+        <div class="finding-box">
+          <p>
+            <strong>Accountability Deficit:</strong> The Phase 4 de-linking represents more than data limitation—it constitutes 
+            institutional avoidance of performance measurement. By continuing to publish training volumes while refusing to 
+            track whether trainees secure employment, MSDE has fundamentally altered what "success" means for the program. 
+            This shift from outcome-based to input-based metrics allows the government to claim achievements ("160 million 
+            trained!") while systematically avoiding questions about employment generation. The visualization makes this 
+            evasion visible: the red warning annotation transforms an abstract policy decision into a concrete accountability 
+            gap that viewers immediately recognize. Combined with the sharp decline across measured phases, this chart 
+            provides compelling evidence that PMKVY suffers from both deteriorating performance AND institutional unwillingness 
+            to acknowledge failure.
+          </p>
         </div>
       </div>
 
-      <!-- Chart 4: Quantity vs Quality -->
-      <div style="margin-top: 70px;">
+      <div class="chart-section">
         <h3>
           <span class="chart-number">CHART 4</span>
-          Quantity Without Quality: The Fatal Flaw
+          The Quantity-Quality Paradox: 160 Million Trained, Outcomes Collapsing
         </h3>
+        
         <div class="chart-card">
+          <h4>Cumulative Training Volume vs Placement Rate (2015-2024)</h4>
           <figure id="chart4"></figure>
-          <p>Blue bars show cumulative millions trained (reaching 160M by 2024). 
-             Red line shows placement rate declining sharply. Inverse relationship reveals program failure.</p>
-          <p class="source"><strong>Source:</strong> MSDE Reports, PIB Data</p>
+          <p class="chart-desc">
+            This dual-axis visualization juxtaposes cumulative training volume (blue bars, left axis) against annual 
+            placement rates (red line, right axis) from 2015 to 2024. The blue bars show exponential growth in total 
+            candidates trained, reaching 160 million by 2024—a scale that dwarfs most national education initiatives globally. 
+            However, the red line reveals a starkly inverse relationship: as training volume exploded, placement rates 
+            systematically declined from initial levels around 20% to below 11% before tracking ceased. The divergence 
+            becomes most pronounced after 2020, when cumulative training accelerated dramatically while placement rates 
+            hit historic lows. This pattern exposes the fundamental flaw in SIM's supply-driven model—the assumption that 
+            producing more certificates automatically generates more employment. Instead, the data demonstrates that without 
+            demand-side alignment (curriculum matching industry needs, employer engagement in training design, quality 
+            assurance mechanisms), scale becomes counterproductive, flooding the labor market with certified-but-unemployable 
+            graduates who possess credentials without marketable skills.
+          </p>
+          <p class="source">
+            <strong>Source:</strong> MSDE Annual Reports and PIB Data for training volumes; Parliamentary Answers for 
+            placement rates | <strong>Analysis:</strong> Dual-axis comparison revealing inverse relationship
+          </p>
         </div>
-        <div class="insight-box">
-          <p><strong>Core Problem:</strong> As training volume exploded to 160 million, placement rate 
-             collapsed. Supply-driven model ignores labor market demand, creating millions of 
-             certified-but-unemployable graduates.</p>
+        
+        <div class="finding-box">
+          <p>
+            <strong>Core Structural Failure:</strong> The inverse relationship between training volume and placement rates 
+            constitutes definitive evidence of supply-demand misalignment. In effective training systems, scale and outcomes 
+            should correlate positively—more training capacity should yield more successful placements if curricula match 
+            labor market needs. PMKVY exhibits the opposite pattern, suggesting that training content has become increasingly 
+            disconnected from employability requirements. The supply-driven model prioritizes hitting numerical targets 
+            (trainees certified) over ensuring those certificates translate to jobs. This creates perverse incentives for 
+            training providers: maximizing throughput regardless of quality, teaching generic curricula divorced from specific 
+            employer requirements, and treating placement as secondary to certification. The visualization makes this systemic 
+            failure immediately visible—anyone can see that "160 million trained" rings hollow when placement rates have 
+            collapsed, revealing that SIM measures inputs while ignoring outcomes.
+          </p>
         </div>
       </div>
 
-      <!-- Chart 5: Global Shortage -->
-      <div style="margin-top: 70px;">
+      <div class="chart-section">
         <h3>
           <span class="chart-number">CHART 5</span>
-          Global Labor Shortage: India's Export Opportunity
+          Global Labor Shortage: India's Untapped Export Opportunity
         </h3>
+        
         <div class="chart-card">
+          <h4>Projected Worker Deficits by Country (2030)</h4>
           <figure id="chart5"></figure>
-          <p>By 2030, Germany needs 12.5M workers, Japan 11M, US 8.5M—totaling 50M across 7 countries. 
-             India's demographic surplus could fill this gap if skills align with global standards.</p>
-          <p class="source"><strong>Source:</strong> GATI Report 2025, OECD Labor Projections</p>
+          <p class="chart-desc">
+            This horizontal bar chart quantifies projected labor shortages across seven major economies by 2030, based on 
+            GATI (Global Access to Talent from India) initiative projections and OECD labor market analyses. Germany faces 
+            the largest deficit at 12.5 million workers, driven primarily by manufacturing, healthcare, and technology sector 
+            demands. Japan requires 11 million workers across healthcare, construction, and hospitality as its working-age 
+            population shrinks. The United States needs 8.5 million additional workers in healthcare, technology, and logistics. 
+            United Kingdom, Canada, Australia, and South Korea collectively require approximately 18 million more workers. 
+            These shortages stem from demographic aging (declining working-age populations, rising elderly dependency ratios) 
+            combined with structural labor market transitions toward service sectors and technological industries requiring 
+            specific skill sets. Critically, many of these countries have already signed Memoranda of Cooperation (MoCs) and 
+            Migration & Mobility Partnerships with India's MSDE, creating formal frameworks for skilled worker exchange—yet 
+            these agreements remain dramatically under-utilized because Indian training curricula don't meet international 
+            certification standards or employer requirements.
+          </p>
+          <p class="source">
+            <strong>Source:</strong> GATI Report 2025, OECD Labor Market Projections, ILO Global Employment Trends | 
+            <strong>Note:</strong> Conservative estimates; actual shortages may exceed projections
+          </p>
         </div>
-        <div class="insight-box">
-          <p><strong>Opportunity:</strong> MSDE signed Memoranda of Cooperation with these countries, 
-             but partnerships remain under-utilized. SIM's domestic failures prevent India from capitalizing 
-             on unprecedented global demand.</p>
+        
+        <div class="finding-box">
+          <p>
+            <strong>Strategic Opportunity Being Squandered:</strong> The 50 million worker shortage represents an extraordinary 
+            opportunity for India to address both domestic unemployment and global labor demand simultaneously—but only if SIM 
+            undergoes fundamental reform. Current PMKVY training neither meets Indian industry standards (hence 10.1% placement 
+            domestically) nor international certification requirements (hence limited skilled migration despite formal agreements). 
+            Germany's Indo-German Green Skills programme demonstrates the model: co-designed curricula that train Indian workers 
+            to German renewable energy standards, creating pathways to skilled visas and employment in Germany while building 
+            capacity in India. This bilateral approach aligns training with destination country requirements, ensures mutual 
+            recognition of credentials, and creates sustainable migration channels. Yet SIM remains predominantly domestically 
+            focused, supply-driven, and disconnected from these partnership opportunities. The chart visualizes what India is 
+            leaving on the table: massive global demand that could absorb millions of skilled workers annually if training aligned 
+            with international standards, transforming youth unemployment into strategic labor export.
+          </p>
         </div>
       </div>
 
-      <!-- Chart 6: Migration Potential -->
-      <div style="margin-top: 70px;">
+      <div class="chart-section">
         <h3>
           <span class="chart-number">CHART 6</span>
-          Untapped Migration Potential
+          Realizing Migration Potential: From 700K to 2.5M Workers Annually
         </h3>
+        
         <div class="chart-card">
+          <h4>Current vs Potential Annual Labor Migration</h4>
           <figure id="chart6"></figure>
-          <p>India currently sends 700K workers annually. With curriculum aligned to global standards, 
-             this could grow to 2.5M—a 3.5× increase creating sustainable employment pathways.</p>
-          <p class="source"><strong>Source:</strong> Ministry of External Affairs, Expert Projections</p>
+          <p class="chart-desc">
+            This comparative bar chart visualizes India's current labor migration flows (700,000 workers annually) against 
+            expert projections of potential flows (2.5 million workers annually) if skill training aligned with global standards 
+            and certification requirements. The gray bar represents existing migration through various channels including Gulf 
+            countries for manual labor, IT professionals to Western economies, and healthcare workers to English-speaking nations. 
+            The green bar illustrates untapped potential—a 3.5-fold increase representing approximately 1.8 million additional 
+            annual placements in skilled categories. This projection derives from combining global shortage estimates (50 million 
+            workers needed by 2030 across partner countries) with India's demographic surplus and existing migration infrastructure. 
+            The gap between current and potential reflects multiple barriers: misalignment between training curricula and destination 
+            country requirements, lack of internationally recognized certifications, inadequate language and cultural preparation, 
+            and under-utilization of bilateral Migration & Mobility Partnerships despite MSDE signing agreements with more than 
+            20 countries. Experts note that even conservative expansion scenarios could create 1-2 million sustainable employment 
+            opportunities annually, dramatically improving youth unemployment while addressing global labor shortages.
+          </p>
+          <p class="source">
+            <strong>Source:</strong> Ministry of External Affairs migration statistics, Expert projections from policy consultations, 
+            GATI initiative analysis | <strong>Methodology:</strong> Projection based on demand-side analysis
+          </p>
         </div>
-        <div class="insight-box">
-          <p><strong>Reform Priority:</strong> Migration & Mobility Partnerships with 20+ countries exist, 
-             but require SIM curriculum reform. Current training doesn't meet international certification 
-             standards, limiting skilled migration potential.</p>
+        
+        <div class="finding-box">
+          <p>
+            <strong>Reform as Migration Enabler:</strong> The 1.8 million annual placement gap represents the concrete cost of 
+            SIM's domestic failures on international opportunity. Migration & Mobility Partnerships with Germany, Japan, UK, 
+            and other shortage-facing economies create formal channels for worker exchange, but these frameworks presume Indian 
+            training meets destination country standards—an assumption current PMKVY curricula violate. Achieving the 2.5 million 
+            annual migration target requires SIM reform in three dimensions: (1) co-designing curricula with partner countries to 
+            ensure mutual recognition of credentials, (2) incorporating destination-country language requirements and workplace 
+            cultural preparation into training modules, and (3) establishing quality assurance mechanisms that international 
+            employers trust. Germany's renewable energy partnership demonstrates feasibility—when training aligns with German 
+            standards, Indian workers successfully integrate into German labor markets. This chart quantifies what comprehensive 
+            SIM reform could unlock: not merely improved domestic placement, but transformation of youth unemployment into strategic 
+            labor export addressing global shortages while creating sustainable livelihoods.
+          </p>
         </div>
       </div>
 
-      <!-- Chart 7: ML Insights -->
-      <div style="margin-top: 70px;">
+      <div class="chart-section">
         <h3>
           <span class="chart-number">CHART 7</span>
-          Machine Learning Insights: Why Education Trumps Infrastructure
+          Machine Learning Analysis: Education Infrastructure Trumps Economic Wealth
         </h3>
 
         <div class="chart-grid">
           <div class="chart-card">
-            <h3>Model Validation: Residuals Plot</h3>
+            <h4>Model Validation: Residuals Analysis</h4>
             <figure id="chart7a"></figure>
-            <p>
-              Residuals (prediction errors) scattered randomly around zero line show unbiased model. 
-              No systematic over/under-prediction pattern validates that literacy and skill infrastructure 
-              genuinely predict placement better than GDP.
+            <p class="chart-desc">
+              Residual plot validates model quality by showing prediction errors (actual minus predicted placement rates) 
+              distributed randomly around the zero line. Random scatter indicates no systematic bias—the model doesn't 
+              consistently over-predict or under-predict for specific types of states. This confirms that literacy and 
+              skill infrastructure genuinely predict placement outcomes, not spurious correlation.
             </p>
             <p class="source">
-              <strong>Method:</strong> Linear Regression residual analysis | 
-              <strong>Model:</strong> R² = 0.72, RMSE = 5.2%
+              <strong>Method:</strong> Linear Regression residual analysis | <strong>Performance:</strong> R² = 0.72, RMSE = 5.2%
             </p>
           </div>
 
           <div class="chart-card">
-            <h3>Correlation Matrix: The GDP Paradox</h3>
+            <h4>Feature Correlations: The GDP Paradox</h4>
             <figure id="chart7b"></figure>
-            <p>
-              Heatmap reveals GDP per capita negatively correlates with placement (-0.12) despite 
-              correlating strongly with industrial share (0.82). Literacy shows positive placement 
-              correlation (0.58), supporting education-centric policy reforms.
+            <p class="chart-desc">
+              Correlation heatmap reveals GDP per capita shows negative correlation with placement outcomes (-0.12) 
+              despite correlating strongly with industrial share (0.82). Meanwhile, literacy rate demonstrates positive 
+              correlation with placement (0.58) and formal skill infrastructure (0.71). This quantifies why wealthier 
+              states don't achieve better PMKVY outcomes—economic development doesn't substitute for educational capacity.
             </p>
             <p class="source">
-              <strong>Features:</strong> 5 state characteristics + placement rate | 
-              <strong>Insight:</strong> Challenges infrastructure spending priority
+              <strong>Features:</strong> 5 state-level characteristics + placement rate | <strong>Method:</strong> Pearson 
+              correlation matrix
             </p>
           </div>
         </div>
 
-        <div class="insight-box">
+        <div class="finding-box">
           <p>
-            <strong>Policy Implication:</strong> The GDP-placement paradox demonstrates why infrastructure-heavy 
-            approaches fail. Wealthier states don't achieve better placement outcomes. Instead, literacy (0.58 correlation) 
-            and formal skill infrastructure (0.62 correlation) are stronger predictors. This quantitative evidence 
-            supports shifting resources from building new training centers toward improving curriculum quality and 
-            leveraging existing educational institutions. The correlation matrix validates education reform over 
-            infrastructure expansion as the primary policy lever for PMKVY success.
+            <strong>Policy Insight—Challenging Infrastructure-Centric Approaches:</strong> The GDP-placement paradox provides 
+            quantitative evidence against infrastructure-heavy reform strategies. States with higher GDP per capita don't achieve 
+            better placement rates, contradicting assumptions that economic development automatically improves skill training 
+            outcomes. Instead, literacy (0.58 correlation) and existing formal skill infrastructure (0.62 correlation from feature 
+            importance analysis) emerge as stronger predictors. This finding challenges policies focused on building new training 
+            centers in favor of improving curriculum quality and leveraging existing educational institutions. The correlation 
+            matrix demonstrates that educational foundations matter more than economic wealth for translating training into 
+            employment—supporting reforms that prioritize curriculum alignment with industry needs, teacher training quality, 
+            and integration with schools/colleges over construction of standalone skill development infrastructure. This evidence 
+            validates education-centric reform over infrastructure expansion as the primary policy lever for PMKVY transformation.
           </p>
         </div>
       </div>
@@ -522,87 +749,106 @@
 
     <div class="rule"></div>
 
-    <!-- Conclusions -->
     <section class="section" id="conclusions">
       <div class="meta">Conclusions</div>
       <h2>What the Evidence Suggests</h2>
-      <p>
-        The quantitative analysis reveals three critical findings. First, PMKVY's failures transcend 
-        state-level capacity differences—even Gujarat experienced catastrophic placement collapse from 
-        22.5% to 5.9%, suggesting systematic program design flaws rather than implementation issues. 
-        Second, government de-linked placement tracking from PMKVY 4.0 (FY 2022-23), eliminating 
-        accountability while claiming success based solely on training volume.
+      
+      <p class="section-text">
+        The quantitative analysis and visualization evidence converge on three critical findings that diagnose SIM's 
+        failures and illuminate reform pathways. First, PMKVY's systematic underperformance transcends state-level 
+        capacity differences and implementation quality. Even Gujarat—an advanced industrial state with significant 
+        manufacturing clusters, relatively strong employer engagement, and superior administrative capacity—experienced 
+        catastrophic placement rate collapse from 22.5% to 5.9% between consecutive fiscal years. This demonstrates that 
+        program design flaws, not merely implementation weaknesses, drive poor outcomes. The supply-driven model that 
+        prioritizes training volumes over curriculum-industry alignment creates certified-but-unemployable graduates 
+        regardless of state context.
       </p>
-      <p>
-        Third, machine learning analysis demonstrates that literacy and existing skill infrastructure 
-        predict placement better than GDP per capita, challenging infrastructure-heavy policy approaches. 
-        Combined with India's narrowing demographic dividend window and global labor shortages totaling 
-        50 million workers by 2030, India could expand annual migration from 700K to 2.5M workers—but 
-        only through fundamental SIM reform focused on curriculum-industry alignment, international 
-        certification standards, and quality-over-quantity metrics.
+      
+      <p class="section-text">
+        Second, the government's decision to de-link placement tracking from PMKVY 4.0 onwards (from FY 2022-23) represents 
+        institutional accountability evasion rather than mere administrative adjustment. By eliminating measurement of the 
+        program's core employment objective while continuing to publicize impressive training numbers, policymakers have 
+        effectively redefined "success" from jobs created to certificates issued. This metric manipulation obscures failure 
+        and removes pressure for substantive reform. Third, machine learning analysis reveals that literacy rates and existing 
+        formal skill training infrastructure significantly outperform GDP per capita as predictors of placement success, 
+        contradicting infrastructure-heavy policy approaches and supporting curriculum reform, quality improvement, and 
+        strategic leverage of existing educational institutions.
+      </p>
+      
+      <p class="section-text">
+        These findings intersect with India's narrowing demographic dividend window and unprecedented global labor shortages. 
+        With working-age population peaking at 67.8% in 2024 before inevitable aging begins, India possesses a 20-30 year 
+        advantage that Japan (median age 49.5) and Germany (48.2) have permanently lost. Simultaneously, these aging economies 
+        face combined worker deficits of 50 million by 2030, creating extraordinary demand for skilled migration. India currently 
+        sends 700,000 workers annually but could expand to 2.5 million through curriculum alignment with international standards—yet 
+        existing Migration & Mobility Partnerships with 20+ countries remain under-utilized due to SIM's domestic failures. 
+        Fundamental reform focused on curriculum-industry co-design, quality-over-quantity metrics, international certification 
+        alignment, and reinstating placement accountability could transform PMKVY from a certificate factory into a genuine 
+        employability engine, capitalizing on both demographic advantage and global opportunity before this window closes permanently.
       </p>
     </section>
 
     <div class="rule"></div>
 
-    <!-- Data & Methodology -->
-    <section class="section" id="data">
+    <section class="section" id="methodology">
       <div class="meta">Methodology</div>
-      <h2>Data Sources, Tools & Challenges</h2>
+      <h2>Data Sources, Analytical Methods & Research Challenges</h2>
       
       <div class="data-grid">
         
         <div class="data-card">
-          <h3> Primary Data Sources</h3>
+          <h3>📊 Primary Data Sources</h3>
           <ul>
-            <li><strong>PMKVY Performance:</strong> PIB Press Release PRID 2204132 (Dec 2025) providing state-wise training and placement data for FY 2020-21 through FY 2024-25</li>
-            <li><strong>Demographics:</strong> World Bank World Development Indicators and UN Population Division (1990-2024 time series)</li>
-            <li><strong>Labor Market:</strong> Periodic Labour Force Survey (PLFS) Annual Reports and India Graduate Skills Index 2025</li>
-            <li><strong>Migration Data:</strong> GATI Report 2025, OECD Labor Market Statistics, Ministry of External Affairs</li>
-            <li><strong>State Economics:</strong> Reserve Bank of India State Finance Reports and Census 2011</li>
+            <li><strong>PMKVY Performance Data:</strong> Press Information Bureau Release PRID 2204132 (December 15, 2025) providing comprehensive state-wise training and placement statistics across five fiscal years (FY 2020-21 through FY 2024-25) from Annexure I (candidates skilled) and Annexure II (candidates placed, available only through FY 2021-22)</li>
+            <li><strong>Demographic Indicators:</strong> World Bank World Development Indicators and United Nations Population Division time-series data (1990-2024) including working-age population percentages, youth and elderly dependency ratios, and median age statistics</li>
+            <li><strong>Labor Market Analytics:</strong> Periodic Labour Force Survey (PLFS) Annual Reports published by Ministry of Statistics, India Graduate Skills Index 2025, and youth unemployment statistics from government surveys</li>
+            <li><strong>International Migration:</strong> GATI (Global Access to Talent from India) Report 2025, OECD Labor Market Projections, International Labour Organization (ILO) databases, and Ministry of External Affairs migration flow statistics</li>
+            <li><strong>State-Level Economics:</strong> Reserve Bank of India State Finance Reports, Census 2011 literacy and demographic data, and state GDP estimates</li>
           </ul>
         </div>
         
-        <div class="data-card challenge">
-          <h3>Data Challenges & Limitations</h3>
+        <div class="data-card accent">
+          <h3>⚠️ Data Challenges & Limitations</h3>
           <ul>
-            <li><strong>Placement De-linking:</strong> Government stopped tracking placement outcomes from FY 2022-23 onwards, eliminating accountability for the program's primary objective</li>
-            <li><strong>State Name Variations:</strong> Inconsistent naming conventions across PIB annexures, census data, and geographic datasets required extensive manual matching</li>
-            <li><strong>Missing Sector Data:</strong> Industry-specific placement breakdowns not published, preventing analysis of skill-demand alignment</li>
-            <li><strong>Projection Uncertainty:</strong> Global labor shortage estimates vary significantly across sources; conservative GATI projections used</li>
+            <li><strong>Placement Tracking De-linking:</strong> Government's decision to eliminate placement outcome measurement from PMKVY 4.0 onwards (FY 2022-23+) creates fundamental accountability gap, preventing assessment of whether training achieves employment objectives in recent years despite continued training volume reporting</li>
+            <li><strong>Administrative Classification Inconsistencies:</strong> State and union territory naming conventions vary across PIB parliamentary annexures, census databases, and geographic boundary files, requiring extensive manual matching and harmonization to enable cross-dataset analysis</li>
+            <li><strong>Sector-Specific Granularity Absence:</strong> Industry-wise placement breakdowns not published in official reports, preventing analysis of curriculum-demand alignment in specific sectors (manufacturing vs services, formal vs informal) where skill mismatches likely vary significantly</li>
+            <li><strong>Global Projection Uncertainty:</strong> International labor shortage estimates vary considerably across OECD, ILO, and national government sources depending on methodology and immigration policy assumptions; conservative GATI projections used to avoid overstatement</li>
+            <li><strong>State Economic Data Staleness:</strong> Most recent comprehensive state-level economic indicators derive from 2019-20 pre-pandemic data, potentially not reflecting post-COVID structural changes in labor markets and industrial composition</li>
           </ul>
         </div>
         
         <div class="data-card">
-          <h3>Analytical Tools & Methods</h3>
+          <h3>🔧 Analytical Tools & Statistical Methods</h3>
           <ul>
-            <li><strong>Python 3.x with pandas:</strong> Data cleaning, merging parliamentary question annexures across different administrative classifications</li>
-            <li><strong>scikit-learn:</strong> LinearRegression for identifying state-level predictors, StandardScaler for feature normalization</li>
-            <li><strong>Statistical Analysis:</strong> Difference-in-Differences methodology comparing Gujarat (advanced) vs Manipur (peripheral)</li>
-            <li><strong>Visualization:</strong> Vega-Lite 5.x with interactive parameters including year sliders, metric selectors, and hover effects</li>
-            <li><strong>Reproducibility:</strong> Google Colab notebooks with publicly accessible code and data</li>
+            <li><strong>Python 3.x with pandas:</strong> Comprehensive data cleaning including merging PIB parliamentary question annexures, harmonizing state naming conventions across datasets, calculating derived variables (placement rates, dependency ratios), and restructuring data for visualization compatibility</li>
+            <li><strong>scikit-learn Machine Learning:</strong> Implemented supervised learning using LinearRegression to identify state-level predictors of placement success; StandardScaler for feature normalization ensuring comparability across different measurement scales; train-test split methodology for model validation</li>
+            <li><strong>Difference-in-Differences Regression:</strong> Comparative analysis of Gujarat (advanced industrial state) versus Manipur (peripheral agrarian economy) to test whether state capacity moderates program outcomes; DiD coefficient of -50.8 percentage points demonstrates Gujarat performed substantially worse, contradicting infrastructure advantage hypothesis</li>
+            <li><strong>Interactive Visualization:</strong> Vega-Lite 5.x specifications with parameter-based interactivity including year sliders for temporal exploration, metric selectors for switching between indicators, hover effects for detailed tooltips, and responsive design for cross-device compatibility</li>
+            <li><strong>Reproducibility Infrastructure:</strong> Complete analysis pipeline documented in publicly accessible Google Colab notebooks with executable code, raw data files, and transformation logic enabling independent verification and replication</li>
           </ul>
         </div>
         
-        <div class="data-card challenge">
-          <h3>Research Design</h3>
+        <div class="data-card accent">
+          <h3>🔬 Research Design & Theoretical Framework</h3>
           <ul>
-            <li><strong>Comparative Framework:</strong> Case study analysis of Gujarat (advanced industrial state with manufacturing clusters) versus Manipur (peripheral agrarian economy) to test whether state capacity moderates program outcomes</li>
-            <li><strong>Theoretical Lens:</strong> Principal-agent theory for understanding policy implementation incentives; CIPP evaluation model for assessing inputs, processes, and outputs</li>
-            <li><strong>Validation Approach:</strong> Triangulation of official quantitative data with qualitative stakeholder perspectives and international comparisons (Germany's Indo-German Green Skills programme)</li>
+            <li><strong>Comparative Case Study Approach:</strong> Analyzed Gujarat (advanced state with extensive manufacturing base, relatively high GDP per capita, strong industrial infrastructure) versus Manipur (peripheral northeastern state with predominantly agrarian economy, limited industrial development, lower GDP) to test whether state-level economic and administrative capacity moderates PMKVY outcomes—finding that even Gujarat failed, indicating systematic rather than implementation-specific problems</li>
+            <li><strong>Principal-Agent Theory Application:</strong> Examined how performance metrics, funding mechanisms, and target-setting create incentives for policymakers and training providers that prioritize quantifiable outputs (certificates issued) over qualitative outcomes (sustainable employment), explaining why placement de-linking emerged as rational response to poor results</li>
+            <li><strong>CIPP Evaluation Model:</strong> Context-Input-Process-Product framework applied to assess how SIM's inputs (funding, infrastructure), processes (curriculum design, provider selection), and products (certificates) interact to produce outcomes, revealing that output-focused monitoring systems fail to capture employment quality</li>
+            <li><strong>Triangulation Strategy:</strong> Combined quantitative analysis of official data with qualitative examination of policy documents, parliamentary debates, and international comparison cases (particularly Germany's Indo-German Green Skills bilateral programme) to validate findings across multiple evidence types</li>
           </ul>
         </div>
         
       </div>
       
-      <div style="margin-top: 50px; text-align: center;">
+      <div style="margin-top: 55px; text-align: center;">
         <a href="https://colab.research.google.com/drive/1WO-X0Aut0yWITAjlEoXqgZqAzF1AgNKa" 
            target="_blank"
            class="colab-button">
-          📓 View Complete Analysis in Google Colab
+          📓 View Complete Analysis & Code in Google Colab
         </a>
-        <p style="font-family: 'Poppins', sans-serif; font-size: 12px; color: rgba(18,18,18,0.55); margin-top: 12px;">
-          Includes data cleaning, statistical analysis, and complete ML implementation
+        <p class="colab-note">
+          Includes data cleaning scripts, statistical analysis, ML implementation, and visualization specifications
         </p>
       </div>
       
@@ -626,44 +872,44 @@
   <script>
     // Chart 1: Demographics
     vegaEmbed('#chart1', 'demographic_chart_interactive.json', {actions: true})
-      .then(() => console.log('✅ Chart 1 loaded'))
-      .catch(err => console.error('❌ Chart 1:', err));
+      .then(() => console.log('✅ Chart 1'))
+      .catch(console.error);
 
-    // Chart 2: India Map - Use portfolio version
-    vegaEmbed('#chart2', 'portfolio/cc9_india_pmkvy_choropleth_v2.json', {actions: true})
-      .then(() => console.log('✅ Chart 2 loaded'))
-      .catch(err => console.error('❌ Chart 2:', err));
+    // Chart 2: India Map
+    vegaEmbed('#chart2', 'pmkvy_india_map_complete.json', {actions: true})
+      .then(() => console.log('✅ Chart 2'))
+      .catch(console.error);
 
     // Chart 3: PMKVY Phases
     vegaEmbed('#chart3', 'chart3_pmkvy_phases.json', {actions: true})
-      .then(() => console.log('✅ Chart 3 loaded'))
-      .catch(err => console.error('❌ Chart 3:', err));
+      .then(() => console.log('✅ Chart 3'))
+      .catch(console.error);
 
     // Chart 4: Quantity vs Quality
     vegaEmbed('#chart4', 'chart4_quantity_vs_quality.json', {actions: true})
-      .then(() => console.log('✅ Chart 4 loaded'))
-      .catch(err => console.error('❌ Chart 4:', err));
+      .then(() => console.log('✅ Chart 4'))
+      .catch(console.error);
 
     // Chart 5: Global Shortage
     vegaEmbed('#chart5', 'chart5_global_shortage.json', {actions: true})
-      .then(() => console.log('✅ Chart 5 loaded'))
-      .catch(err => console.error('❌ Chart 5:', err));
+      .then(() => console.log('✅ Chart 5'))
+      .catch(console.error);
 
     // Chart 6: Migration Potential
     vegaEmbed('#chart6', 'chart6_migration_potential.json', {actions: true})
-      .then(() => console.log('✅ Chart 6 loaded'))
-      .catch(err => console.error('❌ Chart 6:', err));
+      .then(() => console.log('✅ Chart 6'))
+      .catch(console.error);
 
-    // Chart 7: ML Insights (2 charts)
+    // Chart 7: ML Insights
     vegaEmbed('#chart7a', 'ml_chart3_residuals.json', {actions: true})
-      .then(() => console.log('✅ Chart 7a loaded'))
-      .catch(err => console.error('❌ Chart 7a:', err));
+      .then(() => console.log('✅ Chart 7a'))
+      .catch(console.error);
 
     vegaEmbed('#chart7b', 'ml_chart4_correlation_heatmap.json', {actions: true})
-      .then(() => console.log('✅ Chart 7b loaded'))
-      .catch(err => console.error('❌ Chart 7b:', err));
+      .then(() => console.log('✅ Chart 7b'))
+      .catch(console.error);
 
-    console.log('✅ Project page initialized - loading all charts...');
+    console.log('✅ Project initialized');
   </script>
 </body>
 </html>
