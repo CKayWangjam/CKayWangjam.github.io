@@ -16,19 +16,29 @@
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 
   <style>
-    /* Project-specific styles */
+    
+    .project-page .container {
+      text-align: center;
+    }
+
     .section {
-      margin: 60px 0;
+      margin: 60px auto;
       max-width: 900px;
+      text-align: center;
+    }
+
+    .section .meta {
+      text-align: center;
+      margin: 0 auto 16px;
     }
 
     .section h2 {
       font-family: "Poppins", sans-serif;
       font-size: 28px;
       font-weight: 600;
-      margin-top: 12px;
-      margin-bottom: 20px;
+      margin: 12px auto 24px;
       color: rgba(18,18,18,0.95);
+      text-align: center;
     }
 
     .section p {
@@ -36,20 +46,50 @@
       font-size: 15px;
       line-height: 1.8;
       color: rgba(18,18,18,0.75);
-      margin: 16px 0;
+      margin: 16px auto;
+      max-width: 85ch;
+      text-align: center;
     }
 
-    /* Data Visualisation Section */
+    
+    .project-page .hero {
+      text-align: center;
+      margin: 0 auto;
+      max-width: 1000px;
+    }
+
+    .project-page .hero h1 {
+      text-align: center;
+      margin: 18px auto 20px;
+    }
+
+    .project-page .hero h2 {
+      font-family: "Poppins", sans-serif;
+      font-size: 20px;
+      font-weight: 500;
+      line-height: 1.6;
+      color: rgba(18,18,18,0.75);
+      margin: 16px auto;
+      max-width: 80ch;
+      text-align: center;
+    }
+
     .viz-section {
-      margin: 60px 0;
+      margin: 80px auto;
       max-width: 1200px;
+      text-align: center;
+    }
+
+    .viz-section .meta {
+      text-align: center;
+      margin: 0 auto 16px;
     }
 
     .viz-section h2 {
       font-family: "Poppins", sans-serif;
       font-size: 32px;
       font-weight: 700;
-      margin-bottom: 10px;
+      margin: 12px auto 16px;
       color: rgba(18,18,18,0.95);
       text-align: center;
     }
@@ -60,7 +100,16 @@
       line-height: 1.75;
       color: rgba(18,18,18,0.68);
       max-width: 850px;
-      margin: 0 auto 40px;
+      margin: 0 auto 50px;
+      text-align: center;
+    }
+
+    .viz-section h3 {
+      font-family: "Poppins", sans-serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: rgba(18,18,18,0.90);
+      margin: 50px auto 24px;
       text-align: center;
     }
 
@@ -68,7 +117,8 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 24px;
-      margin-top: 30px;
+      margin: 30px auto;
+      max-width: 1200px;
     }
 
     .chart-card {
@@ -76,26 +126,28 @@
       border-radius: 16px;
       padding: 20px;
       box-shadow: inset 0 0 0 1px rgba(0,0,0,0.10);
-      min-height: 500px;
+      min-height: 520px;
       display: flex;
       flex-direction: column;
+      text-align: center;
     }
 
     .chart-card h3 {
       font-family: "Poppins", sans-serif;
-      font-size: 16px;
+      font-size: 15px;
       font-weight: 600;
       letter-spacing: 0.2px;
       color: rgba(18,18,18,0.88);
-      margin: 0 0 12px 0;
+      margin: 0 0 14px 0;
       text-align: center;
     }
 
     .chart-card figure {
-      margin: 12px 0;
+      margin: 12px auto;
       padding: 0;
       flex: 1;
       min-height: 340px;
+      width: 100%;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -106,7 +158,7 @@
       font-size: 13px;
       line-height: 1.65;
       color: rgba(18,18,18,0.70);
-      margin: 10px 0;
+      margin: 10px auto;
       text-align: center;
     }
 
@@ -116,7 +168,7 @@
       font-size: 12px;
       color: rgba(18,18,18,0.55);
       border-top: 1px solid rgba(0,0,0,0.08);
-      text-align: left;
+      text-align: center;
     }
 
     .chart-card .source strong {
@@ -124,20 +176,24 @@
       color: rgba(18,18,18,0.65);
     }
 
+    /
     .insight-box {
       background: linear-gradient(135deg, #fff9e6 0%, #ffe8a1 100%);
-      padding: 24px;
+      padding: 28px;
       border-left: 5px solid #ffc107;
       border-radius: 12px;
-      margin: 24px 0;
+      margin: 30px auto;
+      max-width: 900px;
+      text-align: center;
     }
 
     .insight-box p {
       font-family: "Poppins", sans-serif;
       font-size: 14px;
-      line-height: 1.75;
+      line-height: 1.8;
       color: rgba(18,18,18,0.80);
-      margin: 0;
+      margin: 0 auto;
+      text-align: center;
     }
 
     .insight-box strong {
@@ -145,20 +201,31 @@
       color: rgba(18,18,18,0.90);
     }
 
+    
     .chart-number {
       display: inline-block;
       background: rgba(11,79,43,0.12);
       color: rgba(11,79,43,0.85);
-      padding: 4px 12px;
+      padding: 5px 14px;
       border-radius: 999px;
       font-size: 11px;
       font-weight: 700;
       letter-spacing: 0.8px;
-      margin-right: 8px;
+      margin-right: 10px;
+    }
+
+  
+    .chart-placeholder {
+      text-align: center;
+      color: rgba(18,18,18,0.55);
+      font-style: italic;
+      margin: 24px auto;
+      font-size: 14px;
     }
 
     @media (max-width: 980px){
       .chart-grid { grid-template-columns: 1fr; }
+      .section, .viz-section { margin: 40px auto; }
     }
   </style>
 </head>
@@ -178,17 +245,18 @@
   </header>
 
   <main class="container">
+   
     <section class="hero">
       <div class="meta">Project</div>
       <h1>Data Visualisation Project</h1>
-      <h2 style="font-family: 'Poppins', sans-serif; font-size: 22px; font-weight: 500; line-height: 1.5; color: rgba(18,18,18,0.80); margin-top: 16px;">
+      <h2 style="font-family: 'Poppins', sans-serif; font-size: 20px; font-weight: 500; 
+                 line-height: 1.6; color: rgba(18,18,18,0.75); margin: 20px auto; max-width: 85ch;">
         Workforce Mobility and Youth Labour Outcomes in India: Examining Sectoral Employment and Skilled Migration Trends
       </h2>
     </section>
 
     <div class="rule"></div>
 
-    <!-- Aims Section -->
     <section class="section" id="aims">
       <div class="meta">Aims</div>
       <h2>Aim and Objective of the Project</h2>
@@ -213,20 +281,17 @@
 
     <div class="rule"></div>
 
-    <!-- Data Visualisation Section -->
     <section class="viz-section" id="visualisations">
-      <div class="meta" style="text-align: center;">Data Visualisations</div>
+      <div class="meta">Data Visualisations</div>
       <h2>Visual Evidence & Analysis</h2>
       <p class="section-intro">
         Seven interactive charts examining India's demographic advantage, skill development challenges, 
         and comparative labor market outcomes. Data sourced from World Bank, PLFS, MSDE, and international databases.
       </p>
 
-      <!-- Chart 1: Demographic Dividend -->
-      <div>
-        <h3 style="font-family: 'Poppins', sans-serif; font-size: 20px; font-weight: 600; 
-                   color: rgba(18,18,18,0.90); margin: 40px 0 20px; text-align: center;">
-          <span class="chart-number">CHART 1</span>
+      <div style="margin-top: 50px;">
+        <h3>
+          
           Demographic Dividend: India's Window of Opportunity
         </h3>
 
@@ -239,9 +304,8 @@
               peaked at 67.8% in 2024, while Japan's declined to 58.5% with severe elderly dependency.
             </p>
             <p class="source">
-              <strong>Data source:</strong> World Bank World Development Indicators (WDI), 
-              UN Population Division | 
-              <strong>Indicators:</strong> Working-age population, youth dependency, elderly dependency, median age
+              <strong>Data source:</strong> World Bank WDI, UN Population Division | 
+              <strong>Indicators:</strong> Working-age %, youth dependency, elderly dependency, median age
             </p>
           </div>
 
@@ -249,12 +313,12 @@
             <h3>Cross-Sectional Comparison (2024)</h3>
             <figure id="demo_chart2"></figure>
             <p>
-              Current demographic pressures: India supports 40 youth per 100 workers (green bars) 
-              while Japan faces 51 elderly per 100 workers (red bars)—contrasting burdens.
+              Current demographic pressures: India supports 40 youth per 100 workers (green) 
+              while Japan faces 51 elderly per 100 workers (red)—contrasting burdens.
             </p>
             <p class="source">
               <strong>Data source:</strong> World Bank WDI (2024) | 
-              <strong>Metrics:</strong> Youth dependency ratio (0-14 years), Elderly dependency ratio (65+ years)
+              <strong>Metrics:</strong> Youth dependency (0-14), Elderly dependency (65+)
             </p>
           </div>
         </div>
@@ -271,70 +335,64 @@
         </div>
       </div>
 
-      <!-- Placeholder for Charts 2-7 -->
-      <div style="margin-top: 60px;">
-        <h3 style="font-family: 'Poppins', sans-serif; font-size: 20px; font-weight: 600; 
-                   color: rgba(18,18,18,0.90); margin: 40px 0 20px; text-align: center;">
+      
+      <div style="margin-top: 70px;">
+        <h3>
           <span class="chart-number">CHART 2</span>
           PMKVY Placement Outcomes: State-wise Analysis
         </h3>
-        <p style="text-align: center; color: rgba(18,18,18,0.55); font-style: italic; margin: 20px 0;">
-          [Chart 2 coming soon - State-wise placement rate comparison]
+        <p class="chart-placeholder">
+          Chart 2 coming soon - State-wise placement rate comparison showing Gujarat vs Manipur performance
         </p>
       </div>
 
-      <div style="margin-top: 60px;">
-        <h3 style="font-family: 'Poppins', sans-serif; font-size: 20px; font-weight: 600; 
-                   color: rgba(18,18,18,0.90); margin: 40px 0 20px; text-align: center;">
+      <div style="margin-top: 70px;">
+        <h3>
           <span class="chart-number">CHART 3</span>
           Youth Unemployment & NEET Rates Across States
         </h3>
-        <p style="text-align: center; color: rgba(18,18,18,0.55); font-style: italic; margin: 20px 0;">
-          [Chart 3 coming soon - PLFS youth unemployment data]
+        <p class="chart-placeholder">
+          Chart 3 coming soon - PLFS youth unemployment data visualizing regional disparities
         </p>
       </div>
 
-      <div style="margin-top: 60px;">
-        <h3 style="font-family: 'Poppins', sans-serif; font-size: 20px; font-weight: 600; 
-                   color: rgba(18,18,18,0.90); margin: 40px 0 20px; text-align: center;">
+      <div style="margin-top: 70px;">
+        <h3>
           <span class="chart-number">CHART 4</span>
           Sectoral Employment Distribution
         </h3>
-        <p style="text-align: center; color: rgba(18,18,18,0.55); font-style: italic; margin: 20px 0;">
-          [Chart 4 coming soon - Formal vs informal sector employment]
+        <p class="chart-placeholder">
+          Chart 4 coming soon - Formal vs informal sector employment trends
         </p>
       </div>
 
-      <div style="margin-top: 60px;">
-        <h3 style="font-family: 'Poppins', sans-serif; font-size: 20px; font-weight: 600; 
-                   color: rgba(18,18,18,0.90); margin: 40px 0 20px; text-align: center;">
+      <div style="margin-top: 70px;">
+        <h3>
           <span class="chart-number">CHART 5</span>
           International Labor Migration Flows
         </h3>
-        <p style="text-align: center; color: rgba(18,18,18,0.55); font-style: italic; margin: 20px 0;">
-          [Chart 5 coming soon - Indian workers abroad by destination country]
+        <p class="chart-placeholder">
+          Chart 5 coming soon - Indian workers abroad by destination country
         </p>
       </div>
 
-      <div style="margin-top: 60px;">
-        <h3 style="font-family: 'Poppins', sans-serif; font-size: 20px; font-weight: 600; 
-                   color: rgba(18,18,18,0.90); margin: 40px 0 20px; text-align: center;">
+      <div style="margin-top: 70px;">
+        <h3>
           <span class="chart-number">CHART 6</span>
           Skill Training Coverage vs Labor Demand
         </h3>
-        <p style="text-align: center; color: rgba(18,18,18,0.55); font-style: italic; margin: 20px 0;">
-          [Chart 6 coming soon - Training capacity vs industry needs]
+        <p class="chart-placeholder">
+          Chart 6 coming soon - Training capacity vs industry needs gap analysis
         </p>
       </div>
 
-      <div style="margin-top: 60px;">
-        <h3 style="font-family: 'Poppins', sans-serif; font-size: 20px; font-weight: 600; 
-                   color: rgba(18,18,18,0.90); margin: 40px 0 20px; text-align: center;">
+      <div style="margin-top: 70px;">
+        <h3>
           <span class="chart-number">CHART 7</span>
           ML Prediction: What Predicts Placement Success?
         </h3>
-        <p style="text-align: center; color: rgba(18,18,18,0.55); font-style: italic; margin: 20px 0;">
-          [Chart 7 coming soon - Feature importance from regression analysis]
+        <p class="chart-placeholder">
+          Chart 7 coming soon - Feature importance from regression analysis
         </p>
       </div>
 
@@ -342,7 +400,7 @@
 
     <div class="rule"></div>
 
-    <!-- Data Section -->
+    <!-- Data Section - Centered -->
     <section class="section" id="data">
       <div class="meta">Data</div>
       <h2>Sources and Access</h2>
@@ -364,7 +422,9 @@
       </p>
     </section>
 
-    <!-- Tools Section -->
+    <div class="rule"></div>
+
+    <!-- Tools Section - Centered -->
     <section class="section" id="tools">
       <div class="meta">Tools</div>
       <h2>Cleaning and Analysis</h2>
@@ -387,7 +447,9 @@
       </p>
     </section>
 
-    <!-- Conclusions Section -->
+    <div class="rule"></div>
+
+    <!-- Conclusions Section - Centered -->
     <section class="section" id="conclusions">
       <div class="meta">Conclusions</div>
       <h2>What the Evidence Suggests</h2>
@@ -410,6 +472,7 @@
         quality over quantity metrics, and integration with international labor mobility pathways.
       </p>
     </section>
+
   </main>
 
   <footer id="contact" class="footer-bar">
@@ -426,7 +489,7 @@
   </footer>
 
   <script>
-    // Demographic charts (Chart 1)
+    // Chart 1: Demographic charts
     vegaEmbed('#demo_chart1', 'demographic_chart_interactive.json', {actions: true})
       .then(() => console.log('✅ Demographic time series loaded'))
       .catch(err => console.error('❌ Demo chart 1 error:', err));
@@ -435,7 +498,7 @@
       .then(() => console.log('✅ Demographic comparison loaded'))
       .catch(err => console.error('❌ Demo chart 2 error:', err));
 
-    // Placeholders for Charts 2-7
+    // Placeholders for Charts 2-7 (uncomment when ready)
     // vegaEmbed('#proj_chart2', 'chart2_pmkvy_states.json', {actions: true});
     // vegaEmbed('#proj_chart3', 'chart3_youth_unemployment.json', {actions: true});
     // vegaEmbed('#proj_chart4', 'chart4_sectoral_employment.json', {actions: true});
@@ -443,7 +506,8 @@
     // vegaEmbed('#proj_chart6', 'chart6_training_demand.json', {actions: true});
     // vegaEmbed('#proj_chart7', 'chart7_ml_features.json', {actions: true});
 
-    console.log('✅ Project page charts initiated');
+    console.log('✅ Project page initialized');
   </script>
 </body>
 </html>
+```
