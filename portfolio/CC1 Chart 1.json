@@ -8,8 +8,8 @@
     "anchor": "start",
     "color": "black"
   },
-  "width": 300,
-  "height": 300,
+  "width": 360,
+  "height": 360,
   "mark": {"type": "line", "smooth": false, "strokeWidth": 2, "opacity": 1},
   "data": {
     "url": "https://raw.githubusercontent.com/RDeconomist/RDeconomist.github.io/main/charts/ONSinflation/data_OECD_inflation2.csv"

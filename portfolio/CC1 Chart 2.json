@@ -9,8 +9,8 @@
     "color": "black"
   },
   "view": {"stroke": "transparent"},
-  "width": 300,
-  "height": 300,
+  "width": 360,
+  "height": 360,
   "data": {
     "url": "https://raw.githubusercontent.com/RDeconomist/RDeconomist.github.io/main/charts/e4e/Global_IMF_Debt.csv"
   },
