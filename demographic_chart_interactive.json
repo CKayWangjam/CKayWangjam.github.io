@@ -4,7 +4,7 @@
   "height": 400,
   "title": {
     "text": "Demographic Dividend & Decline: Three Countries Compared",
-    "subtitle": "Working-age population (15-64) as % of total - India's opportunity vs Japan & Germany's challenge",
+    "subtitle": "Interactive exploration of demographic transitions (1990-2024)",
     "fontSize": 18,
     "fontWeight": "bold",
     "subtitleFontSize": 13
@@ -41,18 +41,18 @@
   },
   "params": [
     {
-      "name": "demo_year_slider",
+      "name": "projectYearSlider",
       "value": 2024,
       "bind": {
         "input": "range",
         "min": 1990,
         "max": 2024,
         "step": 1,
-        "name": "Year: "
+        "name": "📅 Year: "
       }
     },
     {
-      "name": "demo_metric_select",
+      "name": "projectMetricSelect",
       "value": "Working_Age_Percent",
       "bind": {
         "input": "select",
@@ -68,32 +68,20 @@
           "Elderly Dependency Ratio",
           "Median Age (years)"
         ],
-        "name": "Indicator: "
-      }
-    },
-    {
-      "name": "demo_country_hover",
-      "select": {
-        "type": "point",
-        "fields": ["Country"],
-        "on": "mouseover",
-        "clear": "mouseout"
+        "name": "📊 Indicator: "
       }
     }
   ],
   "transform": [
-    {"filter": "datum.Year <= demo_year_slider"},
-    {"calculate": "datum[demo_metric_select]", "as": "Selected_Value"}
+    {"filter": "datum.Year <= projectYearSlider"},
+    {"calculate": "datum[projectMetricSelect]", "as": "SelectedMetric"}
   ],
   "layer": [
     {
       "mark": {
         "type": "line",
-        "strokeWidth": 3.5,
-        "point": {
-          "size": 100,
-          "filled": true
-        }
+        "strokeWidth": 4,
+        "point": {"size": 120, "filled": true}
       },
       "encoding": {
         "x": {
@@ -111,7 +99,7 @@
           }
         },
         "y": {
-          "field": "Selected_Value",
+          "field": "SelectedMetric",
           "type": "quantitative",
           "axis": {
             "title": "Value",
@@ -131,19 +119,14 @@
           },
           "legend": {
             "title": "Country",
-            "titleFontSize": 12,
+            "titleFontSize": 13,
             "titleFontWeight": "bold",
-            "labelFontSize": 11,
+            "labelFontSize": 12,
             "orient": "top-right",
-            "offset": 10
+            "offset": 10,
+            "symbolSize": 150,
+            "symbolStrokeWidth": 2
           }
-        },
-        "opacity": {
-          "condition": {
-            "param": "demo_country_hover",
-            "value": 1
-          },
-          "value": 0.3
         },
         "tooltip": [
           {"field": "Country", "type": "nominal", "title": "Country"},
@@ -157,23 +140,23 @@
     },
     {
       "transform": [
-        {"filter": "datum.Year == demo_year_slider"}
+        {"filter": "datum.Year == projectYearSlider"}
       ],
       "mark": {
         "type": "point",
-        "size": 250,
+        "size": 300,
         "filled": true,
         "stroke": "white",
         "strokeWidth": 3
       },
       "encoding": {
         "x": {"field": "Year", "type": "quantitative"},
-        "y": {"field": "Selected_Value", "type": "quantitative"},
+        "y": {"field": "SelectedMetric", "type": "quantitative"},
         "color": {"field": "Country", "type": "nominal", "legend": null},
         "tooltip": [
-          {"field": "Country", "type": "nominal"},
-          {"field": "Year", "type": "quantitative"},
-          {"field": "Selected_Value", "type": "quantitative", "title": "Value", "format": ".1f"}
+          {"field": "Country", "type": "nominal", "title": "Country"},
+          {"field": "Year", "type": "quantitative", "title": "Selected Year"},
+          {"field": "SelectedMetric", "type": "quantitative", "title": "Value", "format": ".2f"}
         ]
       }
     }
