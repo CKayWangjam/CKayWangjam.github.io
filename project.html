@@ -358,7 +358,55 @@
           PMKVY Placement Outcomes: State-wise Analysis
         </h3>
         <p class="chart-placeholder">
-          Chart 2 coming soon - State-wise placement rate comparison showing Gujarat vs Manipur performance
+         <!-- Chart 2: PMKVY State-wise Map -->
+<div style="margin-top: 70px;">
+  <h3>
+    <span class="chart-number">CHART 2</span>
+    PMKVY Placement Rates: Gujarat vs Manipur in National Context
+  </h3>
+
+  <div class="chart-grid">
+    <div class="chart-card">
+      <h3>Interactive India Map</h3>
+      <figure id="proj_chart2a"></figure>
+      <p>
+        Gujarat (blue) and Manipur (purple) highlighted as case study states. 
+        Use year selector to compare FY 2020-21 vs 2021-22. 
+        Hover over any state to see placement data—all states in gray have data but aren't highlighted.
+      </p>
+      <p class="source">
+        <strong>Data source:</strong> PIB Press Release PRID 2204132 (Dec 2025) | 
+        <strong>Map:</strong> India state boundaries (GeoJSON) | 
+        <strong>Coverage:</strong> 31 states/UTs
+      </p>
+    </div>
+
+    <div class="chart-card">
+      <h3>Gujarat vs Manipur Trends</h3>
+      <figure id="proj_chart2b"></figure>
+      <p>
+        Direct comparison showing Gujarat's dramatic collapse (22.5% → 5.9%) 
+        versus Manipur's improvement (13.5% → 47.7%). 
+        Hover to highlight individual state trends.
+      </p>
+      <p class="source">
+        <strong>Data source:</strong> PIB PRID 2204132 (Dec 2025) | 
+        <strong>Analysis:</strong> Supports DiD methodology from CC10
+      </p>
+    </div>
+  </div>
+
+  <div class="insight-box">
+    <p>
+      <strong>Key Finding:</strong> The map reveals that Gujarat's placement rate collapse 
+      (22.5% to 5.9%) occurred despite being one of India's most industrialized states, 
+      while Manipur's improvement (13.5% to 47.7%) happened with drastically reduced training 
+      volume (34,540 → 6,424). This geographic visualization demonstrates that PMKVY failures 
+      transcend state capacity—even advanced states struggled, while peripheral states show volatile 
+      outcomes driven by small sample sizes.
+    </p>
+  </div>
+</div>
         </p>
       </div>
 
@@ -508,6 +556,11 @@
     vegaEmbed('#demo_chart2', 'demographic_comparison_2024.json', {actions: true})
       .then(() => console.log('✅ Demographic comparison loaded'))
       .catch(err => console.error('❌ Demo chart 2 error:', err));
+
+      vegaEmbed('#proj_chart2a', 'chart2_india_map_highlighted.json', {actions: true})
+  .then(() => console.log('✅ Chart 2 map loaded'))
+  .catch(console.error);
+
 
     // Placeholders for Charts 2-7 (uncomment when ready)
     // vegaEmbed('#proj_chart2', 'chart2_pmkvy_states.json', {actions: true});

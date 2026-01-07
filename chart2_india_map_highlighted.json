@@ -1,0 +1,160 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 500,
+  "height": 360,
+  "title": {
+    "text": "PMKVY Placement Rates Across India",
+    "subtitle": "Highlighting Gujarat (blue) & Manipur (purple) case study states - Other states in gray",
+    "fontSize": 18,
+    "fontWeight": "bold",
+    "subtitleFontSize": 13,
+    "color": "rgba(18,18,18,0.90)",
+    "subtitleColor": "rgba(18,18,18,0.60)"
+  },
+  "params": [
+    {
+      "name": "yearSelect",
+      "value": "2021-22",
+      "bind": {
+        "input": "select",
+        "options": ["2020-21", "2021-22"],
+        "labels": ["FY 2020-21", "FY 2021-22"],
+        "name": "📅 Fiscal Year: "
+      }
+    }
+  ],
+  "layer": [
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/geohacker/india/master/state/india_state.geojson",
+        "format": {"type": "topojson", "feature": "india_state"}
+      },
+      "transform": [
+        {
+          "lookup": "properties.NAME_1",
+          "from": {
+            "data": {
+              "values": [
+                {"State": "Andhra Pradesh", "Rate_2020_21": 11.4, "Rate_2021_22": 53.8, "Trained_2020_21": 66404, "Placed_2020_21": 7555, "Trained_2021_22": 13199, "Placed_2021_22": 7100},
+                {"State": "Arunachal Pradesh", "Rate_2020_21": 5.3, "Rate_2021_22": 62.1, "Trained_2020_21": 51991, "Placed_2020_21": 2774, "Trained_2021_22": 8884, "Placed_2021_22": 5517},
+                {"State": "Assam", "Rate_2020_21": 2.7, "Rate_2021_22": 47.9, "Trained_2020_21": 362506, "Placed_2020_21": 9926, "Trained_2021_22": 24517, "Placed_2021_22": 11754},
+                {"State": "Bihar", "Rate_2020_21": 11.9, "Rate_2021_22": 33.3, "Trained_2020_21": 96288, "Placed_2020_21": 11493, "Trained_2021_22": 47643, "Placed_2021_22": 15841},
+                {"State": "Chhattisgarh", "Rate_2020_21": 7.6, "Rate_2021_22": 6.0, "Trained_2020_21": 16151, "Placed_2020_21": 1222, "Trained_2021_22": 9495, "Placed_2021_22": 568},
+                {"State": "NCT of Delhi", "Rate_2020_21": 13.6, "Rate_2021_22": 18.7, "Trained_2020_21": 55121, "Placed_2020_21": 7510, "Trained_2021_22": 19965, "Placed_2021_22": 3742},
+                {"State": "Goa", "Rate_2020_21": 1.0, "Rate_2021_22": 7.8, "Trained_2020_21": 1709, "Placed_2020_21": 17, "Trained_2021_22": 604, "Placed_2021_22": 47},
+                {"State": "Gujarat", "Rate_2020_21": 22.5, "Rate_2021_22": 5.9, "Trained_2020_21": 48489, "Placed_2020_21": 10911, "Trained_2021_22": 35001, "Placed_2021_22": 2073, "Highlight": "Gujarat"},
+                {"State": "Haryana", "Rate_2020_21": 14.5, "Rate_2021_22": 22.0, "Trained_2020_21": 54719, "Placed_2020_21": 7957, "Trained_2021_22": 18191, "Placed_2021_22": 4008},
+                {"State": "Himachal Pradesh", "Rate_2020_21": 12.9, "Rate_2021_22": 18.1, "Trained_2020_21": 15612, "Placed_2020_21": 2021, "Trained_2021_22": 8724, "Placed_2021_22": 1580},
+                {"State": "Jammu and Kashmir", "Rate_2020_21": 12.8, "Rate_2021_22": 10.0, "Trained_2020_21": 58927, "Placed_2020_21": 7556, "Trained_2021_22": 21339, "Placed_2021_22": 2126},
+                {"State": "Jharkhand", "Rate_2020_21": 10.4, "Rate_2021_22": 6.6, "Trained_2020_21": 15452, "Placed_2020_21": 1606, "Trained_2021_22": 34233, "Placed_2021_22": 2276},
+                {"State": "Karnataka", "Rate_2020_21": 9.5, "Rate_2021_22": 26.4, "Trained_2020_21": 53066, "Placed_2020_21": 5030, "Trained_2021_22": 23153, "Placed_2021_22": 6119},
+                {"State": "Kerala", "Rate_2020_21": 3.9, "Rate_2021_22": 23.9, "Trained_2020_21": 31077, "Placed_2020_21": 1213, "Trained_2021_22": 12968, "Placed_2021_22": 3094},
+                {"State": "Madhya Pradesh", "Rate_2020_21": 16.8, "Rate_2021_22": 27.1, "Trained_2020_21": 95403, "Placed_2020_21": 16010, "Trained_2021_22": 46659, "Placed_2021_22": 12649},
+                {"State": "Maharashtra", "Rate_2020_21": 6.0, "Rate_2021_22": 17.8, "Trained_2020_21": 148352, "Placed_2020_21": 8830, "Trained_2021_22": 39864, "Placed_2021_22": 7089},
+                {"State": "Manipur", "Rate_2020_21": 13.5, "Rate_2021_22": 47.7, "Trained_2020_21": 34540, "Placed_2020_21": 4661, "Trained_2021_22": 6424, "Placed_2021_22": 3064, "Highlight": "Manipur"},
+                {"State": "Meghalaya", "Rate_2020_21": 9.0, "Rate_2021_22": 143.0, "Trained_2020_21": 17769, "Placed_2020_21": 1604, "Trained_2021_22": 3406, "Placed_2021_22": 4871},
+                {"State": "Mizoram", "Rate_2020_21": 12.6, "Rate_2021_22": 34.3, "Trained_2020_21": 11433, "Placed_2020_21": 1438, "Trained_2021_22": 4742, "Placed_2021_22": 1627},
+                {"State": "Nagaland", "Rate_2020_21": 19.7, "Rate_2021_22": 18.2, "Trained_2020_21": 14399, "Placed_2020_21": 2836, "Trained_2021_22": 4184, "Placed_2021_22": 763},
+                {"State": "Odisha", "Rate_2020_21": 5.4, "Rate_2021_22": 33.3, "Trained_2020_21": 68828, "Placed_2020_21": 3704, "Trained_2021_22": 12645, "Placed_2021_22": 4211},
+                {"State": "Punjab", "Rate_2020_21": 30.2, "Rate_2021_22": 51.4, "Trained_2020_21": 57054, "Placed_2020_21": 17251, "Trained_2021_22": 18539, "Placed_2021_22": 9537},
+                {"State": "Rajasthan", "Rate_2020_21": 17.6, "Rate_2021_22": 37.2, "Trained_2020_21": 97822, "Placed_2020_21": 17189, "Trained_2021_22": 38511, "Placed_2021_22": 14328},
+                {"State": "Sikkim", "Rate_2020_21": 40.7, "Rate_2021_22": 67.6, "Trained_2020_21": 3634, "Placed_2020_21": 1479, "Trained_2021_22": 1322, "Placed_2021_22": 893},
+                {"State": "Tamil Nadu", "Rate_2020_21": 8.3, "Rate_2021_22": 13.3, "Trained_2020_21": 72404, "Placed_2020_21": 6016, "Trained_2021_22": 29057, "Placed_2021_22": 3865},
+                {"State": "Telangana", "Rate_2020_21": 19.8, "Rate_2021_22": 37.7, "Trained_2020_21": 33999, "Placed_2020_21": 6724, "Trained_2021_22": 13107, "Placed_2021_22": 4941},
+                {"State": "Tripura", "Rate_2020_21": 3.0, "Rate_2021_22": 55.0, "Trained_2020_21": 46676, "Placed_2020_21": 1420, "Trained_2021_22": 4490, "Placed_2021_22": 2468},
+                {"State": "Uttar Pradesh", "Rate_2020_21": 12.5, "Rate_2021_22": 25.4, "Trained_2020_21": 239286, "Placed_2020_21": 29901, "Trained_2021_22": 69015, "Placed_2021_22": 17547},
+                {"State": "Uttarakhand", "Rate_2020_21": 30.7, "Rate_2021_22": 37.5, "Trained_2020_21": 29412, "Placed_2020_21": 9026, "Trained_2021_22": 10522, "Placed_2021_22": 3949},
+                {"State": "West Bengal", "Rate_2020_21": 13.1, "Rate_2021_22": 17.0, "Trained_2020_21": 53221, "Placed_2020_21": 6946, "Trained_2021_22": 31406, "Placed_2021_22": 5333}
+              ]
+            },
+            "key": "State",
+            "fields": ["Rate_2020_21", "Rate_2021_22", "Trained_2020_21", "Placed_2020_21", "Trained_2021_22", "Placed_2021_22", "Highlight"]
+          }
+        },
+        {
+          "calculate": "yearSelect == '2020-21' ? datum.Rate_2020_21 : datum.Rate_2021_22",
+          "as": "Placement_Rate"
+        },
+        {
+          "calculate": "yearSelect == '2020-21' ? datum.Trained_2020_21 : datum.Trained_2021_22",
+          "as": "Trained"
+        },
+        {
+          "calculate": "yearSelect == '2020-21' ? datum.Placed_2020_21 : datum.Placed_2021_22",
+          "as": "Placed"
+        }
+      ],
+      "mark": {
+        "type": "geoshape",
+        "stroke": "white",
+        "strokeWidth": 1.5
+      },
+      "encoding": {
+        "color": {
+          "condition": [
+            {
+              "test": "datum.Highlight == 'Gujarat'",
+              "value": "#1e40af"
+            },
+            {
+              "test": "datum.Highlight == 'Manipur'",
+              "value": "#a78bfa"
+            }
+          ],
+          "value": "#f5f5f5"
+        },
+        "tooltip": [
+          {"field": "properties.NAME_1", "type": "nominal", "title": "State"},
+          {"field": "Placement_Rate", "type": "quantitative", "title": "Placement Rate (%)", "format": ".1f"},
+          {"field": "Trained", "type": "quantitative", "title": "Candidates Trained", "format": ","},
+          {"field": "Placed", "type": "quantitative", "title": "Candidates Placed", "format": ","}
+        ]
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {"label": "Gujarat (Advanced)", "color": "#1e40af", "order": 1},
+          {"label": "Manipur (Peripheral)", "color": "#a78bfa", "order": 2},
+          {"label": "Other States", "color": "#f5f5f5", "order": 3}
+        ]
+      },
+      "mark": {
+        "type": "point",
+        "size": 0
+      },
+      "encoding": {
+        "color": {
+          "field": "label",
+          "type": "nominal",
+          "scale": {
+            "domain": ["Gujarat (Advanced)", "Manipur (Peripheral)", "Other States"],
+            "range": ["#1e40af", "#a78bfa", "#f5f5f5"]
+          },
+          "legend": {
+            "title": "Case Study States",
+            "titleFontSize": 13,
+            "titleFontWeight": "bold",
+            "titleColor": "rgba(18,18,18,0.85)",
+            "labelFontSize": 12,
+            "labelColor": "rgba(18,18,18,0.75)",
+            "orient": "bottom-right",
+            "offset": 10,
+            "symbolSize": 150,
+            "symbolType": "square",
+            "symbolStrokeWidth": 1,
+            "symbolStrokeColor": "rgba(0,0,0,0.20)",
+            "fillColor": "rgba(255,255,255,0.95)",
+            "strokeColor": "rgba(0,0,0,0.10)",
+            "padding": 8,
+            "cornerRadius": 6
+          }
+        }
+      }
+    }
+  ],
+  "config": {
+    "view": {"stroke": null},
+    "background": "transparent"
+  }
+}
