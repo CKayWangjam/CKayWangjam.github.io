@@ -1,13 +1,13 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 600,
-  "height": 400,
+  "width": 500,
+  "height": 340,
   "title": {
     "text": "Demographic Structure Comparison (2024)",
     "subtitle": "Age dependency ratios - India's youth bulge vs aging societies",
-    "fontSize": 18,
+    "fontSize": 14,
     "fontWeight": "bold",
-    "subtitleFontSize": 13
+    "subtitleFontSize": 11
   },
   "data": {
     "values": [
