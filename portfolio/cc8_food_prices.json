@@ -1,8 +1,11 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
-    "text": "Essential Food Price Inflation",
-    "subtitle": ["Monthly median prices for staple foods, 2015-2024", "Source: LRPD (Long Run Prices Database)"],
+    "text": "UK Essential Food Price Inflation",
+    "subtitle": [
+      "Annual median prices for staple foods, 2015-2024",
+      "Source: LRPD (Long Run Prices Database)"
+    ],
     "subtitleFontStyle": "italic",
     "subtitleFontSize": 11,
     "anchor": "start"
@@ -10,29 +13,259 @@
   "width": 500,
   "height": 350,
   "data": {
-    "url": "essential_food_prices.csv"
+    "values": [
+      {
+        "date": "2015-01",
+        "product_clean": "White Bread (800g)",
+        "median_price": 1,
+        "n_observations": 450
+      },
+      {
+        "date": "2015-01",
+        "product_clean": "Semi-Skimmed Milk (2-3pt)",
+        "median_price": 0.89,
+        "n_observations": 450
+      },
+      {
+        "date": "2015-01",
+        "product_clean": "Medium Eggs (6pk)",
+        "median_price": 1.65,
+        "n_observations": 450
+      },
+      {
+        "date": "2015-01",
+        "product_clean": "Butter (250g)",
+        "median_price": 1.5,
+        "n_observations": 450
+      },
+      {
+        "date": "2016-01",
+        "product_clean": "White Bread (800g)",
+        "median_price": 1,
+        "n_observations": 460
+      },
+      {
+        "date": "2016-01",
+        "product_clean": "Semi-Skimmed Milk (2-3pt)",
+        "median_price": 0.9,
+        "n_observations": 460
+      },
+      {
+        "date": "2016-01",
+        "product_clean": "Medium Eggs (6pk)",
+        "median_price": 1.68,
+        "n_observations": 460
+      },
+      {
+        "date": "2016-01",
+        "product_clean": "Butter (250g)",
+        "median_price": 1.52,
+        "n_observations": 460
+      },
+      {
+        "date": "2017-01",
+        "product_clean": "White Bread (800g)",
+        "median_price": 1,
+        "n_observations": 470
+      },
+      {
+        "date": "2017-01",
+        "product_clean": "Semi-Skimmed Milk (2-3pt)",
+        "median_price": 0.95,
+        "n_observations": 470
+      },
+      {
+        "date": "2017-01",
+        "product_clean": "Medium Eggs (6pk)",
+        "median_price": 1.7,
+        "n_observations": 470
+      },
+      {
+        "date": "2017-01",
+        "product_clean": "Butter (250g)",
+        "median_price": 1.55,
+        "n_observations": 470
+      },
+      {
+        "date": "2018-01",
+        "product_clean": "White Bread (800g)",
+        "median_price": 1.05,
+        "n_observations": 480
+      },
+      {
+        "date": "2018-01",
+        "product_clean": "Semi-Skimmed Milk (2-3pt)",
+        "median_price": 1,
+        "n_observations": 480
+      },
+      {
+        "date": "2018-01",
+        "product_clean": "Medium Eggs (6pk)",
+        "median_price": 1.72,
+        "n_observations": 480
+      },
+      {
+        "date": "2018-01",
+        "product_clean": "Butter (250g)",
+        "median_price": 1.6,
+        "n_observations": 480
+      },
+      {
+        "date": "2019-01",
+        "product_clean": "White Bread (800g)",
+        "median_price": 1.05,
+        "n_observations": 490
+      },
+      {
+        "date": "2019-01",
+        "product_clean": "Semi-Skimmed Milk (2-3pt)",
+        "median_price": 1.05,
+        "n_observations": 490
+      },
+      {
+        "date": "2019-01",
+        "product_clean": "Medium Eggs (6pk)",
+        "median_price": 1.75,
+        "n_observations": 490
+      },
+      {
+        "date": "2019-01",
+        "product_clean": "Butter (250g)",
+        "median_price": 1.63,
+        "n_observations": 490
+      },
+      {
+        "date": "2020-01",
+        "product_clean": "White Bread (800g)",
+        "median_price": 1.05,
+        "n_observations": 500
+      },
+      {
+        "date": "2020-01",
+        "product_clean": "Semi-Skimmed Milk (2-3pt)",
+        "median_price": 1.1,
+        "n_observations": 500
+      },
+      {
+        "date": "2020-01",
+        "product_clean": "Medium Eggs (6pk)",
+        "median_price": 1.75,
+        "n_observations": 500
+      },
+      {
+        "date": "2020-01",
+        "product_clean": "Butter (250g)",
+        "median_price": 1.65,
+        "n_observations": 500
+      },
+      {
+        "date": "2021-01",
+        "product_clean": "White Bread (800g)",
+        "median_price": 1.1,
+        "n_observations": 510
+      },
+      {
+        "date": "2021-01",
+        "product_clean": "Semi-Skimmed Milk (2-3pt)",
+        "median_price": 1.15,
+        "n_observations": 510
+      },
+      {
+        "date": "2021-01",
+        "product_clean": "Medium Eggs (6pk)",
+        "median_price": 1.8,
+        "n_observations": 510
+      },
+      {
+        "date": "2021-01",
+        "product_clean": "Butter (250g)",
+        "median_price": 1.7,
+        "n_observations": 510
+      },
+      {
+        "date": "2022-01",
+        "product_clean": "White Bread (800g)",
+        "median_price": 1.25,
+        "n_observations": 520
+      },
+      {
+        "date": "2022-01",
+        "product_clean": "Semi-Skimmed Milk (2-3pt)",
+        "median_price": 1.3,
+        "n_observations": 520
+      },
+      {
+        "date": "2022-01",
+        "product_clean": "Medium Eggs (6pk)",
+        "median_price": 2.2,
+        "n_observations": 520
+      },
+      {
+        "date": "2022-01",
+        "product_clean": "Butter (250g)",
+        "median_price": 2.2,
+        "n_observations": 520
+      },
+      {
+        "date": "2023-01",
+        "product_clean": "White Bread (800g)",
+        "median_price": 1.3,
+        "n_observations": 530
+      },
+      {
+        "date": "2023-01",
+        "product_clean": "Semi-Skimmed Milk (2-3pt)",
+        "median_price": 1.4,
+        "n_observations": 530
+      },
+      {
+        "date": "2023-01",
+        "product_clean": "Medium Eggs (6pk)",
+        "median_price": 2.65,
+        "n_observations": 530
+      },
+      {
+        "date": "2023-01",
+        "product_clean": "Butter (250g)",
+        "median_price": 2.75,
+        "n_observations": 530
+      },
+      {
+        "date": "2024-01",
+        "product_clean": "White Bread (800g)",
+        "median_price": 1.35,
+        "n_observations": 540
+      },
+      {
+        "date": "2024-01",
+        "product_clean": "Semi-Skimmed Milk (2-3pt)",
+        "median_price": 1.45,
+        "n_observations": 540
+      },
+      {
+        "date": "2024-01",
+        "product_clean": "Medium Eggs (6pk)",
+        "median_price": 2.85,
+        "n_observations": 540
+      },
+      {
+        "date": "2024-01",
+        "product_clean": "Butter (250g)",
+        "median_price": 2.95,
+        "n_observations": 540
+      }
+    ]
   },
   "transform": [
-    {
-      "calculate": "timeParse(datum.date, '%Y-%m')",
-      "as": "date_parsed"
-    }
+    {"calculate": "timeParse(datum.date, '%Y-%m')", "as": "date_parsed"}
   ],
-  "mark": {
-    "type": "line",
-    "point": true,
-    "strokeWidth": 2.5
-  },
+  "mark": {"type": "line", "point": true, "strokeWidth": 2.5},
   "encoding": {
     "x": {
       "field": "date_parsed",
       "type": "temporal",
       "title": "Year",
-      "axis": {
-        "format": "%Y",
-        "labelAngle": 0,
-        "grid": false
-      }
+      "axis": {"format": "%Y", "labelAngle": 0, "grid": false}
     },
     "y": {
       "field": "median_price",
@@ -43,27 +276,38 @@
         "grid": true,
         "gridDash": [2, 2]
       },
-      "scale": {
-        "domain": [0, 3.5]
-      }
+      "scale": {"domain": [0, 3.5]}
     },
     "color": {
       "field": "product_clean",
       "type": "nominal",
       "scale": {
-        "domain": ["White Bread (800g)", "Semi-Skimmed Milk (2-3pt)", "Medium Eggs (6pk)", "Butter (250g)"],
-        "range": ["#d97706", "#2563eb", "#dc2626", "#16a34a"]
+        "domain": [
+          "White Bread (800g)",
+          "Semi-Skimmed Milk (2-3pt)",
+          "Medium Eggs (6pk)",
+          "Butter (250g)"
+        ],
+        "range": ["#fbbf24", "#93c5fd", "#fca5a5", "#86efac"]
       },
-      "legend": {
-        "title": "Product",
-        "orient": "right"
-      }
+      "legend": {"title": "Product", "orient": "right"}
     },
     "tooltip": [
       {"field": "date", "type": "nominal", "title": "Month"},
       {"field": "product_clean", "type": "nominal", "title": "Product"},
-      {"field": "median_price", "type": "quantitative", "title": "Median Price", "format": "£.2f"},
-      {"field": "n_observations", "type": "quantitative", "title": "Observations", "format": ","}
+      {
+        "field": "median_price",
+        "type": "quantitative",
+        "title": "Median Price (£)",
+        "format": ".2f"
+      },
+      {
+        "field": "n_observations",
+        "type": "quantitative",
+        "title": "Observations",
+        "format": ","
+      }
     ]
-  }
+  },
+  "config": {}
 }
