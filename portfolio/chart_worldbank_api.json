@@ -2,11 +2,11 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
     "text": "India's GDP Growth Rate (Annual %)",
-    "fontSize": 16,
+    "fontSize": 14,
     "font": "Arial",
     "fontWeight": "bold",
     "subtitle": "Data sourced live from World Bank API",
-    "subtitleFontSize": 12,
+    "subtitleFontSize": 10,
     "subtitleColor": "#666"
   },
   "width": 500,
@@ -30,7 +30,7 @@
   "mark": {
     "type": "line",
     "point": true,
-    "color": "#16a34a",
+    "color": "#22769f99",
     "strokeWidth": 2.5
   },
   "encoding": {

@@ -4,7 +4,7 @@
     "text": "The Price of a Pint Across UK Regions",
     "subtitle": ["Median price of lager by region, 2020-2024", "Source: LRPD microdata"],
     "subtitleFontStyle": "italic",
-    "subtitleFontSize": 11,
+    "subtitleFontSize": 10,
     "anchor": "start"
   },
   "width": 350,
