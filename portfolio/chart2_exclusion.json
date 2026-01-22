@@ -6,7 +6,7 @@
     "font": "Arial",
     "anchor": "start"
   },
-  "width": 360,
+  "width": 300,
   "height": 300,
   "data": {
     "url": "dbt_exclusion.csv"
@@ -19,7 +19,7 @@
   ],
   "mark": {
     "type": "bar",
-    "color": "#dc2626"
+    "color": "#a85a5a"
   },
   "encoding": {
     "y": {
