@@ -15,7 +15,7 @@
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 
-  <style>
+<style>
     
     .portfolio-page .topbar{ margin-bottom: 8px; }
     .portfolio-page .hero{ padding-top: 22px; padding-bottom: 18px; }
@@ -68,17 +68,17 @@
       letter-spacing: 0.2px;
       color: rgba(18,18,18,0.98);
     }
-.cc-title::before {
-  content: attr(data-week);
-  display: block;
-  font-family: "Poppins", sans-serif;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  color: rgba(18,18,18,0.45);
-  margin-bottom: 4px;
-}
+    .cc-title::before {
+      content: attr(data-week);
+      display: block;
+      font-family: "Poppins", sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: rgba(18,18,18,0.45);
+      margin-bottom: 4px;
+    }
     .cc-summary{
       margin: 0 auto 14px;
       max-width: 95ch;
@@ -110,20 +110,20 @@
     }
 
    .viz-title{
-  margin: 6px 0 4px;
-  font-size: 13px;
-  font-weight: 600;
-  color: rgba(18,18,18,0.92);
-  line-height: 1.25;
-}
+      margin: 6px 0 4px;
+      font-size: 13px;
+      font-weight: 600;
+      color: rgba(18,18,18,0.92);
+      line-height: 1.25;
+    }
 
-.viz-subtitle{
-  margin: 0 0 10px;
-  font-size: 11px;
-  font-weight: 500;
-  color: rgba(18,18,18,0.58);
-  line-height: 1.35;
-}
+    .viz-subtitle{
+      margin: 0 0 10px;
+      font-size: 11px;
+      font-weight: 500;
+      color: rgba(18,18,18,0.58);
+      line-height: 1.35;
+    }
 
     .viz p{
       margin: 8px 0 12px;
@@ -133,15 +133,15 @@
     }
 
     .viz figure{
-  margin: 12px 0;
-  padding: 0;
-  width: 100%;
-  flex: 1;
-  min-height: 320px; 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+      margin: 12px 0;
+      padding: 0;
+      width: 100%;
+      flex: 1;
+      min-height: 320px; 
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
    
     .viz figure > .vega-embed{
@@ -185,10 +185,171 @@
       font-size: 13px;
     }
 
+    /* Mobile Optimization */
     @media (max-width: 980px){
-      .cc-grid{ grid-template-columns: 1fr; }
-      .viz{ min-height: 380px; }
-      .viz figure{ min-height: 250px; }
+      .cc-grid{ 
+        grid-template-columns: 1fr; 
+      }
+      .viz{ 
+        min-height: 380px; 
+      }
+      .viz figure{ 
+        min-height: 250px; 
+      }
+    }
+
+    /* Tablet and smaller desktop */
+    @media (max-width: 768px){
+      .cc-card{
+        padding: 14px;
+        border-radius: 14px;
+      }
+      
+      .cc-title{
+        font-size: 18px;
+      }
+      
+      .cc-summary{
+        font-size: 13px;
+      }
+      
+      .viz{
+        padding: 12px;
+        min-height: 360px;
+      }
+      
+      .viz h3{
+        font-size: 14px;
+      }
+      
+      .viz p{
+        font-size: 12px;
+      }
+      
+      .viz figure{
+        min-height: 220px;
+      }
+      
+      /* CC6 Dashboard - 2 columns on tablet */
+      #cc6 > div:first-of-type{
+        grid-template-columns: repeat(2, 1fr) !important;
+      }
+    }
+
+    /* Mobile phones */
+    @media (max-width: 480px){
+      .hero h1{
+        font-size: 24px;
+      }
+      
+      .hero p{
+        font-size: 14px;
+      }
+      
+      .cc-card{
+        padding: 12px;
+        border-radius: 12px;
+      }
+      
+      .cc-title{
+        font-size: 16px;
+      }
+      
+      .cc-title::before{
+        font-size: 10px;
+      }
+      
+      .cc-summary{
+        font-size: 12px;
+        line-height: 1.6;
+      }
+      
+      .viz{
+        padding: 10px;
+        min-height: 340px;
+      }
+      
+      .viz h3{
+        font-size: 13px;
+        margin-top: 8px;
+      }
+      
+      .viz p{
+        font-size: 11px;
+        line-height: 1.5;
+      }
+      
+      .viz figure{
+        min-height: 200px;
+      }
+      
+      .viz .source{
+        font-size: 11px;
+      }
+      
+      /* CC6 Dashboard - single column on mobile */
+      #cc6 > div:first-of-type{
+        grid-template-columns: 1fr !important;
+        gap: 12px;
+      }
+      
+      #cc6 .viz{
+        min-height: 280px !important;
+      }
+      
+      /* Improve readability of code blocks */
+      code{
+        font-size: 10px !important;
+        word-break: break-all;
+      }
+      
+      /* Better spacing for improvement lists */
+      .viz div[style*="background"] p{
+        font-size: 11px !important;
+        line-height: 1.5 !important;
+      }
+    }
+
+    /* Very small phones */
+    @media (max-width: 360px){
+      .cc-card{
+        padding: 10px;
+      }
+      
+      .viz{
+        padding: 8px;
+        min-height: 320px;
+      }
+      
+      .viz figure{
+        min-height: 180px;
+      }
+      
+      .cc-title{
+        font-size: 15px;
+      }
+    }
+
+    /* Landscape mobile orientation */
+    @media (max-width: 768px) and (orientation: landscape){
+      .viz figure{
+        min-height: 180px;
+      }
+      
+      .viz{
+        min-height: 300px;
+      }
+    }
+
+    /* Improve touch targets on mobile */
+    @media (hover: none) and (pointer: coarse){
+      a, button, .vega-embed .vega-actions a{
+        min-height: 44px;
+        min-width: 44px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
     }
   </style>
 </head>
