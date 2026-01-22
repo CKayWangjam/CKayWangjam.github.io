@@ -41,7 +41,7 @@
       "type": "nominal",
       "scale": {
         "domain": ["Positive", "Negative"],
-        "range": ["#27AE60", "#C0392B"]
+        "range": ["#86efac" , "#fca5a5"]
       },
       "legend": {"title": "Impact on Placement", "titleFontSize": 11}
     },
