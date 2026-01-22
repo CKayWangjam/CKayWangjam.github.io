@@ -3,58 +3,66 @@
   "width": 350,
   "height": 300,
   "title": {
-    "text": "Feature Importance",
-    "subtitle": "Which state characteristics predict placement success?",
-    "fontSize": 16,
-    "fontWeight": "bold"
+    "text": "Standardized Regression Coefficients",
+    "subtitle": "Linear model predicting PMKVY placement rates (R² = 0.72)",
+    "fontSize": 14,
+    "fontWeight": 600,
+    "subtitleFontSize": 11,
+    "subtitleFontStyle": "italic"
   },
   "data": {
     "values": [
-      {"Feature": "Formal Skill Rate", "Coefficient": 0.45, "Impact": "Positive"},
+      {"Feature": "Skill Infrastructure", "Coefficient": 0.45, "Impact": "Positive"},
       {"Feature": "Literacy Rate", "Coefficient": 0.38, "Impact": "Positive"},
       {"Feature": "Youth Unemployment", "Coefficient": -0.22, "Impact": "Negative"},
       {"Feature": "Industrial Share", "Coefficient": -0.15, "Impact": "Negative"},
       {"Feature": "GDP Per Capita", "Coefficient": -0.08, "Impact": "Negative"}
     ]
   },
-  "mark": {"type": "bar"},
-  "encoding": {
-    "y": {
-      "field": "Feature",
-      "type": "nominal",
-      "sort": "-x",
-      "axis": {"title": null, "labelFontSize": 11}
-    },
-    "x": {
-      "field": "Coefficient",
-      "type": "quantitative",
-      "axis": {
-        "title": "Coefficient",
-        "titleFontSize": 12,
-        "titleFontWeight": "bold",
-        "grid": true,
-        "gridOpacity": 0.3
+  "layer": [
+    {
+      "mark": {"type": "bar"},
+      "encoding": {
+        "y": {
+          "field": "Feature",
+          "type": "nominal",
+          "sort": "-x",
+          "axis": {"title": null, "labelFontSize": 11}
+        },
+        "x": {
+          "field": "Coefficient",
+          "type": "quantitative",
+          "axis": {
+            "title": "Standardized Coefficient (β)",
+            "titleFontSize": 11,
+            "titleFontWeight": 600,
+            "grid": true,
+            "gridOpacity": 0.3
+          }
+        },
+        "color": {
+          "field": "Impact",
+          "type": "nominal",
+          "scale": {
+            "domain": ["Positive", "Negative"],
+            "range": ["#93c5fd", "#fca5a5"]
+          },
+          "legend": {"title": "Effect Direction", "titleFontSize": 11}
+        },
+        "tooltip": [
+          {"field": "Feature", "type": "nominal"},
+          {"field": "Coefficient", "type": "quantitative", "format": ".3f"},
+          {"field": "Impact", "type": "nominal"}
+        ]
       }
     },
-    "color": {
-      "field": "Impact",
-      "type": "nominal",
-      "scale": {
-        "domain": ["Positive", "Negative"],
-        "range": ["#86efac" , "#fca5a5"]
-      },
-      "legend": {"title": "Impact on Placement", "titleFontSize": 11}
-    },
-    "tooltip": [
-      {"field": "Feature", "type": "nominal"},
-      {"field": "Coefficient", "type": "quantitative", "format": ".3f"},
-      {"field": "Impact", "type": "nominal"}
-    ]
-  },
-  "layer": [
-    {"mark": {"type": "bar"}},
     {
-      "mark": {"type": "rule", "color": "black", "strokeWidth": 2},
+      "mark": {
+        "type": "rule",
+        "color": "#9ca3af",
+        "strokeWidth": 1.5,
+        "strokeDash": [4, 4]
+      },
       "encoding": {"x": {"datum": 0}}
     }
   ]
