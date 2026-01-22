@@ -1,0 +1,83 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "India's State GDP Rankings",
+    "subtitle": [
+      "Top 15 states by Gross Domestic Product",
+      "Data scraped from Wikipedia"
+    ],
+    "subtitleFontStyle": "italic",
+    "subtitleFontSize": 10,
+    "anchor": "middle",
+    "fontSize": 14,
+    "fontWeight": 600
+  },
+  "width": 360,
+  "height": 380,
+  "data": {
+    "values": [
+      {"Rank": 1, "State": "Maharashtra", "Currency": "INR", "GDP": 38000},
+      {"Rank": 2, "State": "Tamil Nadu", "Currency": "INR", "GDP": 23500},
+      {"Rank": 3, "State": "Gujarat", "Currency": "INR", "GDP": 22000},
+      {"Rank": 4, "State": "Karnataka", "Currency": "INR", "GDP": 21000},
+      {"Rank": 5, "State": "Uttar Pradesh", "Currency": "INR", "GDP": 20500},
+      {"Rank": 6, "State": "West Bengal", "Currency": "INR", "GDP": 15000},
+      {"Rank": 7, "State": "Rajasthan", "Currency": "INR", "GDP": 13500},
+      {"Rank": 8, "State": "Andhra Pradesh", "Currency": "INR", "GDP": 12000},
+      {"Rank": 9, "State": "Telangana", "Currency": "INR", "GDP": 11500},
+      {"Rank": 10, "State": "Madhya Pradesh", "Currency": "INR", "GDP": 10500},
+      {"Rank": 11, "State": "Kerala", "Currency": "INR", "GDP": 9500},
+      {"Rank": 12, "State": "Haryana", "Currency": "INR", "GDP": 9000},
+      {"Rank": 13, "State": "Bihar", "Currency": "INR", "GDP": 7500},
+      {"Rank": 14, "State": "Odisha", "Currency": "INR", "GDP": 6500},
+      {"Rank": 15, "State": "Punjab", "Currency": "INR", "GDP": 6000}
+    ]
+  },
+  "mark": {"type": "bar", "cornerRadiusEnd": 4, "opacity": 0.85},
+  "encoding": {
+    "y": {
+      "field": "State",
+      "type": "nominal",
+      "sort": "-x",
+      "axis": {
+        "title": null,
+        "labelLimit": 120,
+        "labelFontSize": 10.5,
+        "labelPadding": 8,
+        "ticks": false,
+        "domain": false
+      }
+    },
+    "x": {
+      "field": "GDP",
+      "type": "quantitative",
+      "axis": {
+        "title": "GDP (₹ Billion)",
+        "titleFontSize": 11,
+        "titleFontWeight": 600,
+        "titlePadding": 10,
+        "grid": true,
+        "gridDash": [3, 3],
+        "gridOpacity": 0.4,
+        "labelFontSize": 10
+      }
+    },
+    "color": {
+      "field": "GDP",
+      "type": "quantitative",
+      "scale": {"scheme": "teals", "reverse": false},
+      "legend": null
+    },
+    "tooltip": [
+      {"field": "Rank", "type": "quantitative", "title": "Rank"},
+      {"field": "State", "type": "nominal", "title": "State"},
+      {
+        "field": "GDP",
+        "type": "quantitative",
+        "title": "GDP (₹ Billion)",
+        "format": ","
+      }
+    ]
+  },
+  "config": {"view": {"stroke": null}, "background": "transparent"}
+}
