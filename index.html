@@ -1,95 +1,249 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-   <meta charset="utf-8">
-   <!-- Adding this to make my site responsive on smartphones and tablet -->
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-   <!-- Adding this to ensure my page shows up in Google search results -->
-<meta name="description" content="Chingkhei Wangjam - Data visualisation portfolio for PP434 course at LSE">
-   <meta name="author" content="Chingkhei Wangjam">
-
- 
- <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"> <link rel="stylesheet" href="index.css">
-  
+  <meta name="description" content="Chingkhei Wangjam — Policy and data practitioner, and MPP candidate at LSE. Writing and work at the intersection of evidence, policy, and development.">
+  <meta name="author" content="Chingkhei Wangjam">
+  <meta property="og:title" content="Chingkhei Wangjam">
+  <meta property="og:description" content="Policy and data practitioner. MPP, LSE.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="index.css">
   <title>Chingkhei Wangjam</title>
 </head>
-   
 <body>
-  <div id="top"></div>
 
-  <header class="topbar">
+  <!-- ── Navigation bar ─────────────────────────────────────── -->
+   
+  <header class="topbar" id="top">
     <div class="topbar-inner">
       <div class="brand">
-       <a href="index.html"><span class="brand-accent">Chingkhei</span> Wangjam</a>
+        <a href="index.html"><span class="brand-first">Chingkhei</span> Wangjam</a>
       </div>
-      <nav class="nav">
-        <a href="portfolio/">Portfolio</a>
-        <a href="project.html">Project</a>
+      <nav class="nav" id="main-nav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="career.html">Career</a>
+        <a href="#work">Work</a>
+        <a href="writing.html">Policy Commentary</a>
+        <a href="#contact">Contact</a>
       </nav>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </header>
-    
- <main id="main" class="container">
-    <section class="hero hero-centered">
-      <div class="meta">Public Policy · Data Visualisation</div>
-      <h1>Building automated, reproducible charts and maps as a part of PP434-Automated Data Visualisation for Policymaking.</h1>
 
-      <div class="pill-row">
-        <span class="pill pill-candidate">Candidate Number: 67307</span>
+  <!-- ── Hero ─────────────────────────────────────── -->
+  <main>
+    <section class="hero" id="hero">
+      <div class="container hero-inner">
+        <div class="hero-text">
+          <p class="hero-eyebrow">Policy · Data · Development</p>
+          <h1 class="hero-headline">
+            Turning evidence<br>
+            into decisions<br>
+            <em>that hold.</em>
+          </h1>
+          <p class="hero-sub">
+            MPP candidate at the London School of Economics.
+            Six years delivering institutional capacity building, education and skills policy across India —
+            now building the analytical tools to evaluate it.
+          </p>
+          <div class="hero-actions">
+            <a href="#work" class="btn btn-primary">View my work</a>
+            <a href="about.html" class="btn btn-ghost">About me</a>
+          </div>
+        </div>
+        <aside class="hero-aside">
+          <div class="hero-card">
+            <div class="hero-card-label">Currently</div>
+            <div class="hero-card-value">MPP · LSE<br><span>London, UK</span></div>
+          </div>
+          <div class="hero-card">
+            <div class="hero-card-label">Background</div>
+            <div class="hero-card-value">Education policy<br><span>Skills development · India</span></div>
+          </div>
+          <div class="hero-card">
+            <div class="hero-card-label">Looking for</div>
+            <div class="hero-card-value">Policy Manager, Associate, &<br><span>data roles, UK &amp; international</span></div>
+          </div>
+        </aside>
+      </div>
+      <div class="hero-rule"></div>
+    </section>
+
+    <!-- ── Featured Work─────────────────────────── -->
+    <section class="section" id="work">
+      <div class="container">
+        <div class="section-head">
+          <p class="section-label">Selected work</p>
+          <h2 class="section-title">Policy analysis &amp; data projects</h2>
+          <a href="project.html" class="section-link">View all projects →</a>
+        </div>
+
+        <div class="work-grid">
+
+          <a class="work-card work-card--featured" href="project.html">
+            <div class="work-card-meta">
+              <span class="work-tag">Policy analysis</span>
+              <span class="work-tag">India</span>
+              <span class="work-tag">Skills development</span>
+            </div>
+            <div class="work-card-body">
+              <h3 class="work-card-title">India's PMKVY Skills Programme — Quantity vs Quality</h3>
+              <p class="work-card-desc">
+                A data-driven evaluation of India's flagship vocational training scheme across
+                all states. Uses difference-in-differences analysis and choropleth mapping to
+                interrogate whether scale came at the cost of outcomes.
+              </p>
+              <div class="work-card-footer">
+                <span class="work-card-method">Diff-in-differences · Vega-Lite · Python</span>
+                <span class="work-card-arrow">→</span>
+              </div>
+            </div>
+          </a>
+
+          <a class="work-card" href="portfolio/">
+            <div class="work-card-meta">
+              <span class="work-tag">Data visualisation</span>
+              <span class="work-tag">Economics</span>
+            </div>
+            <h3 class="work-card-title">Economic Data Tracker — Live API Dashboard</h3>
+            <p class="work-card-desc">
+              Interactive inflation and labour market charts built on live economic APIs.
+              Demonstrates end-to-end data pipeline: fetch, transform, and render
+              policy-relevant indicators in the browser.
+            </p>
+            <div class="work-card-footer">
+              <span class="work-card-method">JavaScript · Altair · ONS API</span>
+              <span class="work-card-arrow">→</span>
+            </div>
+          </a>
+
+          <a class="work-card" href="portfolio/">
+            <div class="work-card-meta">
+              <span class="work-tag">Visualisation</span>
+              <span class="work-tag">Demographics</span>
+            </div>
+            <h3 class="work-card-title">Global Skills Shortage — Demographic Outlook</h3>
+            <p class="work-card-desc">
+              Cross-country analysis of labour supply gaps and migration potential through
+              interactive demographic charts. Built for a policy audience with clear
+              narrative structure.
+            </p>
+            <div class="work-card-footer">
+              <span class="work-card-method">Vega-Lite · D3 · World Bank data</span>
+              <span class="work-card-arrow">→</span>
+            </div>
+          </a>
+
+        </div>
       </div>
     </section>
 
-    <div class="rule"></div>
-
-    <!-- Tried grid here but flexbox worked better for responsiveness -->
-    <section class="cards">
-     <a class="card" href="portfolio/">
-  <div class="badge"><span class="badge-dot"></span> Portfolio</div>
-  <h2>Coding Challenges</h2>
-  <p>
-    A portfolio of weekly data visualisation challenges from PP434. 
-  </p>
-</a>
-
-      <a class="card" href="project.html">
-        <div class="badge"><span class="badge-dot"></span> Project</div>
-        <h2>Final Project</h2>
-        <p>
-          A focused research project with data,
-          analysis, and policy-relevant conclusions.
-        </p>
-      </a>
+    <!-- ── AAbout Strip[ ───────────────────────────── -->
+    <section class="section" id="about-strip">
+      <div class="container about-strip-inner">
+        <div class="about-strip-text">
+          <p class="section-label">About</p>
+          <h2 class="about-strip-headline">Policy practitioner.<br>Data analyst. LSE.</h2>
+          <p class="about-strip-body">
+            I spent six years working inside India's education, capacity building and skills systems —
+            as a Policy Fellow at the Ministry of Skill Development and as a Programme
+            Coordinator at the Capacity Building Commission, working federal, state and local governaments. I came to LSE to sharpen the analytical edge
+            of that experience.
+          </p>
+          <p class="about-strip-body">
+            I work comfortably across quantitative and qualitative methods. My tools
+            include Python, R, Stata, and Vega-Lite. 
+          </p>
+          <a href="about.html" class="btn btn-outline">Full profile →</a>
+        </div>
+        <div class="about-strip-credentials">
+          <div class="credential">
+            <div class="credential-org">London School of Economics</div>
+            <div class="credential-role">MPP — Master of Public Policy</div>
+            <div class="credential-year">2025 – 2026</div>
+          </div>
+          <div class="credential-divider"></div>
+          <div class="credential">
+            <div class="credential-org">IIM Ahmedabad</div>
+            <div class="credential-role">Certificate in Public Policy &amp; Management</div>
+            <div class="credential-year">2021 – 2023</div>
+          </div>
+          <div class="credential-divider"></div>
+          <div class="credential">
+            <div class="credential-org">Ministry of Skill Development</div>
+            <div class="credential-role">Policy Fellow, Government of India</div>
+            <div class="credential-year">2021 – 2023</div>
+          </div>
+          <div class="credential-divider"></div>
+          <div class="credential">
+            <div class="credential-org">Capacity Building Commission</div>
+            <div class="credential-role">Programme Coordinator, Government of India</div>
+            <div class="credential-year">2024 – 2025</div>
+          </div>
+        </div>
+      </div>
     </section>
+
   </main>
 
- <footer id="contact" class="footer-bar">
-  <div class="footer-inner footer-center">
-    <div class="footer-title">Get in touch</div>
-    <div class="footer-right footer-links">
-      <a class="footer-link" href="mailto:c.wangjam@lse.ac.uk">c.wangjam@lse.ac.uk</a>
-      <span class="footer-sep">·</span>
-      <a class="footer-link" href="https://www.linkedin.com/in/chingkhei-wangjam-4a6358166/" target="_blank">LinkedIn</a>
-      <span class="footer-sep">·</span>
-      <a class="footer-link" href="https://github.com/CKayWangjam" target="_blank">GitHub</a>
+  <!-- ── Footer ────────────────────────────────────── -->
+  <footer class="footer-bar" id="contact">
+    <div class="footer-inner">
+      <div class="footer-left">
+        <div class="footer-brand">Chingkhei Wangjam</div>
+        <p class="footer-tagline">Policy analyst · Data practitioner · LSE MPP 2026</p>
+      </div>
+      <div class="footer-links-block">
+        <div class="footer-group">
+          <div class="footer-group-label">Pages</div>
+          <a class="footer-link" href="index.html">Home</a>
+          <a class="footer-link" href="about.html">About</a>
+          <a class="footer-link" href="career.html">Career</a>
+          <a class="footer-link" href="project.html">Projects</a>
+          <a class="footer-link" href="writing.html">Writing</a>
+        </div>
+        <div class="footer-group">
+          <div class="footer-group-label">Connect</div>
+          <a class="footer-link" href="mailto:c.wangjam@lse.ac.uk">Email</a>
+          <a class="footer-link" href="https://www.linkedin.com/in/chingkhei-wangjam-4a6358166/" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="footer-link" href="https://github.com/CKayWangjam" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </div>
     </div>
-  </div>
-</footer>
+    <div class="footer-base">
+      <span>© 2026 Chingkhei Wangjam</span>
+    </div>
+  </footer>
 
-<script>
-   
+  <script>
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-    
     document.querySelectorAll('.nav a').forEach(link => {
-       
-       if (link.getAttribute('href') === currentPage || 
-          (currentPage === 'index.html' && link.getAttribute('href') === '#top')) {
-        link.classList.add('active');
-      } else {
-        link.classList.remove('active');
-      }
+      const href = link.getAttribute('href');
+      if (href === currentPage) link.classList.add('active');
+    });
+
+    const toggle = document.getElementById('nav-toggle');
+    const nav = document.getElementById('main-nav');
+    toggle.addEventListener('click', () => {
+      const open = nav.classList.toggle('nav--open');
+      toggle.classList.toggle('nav-toggle--open', open);
+      toggle.setAttribute('aria-expanded', open);
+    });
+    nav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        nav.classList.remove('nav--open');
+        toggle.classList.remove('nav-toggle--open');
+        toggle.setAttribute('aria-expanded', false);
+      });
     });
   </script>
+
 </body>
 </html>
